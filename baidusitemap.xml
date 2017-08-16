@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
+    <lastmod>2017-08-16T03:20:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>在自己的VPS上搭建Hexo博客</title>
+        <pubTime>2017-08-16T03:11:11.000Z</pubTime>
+        
+        <tag>CentOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CentOS" url="http://sunjiajia.com/categories/CentOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/</loc>
     <lastmod>2017-07-10T08:18:32.000Z</lastmod>
     <data>

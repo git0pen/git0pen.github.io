@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
+    
+    <lastmod>2017-08-16T03:20:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/</loc>
     
     <lastmod>2017-07-10T08:18:32.000Z</lastmod>

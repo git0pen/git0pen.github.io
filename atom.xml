@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sunjiajia.com/"/>
-  <updated>2017-07-10T08:18:32.000Z</updated>
+  <updated>2017-08-16T03:20:25.000Z</updated>
   <id>http://sunjiajia.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在自己的VPS上搭建Hexo博客</title>
+    <link href="http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/"/>
+    <id>http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/</id>
+    <published>2017-08-16T03:11:11.000Z</published>
+    <updated>2017-08-16T03:20:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在大家都玩推特、非死不可、印死、微博、微信的时代，博客已经被冷落了。但是作为一枚 coder，仍然需要一个安分守己的寸土，去记录自己学习的点点滴滴。从之前的新浪博客、网易博客，到专门用于技术分享的 CSDN，再到属于自己的 WordPress，最终进化到 Hexo 或者 Jelly 静态页面，博客已经从“繁杂缤纷”逐步简化到“大道至简”。之前我一直使用<code>github pages</code>加<code>hexo</code>的方式来写博客，但是 github pages 有一个最大的问题就是“拒绝搜索引擎和速度太慢”。因此，在自己的 VPS 上搭建 Hexo，可以so easy 的达到我们的随心所欲。</p>
+<h2 id="选择-VPS"><a href="#选择-VPS" class="headerlink" title="选择 VPS"></a>选择 VPS</h2><p>之前我一直用 Linode 和 vultr 的日本节点，但是电信网络走 ntt，丢包实在是严重。因此，我选择了 vultr 的洛杉矶节点。实测ping 虽然不算快，平均250左右，但是不丢包还算稳定。我在它上面安装 LNMP 和 ss，一直很不错哟。</p>
+<p>大家可以用下面的链接来购买 Vultr：</p>
+<p><a href="http://www.vultr.com/?ref=7147564" target="_blank" rel="external">购买 Vultr链接</a></p>
+<h2 id="更新-CentOS-的-git"><a href="#更新-CentOS-的-git" class="headerlink" title="更新 CentOS 的 git"></a>更新 CentOS 的 git</h2><p>我的 VPS 的系统是<code>CentOS 7 x64</code>，它自带的 git 版本太低，因此将它更新到最新的 git。</p>
+<p>关于如何更新git，请参考我之前的博文：<br><a href="http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#配置和安装git服务器">配置和安装git服务器</a></p>
+<h2 id="创建git用户组和添加用户"><a href="#创建git用户组和添加用户" class="headerlink" title="创建git用户组和添加用户"></a>创建git用户组和添加用户</h2><p>参考之前写的步骤：<br><a href="http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#创建git用户组和添加用户">创建git用户组和添加用户</a></p>
+<h2 id="初始化用于存放博客静态文件的仓库"><a href="#初始化用于存放博客静态文件的仓库" class="headerlink" title="初始化用于存放博客静态文件的仓库"></a>初始化用于存放博客静态文件的仓库</h2><p>切换到 git 用户：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su git</div></pre></td></tr></table></figure></p>
+<p>创建仓库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare sunjiajia.com.git</div></pre></td></tr></table></figure></p>
+<h2 id="配置-hooks"><a href="#配置-hooks" class="headerlink" title="配置 hooks"></a>配置 hooks</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/git/sunjiajia.com.git/hooks</div><div class="line">vi post-receive</div></pre></td></tr></table></figure>
+<p>添加下面的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/bash -l</span></div><div class="line">GIT_REPO=/home/git/sunjiajia.com.git</div><div class="line">TMP_GIT_CLONE=/tmp/sunjiajia.com</div><div class="line">PUBLIC_WWW=/home/wwwroot/sunjiajia.com</div><div class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span></div><div class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span></div><div class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span>/*</div><div class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="variable">$&#123;PUBLIC_WWW&#125;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>/home/wwwroot/sunjiajia.com</code>是后面 lnmp 绑定的网站根目录。</p>
+</blockquote>
+<h2 id="切换到-root-用户"><a href="#切换到-root-用户" class="headerlink" title="切换到 root 用户"></a>切换到 root 用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su root</div></pre></td></tr></table></figure>
+<h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><p>这里我们使用的是<a href="https://lnmp.org/install.html" target="_blank" rel="external">lnmp 一键安装包</a>，请参考该页面的安装步骤。</p>
+<h2 id="添加-host-并绑定域名"><a href="#添加-host-并绑定域名" class="headerlink" title="添加 host 并绑定域名"></a>添加 host 并绑定域名</h2><p>安装 lnmp 之后，添加主机和绑定域名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lnmp vhost add</div></pre></td></tr></table></figure></p>
+<p>安装提示绑定域名等操作即可。</p>
+<h2 id="赋予-git-用户操作网站根目录的权限"><a href="#赋予-git-用户操作网站根目录的权限" class="headerlink" title="赋予 git 用户操作网站根目录的权限"></a>赋予 git 用户操作网站根目录的权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown git:git /home/wwwroot/sunjiajia.com</div></pre></td></tr></table></figure>
+<p>这样git 就可以操作网站根目录了。</p>
+<h2 id="配置完毕"><a href="#配置完毕" class="headerlink" title="配置完毕"></a>配置完毕</h2><p>在 hexo 的 <code>_config.yml</code> 中配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  message: &quot;安卓猴写了新博文&quot;</div><div class="line">  repo: git@sunjiajia.com:sunjiajia.com.git</div></pre></td></tr></table></figure></p>
+<p>生成hexo 静态文件并部署到 VPS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>在配置好自己的 VPS+Hexo 博客以后，今后写博客就比较方便了，速度还可以，而且也有利于搜索引擎收录。</p>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在大家都玩推特、非死不可、印死、微博、微信的时代，博客已经被冷落了。但是作为一枚 coder，仍然需要一个安分守己的寸土，去记录自己学习的点
+    
+    </summary>
+    
+      <category term="CentOS" scheme="http://sunjiajia.com/categories/CentOS/"/>
+    
+    
+      <category term="CentOS" scheme="http://sunjiajia.com/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>VirtualBox中CentOS配置git服务器</title>
@@ -4239,11 +4299,11 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
-    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
-    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
+    <title>《Monkey Java》课程5.3之子类实例化</title>
+    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
+    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
     <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2016-05-13T20:09:24.000Z</updated>
+    <updated>2016-05-13T20:09:28.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
@@ -4251,30 +4311,25 @@
 <hr>
 <p>本节课程将学习以下内容：</p>
 <ul>
-<li>函数的复写（override）</li>
-<li>使用super调用父类的成员函数</li>
+<li>生成子类的过程</li>
+<li>使用super调用父类构造函数的方法</li>
 </ul>
 <hr>
-<h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote>
-<p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p>
-</blockquote>
-<p>特点：</p>
+<h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p>
 <blockquote>
 <ul>
-<li>1.在具有父子关系的两个类当中；</li>
-<li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li>
+<li>在子类的构造函数中，必须调用父类的构造函数；</li>
+<li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li>
+<li>super(参数);必须是构造函数的第一行。</li>
 </ul>
 </blockquote>
-<h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p>
-<blockquote>
-<p>减少子类复写父类的成员方法时出现的重复代码。</p>
-</blockquote>
-<h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>例子：（请动手）</p>
+<p>1.新建一个名为Person.java的Java源文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line">  Person()&#123;</div><div class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"吃东西"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.新建一个名为Student.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></div><div class="line">    <span class="comment">// 它不一定必须写在第一行。</span></div><div class="line">    <span class="keyword">super</span>.introduce();</div><div class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  Student()&#123;</div><div class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</div><div class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></div><div class="line">    <span class="keyword">super</span>(name, age);</div><div class="line">    <span class="keyword">this</span>.grade = grade;</div><div class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3.新建一个名为Demo01.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student();</div><div class="line">    stu01.name = <span class="string">"zhang3"</span>;</div><div class="line">    stu01.age = <span class="number">19</span>;</div><div class="line">    stu01.grade = <span class="number">8</span>;</div><div class="line">    stu01.introduce();</div><div class="line"></div><div class="line">    Person p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.name = <span class="string">"zhang3"</span>;</div><div class="line">    p1.age = <span class="number">19</span>;</div><div class="line">    p1.introduce();</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</div><div class="line">    stu01.eat();</div><div class="line">    stu01.introduce();</div><div class="line">    stu01.study();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
@@ -4316,11 +4371,11 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程5.3之子类实例化</title>
-    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
-    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
+    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
+    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
+    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
     <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2016-05-13T20:09:28.000Z</updated>
+    <updated>2016-05-13T20:09:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
@@ -4328,25 +4383,30 @@
 <hr>
 <p>本节课程将学习以下内容：</p>
 <ul>
-<li>生成子类的过程</li>
-<li>使用super调用父类构造函数的方法</li>
+<li>函数的复写（override）</li>
+<li>使用super调用父类的成员函数</li>
 </ul>
 <hr>
-<h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p>
+<h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote>
+<p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p>
+</blockquote>
+<p>特点：</p>
 <blockquote>
 <ul>
-<li>在子类的构造函数中，必须调用父类的构造函数；</li>
-<li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li>
-<li>super(参数);必须是构造函数的第一行。</li>
+<li>1.在具有父子关系的两个类当中；</li>
+<li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li>
 </ul>
 </blockquote>
-<p>例子：（请动手）</p>
-<p>1.新建一个名为Person.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line">  Person()&#123;</div><div class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"吃东西"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p>
+<blockquote>
+<p>减少子类复写父类的成员方法时出现的重复代码。</p>
+</blockquote>
+<h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.新建一个名为Student.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  Student()&#123;</div><div class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</div><div class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></div><div class="line">    <span class="keyword">super</span>(name, age);</div><div class="line">    <span class="keyword">this</span>.grade = grade;</div><div class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></div><div class="line">    <span class="comment">// 它不一定必须写在第一行。</span></div><div class="line">    <span class="keyword">super</span>.introduce();</div><div class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3.新建一个名为Demo01.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</div><div class="line">    stu01.eat();</div><div class="line">    stu01.introduce();</div><div class="line">    stu01.study();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student();</div><div class="line">    stu01.name = <span class="string">"zhang3"</span>;</div><div class="line">    stu01.age = <span class="number">19</span>;</div><div class="line">    stu01.grade = <span class="number">8</span>;</div><div class="line">    stu01.introduce();</div><div class="line"></div><div class="line">    Person p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.name = <span class="string">"zhang3"</span>;</div><div class="line">    p1.age = <span class="number">19</span>;</div><div class="line">    p1.introduce();</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
@@ -4986,73 +5046,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程3.3之循环语句</title>
-    <link href="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/"/>
-    <id>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</id>
-    <published>2015-07-10T04:34:27.000Z</published>
-    <updated>2016-05-13T20:10:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
-</blockquote>
-<hr>
-<p>本节课程将学习以下知识点：</p>
-<ul>
-<li>循环结构</li>
-<li>for循环语句</li>
-<li>while循环语句</li>
-</ul>
-<hr>
-<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>一张图看懂什么是循环结构：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构" title="">
-                </div>
-                <div class="image-caption">图3.3.01。循环结构</div>
-            </figure>
-<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入for循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. &#123;&#125;中的语句执行完毕后，执行 i++ ；</span></div><div class="line">		<span class="comment">// 5. 再次判断 i &lt; 10；</span></div><div class="line">		<span class="comment">// 6. 如果i依旧小于10，重复3~5的过程，这个过程就是循环；</span></div><div class="line">		<span class="comment">// 7. 如果i &gt;= 10 ，那么循环停止。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"for循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入while循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，即i &lt; 10的值为true，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. 如果 i &lt; 10的值为false，则while循环结束。</span></div><div class="line"></div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">			i++; <span class="comment">// 如果没有这一行，则成为while死循环。</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"while循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
-<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
-</ul>
-<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
-<ul>
-<li>微信公众号：Android奇想录（android_amazing）</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;本节课程将学习以下知识点：&lt;/p&gt;
-&lt;ul&gt;
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程3.4之练习课</title>
     <link href="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
     <id>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
@@ -5105,6 +5098,73 @@
 &lt;hr&gt;
 &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
 &lt;ul
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
+    
+      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程3.3之循环语句</title>
+    <link href="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/"/>
+    <id>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</id>
+    <published>2015-07-10T04:34:27.000Z</published>
+    <updated>2016-05-13T20:10:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<p>本节课程将学习以下知识点：</p>
+<ul>
+<li>循环结构</li>
+<li>for循环语句</li>
+<li>while循环语句</li>
+</ul>
+<hr>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>一张图看懂什么是循环结构：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构" title="">
+                </div>
+                <div class="image-caption">图3.3.01。循环结构</div>
+            </figure>
+<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入for循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. &#123;&#125;中的语句执行完毕后，执行 i++ ；</span></div><div class="line">		<span class="comment">// 5. 再次判断 i &lt; 10；</span></div><div class="line">		<span class="comment">// 6. 如果i依旧小于10，重复3~5的过程，这个过程就是循环；</span></div><div class="line">		<span class="comment">// 7. 如果i &gt;= 10 ，那么循环停止。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"for循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入while循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，即i &lt; 10的值为true，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. 如果 i &lt; 10的值为false，则while循环结束。</span></div><div class="line"></div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">			i++; <span class="comment">// 如果没有这一行，则成为while死循环。</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"while循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;本节课程将学习以下知识点：&lt;/p&gt;
+&lt;ul&gt;
     
     </summary>
     

@@ -710,9 +710,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -789,9 +789,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -860,9 +860,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -933,9 +933,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1030,9 +1030,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1129,9 +1129,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1213,9 +1213,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1287,9 +1287,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1377,9 +1377,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1599,43 +1599,39 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
   <entry>
-    <title>Android &gt;= 4.4 适配沉浸状态栏颜色</title>
-    <link href="http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/"/>
-    <id>http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</id>
+    <title>Gradle多渠道打包[umeng]</title>
+    <link href="http://sunjiajia.com/2015/09/02/gradle-umeng-channels/"/>
+    <id>http://sunjiajia.com/2015/09/02/gradle-umeng-channels/</id>
     <published>2015-09-01T23:50:27.000Z</published>
-    <updated>2016-05-13T20:06:50.000Z</updated>
+    <updated>2016-05-13T20:06:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
 </blockquote>
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p>
-<p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p>
-<p>效果图：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android >= 4.4 Status Bar" title="">
-                </div>
-                <div class="image-caption">Android >= 4.4 Status Bar</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar" title="">
-                </div>
-                <div class="image-caption">MIUI Status Bar</div>
-            </figure></p>
-<h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">《Android L+ Theme 与 Toolbar 实例》</a></p>
-<h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a></p>
-<p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line"></div><div class="line">     Window mWindow = getWindow();</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</div><div class="line"></div><div class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</div><div class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>国内<code>Android应用市场</code>品种太多，血统不纯，每次上线App都<code>打包打到手软，上传上到吐血</code>！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Umeng多渠道"><a href="#Umeng多渠道" class="headerlink" title="Umeng多渠道"></a>Umeng多渠道</h3><p>我们在项目中会使用统计SDK，用的最流行的当属<code>umeng</code>了吧。这里我们就用友盟来说明。<br>用了友盟的App的清单文件<code>AndroidManifest.xml</code>中都会写上<code>meta-data</code>，来区分不同的渠道：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"UMENG_CHANNEL"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:value</span>=<span class="string">"Channel_ID"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>1.将<code>Channel_ID</code>更改为<code>${UMENG_CHANNEL_VALUE}</code>，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"UMENG_CHANNEL"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:value</span>=<span class="string">"$&#123;UMENG_CHANNEL_VALUE&#125;"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>2.在<code>app</code>的<code>build.gradle</code>设置<code>produceFlavors</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;</div><div class="line">  xiaomi &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]</div><div class="line">  &#125;</div><div class="line">  qihoo &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qihoo"]</div><div class="line">  &#125;</div><div class="line">  baidu &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]</div><div class="line">  &#125;</div><div class="line">  wandoujia &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]</div><div class="line">  &#125;</div><div class="line">  qq &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.来看看我在项目中使用的<code>build.gradle</code>文件内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line">apply plugin: 'com.android.application'</div><div class="line"></div><div class="line">def releaseTime() &#123;</div><div class="line">  return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))</div><div class="line">&#125;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">  compileSdkVersion 23</div><div class="line">  buildToolsVersion "23.0.0"</div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line">    // 这里的applicationId根据自己的替换</div><div class="line">    applicationId "com.sunjiajia.xxxxx"</div><div class="line">    minSdkVersion 14</div><div class="line">    targetSdkVersion 22</div><div class="line">    versionCode 1</div><div class="line">    versionName "0.0.1"</div><div class="line">    multiDexEnabled true //dex突破65535限制</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]</div><div class="line">  &#125;</div><div class="line">  lintOptions &#123;</div><div class="line">    disable 'MissingTranslation', 'ExtraTranslation'</div><div class="line">    abortOnError false</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  signingConfigs &#123;</div><div class="line">    // /home/monkey/Projects/AndroidStudioProjects/debug.jks是签名文件所在全路径</div><div class="line"></div><div class="line">    // debug时打包用的签名</div><div class="line">    debug &#123;</div><div class="line">      keyAlias 'debug'</div><div class="line">      keyPassword '123456'</div><div class="line">      storeFile file('/home/monkey/Projects/AndroidStudioProjects/debug.jks')</div><div class="line">      storePassword '123456'</div><div class="line">    &#125;</div><div class="line"></div><div class="line">     // release时打包用的签名</div><div class="line">    release &#123;</div><div class="line">      keyAlias 'monkey'</div><div class="line">      keyPassword '123123'</div><div class="line">      storeFile file('/home/monkey/Projects/AndroidStudioProjects/monkey.jks')</div><div class="line">      storePassword '123123'</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  buildTypes &#123;</div><div class="line">    debug &#123;</div><div class="line">      // 显示Log</div><div class="line">      buildConfigField "boolean", "LOG_DEBUG", "true"</div><div class="line"></div><div class="line">      versionNameSuffix "-debug"</div><div class="line">      minifyEnabled false</div><div class="line">      zipAlignEnabled false</div><div class="line">      shrinkResources false</div><div class="line">      signingConfig signingConfigs.debug</div><div class="line">    &#125;</div><div class="line">    release &#123;</div><div class="line">      // 不显示Log</div><div class="line">      buildConfigField "boolean", "LOG_DEBUG", "false"</div><div class="line"></div><div class="line">      minifyEnabled true</div><div class="line">      zipAlignEnabled true</div><div class="line">      // 移除无用的resource文件</div><div class="line">      shrinkResources true</div><div class="line"></div><div class="line">      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'</div><div class="line">      signingConfig signingConfigs.release</div><div class="line"></div><div class="line">      applicationVariants.all &#123; variant -&gt;</div><div class="line">        variant.outputs.each &#123; output -&gt;</div><div class="line">          def outputFile = output.outputFile</div><div class="line">          if (outputFile != null &amp;&amp; outputFile.name.endsWith('.apk')) &#123;</div><div class="line">            // 输出apk名称为appname_v1.0_2015-09-15_09-57-58_wandoujia.apk</div><div class="line">            // 下面的appname改为你自己的app name</div><div class="line">            def fileName = "appname_v$&#123;defaultConfig.versionName&#125;_$&#123;releaseTime()&#125;_$&#123;variant.productFlavors[0].name&#125;.apk"</div><div class="line">            output.outputFile = new File(outputFile.parent, fileName)</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  packagingOptions &#123;</div><div class="line">    exclude 'META-INF/DEPENDENCIES.txt'</div><div class="line">    exclude 'META-INF/LICENSE.txt'</div><div class="line">    exclude 'META-INF/NOTICE.txt'</div><div class="line">    exclude 'META-INF/NOTICE'</div><div class="line">    exclude 'META-INF/LICENSE'</div><div class="line">    exclude 'META-INF/DEPENDENCIES'</div><div class="line">    exclude 'META-INF/notice.txt'</div><div class="line">    exclude 'META-INF/license.txt'</div><div class="line">    exclude 'META-INF/dependencies.txt'</div><div class="line">    exclude 'META-INF/LGPL2.1'</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 友盟多渠道打包</div><div class="line">  productFlavors &#123;</div><div class="line">    xiaomi &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]</div><div class="line">    &#125;</div><div class="line">    qihoo &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qihoo"]</div><div class="line">    &#125;</div><div class="line">    baidu &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]</div><div class="line">    &#125;</div><div class="line">    wandoujia &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]</div><div class="line">    &#125;</div><div class="line">    qq &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">  testCompile 'junit:junit:4.12'</div><div class="line">  compile 'com.android.support:appcompat-v7:23.0.1'</div><div class="line">  compile 'com.android.support:design:23.0.1'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="命令创建task"><a href="#命令创建task" class="headerlink" title="命令创建task"></a>命令创建task</h3><p>1.进入项目的根目录：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 打包全部Debug版本</div><div class="line">./gradlew assembleDebug</div></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 打包全部Release版本</div><div class="line">./gradlew assembleRelease</div></pre></td></tr></table></figure>
+<p>2.<code>assemble</code>和<code>Product Flavor</code> 结合创建指定渠道的任务版本。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 打包wandoujia渠道的Release版本和Debug版本</span></div><div class="line">./gradlew assembleWandoujia</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 打包wandoujia渠道的Release版本</span></div><div class="line">./gradlew assembleWandoujiaRelease</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>大家有什么问题，在下面留言就可以了，也可以关注我的微博<a href="http://weibo.com/androidmonkey" target="_blank" rel="external">@安卓猴</a>，交流更及时。</p>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
 </ul>
@@ -1674,32 +1670,36 @@
   </entry>
   
   <entry>
-    <title>Gradle多渠道打包[umeng]</title>
-    <link href="http://sunjiajia.com/2015/09/02/gradle-umeng-channels/"/>
-    <id>http://sunjiajia.com/2015/09/02/gradle-umeng-channels/</id>
+    <title>Android &gt;= 4.4 适配沉浸状态栏颜色</title>
+    <link href="http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/"/>
+    <id>http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</id>
     <published>2015-09-01T23:50:27.000Z</published>
-    <updated>2016-05-13T20:06:42.000Z</updated>
+    <updated>2016-05-13T20:06:50.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
 </blockquote>
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>国内<code>Android应用市场</code>品种太多，血统不纯，每次上线App都<code>打包打到手软，上传上到吐血</code>！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Umeng多渠道"><a href="#Umeng多渠道" class="headerlink" title="Umeng多渠道"></a>Umeng多渠道</h3><p>我们在项目中会使用统计SDK，用的最流行的当属<code>umeng</code>了吧。这里我们就用友盟来说明。<br>用了友盟的App的清单文件<code>AndroidManifest.xml</code>中都会写上<code>meta-data</code>，来区分不同的渠道：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"UMENG_CHANNEL"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:value</span>=<span class="string">"Channel_ID"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<p>1.将<code>Channel_ID</code>更改为<code>${UMENG_CHANNEL_VALUE}</code>，如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">"UMENG_CHANNEL"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:value</span>=<span class="string">"$&#123;UMENG_CHANNEL_VALUE&#125;"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<p>2.在<code>app</code>的<code>build.gradle</code>设置<code>produceFlavors</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;</div><div class="line">  xiaomi &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]</div><div class="line">  &#125;</div><div class="line">  qihoo &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qihoo"]</div><div class="line">  &#125;</div><div class="line">  baidu &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]</div><div class="line">  &#125;</div><div class="line">  wandoujia &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]</div><div class="line">  &#125;</div><div class="line">  qq &#123;</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.来看看我在项目中使用的<code>build.gradle</code>文件内容：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line">apply plugin: 'com.android.application'</div><div class="line"></div><div class="line">def releaseTime() &#123;</div><div class="line">  return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))</div><div class="line">&#125;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">  compileSdkVersion 23</div><div class="line">  buildToolsVersion "23.0.0"</div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line">    // 这里的applicationId根据自己的替换</div><div class="line">    applicationId "com.sunjiajia.xxxxx"</div><div class="line">    minSdkVersion 14</div><div class="line">    targetSdkVersion 22</div><div class="line">    versionCode 1</div><div class="line">    versionName "0.0.1"</div><div class="line">    multiDexEnabled true //dex突破65535限制</div><div class="line">    manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]</div><div class="line">  &#125;</div><div class="line">  lintOptions &#123;</div><div class="line">    disable 'MissingTranslation', 'ExtraTranslation'</div><div class="line">    abortOnError false</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  signingConfigs &#123;</div><div class="line">    // /home/monkey/Projects/AndroidStudioProjects/debug.jks是签名文件所在全路径</div><div class="line"></div><div class="line">    // debug时打包用的签名</div><div class="line">    debug &#123;</div><div class="line">      keyAlias 'debug'</div><div class="line">      keyPassword '123456'</div><div class="line">      storeFile file('/home/monkey/Projects/AndroidStudioProjects/debug.jks')</div><div class="line">      storePassword '123456'</div><div class="line">    &#125;</div><div class="line"></div><div class="line">     // release时打包用的签名</div><div class="line">    release &#123;</div><div class="line">      keyAlias 'monkey'</div><div class="line">      keyPassword '123123'</div><div class="line">      storeFile file('/home/monkey/Projects/AndroidStudioProjects/monkey.jks')</div><div class="line">      storePassword '123123'</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  buildTypes &#123;</div><div class="line">    debug &#123;</div><div class="line">      // 显示Log</div><div class="line">      buildConfigField "boolean", "LOG_DEBUG", "true"</div><div class="line"></div><div class="line">      versionNameSuffix "-debug"</div><div class="line">      minifyEnabled false</div><div class="line">      zipAlignEnabled false</div><div class="line">      shrinkResources false</div><div class="line">      signingConfig signingConfigs.debug</div><div class="line">    &#125;</div><div class="line">    release &#123;</div><div class="line">      // 不显示Log</div><div class="line">      buildConfigField "boolean", "LOG_DEBUG", "false"</div><div class="line"></div><div class="line">      minifyEnabled true</div><div class="line">      zipAlignEnabled true</div><div class="line">      // 移除无用的resource文件</div><div class="line">      shrinkResources true</div><div class="line"></div><div class="line">      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'</div><div class="line">      signingConfig signingConfigs.release</div><div class="line"></div><div class="line">      applicationVariants.all &#123; variant -&gt;</div><div class="line">        variant.outputs.each &#123; output -&gt;</div><div class="line">          def outputFile = output.outputFile</div><div class="line">          if (outputFile != null &amp;&amp; outputFile.name.endsWith('.apk')) &#123;</div><div class="line">            // 输出apk名称为appname_v1.0_2015-09-15_09-57-58_wandoujia.apk</div><div class="line">            // 下面的appname改为你自己的app name</div><div class="line">            def fileName = "appname_v$&#123;defaultConfig.versionName&#125;_$&#123;releaseTime()&#125;_$&#123;variant.productFlavors[0].name&#125;.apk"</div><div class="line">            output.outputFile = new File(outputFile.parent, fileName)</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  packagingOptions &#123;</div><div class="line">    exclude 'META-INF/DEPENDENCIES.txt'</div><div class="line">    exclude 'META-INF/LICENSE.txt'</div><div class="line">    exclude 'META-INF/NOTICE.txt'</div><div class="line">    exclude 'META-INF/NOTICE'</div><div class="line">    exclude 'META-INF/LICENSE'</div><div class="line">    exclude 'META-INF/DEPENDENCIES'</div><div class="line">    exclude 'META-INF/notice.txt'</div><div class="line">    exclude 'META-INF/license.txt'</div><div class="line">    exclude 'META-INF/dependencies.txt'</div><div class="line">    exclude 'META-INF/LGPL2.1'</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 友盟多渠道打包</div><div class="line">  productFlavors &#123;</div><div class="line">    xiaomi &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]</div><div class="line">    &#125;</div><div class="line">    qihoo &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qihoo"]</div><div class="line">    &#125;</div><div class="line">    baidu &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]</div><div class="line">    &#125;</div><div class="line">    wandoujia &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]</div><div class="line">    &#125;</div><div class="line">    qq &#123;</div><div class="line">      manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">  testCompile 'junit:junit:4.12'</div><div class="line">  compile 'com.android.support:appcompat-v7:23.0.1'</div><div class="line">  compile 'com.android.support:design:23.0.1'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="命令创建task"><a href="#命令创建task" class="headerlink" title="命令创建task"></a>命令创建task</h3><p>1.进入项目的根目录：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 打包全部Debug版本</div><div class="line">./gradlew assembleDebug</div></pre></td></tr></table></figure>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 打包全部Release版本</div><div class="line">./gradlew assembleRelease</div></pre></td></tr></table></figure>
-<p>2.<code>assemble</code>和<code>Product Flavor</code> 结合创建指定渠道的任务版本。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 打包wandoujia渠道的Release版本和Debug版本</span></div><div class="line">./gradlew assembleWandoujia</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 打包wandoujia渠道的Release版本</span></div><div class="line">./gradlew assembleWandoujiaRelease</div></pre></td></tr></table></figure>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>大家有什么问题，在下面留言就可以了，也可以关注我的微博<a href="http://weibo.com/androidmonkey" target="_blank" rel="external">@安卓猴</a>，交流更及时。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p>
+<p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p>
+<p>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android >= 4.4 Status Bar" title="">
+                </div>
+                <div class="image-caption">Android >= 4.4 Status Bar</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar" title="">
+                </div>
+                <div class="image-caption">MIUI Status Bar</div>
+            </figure></p>
+<h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">《Android L+ Theme 与 Toolbar 实例》</a></p>
+<h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a></p>
+<p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line"></div><div class="line">     Window mWindow = getWindow();</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</div><div class="line"></div><div class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</div><div class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
 </ul>
@@ -1821,9 +1821,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2080,9 +2080,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2308,9 +2308,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2447,9 +2447,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2673,9 +2673,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2833,9 +2833,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2898,9 +2898,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2951,9 +2951,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3024,9 +3024,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3110,9 +3110,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3232,9 +3232,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3290,9 +3290,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3376,9 +3376,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3507,9 +3507,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3598,9 +3598,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3711,9 +3711,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3783,9 +3783,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3879,9 +3879,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -3976,9 +3976,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4080,9 +4080,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4143,9 +4143,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4232,9 +4232,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4309,9 +4309,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4381,9 +4381,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4464,9 +4464,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4572,9 +4572,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4652,9 +4652,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4744,9 +4744,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4815,9 +4815,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4894,9 +4894,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -4979,76 +4979,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程3.3之循环语句</title>
-    <link href="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/"/>
-    <id>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</id>
-    <published>2015-07-10T04:34:27.000Z</published>
-    <updated>2016-05-13T20:10:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
-</blockquote>
-<hr>
-<p>本节课程将学习以下知识点：</p>
-<ul>
-<li>循环结构</li>
-<li>for循环语句</li>
-<li>while循环语句</li>
-</ul>
-<hr>
-<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>一张图看懂什么是循环结构：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构" title="">
-                </div>
-                <div class="image-caption">图3.3.01。循环结构</div>
-            </figure>
-<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入for循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. &#123;&#125;中的语句执行完毕后，执行 i++ ；</span></div><div class="line">		<span class="comment">// 5. 再次判断 i &lt; 10；</span></div><div class="line">		<span class="comment">// 6. 如果i依旧小于10，重复3~5的过程，这个过程就是循环；</span></div><div class="line">		<span class="comment">// 7. 如果i &gt;= 10 ，那么循环停止。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"for循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入while循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，即i &lt; 10的值为true，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. 如果 i &lt; 10的值为false，则while循环结束。</span></div><div class="line"></div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">			i++; <span class="comment">// 如果没有这一行，则成为while死循环。</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"while循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
-<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
-</ul>
-<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
-<ul>
-<li>微信公众号：Android奇想录（android_amazing）</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;本节课程将学习以下知识点：&lt;/p&gt;
-&lt;ul&gt;
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -5113,9 +5046,76 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程3.3之循环语句</title>
+    <link href="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/"/>
+    <id>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</id>
+    <published>2015-07-10T04:34:27.000Z</published>
+    <updated>2016-05-13T20:10:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<p>本节课程将学习以下知识点：</p>
+<ul>
+<li>循环结构</li>
+<li>for循环语句</li>
+<li>while循环语句</li>
+</ul>
+<hr>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>一张图看懂什么是循环结构：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构" title="">
+                </div>
+                <div class="image-caption">图3.3.01。循环结构</div>
+            </figure>
+<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入for循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. &#123;&#125;中的语句执行完毕后，执行 i++ ；</span></div><div class="line">		<span class="comment">// 5. 再次判断 i &lt; 10；</span></div><div class="line">		<span class="comment">// 6. 如果i依旧小于10，重复3~5的过程，这个过程就是循环；</span></div><div class="line">		<span class="comment">// 7. 如果i &gt;= 10 ，那么循环停止。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"for循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入while循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，即i &lt; 10的值为true，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. 如果 i &lt; 10的值为false，则while循环结束。</span></div><div class="line"></div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">			i++; <span class="comment">// 如果没有这一行，则成为while死循环。</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"while循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;本节课程将学习以下知识点：&lt;/p&gt;
+&lt;ul&gt;
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5187,9 +5187,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5263,9 +5263,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5358,9 +5358,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5408,9 +5408,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5534,9 +5534,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5635,85 +5635,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程2.0之变量</title>
-    <link href="http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
-    <id>http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
-    <published>2015-07-01T04:04:27.000Z</published>
-    <updated>2016-05-13T20:10:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
-</blockquote>
-<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p>
-<h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p>
-<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int age = 20;</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>int</strong>       表示变量类型</p>
-<p><strong>age</strong>     表示变量名</p>
-<p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p>
-<p><strong>;</strong>          英文分号，表示语句结束</p>
-<p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p>
-</blockquote>
-<p>这条语句回答了2个问题：</p>
-<ul>
-<li>存储数据的空间有多大</li>
-<li>数据存储在什么位置</li>
-</ul>
-<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p>
-<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p>
-<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p>
-<h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul>
-<li>应该以字母、下划线或者美元符开头；</li>
-<li>后面跟字母、下划线、美元符或者数字；</li>
-<li>Java变量名没有长度限制；</li>
-<li>Java变量名对字母大小写敏感</li>
-</ul>
-<h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p>
-<ul>
-<li>变量名应该用有意义的英文单词；</li>
-<li>变量名如果只有一个单词，则所有的字母用小写；</li>
-<li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li>
-</ul>
-<h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">            <span class="comment">// 变量声明的正确写法，</span></div><div class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></div><div class="line">            <span class="comment">// 应按照 驼峰命名法</span></div><div class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</div><div class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</div><div class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</div><div class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</div><div class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</div><div class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></div><div class="line">            <span class="comment">// int 8age = 60;</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
-<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
-</ul>
-<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
-<ul>
-<li>微信公众号：Android奇想录（android_amazing）</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程1.1之JDK环境配置</title>
     <link href="http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/"/>
     <id>http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/</id>
@@ -5786,9 +5707,88 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程2.0之变量</title>
+    <link href="http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
+    <id>http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
+    <published>2015-07-01T04:04:27.000Z</published>
+    <updated>2016-05-13T20:10:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p>
+<h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int age = 20;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>int</strong>       表示变量类型</p>
+<p><strong>age</strong>     表示变量名</p>
+<p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p>
+<p><strong>;</strong>          英文分号，表示语句结束</p>
+<p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p>
+</blockquote>
+<p>这条语句回答了2个问题：</p>
+<ul>
+<li>存储数据的空间有多大</li>
+<li>数据存储在什么位置</li>
+</ul>
+<h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p>
+<h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul>
+<li>应该以字母、下划线或者美元符开头；</li>
+<li>后面跟字母、下划线、美元符或者数字；</li>
+<li>Java变量名没有长度限制；</li>
+<li>Java变量名对字母大小写敏感</li>
+</ul>
+<h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p>
+<ul>
+<li>变量名应该用有意义的英文单词；</li>
+<li>变量名如果只有一个单词，则所有的字母用小写；</li>
+<li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li>
+</ul>
+<h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">            <span class="comment">// 变量声明的正确写法，</span></div><div class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></div><div class="line">            <span class="comment">// 应按照 驼峰命名法</span></div><div class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</div><div class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</div><div class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</div><div class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</div><div class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</div><div class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></div><div class="line">            <span class="comment">// int 8age = 60;</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -5842,9 +5842,9 @@
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   

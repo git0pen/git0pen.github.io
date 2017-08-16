@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2017/03/07/taobao-spider/">
+    
+    
+    <title>淘宝商品信息定向爬虫 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,爬虫">
+    <meta name="description" content="前言最近在学习数据分析的时候，提前学习了爬虫，其实在很早之前就学习过Python了，但是后来学习Android了，没有将Python很好的实践。但是学习了爬虫之后，我觉得自己写爬虫收集数据，放在自己的服务器上，然后再用自己的App展示出来，就不用再苦于没有数据了。但是，要想写出好的爬虫，也是一件不容易的事情，需要多加练习。 这次写这个淘宝商品信息定向爬虫仅仅是为了练习一下一些爬虫的常用方法，这里它">
+<meta name="keywords" content="Python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="淘宝商品信息定向爬虫">
+<meta property="og:url" content="http://sunjiajia.com/2017/03/07/taobao-spider/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="前言最近在学习数据分析的时候，提前学习了爬虫，其实在很早之前就学习过Python了，但是后来学习Android了，没有将Python很好的实践。但是学习了爬虫之后，我觉得自己写爬虫收集数据，放在自己的服务器上，然后再用自己的App展示出来，就不用再苦于没有数据了。但是，要想写出好的爬虫，也是一件不容易的事情，需要多加练习。 这次写这个淘宝商品信息定向爬虫仅仅是为了练习一下一些爬虫的常用方法，这里它">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider2.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider3.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider4.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider5.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider_linear.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider_bar.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider_scatter.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider6.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider7.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider8.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider9.png">
+<meta property="og:image" content="http://sunjiajia.com/img/201705/tb_spider10.png">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2017-05-25T15:28:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="淘宝商品信息定向爬虫">
+<meta name="twitter:description" content="前言最近在学习数据分析的时候，提前学习了爬虫，其实在很早之前就学习过Python了，但是后来学习Android了，没有将Python很好的实践。但是学习了爬虫之后，我觉得自己写爬虫收集数据，放在自己的服务器上，然后再用自己的App展示出来，就不用再苦于没有数据了。但是，要想写出好的爬虫，也是一件不容易的事情，需要多加练习。 这次写这个淘宝商品信息定向爬虫仅仅是为了练习一下一些爬虫的常用方法，这里它">
+<meta name="twitter:image" content="http://sunjiajia.com/img/201705/tb_spider1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">淘宝商品信息定向爬虫</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">淘宝商品信息定向爬虫</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-07T04:11:52.000Z" itemprop="datePublished" class="page-time">
+  2017-03-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果展示"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">效果展示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路过程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">思路过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#明确需求"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">明确需求</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取目标链接"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">获取目标链接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#明确需要哪些数据"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">明确需要哪些数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如何拿到数据"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">如何拿到数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#拿到数据"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">拿到数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#写代码"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">写代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#淘宝定向爬虫源码下载"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">淘宝定向爬虫源码下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结语"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">结语</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-taobao-spider"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">淘宝商品信息定向爬虫</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-07 12:11:52" datetime="2017-03-07T04:11:52.000Z"  itemprop="datePublished">2017-03-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在学习数据分析的时候，提前学习了爬虫，其实在很早之前就学习过Python了，但是后来学习Android了，没有将Python很好的实践。但是学习了爬虫之后，我觉得自己写爬虫收集数据，放在自己的服务器上，然后再用自己的App展示出来，就不用再苦于没有数据了。但是，要想写出好的爬虫，也是一件不容易的事情，需要多加练习。</p>
+<p>这次写这个<code>淘宝商品信息定向爬虫</code>仅仅是为了练习一下一些爬虫的常用方法，这里它涉及了如下的知识点：</p>
+<ol>
+<li>爬虫的一个常用思路；</li>
+<li>Python的requests库和正则表达式的用法；</li>
+<li>pymongo以及mongoDB的用法；</li>
+<li>tkinter的用法；</li>
+<li>xlsxwriter库以及导出数据到Excel文件的用法；</li>
+<li>matplotlib库画出统计图表的用法。</li>
+</ol>
+<p>此外，还需要有一台自己的VPS，并且会用Linux，配置好MongoDB服务器。<br>这里推荐我在用的VPS服务商，使用下面的连接购买他家的服务，会得到一定的价钱优惠：<br><a href="http://www.vultr.com/?ref=7147564" target="_blank" rel="external">强推本站VPS！优惠</a></p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider1.png" alt="淘宝定向爬虫图1" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图1</div>
+            </figure>
+<blockquote>
+<p>这个是界面，提供了数据库服务器的一些必填参数，用于连接MongoDB服务器；还有数据的保存方式，提供了保存到数据库和导出到Excel文件两种方式；同时，还提供了画出简单的数据图表的功能。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider2.png" alt="淘宝定向爬虫图2" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图2</div>
+            </figure>
+<blockquote>
+<p>图2展示了Excel文件的命名规则。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider3.png" alt="淘宝定向爬虫图3" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图3</div>
+            </figure>
+<blockquote>
+<p>图3是使用Robomongo这个工具来看一下MongoDB中我们爬取到的数据。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider4.png" alt="淘宝定向爬虫图4" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图4</div>
+            </figure>
+<blockquote>
+<p>一共4400条数据。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider5.png" alt="淘宝定向爬虫图5" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图5</div>
+            </figure>
+<blockquote>
+<p>Excel文件中的数据展示。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider_linear.png" alt="Matplolib线性图" title="">
+                </div>
+                <div class="image-caption">Matplolib线性图</div>
+            </figure>
+<blockquote>
+<p>将数据用<code>Matplolib线性图</code>来表示。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider_bar.png" alt="Matplolib柱状图" title="">
+                </div>
+                <div class="image-caption">Matplolib柱状图</div>
+            </figure>
+<blockquote>
+<p>将数据用<code>Matplolib柱状图</code>来表示。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider_scatter.png" alt="Matplolib散点图" title="">
+                </div>
+                <div class="image-caption">Matplolib散点图</div>
+            </figure>
+<blockquote>
+<p>将数据用<code>Matplolib散点图</code>来表示。</p>
+</blockquote>
+<h3 id="思路过程"><a href="#思路过程" class="headerlink" title="思路过程"></a>思路过程</h3><h4 id="明确需求"><a href="#明确需求" class="headerlink" title="明确需求"></a>明确需求</h4><p>我们的目标就是，在淘宝中用关键词搜索商品，然后将结果列表中的所有单个项的信息爬取出来，存储到MongoDB或者Excel文件中，最终画出数据图表。</p>
+<blockquote>
+<p>例如，我们在淘宝中搜索<code>美食</code>，会得到100页数据，每个页面中的单个商品项一共是44个。</p>
+</blockquote>
+<h4 id="获取目标链接"><a href="#获取目标链接" class="headerlink" title="获取目标链接"></a>获取目标链接</h4><p>我们需要获取到淘宝的搜索页面的连接，用来作为Python爬虫的入口。当我们在淘宝主页中输入<code>美食</code>搜索后，得到一个链接：</p>
+<p><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;imgfile=&amp;commend=all&amp;ssid=s5-e&amp;search_type=item&amp;sourceId=tb.index&amp;spm=a21bo.50862.201856-taobao-item.1&amp;ie=utf8&amp;initiative_id=tbindexz_20170505" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;imgfile=&amp;commend=all&amp;ssid=s5-e&amp;search_type=item&amp;sourceId=tb.index&amp;spm=a21bo.50862.201856-taobao-item.1&amp;ie=utf8&amp;initiative_id=tbindexz_20170505</a></p>
+<p>如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider6.png" alt="淘宝定向爬虫图6" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图6</div>
+            </figure>
+<p>但是这个链接我们可以这样来分析：<br>将其中的一系列参数逐个去除，看看结果页面是否有变化，如果没有变化，那么说明这个参数是多余的，可以去除。</p>
+<p>去除多余后的连接，并访问它：<br><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F</a></p>
+<p>其实，<code>%E7%BE%8E%E9%A3%9F</code>就是<code>美食</code>被编码后的字符串。</p>
+<p>接着，我们来看一下，当我们选择了第3页后，链接有什么变化：<br><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;bcoffset=3&amp;ntoffset=0&amp;p4ppushleft=1%2C48&amp;s=88" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;bcoffset=3&amp;ntoffset=0&amp;p4ppushleft=1%2C48&amp;s=88</a></p>
+<p>如图操作：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider7.png" alt="淘宝定向爬虫图7" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图7</div>
+            </figure></p>
+<p>同样的方法，我们把其中的参数逐个去除，得到了一个最简的连接：<br><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=88" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=88</a></p>
+<p>其中，<code>s=88</code>表示第3页，那么我们推测，<code>s=44</code>表示第2页，<code>s=0</code>表示第1页。在浏览器中访问这几个链接：<br><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=0" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=0</a><br><a href="https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=44" target="_blank" rel="external">https://s.taobao.com/search?q=%E7%BE%8E%E9%A3%9F&amp;s=44</a></p>
+<p>我们发现，正如我们推测的那样。</p>
+<p>到这里，我们得到了入口链接的基本形式：<br><a href="https://s.taobao.com/search?q=`关键词`&amp;s=`页面商品个数`" target="_blank" rel="external">https://s.taobao.com/search?q=`关键词`&amp;s=`页面商品个数`</a></p>
+<p>更进一步，我们想到，可以用Python的Requests库来访问这个链接，得到我们想要的页面信息。</p>
+<h4 id="明确需要哪些数据"><a href="#明确需要哪些数据" class="headerlink" title="明确需要哪些数据"></a>明确需要哪些数据</h4><p>如图，途中的一个Item中，包含了我们要提取的信息：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider8.png" alt="淘宝定向爬虫图8" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图8</div>
+            </figure></p>
+<h4 id="如何拿到数据"><a href="#如何拿到数据" class="headerlink" title="如何拿到数据"></a>如何拿到数据</h4><p>当我们访问到页面的时候，在页面空白处单击右键，进行<code>查看源代码</code>。然后，我们得到了这样的信息：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider9.png" alt="淘宝定向爬虫图9" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图9</div>
+            </figure>
+<p>我们可以从中看到，淘宝是通过<code>js解析json数据</code>来展示页面的。于是，我们把下面的json字符串拿来格式化以下，如下图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201705/tb_spider10.png" alt="淘宝定向爬虫图10" title="">
+                </div>
+                <div class="image-caption">淘宝定向爬虫图10</div>
+            </figure>
+<p>从中，我们看到了我们想要的数据的字段。哈哈，这样数据就很容易获取到了。</p>
+<h4 id="拿到数据"><a href="#拿到数据" class="headerlink" title="拿到数据"></a>拿到数据</h4><p>这里，由于数据是以json字符串的形式返回的，我们用正则表达式匹配出来想要的信息，岂不是可以提高获取数据的速度~~</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">titles = re.findall(<span class="string">r'\"raw_title\":\".*?\"'</span>, html)</div><div class="line">prices = re.findall(<span class="string">r'\"view_price\":\"[\d.]*\"'</span>, html)</div><div class="line">deals = re.findall(<span class="string">r'\"view_sales\":\"[0-9]*[1-9][0-9]*[\u4e00-\u9fa5]+\"'</span>, html)</div><div class="line">pics = re.findall(<span class="string">r'\"pic_url\":\".*?"'</span>, html)</div><div class="line">detailurls = re.findall(<span class="string">r'\"detail_url":\".*?\"'</span>, html)</div><div class="line">locations = re.findall(<span class="string">r'\"item_loc\":\"\D*?\"'</span>, html)</div><div class="line">shops = re.findall(<span class="string">r'\"nick\":\".*?\"'</span>, html)</div><div class="line">shopurls = re.findall(<span class="string">r'\"shopLink\":\".*?\"'</span>, html)</div></pre></td></tr></table></figure>
+<h4 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h4><p>思路已经分析完毕，这里给出源代码，代码中有必要的注释，可以参考。如果看不太明白，可以动手敲一敲代码。源码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> pymongo</div><div class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</div><div class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> messagebox</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> xlsxwriter</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="comment"># from pylab import *</span></div><div class="line"></div><div class="line">is_running = <span class="keyword">False</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line"><span class="string">    访问url链接，取得html源码并返回</span></div><div class="line"><span class="string">    :param url: url链接地址</span></div><div class="line"><span class="string">    :return: 获取正常，返回html源码；出现异常，返回None</span></div><div class="line"><span class="string">    '''</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        user_agent = <span class="string">'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'</span></div><div class="line">        headers = &#123;<span class="string">'User_agent'</span>: user_agent&#125;</div><div class="line">        r = requests.get(url, headers=headers)</div><div class="line">        r.raise_for_status()</div><div class="line">        r.encoding = <span class="string">"utf-8"</span></div><div class="line">        <span class="keyword">return</span> r.text</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        info = <span class="string">"获取html出现异常：\n"</span> + str(e)</div><div class="line">        print(info)</div><div class="line">        print_info(info)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_data</span><span class="params">(result, html)</span>:</span></div><div class="line">    <span class="string">'''</span></div><div class="line"><span class="string">    从html中提取每个信息，并格式化为字典，存储在result这个列表中的同时，保存到数据库中去</span></div><div class="line"><span class="string">    :param result: 结果列表</span></div><div class="line"><span class="string">    :param html: html源码</span></div><div class="line"><span class="string">    '''</span></div><div class="line"></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        titles = re.findall(<span class="string">r'\"raw_title\":\".*?\"'</span>, html)</div><div class="line">        prices = re.findall(<span class="string">r'\"view_price\":\"[\d.]*\"'</span>, html)</div><div class="line">        deals = re.findall(</div><div class="line">            <span class="string">r'\"view_sales\":\"[0-9]*[1-9][0-9]*[\u4e00-\u9fa5]+\"'</span>, html)</div><div class="line">        pics = re.findall(<span class="string">r'\"pic_url\":\".*?"'</span>, html)</div><div class="line">        detailurls = re.findall(<span class="string">r'\"detail_url":\".*?\"'</span>, html)</div><div class="line">        locations = re.findall(<span class="string">r'\"item_loc\":\"\D*?\"'</span>, html)</div><div class="line">        shops = re.findall(<span class="string">r'\"nick\":\".*?\"'</span>, html)</div><div class="line">        shopurls = re.findall(<span class="string">r'\"shopLink\":\".*?\"'</span>, html)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(titles)):</div><div class="line">            product = &#123;</div><div class="line">                <span class="string">'title'</span>:</div><div class="line">                    eval(str(titles[i].split(<span class="string">":"</span>)[<span class="number">1</span>])),</div><div class="line">                <span class="string">'price'</span>:</div><div class="line">                    eval(str(prices[i].split(<span class="string">":"</span>)[<span class="number">1</span>])),</div><div class="line">                <span class="string">'deal'</span>:</div><div class="line">                    eval(str(deals[i].split(<span class="string">":"</span>)[<span class="number">1</span>]))[:<span class="number">-3</span>],</div><div class="line">                <span class="string">'pic'</span>:</div><div class="line">                    <span class="string">"https:"</span> + eval(str(pics[i].split(<span class="string">":"</span>)[<span class="number">1</span>])),</div><div class="line">                <span class="string">'detailurl'</span>:</div><div class="line">                    (<span class="string">"https:"</span> + eval(str(detailurls[i].split(<span class="string">":"</span>)[<span class="number">1</span>]))</div><div class="line">                     ).encode(<span class="string">"unicode_escape"</span>).decode(<span class="string">"unicode_escape"</span>),</div><div class="line">                <span class="string">'location'</span>:</div><div class="line">                    eval(str(locations[i].split(<span class="string">":"</span>)[<span class="number">1</span>])),</div><div class="line">                <span class="string">'shop'</span>:</div><div class="line">                    eval(str(shops[i].split(<span class="string">":"</span>)[<span class="number">1</span>])),</div><div class="line">                <span class="string">'shopurl'</span>:</div><div class="line">                    <span class="string">"https:"</span> + eval(str(shopurls[i].split(<span class="string">":"</span>)[<span class="number">1</span>])).encode(</div><div class="line">                        <span class="string">"unicode_escape"</span>).decode(<span class="string">"unicode_escape"</span>)</div><div class="line">            &#125;</div><div class="line">            print(product)</div><div class="line">            result.append(product)</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        info = <span class="string">"提取信息出现异常：\n"</span> + str(e)</div><div class="line">        print(info)</div><div class="line">        print_info(info)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_to_db</span><span class="params">(dburl, dbport, dbname, dbuser, dbpwd, dbtable, products)</span>:</span></div><div class="line">    info = <span class="string">"正在保存数据到数据库。"</span></div><div class="line">    print_info(info)</div><div class="line">    print(info)</div><div class="line"></div><div class="line">    client = pymongo.MongoClient(host=dburl, port=int(dbport))</div><div class="line"></div><div class="line">    <span class="keyword">if</span> dbuser <span class="keyword">and</span> dbpwd:</div><div class="line">        client[<span class="string">'admin'</span>].authenticate(dbuser, dbpwd, dbname, <span class="string">'DEFAULT'</span>)</div><div class="line"></div><div class="line">    db = client[dbname]</div><div class="line"></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        db[dbtable].insert_many(products)</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        info = <span class="string">"保存到数据库出现异常：\n"</span> + str(e) + <span class="string">"\n"</span></div><div class="line">        print_info(info)</div><div class="line">        print(info)</div><div class="line"></div><div class="line">    info = <span class="string">"保存到数据库成功。"</span></div><div class="line">    print_info(info)</div><div class="line">    print(info)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">spider_crawl</span><span class="params">(dburl, dbport, dbname, dbuser, dbpwd, dbtable, keyword, depth, mode)</span>:</span></div><div class="line">    link = <span class="string">"https://s.taobao.com/search?q="</span> + keyword + <span class="string">"&amp;sort=sale-desc"</span></div><div class="line">    products = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(int(depth)):</div><div class="line">        info = <span class="string">"正在读取第 "</span> + str(i + <span class="number">1</span>) + <span class="string">" 页。"</span></div><div class="line">        print_info(info)</div><div class="line">        print(info)</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            url = link + <span class="string">"&amp;s="</span> + str(<span class="number">44</span> * i)</div><div class="line">            html = get_html(url)</div><div class="line">            parse_data(products, html)</div><div class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">            info = <span class="string">"spider_crawl出现异常：\n"</span> + str(e)</div><div class="line">            print_info(info)</div><div class="line">            print(info)</div><div class="line">            <span class="keyword">continue</span></div><div class="line">    result_info = <span class="string">"爬取完毕，共获取到 "</span> + str(len(products)) + <span class="string">" 条商品信息。"</span></div><div class="line">    print_info(result_info)</div><div class="line">    print(result_info)</div><div class="line">    <span class="keyword">if</span> mode == <span class="number">1</span>:</div><div class="line">        save_to_db(dburl, dbport, dbname, dbuser, dbpwd, dbtable, products)</div><div class="line">    <span class="keyword">elif</span> mode == <span class="number">2</span>:</div><div class="line">        write_to_excel(keyword, dbname, dbtable, products)</div><div class="line">    <span class="keyword">elif</span> mode == <span class="number">3</span>:</div><div class="line">        save_to_db(dburl, dbport, dbname, dbuser, dbpwd, dbtable, products)</div><div class="line">        write_to_excel(keyword, dbname, dbtable, products)</div><div class="line"></div><div class="line">    info = <span class="string">"提示：此次爬取信息过程完整结束。"</span></div><div class="line">    print_info(info)</div><div class="line">    print(info)</div><div class="line">    is_running = <span class="keyword">False</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_excel</span><span class="params">(keyword, dbname, dbtable, products)</span>:</span></div><div class="line">    <span class="comment"># time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime(time.time())</span></div><div class="line">    info = <span class="string">"正在保存数据到Excel文件。"</span></div><div class="line">    print_info(info)</div><div class="line">    print(info)</div><div class="line"></div><div class="line">    filename = keyword + <span class="string">'_'</span> + dbname + <span class="string">'_'</span> + dbtable + <span class="string">'_'</span> + time.strftime(</div><div class="line">        <span class="string">"%Y-%m-%d_%H-%M-%S"</span>,</div><div class="line">        time.localtime(time.time())) + <span class="string">'_'</span> + str(len(products)) + <span class="string">'.xlsx'</span></div><div class="line">    workbook = xlsxwriter.Workbook(filename)</div><div class="line">    worksheet = workbook.add_worksheet()</div><div class="line"></div><div class="line">    headers = [</div><div class="line">        <span class="string">'_id'</span>, <span class="string">'title'</span>, <span class="string">'price'</span>, <span class="string">'deal'</span>, <span class="string">'shop'</span>, <span class="string">'location'</span>, <span class="string">'pic'</span>,</div><div class="line">        <span class="string">'detailurl'</span>, <span class="string">'shopurl'</span></div><div class="line">    ]</div><div class="line">    <span class="comment"># headers = ['title', 'price', 'deal', 'shop', 'location']</span></div><div class="line">    header_row = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> header <span class="keyword">in</span> headers:</div><div class="line">        col = headers.index(header)</div><div class="line">        worksheet.write(header_row, col, header)</div><div class="line"></div><div class="line">    <span class="comment"># worksheet.write_rich_string(data_row, col, str(_value))</span></div><div class="line">    data_row = <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> product <span class="keyword">in</span> products:</div><div class="line">        <span class="keyword">for</span> _key, _value <span class="keyword">in</span> product.items():</div><div class="line">            col = headers.index(_key)</div><div class="line">            <span class="keyword">if</span> _key == <span class="string">'_id'</span> <span class="keyword">or</span> _key == <span class="string">'pic'</span> <span class="keyword">or</span> _key == <span class="string">'detailurl'</span> <span class="keyword">or</span> _key == <span class="string">'shopurl'</span>:</div><div class="line">                worksheet.write_rich_string(data_row, col, str(_value))</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                worksheet.write(data_row, col, str(_value))</div><div class="line">        data_row += <span class="number">1</span></div><div class="line">    workbook.close()</div><div class="line">    info = <span class="string">"成功保存数据到Excel文件。"</span></div><div class="line">    print_info(info)</div><div class="line">    print(info)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawl</span><span class="params">()</span>:</span></div><div class="line">    is_running = <span class="keyword">True</span></div><div class="line"></div><div class="line">    db_url = entry_db_url.get()</div><div class="line">    db_port = entry_db_port.get()</div><div class="line">    db_name = entry_db_name.get()</div><div class="line">    db_user = entry_db_user.get()</div><div class="line">    db_pwd = entry_db_pwd.get()</div><div class="line">    db_table = entry_db_table.get()</div><div class="line">    keyword = entry_keyword.get()</div><div class="line">    depth = entry_depth.get()</div><div class="line"></div><div class="line">    mode = var_radio.get()</div><div class="line"></div><div class="line">    <span class="keyword">if</span> mode == <span class="number">0</span>:</div><div class="line">        messagebox.showerror(title=<span class="string">'错误！'</span>, message=<span class="string">'没有选择数据保存方式！'</span>)</div><div class="line">    <span class="keyword">elif</span> mode == <span class="number">1</span> <span class="keyword">or</span> mode == <span class="number">3</span>:</div><div class="line">        <span class="keyword">if</span> db_url <span class="keyword">and</span> db_port <span class="keyword">and</span> db_name <span class="keyword">and</span> db_table <span class="keyword">and</span> keyword <span class="keyword">and</span> depth:</div><div class="line">            <span class="keyword">if</span> int(depth) &gt; <span class="number">100</span>:</div><div class="line">                depth = <span class="number">100</span></div><div class="line">            <span class="keyword">elif</span> int(depth) &lt;= <span class="number">0</span>:</div><div class="line">                depth = <span class="number">1</span></div><div class="line">            run_in_thread(spider_crawl, db_url, db_port, db_name, db_user, db_pwd, db_table,</div><div class="line">                          keyword, depth, mode)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            messagebox.showerror(title=<span class="string">'错误！'</span>, message=<span class="string">'如果您的数据库不需要登录，则④⑤两项可以不填；否则，①~⑧项必须全部填写！'</span>)</div><div class="line">    <span class="keyword">elif</span> mode == <span class="number">2</span>:</div><div class="line">        <span class="keyword">if</span> keyword <span class="keyword">and</span> depth:</div><div class="line">            run_in_thread(spider_crawl, db_url, db_port, db_name, db_table,</div><div class="line">                          keyword, depth, mode)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            messagebox.showerror(title=<span class="string">'错误！'</span>, message=<span class="string">'⑦⑧项必须全部填写！'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_in_thread</span><span class="params">(func, *args)</span>:</span></div><div class="line">    t = threading.Thread(target=func, args=args)</div><div class="line">    t.setDaemon(<span class="keyword">True</span>)</div><div class="line">    t.start()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">exit_app</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">if</span> is_running:</div><div class="line">        messagebox.showerror(title=<span class="string">'不能退出！'</span>, message=<span class="string">'程序还在运行，请等待程序运行完毕后再退出。'</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        root.quit()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(info)</span>:</span></div><div class="line">    result_text.insert(<span class="string">'end'</span>,</div><div class="line">                       <span class="string">"\n"</span> + info + <span class="string">"\n------------------------------------"</span>)</div><div class="line">    result_text.see(<span class="string">"end"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">radio_selector</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> var_radio.get()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_db</span><span class="params">()</span>:</span></div><div class="line">    dburl = entry_db_url.get()</div><div class="line">    dbport = entry_db_port.get()</div><div class="line">    dbname = entry_db_name.get()</div><div class="line">    dbuser = entry_db_user.get()</div><div class="line">    dbpwd = entry_db_pwd.get()</div><div class="line">    dbtable = entry_db_table.get()</div><div class="line"></div><div class="line">    client = pymongo.MongoClient(host=dburl, port=int(dbport))</div><div class="line"></div><div class="line">    <span class="keyword">if</span> dbuser <span class="keyword">and</span> dbpwd:</div><div class="line">        client[<span class="string">'admin'</span>].authenticate(dbuser, dbpwd, <span class="string">'admin'</span>, <span class="string">'DEFAULT'</span>)</div><div class="line"></div><div class="line">    db = client[dbname]</div><div class="line"></div><div class="line">    items = db[dbtable].find(&#123;&#125;, &#123;<span class="string">'price'</span>: <span class="number">1</span>, <span class="string">'deal'</span>: <span class="number">1</span>, <span class="string">'_id'</span>: <span class="number">0</span>&#125;)</div><div class="line"></div><div class="line">    results = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</div><div class="line">        results[item[<span class="string">'deal'</span>]] = item[<span class="string">'price'</span>]</div><div class="line">    <span class="keyword">return</span> results</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_linear_chart</span><span class="params">()</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签</span></div><div class="line">    <span class="comment"># mpl.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号</span></div><div class="line"></div><div class="line">    datas = read_from_db()</div><div class="line"></div><div class="line">    max_deal = max(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    min_deal = min(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    max_price = max(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line">    min_price = min(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line"></div><div class="line">    y_ticks = np.linspace(int(min_deal), int(max_deal), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line">    x_ticks = np.linspace(float(min_price), float(max_price), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">    plt.figure()</div><div class="line">    plt.title(<span class="string">"线性图表"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">20</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.xlabel(<span class="string">"商品价格（元）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.ylabel(<span class="string">"商品销量（件）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    ax = plt.gca()</div><div class="line">    ax.set_xticks(x_ticks)</div><div class="line">    ax.set_yticks(y_ticks)</div><div class="line">    <span class="comment"># y, x = zip(*sorted(datas.items()))</span></div><div class="line">    <span class="comment"># plt.plot(x, y)</span></div><div class="line">    <span class="comment"># plt.plot(*zip(*sorted(datas.items())))</span></div><div class="line">    new_list = zip(datas.values(), datas.keys())</div><div class="line">    new_datas = sorted(new_list, key=<span class="keyword">lambda</span> x: float(x[<span class="number">0</span>]))</div><div class="line">    <span class="comment"># print(new_datas)</span></div><div class="line">    x, y = zip(*new_datas)</div><div class="line">    plt.plot(x, y)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_scatter_chart</span><span class="params">()</span>:</span></div><div class="line">    datas = read_from_db()</div><div class="line"></div><div class="line">    max_deal = max(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    min_deal = min(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    max_price = max(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line">    min_price = min(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line"></div><div class="line">    y_ticks = np.linspace(int(min_deal), int(max_deal), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line">    x_ticks = np.linspace(float(min_price), float(max_price), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">    plt.figure()</div><div class="line">    plt.title(<span class="string">"散点图表"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">20</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.xlabel(<span class="string">"商品价格（元）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.ylabel(<span class="string">"商品销量（件）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    ax = plt.gca()</div><div class="line">    ax.set_xticks(x_ticks)</div><div class="line">    ax.set_yticks(y_ticks)</div><div class="line"></div><div class="line">    new_list = zip(datas.values(), datas.keys())</div><div class="line">    new_datas = sorted(new_list, key=<span class="keyword">lambda</span> x: float(x[<span class="number">0</span>]))</div><div class="line">    <span class="comment"># print(new_datas)</span></div><div class="line">    <span class="comment"># y, x = zip(*sorted(datas.items()))</span></div><div class="line">    x, y = zip(*new_datas)</div><div class="line">    plt.scatter(x, y, c=<span class="string">'r'</span>)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_bar_chart</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 随着价格的升高，销量的变化</span></div><div class="line">    datas = read_from_db()</div><div class="line"></div><div class="line">    max_deal = max(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    min_deal = min(datas.keys(), key=<span class="keyword">lambda</span> x: int(x))</div><div class="line">    max_price = max(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line">    min_price = min(datas.values(), key=<span class="keyword">lambda</span> x: float(x))</div><div class="line"></div><div class="line">    y_ticks = np.linspace(int(min_deal), int(max_deal), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line">    x_ticks = np.linspace(float(min_price), float(max_price), <span class="number">10</span>, endpoint=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">    plt.figure()</div><div class="line">    plt.title(<span class="string">"柱状图表"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">20</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.xlabel(<span class="string">"商品价格（元）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    plt.ylabel(<span class="string">"商品销量（件）"</span>,fontproperties=<span class="string">'SimHei'</span>,fontsize=<span class="number">15</span>,color=<span class="string">'green'</span>)</div><div class="line">    ax = plt.gca()</div><div class="line">    ax.set_xticks(x_ticks)</div><div class="line">    ax.set_yticks(y_ticks)</div><div class="line"></div><div class="line">    <span class="comment"># new_list = zip(datas.values(), datas.keys())</span></div><div class="line">    new_list = sorted(zip(datas.values(), datas.keys()), key=<span class="keyword">lambda</span> x: float(x[<span class="number">0</span>]))</div><div class="line">    sample = random.sample(new_list, int(len(new_list) * <span class="number">0.3</span>))</div><div class="line">    sorted_sample = sorted(sample, key=<span class="keyword">lambda</span> x: float(x[<span class="number">0</span>]))</div><div class="line">    print(sorted_sample)</div><div class="line"></div><div class="line">    x_list = []</div><div class="line">    y_list = []</div><div class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> sorted_sample:</div><div class="line">        x_list.append(float(x))</div><div class="line">        y_list.append(int(y))</div><div class="line">    plt.bar(x_list, y_list, width=<span class="number">5.0</span>, facecolor=<span class="string">'blue'</span>, edgecolor=<span class="string">''</span>)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"></div><div class="line">title = <span class="string">'淘宝商品定向爬虫'</span></div><div class="line">author = <span class="string">'Powered by 孙佳佳'</span></div><div class="line">font_normal_size = <span class="number">14</span></div><div class="line"></div><div class="line">root = tk.Tk()</div><div class="line">root.title(title)</div><div class="line">root.geometry(<span class="string">'820x700'</span>)</div><div class="line">root.anchor(<span class="string">'center'</span>)</div><div class="line">root.resizable(<span class="number">0</span>, <span class="number">0</span>)</div><div class="line"></div><div class="line">label_title = tk.Label(root, text=title, font=(<span class="string">''</span>, <span class="number">26</span>))</div><div class="line">label_title.pack(anchor=<span class="string">'center'</span>)</div><div class="line"></div><div class="line">label_author = tk.Label(root, text=author, font=(<span class="string">''</span>, <span class="number">14</span>), fg=<span class="string">'blue'</span>)</div><div class="line">label_author.place(x=<span class="number">300</span>, y=<span class="number">50</span>)</div><div class="line"></div><div class="line">label_db_url = tk.Label(root, text=<span class="string">'①数据库地址：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_url.place(x=<span class="number">100</span>, y=<span class="number">100</span>)</div><div class="line">entry_db_url = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_url.insert(<span class="string">'end'</span>, <span class="string">'108.61.162.201'</span>)</div><div class="line">entry_db_url.place(x=<span class="number">250</span>, y=<span class="number">100</span>)</div><div class="line"></div><div class="line">label_db_port = tk.Label(root, text=<span class="string">'②数据库端口：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_port.place(x=<span class="number">100</span>, y=<span class="number">150</span>)</div><div class="line">entry_db_port = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_port.insert(<span class="string">'end'</span>, <span class="string">'10000'</span>)</div><div class="line">entry_db_port.place(x=<span class="number">250</span>, y=<span class="number">150</span>)</div><div class="line"></div><div class="line">label_db_name = tk.Label(root, text=<span class="string">'③数据库名称：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_name.place(x=<span class="number">100</span>, y=<span class="number">200</span>)</div><div class="line">entry_db_name = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_name.insert(<span class="string">'end'</span>, <span class="string">'jack'</span>)</div><div class="line">entry_db_name.place(x=<span class="number">250</span>, y=<span class="number">200</span>)</div><div class="line"></div><div class="line">label_db_user = tk.Label(root, text=<span class="string">'④数据库用户：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_user.place(x=<span class="number">100</span>, y=<span class="number">250</span>)</div><div class="line">entry_db_user = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_user.insert(<span class="string">'end'</span>, <span class="string">'jack'</span>)</div><div class="line">entry_db_user.place(x=<span class="number">250</span>, y=<span class="number">250</span>)</div><div class="line"></div><div class="line">label_db_pwd = tk.Label(root, text=<span class="string">'⑤数据库密码：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_pwd.place(x=<span class="number">100</span>, y=<span class="number">300</span>)</div><div class="line">entry_db_pwd = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_pwd.insert(<span class="string">'end'</span>, <span class="string">'1238912389'</span>)</div><div class="line">entry_db_pwd.place(x=<span class="number">250</span>, y=<span class="number">300</span>)</div><div class="line"></div><div class="line">label_db_table = tk.Label(root, text=<span class="string">'⑥数据库表名：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_db_table.place(x=<span class="number">100</span>, y=<span class="number">350</span>)</div><div class="line">entry_db_table = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_db_table.insert(<span class="string">'end'</span>, <span class="string">'coffee'</span>)</div><div class="line">entry_db_table.place(x=<span class="number">250</span>, y=<span class="number">350</span>)</div><div class="line"></div><div class="line">label_keyword = tk.Label(root, text=<span class="string">'⑦商品关键词：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_keyword.place(x=<span class="number">100</span>, y=<span class="number">400</span>)</div><div class="line">entry_keyword = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_keyword.insert(<span class="string">'end'</span>, <span class="string">'黑咖啡'</span>)</div><div class="line">entry_keyword.place(x=<span class="number">250</span>, y=<span class="number">400</span>)</div><div class="line"></div><div class="line">label_depth = tk.Label(root, text=<span class="string">'⑧深度≤100：'</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">label_depth.place(x=<span class="number">100</span>, y=<span class="number">450</span>)</div><div class="line">entry_depth = tk.Entry(root, show=<span class="keyword">None</span>, font=(<span class="string">''</span>, font_normal_size))</div><div class="line">entry_depth.insert(<span class="string">'end'</span>, <span class="string">'10'</span>)</div><div class="line">entry_depth.place(x=<span class="number">250</span>, y=<span class="number">450</span>)</div><div class="line"></div><div class="line">result_text = tk.Text(root, font=(<span class="string">''</span>, font_normal_size), width=<span class="number">53</span>, height=<span class="number">8</span>)</div><div class="line">result_text.place(x=<span class="number">100</span>, y=<span class="number">500</span>)</div><div class="line"></div><div class="line">button_run = tk.Button(</div><div class="line">    root, text=<span class="string">'开始爬取'</span>, font=(<span class="string">''</span>, font_normal_size), command=crawl)</div><div class="line">button_run.place(x=<span class="number">520</span>, y=<span class="number">250</span>)</div><div class="line"></div><div class="line">button_exit = tk.Button(</div><div class="line">    root, text=<span class="string">'退出程序'</span>, font=(<span class="string">''</span>, font_normal_size), command=exit_app)</div><div class="line">button_exit.place(x=<span class="number">640</span>, y=<span class="number">250</span>)</div><div class="line"></div><div class="line">button_tu_1 = tk.Button(</div><div class="line">    root, text=<span class="string">'线性图表'</span>, font=(<span class="string">''</span>, font_normal_size), command=show_linear_chart)</div><div class="line">button_tu_1.place(x=<span class="number">520</span>, y=<span class="number">300</span>)</div><div class="line"></div><div class="line">button_tu_2 = tk.Button(</div><div class="line">    root, text=<span class="string">'散点图表'</span>, font=(<span class="string">''</span>, font_normal_size), command=show_scatter_chart)</div><div class="line">button_tu_2.place(x=<span class="number">640</span>, y=<span class="number">300</span>)</div><div class="line"></div><div class="line">button_tu_3 = tk.Button(</div><div class="line">    root, text=<span class="string">'柱状图表'</span>, font=(<span class="string">''</span>, font_normal_size), command=show_bar_chart)</div><div class="line">button_tu_3.place(x=<span class="number">520</span>, y=<span class="number">350</span>)</div><div class="line"></div><div class="line">var_radio = tk.IntVar()</div><div class="line">radio_db = tk.Radiobutton(</div><div class="line">    root,</div><div class="line">    text=<span class="string">'保存到数据库'</span>,</div><div class="line">    variable=var_radio,</div><div class="line">    value=<span class="number">1</span>,</div><div class="line">    font=(<span class="string">''</span>, font_normal_size))</div><div class="line">radio_db.place(x=<span class="number">520</span>, y=<span class="number">100</span>)</div><div class="line"></div><div class="line">radio_excel = tk.Radiobutton(</div><div class="line">    root,</div><div class="line">    text=<span class="string">'导出到Excel文件'</span>,</div><div class="line">    variable=var_radio,</div><div class="line">    value=<span class="number">2</span>,</div><div class="line">    font=(<span class="string">''</span>, font_normal_size))</div><div class="line">radio_excel.place(x=<span class="number">520</span>, y=<span class="number">150</span>)</div><div class="line"></div><div class="line">radio_both = tk.Radiobutton(</div><div class="line">    root,</div><div class="line">    text=<span class="string">'两种方式同时执行'</span>,</div><div class="line">    variable=var_radio,</div><div class="line">    value=<span class="number">3</span>,</div><div class="line">    font=(<span class="string">''</span>, font_normal_size))</div><div class="line">radio_both.place(x=<span class="number">520</span>, y=<span class="number">200</span>)</div><div class="line"></div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
+<h3 id="淘宝定向爬虫源码下载"><a href="#淘宝定向爬虫源码下载" class="headerlink" title="淘宝定向爬虫源码下载"></a>淘宝定向爬虫源码下载</h3><blockquote>
+<p><a href="https://github.com/opengit/PyDemos" target="_blank" rel="external">Github上源码下载</a><br>谢谢star一下啊~ <code>^#^</code>~~</p>
+</blockquote>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>代码非常简单，用起来也很方便。大家有问题的话，可以看下面的联系方式找到我，我们一起讨论。</p>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-25T15:28:53.000Z" itemprop="dateUpdated">2017-05-25 23:28:53</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2017/03/07/taobao-spider/" target="_blank" rel="external">http://sunjiajia.com/2017/03/07/taobao-spider/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2017/03/07/taobao-spider/&title=《淘宝商品信息定向爬虫》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2017/03/07/taobao-spider/&title=《淘宝商品信息定向爬虫》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2017/03/07/taobao-spider/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《淘宝商品信息定向爬虫》 — 安卓猴&url=http://sunjiajia.com/2017/03/07/taobao-spider/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2017/03/07/taobao-spider/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/10/virtualbox-centos-ssh-git-server/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VirtualBox中CentOS配置git服务器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/07/double-tap-toolbar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">自定义Toolbar添加双击事件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2017/03/07/taobao-spider/&title=《淘宝商品信息定向爬虫》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2017/03/07/taobao-spider/&title=《淘宝商品信息定向爬虫》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2017/03/07/taobao-spider/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《淘宝商品信息定向爬虫》 — 安卓猴&url=http://sunjiajia.com/2017/03/07/taobao-spider/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2017/03/07/taobao-spider/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS07DQBAFQO5/6bBFihy/N21AHpdXUQj2VCK1+vf1FV+vH9fa+/nr97tddmFgYNyW8fp4HX3m/RDtF7H23EMqBgbGAxhHD25DZBs089B8cmYMDAyMj8lfcpT8DhgYGBjXMvLkL8djYGBgTIrY/HCfE8F/rsUxMDBuyMhLzb9//SvzDQwMjFsxXuWVF7TzZLE4FQYGxtaMPMCtDTVb8OQ8GBgYuzLaf1gLrJPVjc9DhcXfAQMD41aMpAW2VkvOlzbq4QQGBsYDGMkD2iPmDf081J5kuBgYGFsz2nHjWrstL1nrFRAMDIxNGUmYa5cnkjJ4bQns8CQYGBhbM9Y+mgTcNqGcL5lhYGDsysgfOV+wmLfqTkaYGBgYmzLyYnWyHJavbrRhva65MTAwtmDkZWrbuJ8UzEX5ioGBsSmjXWtoMfmgNAn6US2OgYGxHWPS/EoWVSc9/FGoxcDA2ILRrm1dlSa2X24x08DAwNiOMRlAJkG2bdvlhW7xm2BgYGzHWLvdZHUsGUVEbAwMjAcw2uC71jjLlyou6BdiYGBszWiXJPICNS+b62IYAwNjU8arvCYJX9vIW8xtMTAwtmO0bfq1UNsmeW3SiYGB8QTGVSXr2jAgSR+jIIuBgfEARh4o1xpt15bBJ4MBDAyMxzPaMDpZyyjaghgYGBglo/1r/v5hCw8DA+MBjKSInRSfeThun4WBgfEERls65qPHfGzZht3FQSYGBsb9GN9zUWC+COo5QQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

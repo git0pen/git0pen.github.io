@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/">
+    
+    
+    <title>《Monkey Java》课程4.3之面向对象基础4 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下内容：  函数的重载 构造函数的作用   函数的重载 在同一个类中允许函数的重名这种现象的出现，它有3个特征：  两个或者多个函数在同一个类当中； 函数名相同； 参数列表不同。   例子：（请动手） 1.新建一个名称为Demo01.java的java源文件。 12345678910111213clas">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Monkey Java》课程4.3之面向对象基础4">
+<meta property="og:url" content="http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下内容：  函数的重载 构造函数的作用   函数的重载 在同一个类中允许函数的重名这种现象的出现，它有3个特征：  两个或者多个函数在同一个类当中； 函数名相同； 参数列表不同。   例子：（请动手） 1.新建一个名称为Demo01.java的java源文件。 12345678910111213clas">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:09:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Monkey Java》课程4.3之面向对象基础4">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下内容：  函数的重载 构造函数的作用   函数的重载 在同一个类中允许函数的重名这种现象的出现，它有3个特征：  两个或者多个函数在同一个类当中； 函数名相同； 参数列表不同。   例子：（请动手） 1.新建一个名称为Demo01.java的java源文件。 12345678910111213clas">
+<meta name="twitter:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《Monkey Java》课程4.3之面向对象基础4</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《Monkey Java》课程4.3之面向对象基础4</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-11T08:34:27.000Z" itemprop="datePublished" class="page-time">
+  2015-07-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Java》/">《Monkey Java》</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的重载"><span class="post-toc-number">1.</span> <span class="post-toc-text">函数的重载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数的作用"><span class="post-toc-number">2.</span> <span class="post-toc-text">构造函数的作用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-monkey-java-basic-courses-4-3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《Monkey Java》课程4.3之面向对象基础4</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-11 16:34:27" datetime="2015-07-11T08:34:27.000Z"  itemprop="datePublished">2015-07-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Java》/">《Monkey Java》</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<p>本节课程将学习以下内容：</p>
+<ul>
+<li>函数的重载</li>
+<li>构造函数的作用</li>
+</ul>
+<hr>
+<h2 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h2><blockquote>
+<p>在同一个类中允许函数的重名这种现象的出现，它有3个特征：</p>
+<ul>
+<li>两个或者多个函数在同一个类当中；</li>
+<li>函数名相同；</li>
+<li>参数列表不同。</li>
+</ul>
+</blockquote>
+<p>例子：（请动手）</p>
+<p>1.新建一个名称为Demo01.java的java源文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funDemo01</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"没有参数的funDemo01函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 这个funDemo01函数重载了上面的funDemo01函数，特点为：</span></div><div class="line">  <span class="comment">// 1. 两个funDemo01函数处于同一个类Demo01当中；</span></div><div class="line">  <span class="comment">// 2. 函数名相同，都为funDemo01；</span></div><div class="line">  <span class="comment">// 3. 参数不同，第2个funDemo01函数有了一个整型参数i。</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funDemo01</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"有参数i的funDemo01函数，i的值是"</span> + i);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>新建一个名称为Demo02.java的java源文件。</li>
+</ol>
+<blockquote>
+<p>Demo02类演示了重载方法的调用。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Demo01 demo01 = <span class="keyword">new</span> Demo01();</div><div class="line">    demo01.funDemo01();</div><div class="line">    demo01.funDemo01(<span class="number">100</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="构造函数的作用"><a href="#构造函数的作用" class="headerlink" title="构造函数的作用"></a>构造函数的作用</h2><blockquote>
+<p>用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中；<br>一个类可以有多个构造函数 ，可根据其参数个数的不同或参数类型的不同来区分它们，即构造函数的重载。</p>
+<p>特征：</p>
+<ul>
+<li>没有返回值类型的定义；</li>
+<li>构造函数的名字必须和类的名字完全保持相同；</li>
+</ul>
+</blockquote>
+<p>例子：（请动手）</p>
+<ol>
+<li>新建一个名称为Person.java的java源文件。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">  <span class="comment">// 构造函数</span></div><div class="line">  Person()&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 第二个构造函数，利用的原理是方法的重载</span></div><div class="line">  Person(String n, <span class="keyword">int</span> a)&#123;</div><div class="line">    name = n;</div><div class="line">    age = a;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>新建一个名称为Demo03.java的java源文件。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo03</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 调用的是无参的构造方法</span></div><div class="line">    Person p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.name = <span class="string">"zhang3"</span>;</div><div class="line">    p1.age = <span class="number">15</span>;</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"p1的name是："</span> + p1.name + <span class="string">"，age是："</span> + p1.age);</div><div class="line"></div><div class="line">    <span class="comment">// 调用的是有参的构造方法，哪个写法更加简单呢？</span></div><div class="line">    Person p2 = <span class="keyword">new</span> Person(<span class="string">"li4"</span>, <span class="number">18</span>);</div><div class="line">    System.out.println(<span class="string">"p12的name是："</span> + p2.name + <span class="string">"，age是："</span> + p2.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:09:46.000Z" itemprop="dateUpdated">2016-05-14 04:09:46</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/07/11/monkey-java-basic-courses-4-3/" target="_blank" rel="external">http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&title=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&title=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/07/13/monkey-java-basic-courses-5-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Java》课程5.0之this的使用方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/11/monkey-java-basic-courses-4-2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">《Monkey Java》课程4.2之面向对象基础3</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&title=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&title=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Java》课程4.3之面向对象基础4》 — 安卓猴&url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3awa7DIAxE0f7/T+dJ3VYhM2PyJOzLqkrSwsnCBdufjzyu7/i9Ur/+e/fumQ0DBgwYxzKu5VhPo1/RX8d63lsqDBgwBjDWQfZuej106iF1Pe/tdRgwYMBYLkKZ2N3XwYABA0aFkYXjytYTBgwYMPRDbOWQqV9//SwOAwaMAxluYeA/P79Y34ABA8YhjCsa7uEz+66xHhgwYLRmZGm1StnyjbIoDBgwejP05RppL/PgqmwEH8I3DBgwBjDcdopK6HQbNaRfgAEDxjBGloJXgrJ70NULqzBgwJjDqBws9Q1i1mAhZQ1hwIDRmqG0WdTvurVI4xdgwIAxgFFv3tKPvu53pRAPAwaMMYws1aUfNd0r+jYRBgwYvRlZSWDXxs5d+sNLhAEDRlOGkXwvtGJkd41XAwMGjNaMSpjbtb1zywkPfwkwYMBox3CbJPRF6+E445V6PWDAgHEUY8OjZmrMbba4hAEDBozejKx5Qi9qKts7N90mbQ1hwIDRiLE3gGYFzkqyDwYMGBMY7qYtK0NKdVQZAwMGjGkMN9Rm4ThjZAUDGDBg9GNc5nDfUL2dQvobgAEDRmvGrqR/tr3LniwNGDBgHMvQt3Ruo1j2CrI1wIABYwJDCZfZk24J003twYABA4bbNqEDXGTYywYDBoxhjCzUKi/FbTKDAQPGTEblEOtOnIXvUpUDBgwYhzPcwoCbxM/SatlxGgYMGO0Yf4OOZauzWXBOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

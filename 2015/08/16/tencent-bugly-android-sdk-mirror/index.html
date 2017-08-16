@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/">
+    
+    
+    <title>体验极速Android Sdk更新与下载 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。 2015-09-07更新其他源部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。 配置说明：东软信息学院开源镜像站 Android SDK 配置说明 2015-08-16更新腾讯Bugly Android S">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="体验极速Android Sdk更新与下载">
+<meta property="og:url" content="http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。 2015-09-07更新其他源部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。 配置说明：东软信息学院开源镜像站 Android SDK 配置说明 2015-08-16更新腾讯Bugly Android S">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/201508/open-standalone-sdk-manager.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/201508/sdk-manager-user-defined-sites.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/201508/sdk-manager-setting.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/201508/sdk-manager-update-speed.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:06:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="体验极速Android Sdk更新与下载">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。 2015-09-07更新其他源部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。 配置说明：东软信息学院开源镜像站 Android SDK 配置说明 2015-08-16更新腾讯Bugly Android S">
+<meta name="twitter:image" content="http://sunjiajia.com/img/201508/open-standalone-sdk-manager.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">体验极速Android Sdk更新与下载</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">体验极速Android Sdk更新与下载</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-16T07:50:27.000Z" itemprop="datePublished" class="page-time">
+  2015-08-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android新手/">Android新手</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2015-09-07更新"><span class="post-toc-number"></span> <span class="post-toc-text">2015-09-07更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他源"><span class="post-toc-number">1.</span> <span class="post-toc-text">其他源</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2015-08-16更新"><span class="post-toc-number"></span> <span class="post-toc-text">2015-08-16更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#腾讯Bugly-Android-SDk-镜像使用指南"><span class="post-toc-number">1.</span> <span class="post-toc-text">腾讯Bugly Android SDk 镜像使用指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-tencent-bugly-android-sdk-mirror"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">体验极速Android Sdk更新与下载</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-16 15:50:27" datetime="2015-08-16T07:50:27.000Z"  itemprop="datePublished">2015-08-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android新手/">Android新手</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。</p>
+<h1 id="2015-09-07更新"><a href="#2015-09-07更新" class="headerlink" title="2015-09-07更新"></a>2015-09-07更新</h1><h2 id="其他源"><a href="#其他源" class="headerlink" title="其他源"></a>其他源</h2><p>部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。</p>
+<p>配置说明：<a href="http://mirrors.neusoft.edu.cn/more.we#android" target="_blank" rel="external">东软信息学院开源镜像站 Android SDK 配置说明</a></p>
+<h1 id="2015-08-16更新"><a href="#2015-08-16更新" class="headerlink" title="2015-08-16更新"></a>2015-08-16更新</h1><h2 id="腾讯Bugly-Android-SDk-镜像使用指南"><a href="#腾讯Bugly-Android-SDk-镜像使用指南" class="headerlink" title="腾讯Bugly Android SDk 镜像使用指南"></a>腾讯Bugly Android SDk 镜像使用指南</h2><blockquote>
+<p><a href="http://android-mirror.bugly.qq.com:8080/" target="_blank" rel="external"><strong>腾讯Bugly Android SDk 镜像 地址</strong></a></p>
+</blockquote>
+<p>1.打开独立Android SDK 管理器，在Android Studio中打开<em>**</em>：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201508/open-standalone-sdk-manager.jpg" alt="打开独立Android SDK 管理器" title="">
+                </div>
+                <div class="image-caption">打开独立Android SDK 管理器</div>
+            </figure>
+<p>2.菜单依次打开<code>Tools</code>–&gt;<code>Manage Add-on Sites...</code>–&gt;<code>User Defined Sites</code>：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201508/sdk-manager-user-defined-sites.jpg" alt="User Defined Sites" title="">
+                </div>
+                <div class="image-caption">User Defined Sites</div>
+            </figure>
+<p>3.输入下面链接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://android-mirror.bugly.qq.com:8080/android/repository/addon.xml</div></pre></td></tr></table></figure>
+<p>4.进入SDK Manager的Settings中，按图片中进行设置：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201508/sdk-manager-setting.jpg" alt="SDK Manager Settings" title="">
+                </div>
+                <div class="image-caption">SDK Manager Settings</div>
+            </figure>
+<p>5.<strong>HTTP Proxy Server</strong> 和 <strong>HTTP Proxy Port</strong>分别输入的是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android-mirror.bugly.qq.com</div><div class="line">8080</div></pre></td></tr></table></figure>
+<p>6.菜单中选择<code>Packages</code>–&gt;<code>Reload</code>，进行刷新后，就可以下载或者更新你需要的SDK组件了！我这里电信小水管，直接<strong>满速</strong>，如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201508/sdk-manager-update-speed.jpg" alt="Android SDK 下载满速" title="">
+                </div>
+                <div class="image-caption">Android SDK 下载满速</div>
+            </figure>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:06:56.000Z" itemprop="dateUpdated">2016-05-14 04:06:56</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/08/16/tencent-bugly-android-sdk-mirror/" target="_blank" rel="external">http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&title=《体验极速Android Sdk更新与下载》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&title=《体验极速Android Sdk更新与下载》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《体验极速Android Sdk更新与下载》 — 安卓猴&url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/09/02/gradle-umeng-channels/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Gradle多渠道打包[umeng]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/08/16/make-android-open-source/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">编译Android5.1.1源码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&title=《体验极速Android Sdk更新与下载》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&title=《体验极速Android Sdk更新与下载》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《体验极速Android Sdk更新与下载》 — 安卓猴&url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwElEQVR42u3aQY4bMQwEQP//0wmQWxB43E1KcYDUnBa2V6PSQSJafL3i58ev589Pkud5tHe/efeW140HDw8PbzT158k9f75Zmnfg9jdvlwAPDw/vGu/U9p18koycjJYsJR4eHt53ecnW/O73+ch4eHh4/w8vhyXl8v44wcPDw7vNSzb6/PXJ+En5/lezFjw8PLzuTqq4APsX/r54v4eHh4e3uFVv44b2gGlDjXqeeHh4eBd4bYk8K7vbq7XZgkZZCx4eHt4hXj5ofnGVBBObC7DkXXh4eHg3ePm2nh8Gm+L7cAsXHh4e3gXe7EhoQ9X2sqot1qMwAg8PD+8ob3bRtWkX2EfAeWmOh4eHd4OXB6PthJ4PkiSA2PweDw8P7wZvM1zbippfj83i5iJrwcPDw1vwki+SyeUHyaZlYROd4OHh4Z3izQrofHOvs5DycutDWY+Hh4d3gddeL81es2k7aEv8IpnGw8PDG/Hy18+q9fY4mbUUvB0fDw8P7wIvj2jz+7RNc9WsfWGYteDh4eGteXkQkAPOjjlrccDDw8M7y9ts7m1kMDtUVo0LeHh4eNd4swi1bSOYldR5DFFnLXh4eHgjXh4BPA+3R7YXaXn4i4eHh3ePN3vqDXrUrJAX/YeReHh4eI9hxKmiOY9rN0dInbXg4eHhHeLlA7VHwtmQIlnQfOZ4eHh4G17Srto+s7jh7JL91jqAh4eHd5SXTKJ9QfK/CaNNTeqUGg8PD2/E22/6+QbdLkTy7bCkxsPDw1vwZttue2X1PKFZDHG4gQAPDw+vnENyGMwCi9llVVtwf1g+PDw8vGu8Np7Ii+D20msTRnwIcPHw8PC+xGsPgFlFnwQZERIPDw/vq7xNQNCWwu0Bc+BgwMPDwyt5pxqw8hI5WdZZSX0ga8HDw8PbdjQNW//b5Zg1Hxy+38PDw8N7+uQnbbTvZPQriN4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

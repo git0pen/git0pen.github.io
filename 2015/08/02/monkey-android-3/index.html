@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/08/02/monkey-android-3/">
+    
+    
+    <title>《Monkey Android》第3课之Android Studio简介与模拟器 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   通过本节课可以学习到的内容：   Android Studio新建工程 初识Android Studio真面目 用Android模拟器运行Android 5.1.1系统    Android Studio新建工程第1步： 打开Android Studio，点击Start a New Android Studio pro">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Monkey Android》第3课之Android Studio简介与模拟器">
+<meta property="og:url" content="http://sunjiajia.com/2015/08/02/monkey-android-3/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   通过本节课可以学习到的内容：   Android Studio新建工程 初识Android Studio真面目 用Android模拟器运行Android 5.1.1系统    Android Studio新建工程第1步： 打开Android Studio，点击Start a New Android Studio pro">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-projects-1.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-projects-2.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-projects-3.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-projects-4.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-projects-5.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-studio-interface.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-1.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-2.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-3.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-4.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-5.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-6.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-7.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-new-emulator-8.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-genymotion-1.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-genymotion-2.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-genymotion-3.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-genymotion-4.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/android/3-genymotion-5.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:07:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Monkey Android》第3课之Android Studio简介与模拟器">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   通过本节课可以学习到的内容：   Android Studio新建工程 初识Android Studio真面目 用Android模拟器运行Android 5.1.1系统    Android Studio新建工程第1步： 打开Android Studio，点击Start a New Android Studio pro">
+<meta name="twitter:image" content="http://sunjiajia.com/img/android/3-new-projects-1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《Monkey Android》第3课之Android Studio简介与模拟器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《Monkey Android》第3课之Android Studio简介与模拟器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-02T13:50:27.000Z" itemprop="datePublished" class="page-time">
+  2015-08-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-Studio新建工程"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Studio新建工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初识Android-Studio真面目"><span class="post-toc-number">2.</span> <span class="post-toc-text">初识Android Studio真面目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模拟器"><span class="post-toc-number">3.</span> <span class="post-toc-text">模拟器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原生模拟器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">原生模拟器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最快的模拟器"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">最快的模拟器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Genymotion下载"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">Genymotion下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Genymotion安装"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">Genymotion安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Genymotion使用"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">Genymotion使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下课"><span class="post-toc-number">4.</span> <span class="post-toc-text">下课</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-monkey-android-3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《Monkey Android》第3课之Android Studio简介与模拟器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-02 21:50:27" datetime="2015-08-02T13:50:27.000Z"  itemprop="datePublished">2015-08-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<p>通过本节课可以学习到的内容：</p>
+<blockquote>
+<ul>
+<li>Android Studio新建工程</li>
+<li>初识Android Studio真面目</li>
+<li>用Android模拟器运行Android 5.1.1系统</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="Android-Studio新建工程"><a href="#Android-Studio新建工程" class="headerlink" title="Android Studio新建工程"></a>Android Studio新建工程</h2><p><strong>第1步：</strong> 打开Android Studio，点击<code>Start a New Android Studio project</code>。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-projects-1.jpg" alt="新建工程第1步" title="">
+                </div>
+                <div class="image-caption">新建工程第1步</div>
+            </figure>
+<p><strong>第2步：</strong> 按照图中解释，填写 <code>Application Name</code> 等信息。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-projects-2.jpg" alt="新建工程第2步" title="">
+                </div>
+                <div class="image-caption">新建工程第2步</div>
+            </figure>
+<p><strong>第3步：</strong> 选择App的运行设备类型和相应的系统版本。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-projects-3.jpg" alt="新建工程第3步" title="">
+                </div>
+                <div class="image-caption">新建工程第3步</div>
+            </figure>
+<p><strong>第4步：</strong> 选择新建Activity的类型，我们保持默认。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-projects-4.jpg" alt="新建工程第4步" title="">
+                </div>
+                <div class="image-caption">新建工程第4步</div>
+            </figure>
+<p><strong>第5步：</strong> 需要填写<code>Activity Name</code>等信息，我们依旧保持默认。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-projects-5.jpg" alt="新建工程第5步" title="">
+                </div>
+                <div class="image-caption">新建工程第5步</div>
+            </figure>
+<p><strong>第6步：</strong> 点击<code>Finish</code>后，Android Studio开始新建工程，初次使用由于要下载gradle等组件，速度较慢，请耐心等待。</p>
+<h2 id="初识Android-Studio真面目"><a href="#初识Android-Studio真面目" class="headerlink" title="初识Android Studio真面目"></a>初识Android Studio真面目</h2><p>再等待一段时间后，工程终于建立完毕，这时，我们看到了Android Studio的真面目，以及它的默认布局，如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-studio-interface.jpg" alt="Android Studio真面目" title="">
+                </div>
+                <div class="image-caption">Android Studio真面目</div>
+            </figure>
+<h2 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h2><h3 id="原生模拟器"><a href="#原生模拟器" class="headerlink" title="原生模拟器"></a>原生模拟器</h3><p>在我们的学习当中，不建议使用原生模拟器，因为它容易出现掉线、卡机等未知问题，但是，我们也要会使用它：</p>
+<p><strong>第1步：</strong> 打开Android Studio，点击<code>Tools</code>—&gt;<code>Android</code>—&gt;<code>AVD Manager</code> 。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-1.jpg" alt="原生模拟器第1步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第1步</div>
+            </figure>
+<p><strong>第2步：</strong> 点击<code>Create a virtual device</code> 。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-2.jpg" alt="原生模拟器第2步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第2步</div>
+            </figure>
+<p><strong>第3步：</strong> 选择要模拟的设备型号，例如<code>Nexus 5</code> 。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-3.jpg" alt="原生模拟器第3步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第3步</div>
+            </figure>
+<p><strong>第4步：</strong> 选择系统版本，如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-4.jpg" alt="原生模拟器第4步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第4步</div>
+            </figure>
+<p><strong>第5步：</strong> 点击<code>Show Advanced Setting</code>，如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-5.jpg" alt="原生模拟器第5步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第5步</div>
+            </figure>
+<p><strong>第6步：</strong> Virtual Device的优化设置，最后点击<code>Finish</code>。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-6.jpg" alt="原生模拟器第6步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第6步</div>
+            </figure>
+<p><strong>第7步：</strong> 回到了AVD Manager面板，出现了刚刚新建的Device，点击<code>Actions</code>中的<code>绿色实心向右箭头</code>运行该设备。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-7.jpg" alt="原生模拟器第7步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第7步</div>
+            </figure>
+<p><strong>第8步：</strong> 首次运行速度较慢，请耐心等待一会儿，Android 5.1就启动完毕。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-new-emulator-8.jpg" alt="原生模拟器第8步" title="">
+                </div>
+                <div class="image-caption">原生模拟器第8步</div>
+            </figure>
+<h3 id="最快的模拟器"><a href="#最快的模拟器" class="headerlink" title="最快的模拟器"></a>最快的模拟器</h3><p>原生的模拟器已经介绍完了，我们就先放下它了，毕竟我们在调试的时候讲究效率，所以，我们选择使用大名鼎鼎的的<code>Genymotion</code>。</p>
+<p>Genymotion是一款速度很快的Android模拟器，原理是使用了Oracle的虚拟机Virtual Box来构建一个Android虚拟机。</p>
+<p>从以下两个网站详细了解Genymotion的特性，并可以从中下载它。</p>
+<p><a href="http://www.Genymotion.com" target="_blank" rel="external"><strong>Genymotion英文官网</strong></a></p>
+<p><a href="http://www.Genymotion.net" target="_blank" rel="external"><strong>Genymotion国人自建中文网</strong></a></p>
+<p><br></p>
+<h4 id="Genymotion下载"><a href="#Genymotion下载" class="headerlink" title="Genymotion下载"></a>Genymotion下载</h4><p>要下载它需要先注册登录，这里 @安卓猴 给出一个百度网盘下载地址：</p>
+<p><a href="http://pan.baidu.com/s/1i3eXURV" target="_blank" rel="external"><strong>Genymotion 2.5.3（带vbox）网盘下载</strong></a>， 密码：<code>e1mf</code></p>
+<p><br></p>
+<h4 id="Genymotion安装"><a href="#Genymotion安装" class="headerlink" title="Genymotion安装"></a>Genymotion安装</h4><p>安装就不多说了，直接一直<code>Next</code>就可以。</p>
+<p><br></p>
+<h4 id="Genymotion使用"><a href="#Genymotion使用" class="headerlink" title="Genymotion使用"></a>Genymotion使用</h4><p><strong>第1步：</strong> 安装好后打开Genymotion进入主面板，点击<code>Add</code>添加新的虚拟器。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-genymotion-1.jpg" alt="Genymotion第1步" title="">
+                </div>
+                <div class="image-caption">Genymotion第1步</div>
+            </figure>
+<p><strong>第2步：</strong> 选择要虚拟的Android系统版本，并选择设备，这里选择Nexus5，点击<code>Next</code>后，会进入下载与配置界面，耐心等待；完成后回到Genymotion主界面。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-genymotion-2.jpg" alt="Genymotion第2步" title="">
+                </div>
+                <div class="image-caption">Genymotion第2步</div>
+            </figure>
+<p><strong>第3步：</strong> 在Genymotion的主面板中点击<code>扳手</code>小图标，设置刚刚建立的虚拟器，我们把它的内存设置为1024MB就够用。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-genymotion-3.jpg" alt="Genymotion第3步" title="">
+                </div>
+                <div class="image-caption">Genymotion第3步</div>
+            </figure>
+<p><strong>第4步：</strong> 在Genymotion的主面板中，选中虚拟器以后，点击<code>Start</code>启动它。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-genymotion-4.jpg" alt="Genymotion第4步" title="">
+                </div>
+                <div class="image-caption">Genymotion第4步</div>
+            </figure>
+<p><strong>第5步：</strong> 我们的Android5.1虚拟器就启动起来了！是不是很nice呀？试了一下，真的比原生模拟器 <strong>快</strong> 太多！如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/3-genymotion-5.jpg" alt="Genymotion第5步" title="">
+                </div>
+                <div class="image-caption">Genymotion第5步</div>
+            </figure>
+<h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>相信看到这里， <strong>Android Studio</strong> 以及调试App所用的 <strong>史上最快虚拟器</strong> 都被我们玩懂了。</p>
+<p>懂是懂了，可是还需深入学习，不是吗？</p>
+<p>有什么问题请在下面留言评论，我们一起进步！</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:07:36.000Z" itemprop="dateUpdated">2016-05-14 04:07:36</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/08/02/monkey-android-3/" target="_blank" rel="external">http://sunjiajia.com/2015/08/02/monkey-android-3/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/08/02/monkey-android-3/&title=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/08/02/monkey-android-3/&title=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/08/02/monkey-android-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&url=http://sunjiajia.com/2015/08/02/monkey-android-3/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/08/02/monkey-android-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/03/monkey-android-4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Android》第4课之运行第一个App</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/31/monkey-android-2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">《Monkey Android》第2课之环境搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/08/02/monkey-android-3/&title=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/08/02/monkey-android-3/&title=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/08/02/monkey-android-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第3课之Android Studio简介与模拟器》 — 安卓猴&url=http://sunjiajia.com/2015/08/02/monkey-android-3/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/08/02/monkey-android-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aW26FMAwFQPa/abqAFnLsQCWSyVd1eXn6YcWxjyNe569V/b361PHGwsDA+CzjvF33H+jdk3w9jw0DA2MfxlUGS8K9+iVPo/fP3t+PgYGBcR9WLzkmbAwMDIz3GL0COOFhYGBgJMVkUqwOSs3gi6/X4hgYGB9k5Kfu///3K/0NDAyMTzHO4qq+JwkrT6+XX8HAwFiakSe43lFasjWMCtTkDRgYGIsy7gcjeiXuzNF/8p4/7sTAwNiAkYeV46sjF0m4l1cxMDA2Y1QbjXli7aXUqADGwMBYmpFXuvObv2qgMyUuBgbGqoyZlFq9mif3coMTAwNjG0ZytXc0lifu3tYTAwNjPUa13VhtW+YptTemhoGBsQPjqXCrB2TVVkQ+xoGBgbEeoxp6b/Cr+ubyxhQDA2MDRvXkKglxJtByUsbAwFiaMXPs1WswPFCm9rqvGBgYCzF65Wj1nl5zdKoTi4GB8XHGU4MUU6d9cSNh0BLAwMBYmpF/pjpCkYxfJG8YlLUYGBjbMJJCNLk6v9HMj/MwMDD2YUxVwBNbwOpB3mDkAgMDYznGWVxJks0bkNVUW9jbYmBgLMToNRTfCLdaKj/Qp8XAwPgUYz64XmuzusUcxIOBgbEBoze9UD36T/5lzVIZAwMDoxhWXqDmKX4AxsDAwAhaBUn52gs0am1iYGBswJgZmMhT80zjcwDGwMBYmpE/Vh2YyJsEvacwMDA2YPwAnbMPLHbIppEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

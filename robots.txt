@@ -1,0 +1,14 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/ 
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://sunjiajia.com/sitemap.xml
+Sitemap: http://sunjiajia.com/baidusitemap.xml
+Sitemap: http://sunjiajia.com/atom.xml

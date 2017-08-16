@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2016/05/07/daily-tips/">
+    
+    
+    <title>Daily Tips（Updated） | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="技巧">
+    <meta name="description" content="意欲如何？ 这篇博文取名为“Daily Tips”，意为日常技巧、小技巧，意在记录开发中或者与电脑打交道过程中遇到的一些小问题及解决途径，这些小问题是值得记录但又无须长篇大论、深究的。 记录方式将以三级标题是问题，其下内容为答案的模式，简单明了。 本篇博文将不定时更新，每次更新会将博文时间提到修改之时。 如若各位有任何问题和看法，请及时评论或者[at]我微博讨论交流。 您的问题和答案采取后也可以出">
+<meta name="keywords" content="技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daily Tips（Updated）">
+<meta property="og:url" content="http://sunjiajia.com/2016/05/07/daily-tips/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="意欲如何？ 这篇博文取名为“Daily Tips”，意为日常技巧、小技巧，意在记录开发中或者与电脑打交道过程中遇到的一些小问题及解决途径，这些小问题是值得记录但又无须长篇大论、深究的。 记录方式将以三级标题是问题，其下内容为答案的模式，简单明了。 本篇博文将不定时更新，每次更新会将博文时间提到修改之时。 如若各位有任何问题和看法，请及时评论或者[at]我微博讨论交流。 您的问题和答案采取后也可以出">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-11-26T11:15:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daily Tips（Updated）">
+<meta name="twitter:description" content="意欲如何？ 这篇博文取名为“Daily Tips”，意为日常技巧、小技巧，意在记录开发中或者与电脑打交道过程中遇到的一些小问题及解决途径，这些小问题是值得记录但又无须长篇大论、深究的。 记录方式将以三级标题是问题，其下内容为答案的模式，简单明了。 本篇博文将不定时更新，每次更新会将博文时间提到修改之时。 如若各位有任何问题和看法，请及时评论或者[at]我微博讨论交流。 您的问题和答案采取后也可以出">
+<meta name="twitter:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Daily Tips（Updated）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Daily Tips（Updated）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-05-07T05:30:37.000Z" itemprop="datePublished" class="page-time">
+  2016-05-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术相关/">技术相关</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#意欲如何？"><span class="post-toc-number">1.</span> <span class="post-toc-text">意欲如何？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正文开始"><span class="post-toc-number">2.</span> <span class="post-toc-text">正文开始</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-001-ubuntu-linux-下查看Gtk版本（version）信息？"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">[No.001] ubuntu(linux)下查看Gtk版本（version）信息？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-002-重装ubuntu后终端terminal的Tab键无法自动补全！"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">[No.002] 重装ubuntu后终端terminal的Tab键无法自动补全！</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-003-老版本Ubuntu（12-04）中安装新nodejs！"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">[No.003] 老版本Ubuntu（12.04）中安装新nodejs！</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">[No.004] Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-005-Ubuntu16-04下打开Eclipse后各种按钮太大"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">[No.005] Ubuntu16.04下打开Eclipse后各种按钮太大</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-006-Ubuntu16-04下编译Android源码的jdk问题"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">[No.006] Ubuntu16.04下编译Android源码的jdk问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-007-解决Ubuntu16-04-字体太细发虚（表现在Chrome中浏览中文）"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">[No.007] 解决Ubuntu16.04 字体太细发虚（表现在Chrome中浏览中文）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#No-008-Android-emulator-启动失败，提示错误：libGL-error-unable-to-load-driver-i965-dri-so"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">[No.008] Android emulator 启动失败，提示错误：libGL error: unable to load driver: i965_dri.so</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#未完待续～～"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">未完待续～～</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-daily-tips"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Daily Tips（Updated）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-05-07 13:30:37" datetime="2016-05-07T05:30:37.000Z"  itemprop="datePublished">2016-05-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术相关/">技术相关</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="意欲如何？"><a href="#意欲如何？" class="headerlink" title="意欲如何？"></a>意欲如何？</h2><ul>
+<li>这篇博文取名为<code>“Daily Tips”</code>，意为<code>日常技巧</code>、<code>小技巧</code>，意在记录<code>开发中或者与电脑打交道</code>过程中遇到的一些小问题及解决途径，这些小问题是值得记录但又无须长篇大论、深究的。</li>
+<li>记录方式将以<code>三级标题是问题，其下内容为答案</code>的模式，简单明了。</li>
+<li>本篇博文将不定时更新，每次更新会将博文时间提到修改之时。</li>
+<li>如若各位有任何问题和看法，请<code>及时评论</code>或者<code>[at]我微博</code>讨论交流。</li>
+<li>您的问题和答案采取后也可以出现在本篇微博中，会注明您的<code>姓名和链接</code>，为您带来流量。</li>
+</ul>
+<hr>
+<h2 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h2><hr>
+<h3 id="No-001-ubuntu-linux-下查看Gtk版本（version）信息？"><a href="#No-001-ubuntu-linux-下查看Gtk版本（version）信息？" class="headerlink" title="[No.001] ubuntu(linux)下查看Gtk版本（version）信息？"></a><em>[No.001]</em> ubuntu(linux)下查看Gtk版本（version）信息？</h3><ul>
+<li><p>打开终端输入以下命令即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg -l libgtk2.0-0 libgtk-3-0</div></pre></td></tr></table></figure>
+</li>
+<li><p>得到如下反馈：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">||/ Name           Version      Architecture Description</div><div class="line">+++-==============-============-============-=================================</div><div class="line">ii  libgtk-3-0:amd 3.10.8-0ubun amd64        GTK+ graphical user interface lib</div><div class="line">ii  libgtk2.0-0:am 2.24.23-0ubu amd64        GTK+ graphical user interface lib</div></pre></td></tr></table></figure>
+</li>
+<li><p>其中<code>3.10.8</code>、<code>2.24.23</code>分别为<code>gtk3</code>、<code>gtk2</code>的版本信息。</p>
+</li>
+</ul>
+<hr>
+<h3 id="No-002-重装ubuntu后终端terminal的Tab键无法自动补全！"><a href="#No-002-重装ubuntu后终端terminal的Tab键无法自动补全！" class="headerlink" title="[No.002] 重装ubuntu后终端terminal的Tab键无法自动补全！"></a><em>[No.002]</em> 重装ubuntu后终端terminal的Tab键无法自动补全！</h3><ul>
+<li><p>打开终端，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/bash.bashrc</div></pre></td></tr></table></figure>
+</li>
+<li><p>(ubuntu13.04以上版本)在打开的文件中搜索以下代码，并修改为以下样子（就是将之前每行开头的#删除），保存退出问题解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></div><div class="line">     <span class="keyword">if</span> [-f  /usr/share/bash-completion/bash_completion ]; <span class="keyword">then</span></div><div class="line">          . /usr/share/bash-completion/bash_completion</div><div class="line">      <span class="keyword">elif</span> [ -f /etc/bash_completion]; <span class="keyword">then</span></div><div class="line">           . /etc/bash_completion</div><div class="line">      <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>(ubuntu12.04及老版本)将以下代码前的#去掉：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ -f /etc/bash_completion ] &amp;&amp; ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></div><div class="line">    . /etc/bash_completion</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="No-003-老版本Ubuntu（12-04）中安装新nodejs！"><a href="#No-003-老版本Ubuntu（12-04）中安装新nodejs！" class="headerlink" title="[No.003] 老版本Ubuntu（12.04）中安装新nodejs！"></a><em>[No.003]</em> 老版本Ubuntu（12.04）中安装新nodejs！</h3><blockquote>
+<p>还有问题再看 <a href="https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource" target="_blank" rel="external">作者链接</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install curl</div><div class="line">curl -sL https://deb.nodesource.com/setup | sudo bash -</div><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low"><a href="#No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low" class="headerlink" title="[No.004] Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low."></a><em>[No.004]</em> Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/sysctl.conf</div></pre></td></tr></table></figure>
+<p>在文件中加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Inotify Watches Limit</span></div><div class="line">fs.inotify.max_user_watches = 524288</div></pre></td></tr></table></figure></p>
+<p>参考官方网页：<a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="external">点击打开</a></p>
+<hr>
+<h3 id="No-005-Ubuntu16-04下打开Eclipse后各种按钮太大"><a href="#No-005-Ubuntu16-04下打开Eclipse后各种按钮太大" class="headerlink" title="[No.005] Ubuntu16.04下打开Eclipse后各种按钮太大"></a><em>[No.005]</em> Ubuntu16.04下打开Eclipse后各种按钮太大</h3><ul>
+<li>这个问题是由与Ubuntu16.04中，eclipse默认使用了gtk3的原因，解决问题如下：<blockquote>
+<p>在eclipse根目录的<code>eclipse.ini</code>配置文件中，添加如下配置：</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--launcher.GTK_version</div><div class="line">2</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="No-006-Ubuntu16-04下编译Android源码的jdk问题"><a href="#No-006-Ubuntu16-04下编译Android源码的jdk问题" class="headerlink" title="[No.006] Ubuntu16.04下编译Android源码的jdk问题"></a><em>[No.006]</em> Ubuntu16.04下编译Android源码的jdk问题</h3><ul>
+<li>在最新版本的Ubuntu下编译Android源码，由于Ubuntu16.04默认舍弃了openjdk-7-jdk，所以在编译的时候会提示如下错误：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Checking build tools versions...</div><div class="line">************************************************************</div><div class="line">You asked <span class="keyword">for</span> an OpenJDK 7 build but your version is</div><div class="line">java version <span class="string">"1.7.0_80"</span> Java(TM) SE Runtime Environment (build 1.7.0_80-b15) Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode).</div><div class="line">************************************************************</div><div class="line">build/core/main.mk:191: *** stop.  Stop.</div></pre></td></tr></table></figure>
+<ul>
+<li>解决的办法就是，利用ppa在Ubuntu16.04下安装openjdk-7-jdk：</li>
+</ul>
+<ol>
+<li><p>删除系统中所有与java有关的包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove openjdk-* icedtea-* icedtea6-*</div></pre></td></tr></table></figure>
+</li>
+<li><p>给Xenial添加OpenJDK7的PPA，并更新包索引：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:openjdk-r/ppa &amp;&amp; sudo apt-get update</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装所有当前可用的更新，以确保需要的包准备就绪：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装openjdk7，以及所有Android构建所依赖的包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install adb fastboot openjdk-7-jdk git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven python-mako python3-mako python python3 syslinux-utils google-android-build-tools-installer</div></pre></td></tr></table></figure>
+</li>
+<li><p>更新一下java的环境变量，选择里面有openjdk-7的那一项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样再次编译源码，就不会出现jdk的version错误了。</p>
+</li>
+<li><p>关于如何编译Android源码（AOSP），请参考博文：</p>
+<blockquote>
+<p><a href="http://sunjiajia.com/2015/08/16/make-android-open-source/">《编译Android5.1.1源码》</a></p>
+</blockquote>
+</li>
+<li><p>关于国内下载AOSP源码速度太慢，请参考博文：</p>
+<blockquote>
+<p><a href="http://sunjiajia.com/2015/08/14/download-android-open-source-projects/">《国内镜像加速Android源码下载》</a></p>
+</blockquote>
+<hr>
+<h3 id="No-007-解决Ubuntu16-04-字体太细发虚（表现在Chrome中浏览中文）"><a href="#No-007-解决Ubuntu16-04-字体太细发虚（表现在Chrome中浏览中文）" class="headerlink" title="[No.007] 解决Ubuntu16.04 字体太细发虚（表现在Chrome中浏览中文）"></a><em>[No.007]</em> 解决Ubuntu16.04 字体太细发虚（表现在Chrome中浏览中文）</h3><blockquote>
+<p>这个问题产生是由于Ubuntu 16.04 LTS 的默认中日韩字体package<code>fonts-noto-cjk</code>有一个bug，如果网页没有把其页面语言指定为中日韩字体，那么会用细的字体来显示。解决方法如下：</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p>删除系统自带的<code>fonts-noto-cjk</code>包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove fonts-noto-cjk</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Ubuntu 开发团队的 Gunnar Hjalmarsson 制作的<code>fonts-noto-cjk</code>个人PPA，它修复了这个bug：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:gunnarhj/fonts-noto-cjk</div></pre></td></tr></table></figure>
+</li>
+<li><p>刷新一下包索引：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装修复了bug的<code>fonts-noto-cjk</code>包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fonts-noto-cjk</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="No-008-Android-emulator-启动失败，提示错误：libGL-error-unable-to-load-driver-i965-dri-so"><a href="#No-008-Android-emulator-启动失败，提示错误：libGL-error-unable-to-load-driver-i965-dri-so" class="headerlink" title="[No.008] Android emulator 启动失败，提示错误：libGL error: unable to load driver: i965_dri.so"></a><em>[No.008]</em> Android emulator 启动失败，提示错误：libGL error: unable to load driver: i965_dri.so</h3><ol>
+<li>具体的错误详细信息是：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Cannot launch AVD <span class="keyword">in</span> emulator.</div><div class="line">Output:</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: swrast_dri.so</div><div class="line">libGL error: failed to load driver: swrast</div><div class="line">X Error of failed request:  GLXBadContext</div><div class="line">  Major opcode of failed request:  155 (GLX)</div><div class="line">  Minor opcode of failed request:  6 (X_GLXIsDirect)</div><div class="line">  Serial number of failed request:  55</div><div class="line">  Current serial number <span class="keyword">in</span> output stream:  54</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: swrast_dri.so</div><div class="line">libGL error: failed to load driver: swrast</div><div class="line">X Error of failed request:  GLXBadContext</div><div class="line">  Major opcode of failed request:  155 (GLX)</div><div class="line">  Minor opcode of failed r</div></pre></td></tr></table></figure>
+<p>2.解决方法如下：（Linux）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Android/Sdk/tools/lib64/libstdc++/</div><div class="line">mv libstdc++.so.6 libstdc++.so.6.bak</div><div class="line">ln -s /usr/lib64/libstdc++.so.6</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="未完待续～～"><a href="#未完待续～～" class="headerlink" title="未完待续～～"></a>未完待续～～</h3><ul>
+<li>该博文会持续更新，记录遇到的问题与解决问题的方法，希望能够帮到大家。</li>
+</ul>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-11-26T11:15:13.000Z" itemprop="dateUpdated">2016-11-26 19:15:13</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2016/05/07/daily-tips/" target="_blank" rel="external">http://sunjiajia.com/2016/05/07/daily-tips/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2016/05/07/daily-tips/&title=《Daily Tips（Updated）》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2016/05/07/daily-tips/&title=《Daily Tips（Updated）》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2016/05/07/daily-tips/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Daily Tips（Updated）》 — 安卓猴&url=http://sunjiajia.com/2016/05/07/daily-tips/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2016/05/07/daily-tips/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/07/recycler-bottom/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">自定义RecyclerView监听滑动到底部Bottom</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/19/android-m-permissions/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android M (API23) 中对权限的授权处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2016/05/07/daily-tips/&title=《Daily Tips（Updated）》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2016/05/07/daily-tips/&title=《Daily Tips（Updated）》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2016/05/07/daily-tips/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Daily Tips（Updated）》 — 安卓猴&url=http://sunjiajia.com/2016/05/07/daily-tips/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2016/05/07/daily-tips/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3awY6DMAxF0f7/T9NtJUp6XxwqxdysKmCAw8Jjx3698Do+1ueR8dnzuvrbq/ssXjJkyNiWcQzX1TXjO5zPnn9z8PgaGTJkPIdxFcEqj+dhlITjH+8sQ4YMGSCM8uBI0koZMmTIqDNIUji+hqSeMmTIkJEWsfVQO1f0Lq7FZciQsSGD77r///ct/Q0ZMmRsxTjCld6NvFYavr88RYYMGa0ZPMDxV0xTQ1SgkjvIkCGjNWN8ghypjJHxj4LeQYYMGU0ZfBgi/jZTMHL9lyMyZMh4AIMUmeRspWQtJZcyZMhozbgbMNd05A1OGTJkPIEx/oO5wQtypDIuFrtlyJDRgsFJvDQlkb7SQL3McGXIkNGOQRI+vhlHkPy1JtNNGTJkNGXwrX+S6s01GPgHRZ1YGTJktGCUBrAKZWq6C1hqXsqQIaMRIxhrwI+cG/yK30qGDBmPYaSAtYng4nEKGTJkNGLURytIM3Ju7iNuBsiQIaM1Ix19qGzixwGUb+rJkCHjAQyecR1Ti9+N4yf3DmXIkLE5I0340uOrqtHSl5YhQ8bmDNKYvGMbLm2motRQhgwZLRir0jvyMM5Oy2kZMmT0ZtQbivx2BMY3+EoNThkyZGzI4IVrmibO5ao8ZKN8U4YMGY0YlcC3eIs/3ByUIUOGjLSAJKE5DfEkSZUhQ4YMvnFWKWJJsvijiJUhQ0ZrxqoBCx5weXKJwq4MGTJaMyozVzxkpwVt+m9AhgwZTRlvmrZ0cnHYWG4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

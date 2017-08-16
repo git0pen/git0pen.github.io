@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/12/06/monkey-android-7/">
+    
+    
+    <title>《Monkey Android》第7课RelativeLayout、TableLayout | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   RelativeLayout以及它的相关属性  TableLayout以及它的特有属性     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Monkey Android》第7课RelativeLayout、TableLayout">
+<meta property="og:url" content="http://sunjiajia.com/2015/12/06/monkey-android-7/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   RelativeLayout以及它的相关属性  TableLayout以及它的特有属性     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:06:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Monkey Android》第7课RelativeLayout、TableLayout">
+<meta name="twitter:description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   RelativeLayout以及它的相关属性  TableLayout以及它的特有属性     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid">
+<meta name="twitter:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《Monkey Android》第7课RelativeLayout、TableLayout</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《Monkey Android》第7课RelativeLayout、TableLayout</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-12-05T23:50:27.000Z" itemprop="datePublished" class="page-time">
+  2015-12-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RelativeLayout"><span class="post-toc-number">1.</span> <span class="post-toc-text">RelativeLayout</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RelativeLayout相关属性"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RelativeLayout相关属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TableLayout"><span class="post-toc-number">2.</span> <span class="post-toc-text">TableLayout</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TableLayout的特有属性"><span class="post-toc-number">3.</span> <span class="post-toc-text">TableLayout的特有属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下课"><span class="post-toc-number">4.</span> <span class="post-toc-text">下课</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-monkey-android-7"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《Monkey Android》第7课RelativeLayout、TableLayout</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-12-06 07:50:27" datetime="2015-12-05T23:50:27.000Z"  itemprop="datePublished">2015-12-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：</p>
+<p><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+<p><a href="http://weibo.com/androidmonkey" target="_blank" rel="external">安卓猴的微博（@安卓猴）</a></p>
+</blockquote>
+<hr>
+<p>通过本节课可以学习到的内容：</p>
+<blockquote>
+<ul>
+<li><p>RelativeLayout以及它的相关属性</p>
+</li>
+<li><p>TableLayout以及它的特有属性</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>实例代码:</p>
+<blockquote>
+<p>运行效果参见本课程示例App：安卓猴Demos</p>
+<p>github地址：<a href="https://github.com/git0pen/MonkeyAndroid" target="_blank" rel="external">https://github.com/git0pen/MonkeyAndroid</a></p>
+</blockquote>
+<hr>
+<h2 id="RelativeLayout"><a href="#RelativeLayout" class="headerlink" title="RelativeLayout"></a>RelativeLayout</h2><blockquote>
+<p>顾名思义，RelativeLayout就是相对布局，置于其中的控件在摆放的时候需要<code>相对于</code>布局中的<code>其它控件</code>来摆放。</p>
+</blockquote>
+<h3 id="RelativeLayout相关属性"><a href="#RelativeLayout相关属性" class="headerlink" title="RelativeLayout相关属性"></a>RelativeLayout相关属性</h3><blockquote>
+<p>这些属性十分“众多”，因此大致了解即可，关键是在敲代码的过程中熟练运用。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>—</th>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1组属性</td>
+<td>相对属性</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_below</td>
+<td>将目标控件置于引用控件的下方</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_above</td>
+<td>将目标控件置于引用控件的上方</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_toLeftOf</td>
+<td>将目标控件置于引用控件的左方</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_toRightOf</td>
+<td>将目标控件置于引用控件的右方</td>
+</tr>
+<tr>
+<td>第2组属性</td>
+<td>对齐属性</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_alignTop</td>
+<td>目标控件和引用控件的上边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_alignBottom</td>
+<td>目标控件和引用控件的下边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_alignLeft</td>
+<td>目标控件与引用控件的左边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_alignRight</td>
+<td>目标控件与引用控件的右边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>android:layout_alignBaseLine</td>
+<td>基于基准线对其，基准线就是我们写英文字母那4行线的第三条</td>
+</tr>
+<tr>
+<td>第3组属性</td>
+<td>这组属性的值是 true 或者 false</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentRight</td>
+<td>是否与父控件的右边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentLeft</td>
+<td>是否与父控件的左边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentTop</td>
+<td>是否与父控件的上边缘对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentBottom</td>
+<td>是否与父控件的下边缘对齐</td>
+</tr>
+<tr>
+<td>第4组属性</td>
+<td>中间属性</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_centerInParent</td>
+<td>与父控件在水平方向和垂直方向都对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_centerVertical</td>
+<td>与父控件在垂直方向都对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_centerHorizontal</td>
+<td>与父控件在水平方向都对齐</td>
+</tr>
+<tr>
+<td>第5组属性</td>
+<td>引用属性</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignStart</td>
+<td>引用其他控件，表示与控件的开始位置对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignStop</td>
+<td>引用其他控件，表示与控件的结束位置对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentStart</td>
+<td>取值为true、false，表示与父控件的开始位置对齐</td>
+</tr>
+<tr>
+<td>—</td>
+<td>layout_alignParentStop</td>
+<td>取值为true、false，表示与父控件的结束位置对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="TableLayout"><a href="#TableLayout" class="headerlink" title="TableLayout"></a>TableLayout</h2><blockquote>
+<p>顾名思义，TableLayout布局就是<code>表格布局</code>。其实现的效果就如同上面的属性表格一样。</p>
+</blockquote>
+<h2 id="TableLayout的特有属性"><a href="#TableLayout的特有属性" class="headerlink" title="TableLayout的特有属性"></a>TableLayout的特有属性</h2><ul>
+<li><p><code>android:stretchColumns=&quot;1&quot;</code>设置所用行的第二列为扩展列,如果有三列的话，剩余空间由第二列补齐。</p>
+</li>
+<li><p><code>android:shrinkColumns=&quot;1&quot;</code>设置所用行第二列为收缩列。</p>
+</li>
+<li><p><code>android:layout_column=&quot;0&quot;</code>表示当前控件在表格中的第0列，视觉效果上是第1列。</p>
+</li>
+<li><p><code>android:layout_span=&quot;2&quot;</code> 表示当前控件跨了两列。</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">  &gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/text_view"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignParentTop</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#41c2fa"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">"我右边是Button"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:textColor</span>=<span class="string">"#fc0000"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:textSize</span>=<span class="string">"22sp"</span></span></div><div class="line"><span class="tag">    /&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/button"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignParentTop</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_toEndOf</span>=<span class="string">"@+id/text_view"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_toRightOf</span>=<span class="string">"@+id/text_view"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">"我下边是ImageView"</span></span></div><div class="line"><span class="tag">    /&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/image_view"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignLeft</span>=<span class="string">"@+id/button"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_alignStart</span>=<span class="string">"@+id/button"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_below</span>=<span class="string">"@+id/button"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span></span></div><div class="line"><span class="tag">    /&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">TableLayout</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_below</span>=<span class="string">"@id/image_view"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:stretchColumns</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TableRow</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      &gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/text_view_uname"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"用户名："</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"16sp"</span></span></div><div class="line"><span class="tag"></span></div><div class="line"><span class="tag">        /&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/edit_text_uname"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">        /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">TableRow</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TableRow</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      &gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/text_view_pwd"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"密码："</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"16sp"</span></span></div><div class="line"><span class="tag">        /&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/editText"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:ems</span>=<span class="string">"10"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">"textPassword"</span></span></div><div class="line"><span class="tag">        /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">TableRow</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TableRow</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      &gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">TableRow</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TableRow</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      &gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"right"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_span</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></span></div><div class="line"><span class="tag">        &gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">          <span class="attr">android:text</span>=<span class="string">"登陆"</span></span></div><div class="line"><span class="tag">          /&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">          <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">          <span class="attr">android:text</span>=<span class="string">"注册"</span></span></div><div class="line"><span class="tag">          /&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">TableRow</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">TableLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>这一节课，我们学习了RelativeLayout和TableLayout的用法，其中前者是必须重点掌握的布局，后者是需要了解的布局；熟练灵活地使用RelativeLayout布局，可以让你在今后的项目开发中对UI的把控更加游刃有余。</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:06:36.000Z" itemprop="dateUpdated">2016-05-14 04:06:36</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/12/06/monkey-android-7/" target="_blank" rel="external">http://sunjiajia.com/2015/12/06/monkey-android-7/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/12/06/monkey-android-7/&title=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/12/06/monkey-android-7/&title=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/12/06/monkey-android-7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&url=http://sunjiajia.com/2015/12/06/monkey-android-7/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/12/06/monkey-android-7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/12/06/monkey-android-8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Android》第8课FrameLayout、GridLayout</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/09/02/android-kitkat-translucent-statusbar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android &gt;= 4.4 适配沉浸状态栏颜色</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/12/06/monkey-android-7/&title=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/12/06/monkey-android-7/&title=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/12/06/monkey-android-7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第7课RelativeLayout、TableLayout》 — 安卓猴&url=http://sunjiajia.com/2015/12/06/monkey-android-7/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/12/06/monkey-android-7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS46DMBBFUfa/aWeaKMK5rwyRKF+PWh1IOAxK9TsOfMbbOfv/+6fj5PC7jjuODBkyHssY01O75vv7v/+ugU+pMmTI2IBxFsHm15DrSRid3zu/XoYMGTLIYw1w5ommDBkyZPw/4KaFLuHJkCFDBikm+V3zdJDfdUstLkOGjAcyeNf9/3/fMt+QIUPGoxgjPCtzQ/6C4qeSIUNGa0ZaoPIhJcfzYvjHN8iQIaM1I21s1X6mlhSSFydDhox9GKSJz4NmunKxslImQ4aM3oy0QOU/zANl+v0yZMjYjcGTOd5oS4NpWsoGSaEMGTJaMNJ1itqVpPW/kiDKkCFjH8ZKCcrbcyTs8oHoR4YrQ4aMpgy+4lAbWPKQmp7TSawMGTLaMdJmFg+LV80WUSNPhgwZGzDiohGTauE4XviQIUNGa8bKdgZP79ZfSvAMMmTIaMfgCw185ZQvXsTV9sqlMmTIeDiDBMcaJl0dS8eZMmTI2IHBG1vpGLIWdtN1DRkyZOzGSGtfHi7T7yEtPLRsIUOGjHaMqx60tmBBlsN+ZIMyZMjYjFELvnxscNWihgwZMnZgjPDUGmppS44341AWKUOGjIczagPF9XFmunjBS18ZMmR0ZaSNLZ7GrXwaP4MMGTI2YKSBr9b6T1NP/lQyZMiQUVvYIgXqVSsdMmTIkEGWIVZSPf6C0HxDhgwZTRkk/PFP04WJWoIoQ4aMfRhp6cjb/engc+W3ZMiQ0ZTxAt1Fapjd05cvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

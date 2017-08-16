@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/">
+    
+    
+    <title>《Monkey Java》课程1.1之JDK环境配置 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="JDK下载 注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址  参考图1.1_01:                                                                                             图1.1_01。JDK下载              JDK安装 JDK的安装一直点击“下一步”即可。安">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Monkey Java》课程1.1之JDK环境配置">
+<meta property="og:url" content="http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="JDK下载 注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址  参考图1.1_01:                                                                                             图1.1_01。JDK下载              JDK安装 JDK的安装一直点击“下一步”即可。安">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/java/1_1_01_download_install.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/java/1_1_02_jvm.png">
+<meta property="og:image" content="http://sunjiajia.com/img/girls/girls-20150701.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:10:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Monkey Java》课程1.1之JDK环境配置">
+<meta name="twitter:description" content="JDK下载 注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址  参考图1.1_01:                                                                                             图1.1_01。JDK下载              JDK安装 JDK的安装一直点击“下一步”即可。安">
+<meta name="twitter:image" content="http://sunjiajia.com/img/java/1_1_01_download_install.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《Monkey Java》课程1.1之JDK环境配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《Monkey Java》课程1.1之JDK环境配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-01T04:04:27.000Z" itemprop="datePublished" class="page-time">
+  2015-07-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Java》/">《Monkey Java》</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JDK下载"><span class="post-toc-number">1.</span> <span class="post-toc-text">JDK下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JDK安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">JDK安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置环境变量"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Path环境变量的作用"><span class="post-toc-number">4.</span> <span class="post-toc-text">Path环境变量的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#classpath环境变量的作用"><span class="post-toc-number">5.</span> <span class="post-toc-text">classpath环境变量的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JDK目录下的东西有什么用"><span class="post-toc-number">6.</span> <span class="post-toc-text">JDK目录下的东西有什么用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是JRE"><span class="post-toc-number">7.</span> <span class="post-toc-text">什么是JRE</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#清纯小妹"><span class="post-toc-number">8.</span> <span class="post-toc-text">清纯小妹</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-monkey-java-basic-courses-1-1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《Monkey Java》课程1.1之JDK环境配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-01 12:04:27" datetime="2015-07-01T04:04:27.000Z"  itemprop="datePublished">2015-07-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Java》/">《Monkey Java》</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h2><blockquote>
+<p>注意：JDK有多个版本，请注意按照系统架构选择相应版本。<br><br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">JDK官网下载地址</a></p>
+</blockquote>
+<p>参考图1.1_01:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/java/1_1_01_download_install.jpg" alt="图1.1_01。JDK下载" title="">
+                </div>
+                <div class="image-caption">图1.1_01。JDK下载</div>
+            </figure></p>
+<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><blockquote>
+<p>JDK的安装一直点击“下一步”即可。<br><br>安装后的<code>JDK、JRE</code>默认位置在</p>
+</blockquote>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">C:\<span class="title">Program</span> <span class="title">Files</span>\<span class="title">Java</span>\<span class="title">jdk1</span>.7.0<span class="title">_80</span></span></div><div class="line"><span class="function"><span class="title">C</span>:\<span class="title">Program</span> <span class="title">Files</span>\<span class="title">Java</span>\<span class="title">jre7</span></span></div></pre></td></tr></table></figure>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>安装后，检测环境变量是否配置好：<br><br>打开命令行窗口，输入命令<code>java -version</code>回显如下则已配置好：<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">Administrator</span>&gt;<span class="title">java</span> -<span class="title">version</span></span></div><div class="line"><span class="function"><span class="title">java</span> <span class="title">version</span> "1.7.0<span class="title">_80</span>-<span class="title">ea</span>"</span></div><div class="line"><span class="function"><span class="title">Java</span>(<span class="title">TM</span>) <span class="title">SE</span> <span class="title">Runtime</span> <span class="title">Environment</span> (<span class="title">build</span> 1.7.0<span class="title">_80</span>-<span class="title">ea</span>-<span class="title">b05</span>)</span></div><div class="line"><span class="function"><span class="title">Java</span> <span class="title">HotSpot</span>(<span class="title">TM</span>) 64-<span class="title">Bit</span> <span class="title">Server</span> <span class="title">VM</span> (<span class="title">build</span> 24.80-<span class="title">b07</span>, <span class="title">mixed</span> <span class="title">mode</span>)</span></div></pre></td></tr></table></figure></p>
+<p>如若回显其它信息，则需要手动配置环境变量：<br></p>
+<blockquote>
+<p>参见<a href="https://www.baidu.com/s?wd=jdk1.8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE" target="_blank" rel="external">JDK1.8环境变量配置</a></p>
+</blockquote>
+<h2 id="Path环境变量的作用"><a href="#Path环境变量的作用" class="headerlink" title="Path环境变量的作用"></a>Path环境变量的作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">操作系统外部命令搜索路径。例如：ipconfig等。</div></pre></td></tr></table></figure>
+<h2 id="classpath环境变量的作用"><a href="#classpath环境变量的作用" class="headerlink" title="classpath环境变量的作用"></a>classpath环境变量的作用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">类文件搜索路径。例如：在编译Demo.java后，会在当前文件夹下生成Demo.class，运行时java Demo中Demo就是指的class文件，之所以能找到Demo.class，是因为classpath中设置了“.”</div></pre></td></tr></table></figure>
+<h2 id="JDK目录下的东西有什么用"><a href="#JDK目录下的东西有什么用" class="headerlink" title="JDK目录下的东西有什么用"></a>JDK目录下的东西有什么用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bin:        java用到的所有命令（可执行文件）都在这里，例如javac</div><div class="line">demo:       java的一些官方例子</div><div class="line">sample:     java的一些官方例子</div><div class="line">include:    里面是C语言程序</div><div class="line">jre:        java运行时环境</div><div class="line">lib:        java需要的包（library）文件</div><div class="line">src.zip:    jdk的源码</div></pre></td></tr></table></figure>
+<h2 id="什么是JRE"><a href="#什么是JRE" class="headerlink" title="什么是JRE"></a>什么是JRE</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">全称为Java Runtime Environment，即Java运行时环境。</div><div class="line">包括以下部分：</div><div class="line">    <span class="number">1</span>.JVM（Java Virtual Machine）：</div><div class="line">        它是由软件虚拟出来的一个计算机，因此实现了跨平台。参见图<span class="number">1</span>.<span class="number">1</span>。</div><div class="line">    <span class="number">2</span>.Java平台核心类文件。以后遇到再讲。</div><div class="line">    <span class="number">3</span>.其他支持文件。</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/java/1_1_02_jvm.png" alt="图1.1。JVM的作用流程" title="">
+                </div>
+                <div class="image-caption">图1.1。JVM的作用流程</div>
+            </figure>
+<h2 id="清纯小妹"><a href="#清纯小妹" class="headerlink" title="清纯小妹"></a>清纯小妹</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/girls/girls-20150701.jpg" alt="清纯小妹" title="">
+                </div>
+                <div class="image-caption">清纯小妹</div>
+            </figure>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:10:52.000Z" itemprop="dateUpdated">2016-05-14 04:10:52</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/07/01/monkey-java-basic-courses-1-1/" target="_blank" rel="external">http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&title=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&title=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/07/01/monkey-java-basic-courses-2-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Java》课程2.0之变量</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/06/30/monkey-java-basic-courses-1-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">《Monkey Java》课程1.0之前言</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&title=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&title=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Java》课程1.1之JDK环境配置》 — 安卓猴&url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3a0WojMQwF0Pz/T6fQp0Lo7L3ypGzs46dQphMdB4xk6fGI1/N7vX7++ZfXZ17X9dten7x5YWBgfCzjebmS0JPnr8HXW3b9XRgYGOcwkkO2PQpnR22+HRgYGBiz1/0GTg7Wle/FwMDAuC5Tk0DbN2NgYGDMitjZRdt1QG3KeEMtjoGB8YGMlcbAuz//UX8DAwPjP2Y8yzVL7/LLtWFUGBgYWzPWi8/koi1PGWelMgYGxgmMfIRiRmobmbM2AwYGxq6MNvlrD9Y81Yuu/vOWAAYGxnaMJHVLjtQ8HWx5/4gTAwNja0ZbKK4XqMmRPYsBAwPjBMZd1/ezUNabExgYGOcw8muvHN8WyfkYGQYGxmmMJJTZpX++TbNJMAwMjL0ZKwHNGglt4Rq1HzAwMLZmtOVl8aKYNxvjeORfiYGBsR0jzyjbQredi3gLCQMD48MZ7TjXSpOyLYyLVisGBsamjDzJy5sEs1CSzSp+BwwMjI0Y6yngXVds1wdxsekYGBgbMe4ahmgTu/xgrY9XDAyMTRl1vVumgG0bMvkvDAyMcxgtJg83SQfz9PG2AQsMDIwPZDzLlV+ZrY9TFBuHgYGxNaMdtphdk7VJXt4WxcDAOIcxG6poj+CVxDFqZGJgYBzAaJuLKy3Jx2hFc20YGBjHM9pLunw7koYoBgYGRltMzlqVbxw4w8DAOIAxawYk5ehKsVpsGQYGxtaMlcZAfuk/CzTfVgwMjE0ZX91uQc9u3Ae1AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/07/02/android-new-widgets-demo/">
+    
+    
+    <title>一个Demo学会用Android兼容包新控件 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,进阶">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）  前言伟大的Google为Android推出了一系列的兼容包，最新的就是Design Support Library了，这里我们结合v7和v4中的几个控件，来主要学习Design Support Library中的几个新控件！一个Demo学会用它们！ 效果动图GIF：">
+<meta name="keywords" content="Android,进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个Demo学会用Android兼容包新控件">
+<meta property="og:url" content="http://sunjiajia.com/2015/07/02/android-new-widgets-demo/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）  前言伟大的Google为Android推出了一系列的兼容包，最新的就是Design Support Library了，这里我们结合v7和v4中的几个控件，来主要学习Design Support Library中的几个新控件！一个Demo学会用它们！ 效果动图GIF：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/201507/android-new-widgets-demo.gif">
+<meta property="og:image" content="http://sunjiajia.com/img/girls/girls-20150702.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:13:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个Demo学会用Android兼容包新控件">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）  前言伟大的Google为Android推出了一系列的兼容包，最新的就是Design Support Library了，这里我们结合v7和v4中的几个控件，来主要学习Design Support Library中的几个新控件！一个Demo学会用它们！ 效果动图GIF：">
+<meta name="twitter:image" content="http://sunjiajia.com/img/201507/android-new-widgets-demo.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一个Demo学会用Android兼容包新控件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一个Demo学会用Android兼容包新控件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-02T14:29:27.000Z" itemprop="datePublished" class="page-time">
+  2015-07-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果动图GIF："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">效果动图GIF：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习内容"><span class="post-toc-number">2.</span> <span class="post-toc-text">学习内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主布局activity-my-xml源码（重点）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">主布局activity_my.xml源码（重点）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#content-main-xml源码（重点）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">content_main.xml源码（重点）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#frag-main-xml源码（Fragment的布局）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">frag_main.xml源码（Fragment的布局）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#item-main-xml源码（RecyclerView中item）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">item_main.xml源码（RecyclerView中item）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#menu-nav-xml的源码（NavagationView中菜单）"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">menu_nav.xml的源码（NavagationView中菜单）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#header-nav-xml源码（NavagationView的head）"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">header_nav.xml源码（NavagationView的head）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">Java代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MyRecyclerViewHolder-java源码"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">MyRecyclerViewHolder.java源码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结语"><span class="post-toc-number">4.</span> <span class="post-toc-text">结语</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android-new-widgets-demo"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一个Demo学会用Android兼容包新控件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-02 22:29:27" datetime="2015-07-02T14:29:27.000Z"  itemprop="datePublished">2015-07-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>伟大的Google为Android推出了一系列的兼容包，最新的就是Design Support Library了，这里我们结合v7和v4中的几个控件，来主要学习Design Support Library中的几个新控件！一个Demo学会用它们！</p>
+<h3 id="效果动图GIF："><a href="#效果动图GIF：" class="headerlink" title="效果动图GIF："></a>效果动图GIF：</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201507/android-new-widgets-demo.gif" alt="Design Support Library Demo" title="">
+                </div>
+                <div class="image-caption">Design Support Library Demo</div>
+            </figure>
+<h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><p><strong>通过本实例可以学习到以下内容：</strong></p>
+<ul>
+<li>Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；</li>
+<li>新控件CoordinatorLayout、AppBarLayout、Toolbar、FloatingActionButton的用法，以及Toolbar的渐变隐藏动画效果；</li>
+<li>官方Tabs组件TabLayout和ViewPager结合实现主界面内容区域；</li>
+<li>SwipeRefreshLayout和RecyclerView结合实现下拉刷新，以及RecyclerView的数据适配器RecyclerView.Adapter<viewholder>的用法，还有RecyclerView中item的点击事件的实现方法；</viewholder></li>
+<li>卡片式CardView的用法；</li>
+<li>类似Toast的新控件Snackbar的用法。</li>
+</ul>
+<p>##布局文件</p>
+<blockquote>
+<p>在源码中学习Android，是有种身临其境的感觉的。</p>
+</blockquote>
+<p>学习Android解释再多代码都没有用，因为解释过了还是不会用。因此，我们这里将布局文件XML源码贴出来供学习，放心，所有知识点都已经注释在源码中。</p>
+<p>###styles.xml源码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"MyThemeBlue"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 蓝色为主色调 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyThemeBlue"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="xml">        <span class="comment">&lt;!--选中状态icon的颜色和字体颜色--&gt;</span></span></div><div class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/main_blue_light<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></div><div class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/main_blue_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></div><div class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/main_blue_light<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></div><div class="line"><span class="xml">        <span class="comment">&lt;!--正常状态下字体颜色和icon颜色--&gt;</span></span></div><div class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/main_white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>colorPrimary、colorPrimaryDark、colorAccent、textColorPrimary的含义，请看博文<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">《Android L+ Theme 与 Toolbar 实例》</a>。</p>
+</blockquote>
+<h3 id="主布局activity-my-xml源码（重点）"><a href="#主布局activity-my-xml源码（重点）" class="headerlink" title="主布局activity_my.xml源码（重点）"></a>主布局activity_my.xml源码（重点）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/id_drawerlayout"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 第一个位置 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 你的主界面内容，必须放置在Drawerlayout中的第一个位置</span></div><div class="line"><span class="comment">    根据自己的需要来放置控件，</span></div><div class="line"><span class="comment">        例如：LinearLayout布局或者RelativeLayout布局；</span></div><div class="line"><span class="comment">    也可以是单个控件，</span></div><div class="line"><span class="comment">        如 TextView等  --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/content_main"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 第二个位置 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 用来放Drawerlayout中的内容，</span></div><div class="line"><span class="comment">    这里使用NavigationView来实现类似Google pLay中的侧滑栏效果，</span></div><div class="line"><span class="comment">    必须在build.gradle中添加compile 'com.android.support:design:22.2.0'；</span></div><div class="line"><span class="comment">    另外，如果不需要NavigationView效果，</span></div><div class="line"><span class="comment">    也可以放置一个普通布局文件就是一个普通的侧滑栏了。</span></div><div class="line"><span class="comment">     --&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">     注意：</span></div><div class="line"><span class="comment">        如果使用NavigationView（其他控件也是一样）的特有属性，需要加上命名空间：</span></div><div class="line"><span class="comment">                xmlns:app="http://schemas.android.com/apk/res-auto"；</span></div><div class="line"><span class="comment">        另外，一定要添加android:layout_gravity="left"属性。</span></div><div class="line"><span class="comment">     --&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">        属性解析：</span></div><div class="line"><span class="comment">            app:headerLayout：    NavigationView中头部的head部分的布局，是自己实现的；</span></div><div class="line"><span class="comment">            app:menu：            指定Nav中的Menu布局，就是自己写Menu中的按钮，要放在res/menu/文件夹下；</span></div><div class="line"><span class="comment">            app:itemTextColor：  用来设置Nav中，menu item的颜色选择器。</span></div><div class="line"><span class="comment">        还有一些属性：           和itemTextColor用法一样，指定一个颜色选择器，实现不同的颜色效果。</span></div><div class="line"><span class="comment">            app:itemIconTint:</span></div><div class="line"><span class="comment">            app:itemBackground:</span></div><div class="line"><span class="comment">    --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_navigationview"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:itemTextColor</span>=<span class="string">"@color/selector_nav_menu_textcolor"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"left"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="content-main-xml源码（重点）"><a href="#content-main-xml源码（重点）" class="headerlink" title="content_main.xml源码（重点）"></a>content_main.xml源码（重点）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;<span class="comment">&lt;!--</span></div><div class="line"><span class="comment">    CoordinatorLayout是这次新添加的一个增强型的FrameLayout，通过它可以实现很多东西：</span></div><div class="line"><span class="comment">        例如：</span></div><div class="line"><span class="comment">            1.界面向上滚动逐渐隐藏Toolbar；</span></div><div class="line"><span class="comment">            2.在其中可以放置浮动的View，就像Floating Action Button。</span></div><div class="line"><span class="comment">--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/id_coordinatorlayout"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">        AppBarLayout跟它的名字一样，把容器类的组件全部作为AppBar。</span></div><div class="line"><span class="comment">            将AppBarLayout放在CoordinatorLayout中，就可以实现滚动效果。</span></div><div class="line"><span class="comment">            本例中，TabLayout在界面滚动时，随着Toolbar的逐渐隐藏，将占据Toolbar的位置，</span></div><div class="line"><span class="comment">                达到节省屏幕空间，界面动画效果的目的。</span></div><div class="line"><span class="comment">    --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_appbarlayout"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">&lt;!--</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">        属性解析：</span></div><div class="line"><span class="comment">            app:theme：指定Toolbar的样式，包括ActionbarToggle和popupMenu的指示图标颜色</span></div><div class="line"><span class="comment">            app:popupTheme：指定popupMenu溢出后的样式</span></div><div class="line"><span class="comment">            app:title:    指定Toolbar中主Title的内容</span></div><div class="line"><span class="comment">        --&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">            app:layout_scrollFlags的意思是：</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">                设置的layout_scrollFlags有如下几种选项：</span></div><div class="line"><span class="comment">                    scroll: 所有想滚动出屏幕的view都需要设置这个flag- 没有设置这个flag的view将被固定在屏幕顶部。</span></div><div class="line"><span class="comment">                    enterAlways: 这个flag让任意向下的滚动都会导致该view变为可见，启用快速“返回模式”。</span></div><div class="line"><span class="comment">                    enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能以最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。</span></div><div class="line"><span class="comment">                    exitUntilCollapsed: 当视图会在滚动时，它一直滚动到设置的minHeight时完全隐藏。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">            需要注意的是，后面两种模式基本只有在CollapsingToolbarLayout才有用，</span></div><div class="line"><span class="comment">            而前面两种模式基本是需要一起使用的，也就是说，这些flag的使用场景，基本已经固定了。</span></div><div class="line"><span class="comment">        --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/id_toolbar"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|enterAlways"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:popupTheme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Light"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.ActionBar"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:title</span>=<span class="string">"@string/toolbar_title"</span> /&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">            Tabs选项卡，和ViewPager搭配使用可以增大界面的内容展示量，实现各种个性化分类内容展示而不互相干扰！</span></div><div class="line"><span class="comment">            Google在Design support library中提供官方的Tab组件，它就是TabLayout。</span></div><div class="line"><span class="comment">            相比Github上面开源的第三方库，这个更加简单易用。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">            有以下常用属性：</span></div><div class="line"><span class="comment">                app:tabGravity="fill"  表示TabLayout中的Tabs要占满屏幕的width；</span></div><div class="line"><span class="comment">                app:tabSelectedTextColor：Tab被选中字体的颜色；</span></div><div class="line"><span class="comment">                app:tabTextColor：Tab未被选中字体的颜色；</span></div><div class="line"><span class="comment">                app:tabIndicatorColor：Tab指示器下标的颜色；</span></div><div class="line"><span class="comment">        --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/id_tablayout"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:tabGravity</span>=<span class="string">"fill"</span></span></div><div class="line"><span class="tag">            <span class="attr">app:tabIndicatorColor</span>=<span class="string">"@color/main_white"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">        我们常用的ViewPager，不多说了。你会发现多了一个 app:layout_behavior 属性，没错，</span></div><div class="line"><span class="comment">            如果你使用CoordinatorLayout来实现Toolbar滚动渐变消失动画效果，那就必须在它下面的那个控件中加入这个属性，</span></div><div class="line"><span class="comment">            并且下面的这个控件必须是可滚动的。</span></div><div class="line"><span class="comment">        当设置了layout_behavior的控件滑动时，就会触发设置了layout_scrollFlags的控件发生状态的改变。</span></div><div class="line"><span class="comment">    --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_viewpager"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">        这是一个浮动按钮。由于FloatingActionButton是重写ImageView的，</span></div><div class="line"><span class="comment">        所有FloatingActionButton拥有ImageView的一切属性。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">        属性介绍：</span></div><div class="line"><span class="comment">            app:backgroundTint : FAB的背景色。</span></div><div class="line"><span class="comment">            app:elevation      ：FAB的阴影效果。</span></div><div class="line"><span class="comment">            app:rippleColor    ：设置涟漪的颜色，默认是由背景色生成的暗色调，可以自己指定。</span></div><div class="line"><span class="comment">            app:pressedTranslationZ  ：FAB动画效果，在它被按下的时候阴影就会增大。</span></div><div class="line"><span class="comment">    --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_floatingactionbutton"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"bottom|end"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_action_plusone"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:backgroundTint</span>=<span class="string">"@color/main_blue_light"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:elevation</span>=<span class="string">"6dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:pressedTranslationZ</span>=<span class="string">"12dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">app:rippleColor</span>=<span class="string">"@color/main_blue_dark"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="frag-main-xml源码（Fragment的布局）"><a href="#frag-main-xml源码（Fragment的布局）" class="headerlink" title="frag_main.xml源码（Fragment的布局）"></a>frag_main.xml源码（Fragment的布局）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">&lt;!--</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">SwipeRefreshLayout是伟大的Google在v4包中给出的下拉刷新组件。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.SwipeRefreshLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/id_swiperefreshlayout"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">            使用RecyclerView需要在build.gradle中添加</span></div><div class="line"><span class="comment">           compile 'com.android.support:recyclerview-v7:22.2.0'</span></div><div class="line"><span class="comment">    --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_recyclerview"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.SwipeRefreshLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="item-main-xml源码（RecyclerView中item）"><a href="#item-main-xml源码（RecyclerView中item）" class="headerlink" title="item_main.xml源码（RecyclerView中item）"></a>item_main.xml源码（RecyclerView中item）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--</span></div><div class="line"><span class="comment">    CardView就是一个卡片样式的FrameLayout。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">    参数介绍：</span></div><div class="line"><span class="comment">        app:cardBackgroundColor  :   背景颜色</span></div><div class="line"><span class="comment">        app:cardCornerRadius    ：   设置圆角。</span></div><div class="line"><span class="comment">        app:cardElevation       ：    阴影。</span></div><div class="line"><span class="comment">        app:cardMaxElevation    ：       最大阴影。</span></div><div class="line"><span class="comment">        app:cardPreventCornerOverlap  ： 在v20和之前的版本中添加内边距，</span></div><div class="line"><span class="comment">                                    这个属性是为了防止卡片内容和边角的重叠。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">       app:cardUseCompatPadding  ：  设置内边距，v21+的版本和之前的版本仍旧具有一样的计算方式</span></div><div class="line"><span class="comment">--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/id_cardview"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardBackgroundColor</span>=<span class="string">"@color/main_blue_light"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardCornerRadius</span>=<span class="string">"4dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardElevation</span>=<span class="string">"5dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardMaxElevation</span>=<span class="string">"10dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardPreventCornerOverlap</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">    <span class="attr">app:cardUseCompatPadding</span>=<span class="string">"true"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_textview"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"200dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"@color/main_white"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"30sp"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="menu-nav-xml的源码（NavagationView中菜单）"><a href="#menu-nav-xml的源码（NavagationView中菜单）" class="headerlink" title="menu_nav.xml的源码（NavagationView中菜单）"></a>menu_nav.xml的源码（NavagationView中菜单）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">group</span> <span class="attr">android:checkableBehavior</span>=<span class="string">"single"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_menu_home"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_home_white_48dp"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:title</span>=<span class="string">"主页"</span> /&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_menu_categories"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_sort_by_alpha_white_48dp"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:title</span>=<span class="string">"分类"</span> /&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_menu_feedback"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_message_white_48dp"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:title</span>=<span class="string">"反馈"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/nav_menu_setting"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_settings_white_48dp"</span></span></div><div class="line"><span class="tag">            <span class="attr">android:title</span>=<span class="string">"设置"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="header-nav-xml源码（NavagationView的head）"><a href="#header-nav-xml源码（NavagationView的head）" class="headerlink" title="header_nav.xml源码（NavagationView的head）"></a>header_nav.xml源码（NavagationView的head）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"220dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"@drawable/ic_user_background"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">            一个显示圆形头像的自定义ImageView</span></div><div class="line"><span class="comment">        --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">com.sunjiajia.androidnewwidgetsdemo.view.RoundedImageView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_header_face"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"110dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"110dp"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:scaleType</span>=<span class="string">"fitXY"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:src</span>=<span class="string">"@drawable/author"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_header_authorname"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/header_author_name"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"16sp"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_header_url"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/header_author_url"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"@android:color/black"</span></span></div><div class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"18sp"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><blockquote>
+<p>Java代码写法比较简单，这里只给出RecyclerView.Adapter<viewholder>的写法（包括item点击事件）。</viewholder></p>
+</blockquote>
+<p>###RecyclerView.Adapter<viewholder>写法源码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.sunjiajia.androidnewwidgetsdemo.adapter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.sunjiajia.androidnewwidgetsdemo.R;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Created by Monkey on 2015/6/29.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRecyclerViewAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">MyRecyclerViewHolder</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 点击事件接口</span></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnItemClickListener</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(View view, <span class="keyword">int</span> position)</span></span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onItemLongClick</span><span class="params">(View view, <span class="keyword">int</span> position)</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> OnItemClickListener mOnItemClickListener;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnItemClickListener</span><span class="params">(OnItemClickListener listener)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mOnItemClickListener = listener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">public</span> Context mContext;</div><div class="line">    <span class="keyword">public</span> List&lt;String&gt; mDatas;</div><div class="line">    <span class="keyword">public</span> LayoutInflater mLayoutInflater;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyRecyclerViewAdapter</span><span class="params">(Context mContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mContext = mContext;</div><div class="line">        mLayoutInflater = LayoutInflater.from(mContext);</div><div class="line">        <span class="comment">// 这里是模拟数据。</span></div><div class="line">        mDatas = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="string">'A'</span>; i &lt;= <span class="string">'z'</span>; i++) &#123;</div><div class="line">            mDatas.add((<span class="keyword">char</span>) i + <span class="string">""</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 创建ViewHolder</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> MyRecyclerViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View mView = mLayoutInflater.inflate(R.layout.item_main, parent, <span class="keyword">false</span>);</div><div class="line">        MyRecyclerViewHolder mViewHolder = <span class="keyword">new</span> MyRecyclerViewHolder(mView);</div><div class="line">        <span class="keyword">return</span> mViewHolder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 绑定ViewHoler，给item中的控件设置数据</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(<span class="keyword">final</span> MyRecyclerViewHolder holder, <span class="keyword">final</span> <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="comment">//点击事件在这里实现，主要是利用RecyclerView中填充的布局控件可以被点击这个原理</span></div><div class="line">        <span class="keyword">if</span> (mOnItemClickListener != <span class="keyword">null</span>) &#123;</div><div class="line">            holder.itemView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    mOnItemClickListener.onItemClick(holder.itemView, position);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">            <span class="comment">// 长点击事件</span></div><div class="line">            holder.itemView.setOnLongClickListener(<span class="keyword">new</span> View.OnLongClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLongClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    mOnItemClickListener.onItemLongClick(holder.itemView, position);</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        holder.mTextView.setText(mDatas.get(position));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mDatas.size();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></viewholder></p>
+<h3 id="MyRecyclerViewHolder-java源码"><a href="#MyRecyclerViewHolder-java源码" class="headerlink" title="MyRecyclerViewHolder.java源码"></a>MyRecyclerViewHolder.java源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.sunjiajia.androidnewwidgetsdemo.adapter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.sunjiajia.androidnewwidgetsdemo.R;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Created by Monkey on 2015/6/29.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRecyclerViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> TextView mTextView;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyRecyclerViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(itemView);</div><div class="line">        mTextView = (TextView) itemView.findViewById(R.id.id_textview);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><blockquote>
+<p>在源码中学习Android，是有种身临其境的感觉的。</p>
+<p>整个Demo的源码我放在了GitHub上，谢谢star一下~<br>在看源码过程中如果发现什么问题，请在留言，看到一定回复。</p>
+<p>源码地址：<br><a href="https://github.com/git0pen/AndroidNewWidgetsDemo" target="_blank" rel="external">AndroidNewWidgetsDemo</a></p>
+</blockquote>
+<p>##清纯妹子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/girls/girls-20150702.jpg" alt="清纯妹子" title="">
+                </div>
+                <div class="image-caption">清纯妹子</div>
+            </figure></p>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:13:12.000Z" itemprop="dateUpdated">2016-05-14 04:13:12</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/07/02/android-new-widgets-demo/" target="_blank" rel="external">http://sunjiajia.com/2015/07/02/android-new-widgets-demo/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进阶/">进阶</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&title=《一个Demo学会用Android兼容包新控件》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&title=《一个Demo学会用Android兼容包新控件》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一个Demo学会用Android兼容包新控件》 — 安卓猴&url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/07/03/monkey-java-basic-courses-2-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Java》课程2.1之基本数据类型</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/07/01/monkey-java-basic-courses-2-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">《Monkey Java》课程2.0之变量</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&title=《一个Demo学会用Android兼容包新控件》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&title=《一个Demo学会用Android兼容包新控件》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一个Demo学会用Android兼容包新控件》 — 安卓猴&url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/07/02/android-new-widgets-demo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3ay3LCMAwFUP7/p+mWmZL0XjswjX286pQ8dFgIS/LjEa/ny3r9z/mnv9fRvUfPuXhhYGDclvE8XUmg50HkmPzreEPFwMDYgHGUwY6uSUjnz0/elcSGgYGB0V7Tptc8KWNgYGDMJNz6leV2EwMDAyMvYttiNd9QfrUWx8DAuCEj77p//++PzDcwMDBuxXiWq70332LOLAwMjLUZbeM+2ZYlVyaftoc/MDAwVmW0ZWcebluaJun4MCoMDIwtGW3oMym4PYj2BoOBgbE0oy0y80NgSXrNBwZJExADA2NPRp5221fOl7h/1OIYGBjLMfLhZb4RbI9l5E+44JgFBgbGbRl5Oz7fMn5uhHkYMwYGxnKMNog8rPaZ7W/CmxEmBgbG0oyxwUA+BB0bLRQbSgwMjKUZM0kzb8PlSTZPxBgYGPsw5g9PXJWOx5CHW0MMDIxFGW1TPglxHhCVtRgYGBsw8iKzHS6Olal1Sw4DA2NpRtsIu3bbd9VYFAMDYwdGEvTYkLJN3DMJHQMDYzdGnmTHxpztXVH1ioGBsQFjbDzQjjzb4x1FGw4DA2NRxrNc83fNJOjDp2FgYCzNyFcLa8elbd+sTdMYGBh3Z7TpMmmBtY2zmREFBgbGPoyZMjXBjA0hciQGBgZGO6Scab3lx8imEi4GBsbSjOKoVjl4yI9ufOR3AwMD498zxhpqbWssT9wXDzIxMDBuzshvG2O3Qc+PFjAwMBZi/ADw8jf1HM1rMAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

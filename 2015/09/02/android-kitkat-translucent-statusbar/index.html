@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/">
+    
+    
+    <title>Android &gt;= 4.4 适配沉浸状态栏颜色 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,进阶,Java">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？ 其实，在Android &amp;gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &amp;gt;= 5.0 版本中设置">
+<meta name="keywords" content="Android,进阶,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android &gt;= 4.4 适配沉浸状态栏颜色">
+<meta property="og:url" content="http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？ 其实，在Android &amp;gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &amp;gt;= 5.0 版本中设置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/201509/statubar-in-lollipop-and-kitkat.jpg">
+<meta property="og:image" content="http://sunjiajia.com/img/201509/statubar-in-miui.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:06:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android &gt;= 4.4 适配沉浸状态栏颜色">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？ 其实，在Android &amp;gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &amp;gt;= 5.0 版本中设置">
+<meta name="twitter:image" content="http://sunjiajia.com/img/201509/statubar-in-lollipop-and-kitkat.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android &gt;= 4.4 适配沉浸状态栏颜色</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android &gt;= 4.4 适配沉浸状态栏颜色</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-09-01T23:50:27.000Z" itemprop="datePublished" class="page-time">
+  2015-09-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-5-0-实现方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">Android 5.0+实现方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-4-4-实现方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Android 4.4 实现方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结语"><span class="post-toc-number">4.</span> <span class="post-toc-text">结语</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android-kitkat-translucent-statusbar"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android >= 4.4 适配沉浸状态栏颜色</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-09-02 07:50:27" datetime="2015-09-01T23:50:27.000Z"  itemprop="datePublished">2015-09-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+</blockquote>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p>
+<p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p>
+<p>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android >= 4.4 Status Bar" title="">
+                </div>
+                <div class="image-caption">Android >= 4.4 Status Bar</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar" title="">
+                </div>
+                <div class="image-caption">MIUI Status Bar</div>
+            </figure></p>
+<h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">《Android L+ Theme 与 Toolbar 实例》</a></p>
+<h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a></p>
+<p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line"></div><div class="line">     Window mWindow = getWindow();</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</div><div class="line"></div><div class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</div><div class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:06:50.000Z" itemprop="dateUpdated">2016-05-14 04:06:50</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/09/02/android-kitkat-translucent-statusbar/" target="_blank" rel="external">http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进阶/">进阶</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&title=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&title=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/12/06/monkey-android-7/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Android》第7课RelativeLayout、TableLayout</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/09/02/gradle-umeng-channels/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Gradle多渠道打包[umeng]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&title=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&title=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android >= 4.4 适配沉浸状态栏颜色》 — 安卓猴&url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQY7CMBAEQP7/afa6EkroHtsIpMoJoZC4cvAMPXk84uP577j6/up4PT+5S3K1bQceHh7ewtKvLpd8c3W1V1j+mJK7v3kEeHh4eMd4Vztq/jn57f3uvX5NPDw8vF/h3W/Z979qz8fDw8P7XV7SIucBRBJ/4OHh4X0br92m7yOJfIl5XHs8a8HDw8M7MEX6ns9H5nt4eHh4y1P1pEjM4olZg16vFg8PD+8Arx1Q5a9VzcLcXYM0PDw8vM/w2tenZpHESskZNt94eHh4x3jJQlca6NlAa9bEP4an4uHh4XW8/MbJpWcDs7zVLs7Hw8PD28q7b6OLP/ybCsbKeop6goeHh7fMa5vgNjLIv1kJQZbme3h4eHgLvL2x7OnG/c3DwsPDwzvAy2/TDvjzKKENL+pBGh4eHt4BXrKslTg1KQl5ORnGxHh4eHhbeXk7uzKamrXObZF4U/fw8PDwNvHyDTpfdNtA59fM4ww8PDy8E7ykCc5HYrsG/218/KaZxsPDw9vKa6dFxdgpjgzamLht4vHw8PDO8Wbx66zZbV9NaKMKPDw8vHO8XRHDLKidpSZF8cDDw8M7wGv/8O8qA22EkYcaRVaNh4eHt8CbFYD2VYM8om2j3iK6xcPDw9vEm924fbE1H6fl1y9KCB4eHt5W3voIKo9c7x9Tfpei4cbDw8M7xlsZerXRbY58lgceHh7eN/D2tssteyUiwcPDwzvBm227s8a3fdVgvfnGw8PDO8FrN998zJ801vnuPRx64eHh4R3j7SoGs8C3fVjt4A0PDw/vHC9fdDuI+mQ1u3x1AA8PD+/LePlmncQQ6wO2zYUBDw8PbxMvD1hXIoxZgcHDw8P7DG82+M8Z62Oz4W/x8PDwDvDyS+SFZFc5OfKiAB4eHt6c9wcOySvwgg1B6QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

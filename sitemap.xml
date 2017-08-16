@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/</loc>
+    
+    <lastmod>2017-07-10T08:18:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2017/03/07/taobao-spider/</loc>
+    
+    <lastmod>2017-05-25T15:28:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2017/01/07/recycler-bottom/</loc>
+    
+    <lastmod>2017-01-07T13:31:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2017/01/07/double-tap-toolbar/</loc>
+    
+    <lastmod>2017-01-07T13:29:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/05/07/daily-tips/</loc>
+    
+    <lastmod>2016-11-26T11:15:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/categories/index.html</loc>
+    
+    <lastmod>2016-11-09T10:31:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/tags/index.html</loc>
+    
+    <lastmod>2016-11-09T10:31:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/02/android-new-widgets-demo/</loc>
+    
+    <lastmod>2016-05-13T20:13:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/02/hello-world/</loc>
+    
+    <lastmod>2016-05-13T20:11:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/03/new-blog-preface/</loc>
+    
+    <lastmod>2016-05-13T20:11:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/04/accelerate-gps/</loc>
+    
+    <lastmod>2016-05-13T20:11:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/06/android-shape-attribute/</loc>
+    
+    <lastmod>2016-05-13T20:11:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/07/daily-exercise/</loc>
+    
+    <lastmod>2016-05-13T20:11:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/10/ubuntu-fonts/</loc>
+    
+    <lastmod>2016-05-13T20:11:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/05/29/fitness-notes/</loc>
+    
+    <lastmod>2016-05-13T20:11:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/</loc>
+    
+    <lastmod>2016-05-13T20:11:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/06/24/android-api-document-download/</loc>
+    
+    <lastmod>2016-05-13T20:11:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/06/30/monkey-java-basic-courses-1-0/</loc>
+    
+    <lastmod>2016-05-13T20:10:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/</loc>
+    
+    <lastmod>2016-05-13T20:10:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</loc>
+    
+    <lastmod>2016-05-13T20:10:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/03/monkey-java-basic-courses-2-1/</loc>
+    
+    <lastmod>2016-05-13T20:10:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/03/monkey-java-basic-courses-2-x-exercises/</loc>
+    
+    <lastmod>2016-05-13T20:10:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/04/monkey-java-basic-courses-3-0/</loc>
+    
+    <lastmod>2016-05-13T20:10:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/09/monkey-java-basic-courses-3-1/</loc>
+    
+    <lastmod>2016-05-13T20:10:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-2/</loc>
+    
+    <lastmod>2016-05-13T20:10:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</loc>
+    
+    <lastmod>2016-05-13T20:10:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</loc>
+    
+    <lastmod>2016-05-13T20:10:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-0/</loc>
+    
+    <lastmod>2016-05-13T20:10:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-1/</loc>
+    
+    <lastmod>2016-05-13T20:09:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-2/</loc>
+    
+    <lastmod>2016-05-13T20:09:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/11/monkey-java-basic-courses-4-3/</loc>
+    
+    <lastmod>2016-05-13T20:09:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/13/monkey-java-basic-courses-5-0/</loc>
+    
+    <lastmod>2016-05-13T20:09:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/13/monkey-java-basic-courses-5-1/</loc>
+    
+    <lastmod>2016-05-13T20:09:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-2/</loc>
+    
+    <lastmod>2016-05-13T20:09:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</loc>
+    
+    <lastmod>2016-05-13T20:09:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</loc>
+    
+    <lastmod>2016-05-13T20:09:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-5-5/</loc>
+    
+    <lastmod>2016-05-13T20:09:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-5-6/</loc>
+    
+    <lastmod>2016-05-13T20:09:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-6-0/</loc>
+    
+    <lastmod>2016-05-13T20:09:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-6-1/</loc>
+    
+    <lastmod>2016-05-13T20:09:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-6-2/</loc>
+    
+    <lastmod>2016-05-13T20:08:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/16/monkey-java-basic-courses-6-3/</loc>
+    
+    <lastmod>2016-05-13T20:08:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/18/monkey-java-basic-courses-6-4/</loc>
+    
+    <lastmod>2016-05-13T20:08:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/20/monkey-java-basic-courses-7-0/</loc>
+    
+    <lastmod>2016-05-13T20:08:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/21/monkey-java-basic-courses-7-1/</loc>
+    
+    <lastmod>2016-05-13T20:08:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</loc>
+    
+    <lastmod>2016-05-13T20:08:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-8-0/</loc>
+    
+    <lastmod>2016-05-13T20:08:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</loc>
+    
+    <lastmod>2016-05-13T20:08:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</loc>
+    
+    <lastmod>2016-05-13T20:08:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/27/monkey-java-basic-courses-9-2/</loc>
+    
+    <lastmod>2016-05-13T20:08:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/29/monkey-java-basic-courses-10-0/</loc>
+    
+    <lastmod>2016-05-13T20:07:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/31/monkey-android-1/</loc>
+    
+    <lastmod>2016-05-13T20:07:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/07/31/monkey-android-2/</loc>
+    
+    <lastmod>2016-05-13T20:07:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/02/monkey-android-3/</loc>
+    
+    <lastmod>2016-05-13T20:07:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/03/monkey-android-4/</loc>
+    
+    <lastmod>2016-05-13T20:07:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/07/monkey-android-5/</loc>
+    
+    <lastmod>2016-05-13T20:07:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/09/my-develop-environment/</loc>
+    
+    <lastmod>2016-05-13T20:07:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/10/monkey-android-6/</loc>
+    
+    <lastmod>2016-05-13T20:07:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/14/download-android-open-source-projects/</loc>
+    
+    <lastmod>2016-05-13T20:07:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/16/make-android-open-source/</loc>
+    
+    <lastmod>2016-05-13T20:07:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/08/16/tencent-bugly-android-sdk-mirror/</loc>
+    
+    <lastmod>2016-05-13T20:06:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</loc>
+    
+    <lastmod>2016-05-13T20:06:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/09/02/gradle-umeng-channels/</loc>
+    
+    <lastmod>2016-05-13T20:06:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/12/06/monkey-android-7/</loc>
+    
+    <lastmod>2016-05-13T20:06:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/12/06/monkey-android-8/</loc>
+    
+    <lastmod>2016-05-13T20:06:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/12/06/monkey-android-9/</loc>
+    
+    <lastmod>2016-05-13T20:06:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/12/08/monkey-android-10/</loc>
+    
+    <lastmod>2016-05-13T20:06:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2015/12/09/monkey-android-11/</loc>
+    
+    <lastmod>2016-05-13T20:06:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/04/11/monkey-android-12/</loc>
+    
+    <lastmod>2016-05-13T20:05:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/04/11/monkey-android-13/</loc>
+    
+    <lastmod>2016-05-13T20:05:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/04/11/monkey-android-14/</loc>
+    
+    <lastmod>2016-05-13T20:05:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/04/11/monkey-android-15/</loc>
+    
+    <lastmod>2016-05-13T20:05:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2016/04/19/android-m-permissions/</loc>
+    
+    <lastmod>2016-05-13T20:05:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/about/index.html</loc>
+    
+    <lastmod>2016-05-02T23:37:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/search/index.html</loc>
+    
+    <lastmod>2015-05-10T01:28:18.000Z</lastmod>
+    
+  </url>
+  
+</urlset>

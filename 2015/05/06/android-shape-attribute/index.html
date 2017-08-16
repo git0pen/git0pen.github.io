@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/05/06/android-shape-attribute/">
+    
+    
+    <title>Android中shape的使用 | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,进阶">
+    <meta name="description" content="Android中的drawable resource的属性太多，进阶路上必须要记住啊   看了下面的一段code就明白了： 12345678910111213141516171819202122&amp;lt;shape&amp;gt;           &amp;lt;!-- 实心 --&amp;gt;           &amp;lt;solid android:color=&quot;#ff9d77&quot;/&amp;gt;           &amp;">
+<meta name="keywords" content="Android,进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中shape的使用">
+<meta property="og:url" content="http://sunjiajia.com/2015/05/06/android-shape-attribute/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="Android中的drawable resource的属性太多，进阶路上必须要记住啊   看了下面的一段code就明白了： 12345678910111213141516171819202122&amp;lt;shape&amp;gt;           &amp;lt;!-- 实心 --&amp;gt;           &amp;lt;solid android:color=&quot;#ff9d77&quot;/&amp;gt;           &amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:11:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android中shape的使用">
+<meta name="twitter:description" content="Android中的drawable resource的属性太多，进阶路上必须要记住啊   看了下面的一段code就明白了： 12345678910111213141516171819202122&amp;lt;shape&amp;gt;           &amp;lt;!-- 实心 --&amp;gt;           &amp;lt;solid android:color=&quot;#ff9d77&quot;/&amp;gt;           &amp;">
+<meta name="twitter:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android中shape的使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android中shape的使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-05-06T02:46:11.000Z" itemprop="datePublished" class="page-time">
+  2015-05-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于我</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android-shape-attribute"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android中shape的使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-05-06 10:46:11" datetime="2015-05-06T02:46:11.000Z"  itemprop="datePublished">2015-05-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android进阶/">Android进阶</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong> Android中的drawable resource的属性太多，进阶路上必须要记住啊 </strong></p>
+<ul>
+<li><p>看了下面的一段code就明白了：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">shape</span>&gt;</span></div><div class="line">           <span class="comment">&lt;!-- 实心 --&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#ff9d77"</span>/&gt;</span></div><div class="line">           <span class="comment">&lt;!-- 渐变 --&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">gradient</span></span></div><div class="line"><span class="tag">               <span class="attr">android:startColor</span>=<span class="string">"#ff8c00"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:endColor</span>=<span class="string">"#FFFFFF"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:angle</span>=<span class="string">"270"</span> /&gt;</span></div><div class="line">           <span class="comment">&lt;!-- 描边 --&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">stroke</span></span></div><div class="line"><span class="tag">               <span class="attr">android:width</span>=<span class="string">"2dp"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:color</span>=<span class="string">"#dcdcdc"</span> /&gt;</span></div><div class="line">           <span class="comment">&lt;!-- 圆角 --&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line"><span class="tag">               <span class="attr">android:radius</span>=<span class="string">"2dp"</span> /&gt;</span></div><div class="line">           <span class="comment">&lt;!-- 间隔 --&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">padding</span></span></div><div class="line"><span class="tag">               <span class="attr">android:left</span>=<span class="string">"10dp"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:top</span>=<span class="string">"10dp"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:right</span>=<span class="string">"10dp"</span></span></div><div class="line"><span class="tag">               <span class="attr">android:bottom</span>=<span class="string">"10dp"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>稍微解释一下啊：</p>
+<pre><code>solid：          实心，就是填充的意思
+    android:color    指定填充的颜色
+
+gradient         渐变
+    android:startColor      起始颜色
+    android:endColor        结束颜色
+    android:angle           渐变角度，必须为45的整数倍。
+    （另外渐变默认的模式为android:type=&quot;linear&quot;，即线性渐变，可以指定                渐变为径向渐变，android:type=&quot;radial&quot;，径向渐变需要指定半径                android:gradientRadius=&quot;50&quot;）
+
+stroke           描边
+    android:width=&quot;2dp&quot;      描边的宽度
+    android:color            描边的颜色。
+    我们还可以把描边弄成虚线的形式，设置方式为：
+        android:dashWidth=&quot;5dp&quot;    表示&apos;-&apos;这样一个横线的宽度
+        android:dashGap=&quot;3dp&quot;      表示之间隔开的距离
+
+corners           圆角
+       android:radius          为角的弧度，值越大角越圆。
+    我们还可以把四个角设定成不同的角度，方法为：
+    &lt;corners
+        android:topRightRadius=&quot;20dp&quot;      右上角
+        android:bottomLeftRadius=&quot;20dp&quot;    右下角
+        android:topLeftRadius=&quot;1dp&quot;        左上角
+        android:bottomRightRadius=&quot;0dp&quot;    左下角
+     /&gt;
+    这里有个地方需要注意:
+    bottomLeftRadius          右下角，而不是左下角,记得别搞错了
+
+padding         间隔
+    这个就不用多说了，XML布局文件中经常用到。
+</code></pre></li>
+</ul>
+<hr>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:11:30.000Z" itemprop="dateUpdated">2016-05-14 04:11:30</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/05/06/android-shape-attribute/" target="_blank" rel="external">http://sunjiajia.com/2015/05/06/android-shape-attribute/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进阶/">进阶</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&title=《Android中shape的使用》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&title=《Android中shape的使用》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/05/06/android-shape-attribute/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中shape的使用》 — 安卓猴&url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/05/07/daily-exercise/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">程序员也要有个好身体</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/05/04/accelerate-gps/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">加速gps搜星</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&title=《Android中shape的使用》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&title=《Android中shape的使用》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/05/06/android-shape-attribute/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中shape的使用》 — 安卓猴&url=http://sunjiajia.com/2015/05/06/android-shape-attribute/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/05/06/android-shape-attribute/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3aQY7CMAwFUO5/aWaLBG2/7TISyesKQafNm4WVfPvxiK/ny/X+zev3R7++/+3R5/en3XZhYGD8LON5eiX3nL84ubP3XgwMjN0YR4/O70lK8zl18l4MDAyMo+XO7883jhgYGBg9xnlhzQ+6599gYGBg5IfYaumcZGJfPItjYGD8ICNP3f//81f6GxgYGD/FeBavhJcEbdUN5cWqMDAwlmbkBS45jk42kdWCi4GBsQ8jPzrOh8aS5yeR3Ic7MTAwNmP0Iq28AZCMheVNgsOCi4GBsRCjF9wnB9HJeFm1zYCBgbEboxrN9xqfd5VmDAyMHRjVQYcee74dvCjZGBgYSzOqIVe+rF6gVm1bXvQ3MDAwlmNUxyzyf0F1/KK6JcXAwFibkRwmq6FYjq+G/hcDYRgYGIsyqgW3F4fd2zaITuQYGBgLMXrRfLJpywc4JsgPMyMYGBjLMe4tuL0CXTht97qpGBgYSzCSgpuPUyQvnrRFIxgGBsZyjN6yqgFZdVtZbiRgYGBswMjbir02QLJ9HDUPMDAwNmD0WpWTjeakWB/2YzEwMLZh9IYkqmMWN8dwGBgYizKexSvfOOYFehLtYWBg7MCYV+tqPJdvKCdRIAYGxnqMfMwiKax5xFZ98kXBxcDA2IBx1/RCbym9NmcUt2FgYGAUi2+vKEdUDAwMjDgOm0d4yWax0MLEwMBYiJEcYpNfc3ZhifNGJgYGxo8zekfHPDLLQ7rJqAcGBsaijD9zt7JQ+Y4ZzgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86934944-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=47026955"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://sunjiajia.com/2015/12/06/monkey-android-8/">
+    
+    
+    <title>《Monkey Android》第8课FrameLayout、GridLayout | 安卓猴 | 把简单的事情做好。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,新手">
+    <meta name="description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   FrameLayout的用法  GridLayout的用法     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid   FrameLayout">
+<meta name="keywords" content="Android,Java,新手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Monkey Android》第8课FrameLayout、GridLayout">
+<meta property="og:url" content="http://sunjiajia.com/2015/12/06/monkey-android-8/index.html">
+<meta property="og:site_name" content="安卓猴">
+<meta property="og:description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   FrameLayout的用法  GridLayout的用法     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid   FrameLayout">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sunjiajia.com/img/201512/gridlayout_calculator.jpg">
+<meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
+<meta property="og:image" content="http://sunjiajia.com/img/qrcode_for_android_amazing.jpg">
+<meta property="og:updated_time" content="2016-05-13T20:06:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Monkey Android》第8课FrameLayout、GridLayout">
+<meta name="twitter:description" content="转发请注明出处： 安卓猴的博客（http://sunjiajia.com） 安卓猴的微博（@安卓猴）   通过本节课可以学习到的内容：   FrameLayout的用法  GridLayout的用法     实例代码:  运行效果参见本课程示例App：安卓猴Demos github地址：https://github.com/git0pen/MonkeyAndroid   FrameLayout">
+<meta name="twitter:image" content="http://sunjiajia.com/img/201512/gridlayout_calculator.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/author.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">安卓猴</h5>
+          <a href="mailto:gitopen@gmail.com" title="gitopen@gmail.com" class="mail">gitopen@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/img/wechat_follow.jpg" target="_blank" >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/androidmonkey" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/opengit" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.vultr.com/?ref=7147564" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                强推本站VPS！优惠
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《Monkey Android》第8课FrameLayout、GridLayout</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《Monkey Android》第8课FrameLayout、GridLayout</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-12-06T10:50:27.000Z" itemprop="datePublished" class="page-time">
+  2015-12-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FrameLayout"><span class="post-toc-number">1.</span> <span class="post-toc-text">FrameLayout</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GridLayout"><span class="post-toc-number">2.</span> <span class="post-toc-text">GridLayout</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算器界面"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">计算器界面</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局源码"><span class="post-toc-number">3.</span> <span class="post-toc-text">布局源码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下课"><span class="post-toc-number">4.</span> <span class="post-toc-text">下课</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于我"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">关于我</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-monkey-android-8"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《Monkey Android》第8课FrameLayout、GridLayout</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-12-06 18:50:27" datetime="2015-12-06T10:50:27.000Z"  itemprop="datePublished">2015-12-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/《Monkey-Android》/">《Monkey Android》</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>转发请注明出处：</p>
+<p><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
+<p><a href="http://weibo.com/androidmonkey" target="_blank" rel="external">安卓猴的微博（@安卓猴）</a></p>
+</blockquote>
+<hr>
+<p>通过本节课可以学习到的内容：</p>
+<blockquote>
+<ul>
+<li><p>FrameLayout的用法</p>
+</li>
+<li><p>GridLayout的用法</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>实例代码:</p>
+<blockquote>
+<p>运行效果参见本课程示例App：安卓猴Demos</p>
+<p>github地址：<a href="https://github.com/git0pen/MonkeyAndroid" target="_blank" rel="external">https://github.com/git0pen/MonkeyAndroid</a></p>
+</blockquote>
+<hr>
+<h2 id="FrameLayout"><a href="#FrameLayout" class="headerlink" title="FrameLayout"></a>FrameLayout</h2><blockquote>
+<p>帧布局，在这种布局下，每个添加的子控件都被放在布局的左上角，并覆盖在前一个子控件的上层；此外，FrameLayout中的子控件的位置不能被指定。</p>
+</blockquote>
+<h2 id="GridLayout"><a href="#GridLayout" class="headerlink" title="GridLayout"></a>GridLayout</h2><blockquote>
+<p>自Android4.0版本（API level 14）后，新增的网格布局。</p>
+</blockquote>
+<p><strong>注意：</strong><br>如果要达到网格的效果，推荐使用LinearLayout来实现，因为使用GridLayout会产生如下问题：</p>
+<ul>
+<li>不能同时在(x,y)轴方向上进行控件的对齐；</li>
+<li>当多层布局嵌套的时候会出现性能问题；</li>
+<li>不能稳定地支持一些支持自由编辑布局的工具。</li>
+</ul>
+<h3 id="计算器界面"><a href="#计算器界面" class="headerlink" title="计算器界面"></a>计算器界面</h3><blockquote>
+<p>用GridLayout和Button模仿了一个计算器的按键界面。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/201512/gridlayout_calculator.jpg" alt="计算器界面" title="">
+                </div>
+                <div class="image-caption">计算器界面</div>
+            </figure>
+<h2 id="布局源码"><a href="#布局源码" class="headerlink" title="布局源码"></a>布局源码</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></div><div class="line"><span class="tag">  &gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"北京"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#898989"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"18sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"上海"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#108939"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"22sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"广州"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#103339"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"26sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView4"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"南京"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#efec1c"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"26sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView5"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"东莞"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#ff5e00"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"30sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView6"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"深圳"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#ae00ff"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"36sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">GridLayout</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_weight</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:columnCount</span>=<span class="string">"4"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:rowCount</span>=<span class="string">"6"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"C"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"DEL"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button4"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"/"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button5"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"7"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button6"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"8"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button7"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"9"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button12"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"-"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button8"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"4"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button9"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"5"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button10"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"6"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button11"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"*"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button13"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"+"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button15"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button16"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"1"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button17"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button14"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_gravity</span>=<span class="string">"fill_vertical"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"3"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_rowSpan</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"="</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button18"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_columnSpan</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_gravity</span>=<span class="string">"fill_horizontal"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"4"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/button19"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"2"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"4"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"."</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/textView7"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_column</span>=<span class="string">"0"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_columnSpan</span>=<span class="string">"4"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_gravity</span>=<span class="string">"fill_horizontal"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_row</span>=<span class="string">"5"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"计算器"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textColor</span>=<span class="string">"#000000"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textSize</span>=<span class="string">"38sp"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">GridLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>这一节课，我们学习了FrameLayout和GridLayout，它们的使用也需要很多技巧。此外，我们要在平时练习的时候多多敲代码，这样才能熟能生巧。</p>
+<p>到这里，所有布局的知识都学习完毕了。接下来，我们就要一起学习各种缤纷的控件了！</p>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
+<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
+</ul>
+<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
+<ul>
+<li>微信公众号：Android奇想录（android_amazing）</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2016-05-13T20:06:28.000Z" itemprop="dateUpdated">2016-05-14 04:06:28</time>
+</span><br>
+
+
+        
+        转发请注明出处：<a href="/2015/12/06/monkey-android-8/" target="_blank" rel="external">http://sunjiajia.com/2015/12/06/monkey-android-8/</a>
+        
+    </div>
+    <footer>
+        <a href="http://sunjiajia.com">
+            <img src="/img/author.jpg" alt="安卓猴">
+            安卓猴
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/12/06/monkey-android-8/&title=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/12/06/monkey-android-8/&title=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/12/06/monkey-android-8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&url=http://sunjiajia.com/2015/12/06/monkey-android-8/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/12/06/monkey-android-8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/12/06/monkey-android-9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">《Monkey Android》第9课Toast土司</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/12/06/monkey-android-7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">《Monkey Android》第7课RelativeLayout、TableLayout</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'opengit',
+            repo: 'BlogComment',
+            oauth: {
+                client_id: '8caf553257a047738c65',
+                client_secret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat_pay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/ali_pay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Host by <a href="http://www.vultr.com/?ref=7147564" target="_blank">Vultr</a></span>
+            <span>安卓猴 &copy; 2009 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sunjiajia.com/2015/12/06/monkey-android-8/&title=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&pic=http://sunjiajia.com/img/author.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sunjiajia.com/2015/12/06/monkey-android-8/&title=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&source=我使用的编程语言主要为Java和Python" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sunjiajia.com/2015/12/06/monkey-android-8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《Monkey Android》第8课FrameLayout、GridLayout》 — 安卓猴&url=http://sunjiajia.com/2015/12/06/monkey-android-8/&via=http://sunjiajia.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sunjiajia.com/2015/12/06/monkey-android-8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7DMAwF0dz/0u42QGp5PukEMDVaGa0c62lBkJReLzyOt3H29/f/HieDv/X6xpAhQ8ZjGcdy1OZ8/v7ncw18SpUhQ8YGjLMIdvbMl0vC6Prd9XwZMmTIWM8hYXEdZGXIkCHj9wyCXGNkyJAho1PEpkGWw35ai8uQIeOBDN51//3zV843ZMiQ8SjGEQ7C4+kd+QW0KhkyZIxm8ABH2mdkJi9648sfMmTIGMr4Xr5Za/2TI4R/ZsqQIWMDRie9q6V9PAQTpAwZMnZg8P4VTxNRoAQAtE0yZMgYzQjSrzDh6y80DvEyZMgYykgbZ2kI5pcnOgmiDBkydmN0SlC+NSSIk3L6IsOVIUPGCEYaZPuFKClNawcPMmTImMroBNza4tKtQY08GTJkjGbUkjlyYeLisinYGr5CGTJkzGak11LTg4TOpgRBWYYMGaMZxao3vAxRK1zvKndlyJDxdEZaxKaBL706VgzrMmTIGM1IG22dD6cB+oajBRkyZAxikMCaAtLymOAvyloZMmRszEivZ9UifboRMmTIkNFvpaXv1i5qyJAhYwfGEY5aYrdu0vFQe5EUypAhYyjjroPM/iFBv28mQ4aM2Yy4sRV+nh+OtgKuDBkyNmCkHyOLSBPQ2g0KGTJkyOi0/mskvkGtgCtDhozRjLuOEPhC0dGFDBkyNmCQ8MfnpBcmagmiDBky9mGkpWOaRKaL4G/JkCFjA8YfnLX6CNNVpkUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

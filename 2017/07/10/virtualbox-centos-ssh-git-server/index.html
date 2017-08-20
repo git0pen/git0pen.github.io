@@ -120,6 +120,13 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="http://twitter.com/gitopen" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                推特
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="/img/wechat_follow.jpg" target="_blank" >
                 <i class="icon icon-lg icon-wechat"></i>
                 微信
@@ -258,13 +265,7 @@ ga('send', 'pageview');
 <p>注意保存这两个文件，哪怕你换了电脑，重做了系统，也要记得备份。</p>
 </blockquote>
 <p>4.查看VirtualBox中CentOS的ip地址：<br>运行CentOS，root用户登录后输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ip addr</div></pre></td></tr></table></figure></p>
-<p>如图所示：<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/2017_all/centos_ip.png" alt="CentOS ip地址" title="">
-                </div>
-                <div class="image-caption">CentOS ip地址</div>
-            </figure></p>
+<p>如图所示：<img src="/img/2017_all/centos_ip.png" alt="CentOS ip地址"></p>
 <p>5.在客户端中用ssh连接CentOS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@xxx.xxx.xxx.xxx -p 22</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>xxx.xxx.xxx.xxx是CentOS的ip地址，此时还需要输入CentOS的root账户密码。此时之所用SSH登录，是为了方便拷贝密钥到authorized_keys。</p>
@@ -273,20 +274,8 @@ ga('send', 'pageview');
 <p>7.在客户端（Mac）中查看id_rsa.pub，并复制其中的密钥。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat .ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
 <p>8.在CentOS中打开authorized_keys，将刚才复制的密钥粘贴进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
 <p>9.配置完毕了。</p>
-<h3 id="客户端（Mac）配置CentOS别名"><a href="#客户端（Mac）配置CentOS别名" class="headerlink" title="客户端（Mac）配置CentOS别名"></a>客户端（Mac）配置CentOS别名</h3><p>1.为VirtualBox中CentOS的网络设置端口转发<br>设置网络类型为NAT，如图所示：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/2017_all/centos_nat.png" alt="CentOS NAT网络" title="">
-                </div>
-                <div class="image-caption">CentOS NAT网络</div>
-            </figure></p>
-<p>设置端口转发，如图所示：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/2017_all/centos_port.png" alt="CentOS 端口转发" title="">
-                </div>
-                <div class="image-caption">CentOS 端口转发</div>
-            </figure></p>
+<h3 id="客户端（Mac）配置CentOS别名"><a href="#客户端（Mac）配置CentOS别名" class="headerlink" title="客户端（Mac）配置CentOS别名"></a>客户端（Mac）配置CentOS别名</h3><p>1.为VirtualBox中CentOS的网络设置端口转发<br>设置网络类型为NAT，如图所示：<br><img src="/img/2017_all/centos_nat.png" alt="CentOS NAT网络"></p>
+<p>设置端口转发，如图所示：<br><img src="/img/2017_all/centos_port.png" alt="CentOS 端口转发"></p>
 <blockquote>
 <p>以上操作是为了在客户端（Mac）中设置别名登录的时候，将ip地址写为127.0.0.1，避免每次启动CentOS自动获取ip的变化，需要修改太麻烦。</p>
 </blockquote>
@@ -346,13 +335,7 @@ ga('send', 'pageview');
 <ul>
 <li>微信公众号：Android奇想录（android_amazing）</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
+<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
 
         </div>
 

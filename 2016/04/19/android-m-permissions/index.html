@@ -42,9 +42,9 @@ ga('send', 'pageview');
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Android,新手,Java">
+    <meta name="keywords" content="Android,Java,新手">
     <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）安卓猴的微博（@安卓猴）   前言Android M的发布，最重要的提升就是权限的控制，这么多年来Android App的权限滥用状况将逐步得到改善。 在API 23中，如果我们将compileSdkVersion和targetSdkVersion同时指定为23，而且我们没有显式的提醒用户去授予权限， 那么将导致App运行的">
-<meta name="keywords" content="Android,新手,Java">
+<meta name="keywords" content="Android,Java,新手">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android M (API23) 中对权限的授权处理">
 <meta property="og:url" content="http://sunjiajia.com/2016/04/19/android-m-permissions/index.html">
@@ -115,6 +115,13 @@ ga('send', 'pageview');
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://twitter.com/gitopen" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                推特
               </a>
             </li>
         
@@ -240,26 +247,14 @@ ga('send', 'pageview');
 <p>那么将导致App运行的崩溃。</p>
 <p>因此，接下来，就写一个原生的PermissionsUtil工具类，来解决这个问题。</p>
 <hr>
-<h2 id="重要权限列表"><a href="#重要权限列表" class="headerlink" title="重要权限列表"></a>重要权限列表</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201604/permissions_group.png" alt="API 23提醒用户授予权限" title="">
-                </div>
-                <div class="image-caption">API 23提醒用户授予权限</div>
-            </figure>
+<h2 id="重要权限列表"><a href="#重要权限列表" class="headerlink" title="重要权限列表"></a>重要权限列表</h2><p><img src="/img/201604/permissions_group.png" alt="API 23提醒用户授予权限"></p>
 <blockquote>
 <p>另外，Android官方手册中也有描述，可以详细阅读：<a href="http://androiddoc.qiniudn.com/preview/features/runtime-permissions.html" target="_blank" rel="external">Permissions</a></p>
 </blockquote>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><blockquote>
 <p>我喜欢用Gif动图来直观的展示效果！</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201604/android_permissions.gif" alt="API 23提醒用户授予权限" title="">
-                </div>
-                <div class="image-caption">API 23提醒用户授予权限</div>
-            </figure>
+<p><img src="/img/201604/android_permissions.gif" alt="API 23提醒用户授予权限"></p>
 <hr>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li>ActivityCompat.checkSelfPermission(Activity,String)</li>
@@ -309,13 +304,7 @@ ga('send', 'pageview');
 <ul>
 <li>微信公众号：Android奇想录（android_amazing）</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
+<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
 
         </div>
 

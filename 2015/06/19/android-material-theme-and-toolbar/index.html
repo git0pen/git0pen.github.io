@@ -119,6 +119,13 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="http://twitter.com/gitopen" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                推特
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="/img/wechat_follow.jpg" target="_blank" >
                 <i class="icon icon-lg icon-wechat"></i>
                 微信
@@ -250,13 +257,7 @@ ga('send', 'pageview');
 <h2 id="Toolbar的用法"><a href="#Toolbar的用法" class="headerlink" title="Toolbar的用法"></a>Toolbar的用法</h2><p>Toolbar的引入又是一个良心之作啊，之前的actionbar实在难用，很不方便。下面就看下Toolbar的用法，以及<strong>状态栏沉浸</strong>的用法。</p>
 <h3 id="Toolbar就是一个ViewGroup"><a href="#Toolbar就是一个ViewGroup" class="headerlink" title="Toolbar就是一个ViewGroup"></a>Toolbar就是一个ViewGroup</h3><p>简单一点儿说就是，使用Toolbar，需要在布局文件xml中引入：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
 <p>然后需要在Activity中使用它：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">setSupportActionBar(mToolbar);</div></pre></td></tr></table></figure></p>
-<h3 id="Toolbar的定制"><a href="#Toolbar的定制" class="headerlink" title="Toolbar的定制"></a>Toolbar的定制</h3><p>先看看本实例中Toolbar的样子吧，然后再来说Toolbar的一些属性，如图：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201506/toolbar_attribute.png" alt="Toolbar与statusbar颜色属性详图" title="">
-                </div>
-                <div class="image-caption">Toolbar与statusbar颜色属性详图</div>
-            </figure></p>
+<h3 id="Toolbar的定制"><a href="#Toolbar的定制" class="headerlink" title="Toolbar的定制"></a>Toolbar的定制</h3><p>先看看本实例中Toolbar的样子吧，然后再来说Toolbar的一些属性，如图：<br><img src="/img/201506/toolbar_attribute.png" alt="Toolbar与statusbar颜色属性详图"></p>
 <p>####xml style属性：</p>
 <ul>
 <li>colorPrimaryDark：状态栏的颜色（可用来实现沉浸效果）</li>
@@ -270,13 +271,7 @@ ga('send', 'pageview');
 <li>app:navigationIcon=”@android:drawable/ic_menu_sort_by_size” ： 导航图标（注意和Logo的区别）</li>
 </ul>
 <p>####用java代码设置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mToolbar.setTitle(<span class="string">"App Title"</span>); <span class="comment">//设置Toolbar标题</span></div><div class="line">mToolbar.setSubtitle(<span class="string">"Sub Title"</span>); <span class="comment">//设置Toolbar 副标题</span></div><div class="line">mToolbar.setLogo(R.mipmap.ic_launcher);<span class="comment">//设置Toolbar的Logo</span></div><div class="line"><span class="comment">//设置Toolbar的 导航图标</span></div><div class="line">mToolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);</div></pre></td></tr></table></figure></p>
-<p>如图：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/201506/toolbar_demo.png" alt="Toolbar的属性设置" title="">
-                </div>
-                <div class="image-caption">Toolbar的属性设置</div>
-            </figure></p>
+<p>如图：<br><img src="/img/201506/toolbar_demo.png" alt="Toolbar的属性设置"></p>
 <p>###完整代码</p>
 <blockquote>
 <p>源码下载：<br><a href="http://download.csdn.net/detail/androidmonkey/8824337" target="_blank" rel="external">Toolbar实例源码下载</a></p>
@@ -289,13 +284,7 @@ ga('send', 'pageview');
 <ul>
 <li>微信公众号：Android奇想录（android_amazing）</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
-                </div>
-                <div class="image-caption">扫描二维码关注公众号</div>
-            </figure>
+<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
 
         </div>
 

@@ -42,9 +42,9 @@ ga('send', 'pageview');
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Android,Java,新手">
+    <meta name="keywords" content="Android,新手,Java">
     <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   通过本节课可以学习到的内容：   运行第一个App 学习几个adb命令 在真机上运行它 隔空运行调试App    运行第一个App第1步 打开Android Studio，并打开上节课中我们创建的Genymotion模拟器，点击Android Studio的工具栏中的绿色实心向右箭头运行按钮，开始Build项目，稍等弹">
-<meta name="keywords" content="Android,Java,新手">
+<meta name="keywords" content="Android,新手,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Monkey Android》第4课之运行第一个App">
 <meta property="og:url" content="http://sunjiajia.com/2015/08/03/monkey-android-4/index.html">
@@ -257,9 +257,21 @@ ga('send', 'pageview');
 </blockquote>
 <hr>
 <h2 id="运行第一个App"><a href="#运行第一个App" class="headerlink" title="运行第一个App"></a>运行第一个App</h2><p><strong>第1步</strong> 打开Android Studio，并打开上节课中我们创建的Genymotion模拟器，点击Android Studio的工具栏中的<code>绿色实心向右箭头</code>运行按钮，开始Build项目，稍等弹出设备选择界面，如图：</p>
-<p><img src="/img/android/4-run-firstdemo-in-genymotion-1.jpg" alt="运行第一个App第1步"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-run-firstdemo-in-genymotion-1.jpg" alt="运行第一个App第1步" title="">
+                </div>
+                <div class="image-caption">运行第一个App第1步</div>
+            </figure>
 <p><strong>第2步</strong> 点击<code>Next</code>后，打开Android5.1模拟器，可以看到第一个App已经运行了！如图：</p>
-<p><img src="/img/android/4-run-firstdemo-in-genymotion-2.jpg" alt="运行第一个App第2步"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-run-firstdemo-in-genymotion-2.jpg" alt="运行第一个App第2步" title="">
+                </div>
+                <div class="image-caption">运行第一个App第2步</div>
+            </figure>
 <h2 id="学习几个adb命令"><a href="#学习几个adb命令" class="headerlink" title="学习几个adb命令"></a>学习几个adb命令</h2><p><strong>第1步</strong> 将SDK的<code>platform-tools</code>文件夹加入到系统环境变量中。</p>
 <p><strong>第2步</strong> 打开你的Genymotion模拟器，打开<code>cmd命令行</code>窗口，输入<code>adb devices</code>，得到反馈：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">List of devices attached</div><div class="line">c6a98c05        device</div><div class="line">169.254.109.102:5555    device</div></pre></td></tr></table></figure>
@@ -279,19 +291,43 @@ ga('send', 'pageview');
 <p>设置 –&gt; 关于手机 –&gt; 狂点（系统version）–&gt; 提示已处于开发者模式 –&gt; 设置 –&gt; 开发者选项 –&gt; USB调试。</p>
 </blockquote>
 <p><strong>第2步</strong> 用USB数据线链接电脑和手机，如果驱动安装好了，手机状态栏中会显示<code>已连接USB调试</code>。如图：</p>
-<p><img src="/img/android/4-run-firstdemo-in-phone-2.jpg" alt="在真机上运行第2步"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-run-firstdemo-in-phone-2.jpg" alt="在真机上运行第2步" title="">
+                </div>
+                <div class="image-caption">在真机上运行第2步</div>
+            </figure>
 <p><strong>第3步</strong>  打开cmd命令行，执行命令<code>adb devices</code>，得到如下反馈，说明真机连接成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List of devices attached</div><div class="line">c6a98c05        device</div></pre></td></tr></table></figure>
 <p><strong>第4步</strong>  在我们的Android Studio中，按快捷键<code>Shift + F10</code>运行我们的项目App，弹出<code>选择设备</code>对话框，如图：</p>
-<p><img src="/img/android/4-run-firstdemo-in-phone-4.jpg" alt="在真机上运行第4步"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-run-firstdemo-in-phone-4.jpg" alt="在真机上运行第4步" title="">
+                </div>
+                <div class="image-caption">在真机上运行第4步</div>
+            </figure>
 <p><strong>第5步</strong> 已经运行到真机上了！如图：</p>
-<p><img src="/img/android/4-run-firstdemo-in-phone-5.jpg" alt="在真机上运行第5步"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-run-firstdemo-in-phone-5.jpg" alt="在真机上运行第5步" title="">
+                </div>
+                <div class="image-caption">在真机上运行第5步</div>
+            </figure>
 <h2 id="隔空运行调试App"><a href="#隔空运行调试App" class="headerlink" title="隔空运行调试App"></a>隔空运行调试App</h2><p>是不是每次插上数据线有种被<code>绑定</code>的感觉？那么，我们就隔空调试App！</p>
 <p><strong>第1步</strong> 下载<code>无线ADB调试</code>的app到真机上并安装，下载地址：</p>
 <p><a href="http://t.cn/RLja2If" target="_blank" rel="external"><strong>无线ADB调试</strong></a></p>
 <p>这个是我反编译汉化国外大神的，对他表示感谢。</p>
 <p><strong>第2步</strong> 真机和电脑连接同一个WiFi，打开<code>无线ADB调试</code>app，并且给予<code>ROOT</code>权限，如图：</p>
-<p><img src="/img/android/4-wireless-adb.jpg" alt="隔空运行调试App"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/android/4-wireless-adb.jpg" alt="隔空运行调试App" title="">
+                </div>
+                <div class="image-caption">隔空运行调试App</div>
+            </figure>
 <p><strong>第3步</strong> 打开<code>cmd</code>命令行，输入下面命令，adb服务连接到了真机，即可通过WiFi来调试App！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb connect 192.168.199.115</div></pre></td></tr></table></figure>
 <h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>学习了本节课程，相信你已经能够得心应手地将自己编写的App运行到设备上去了。</p>
@@ -307,7 +343,13 @@ ga('send', 'pageview');
 <ul>
 <li>微信公众号：Android奇想录（android_amazing）</li>
 </ul>
-<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
 
         </div>
 

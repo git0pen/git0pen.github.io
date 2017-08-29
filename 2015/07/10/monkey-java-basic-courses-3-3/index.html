@@ -42,14 +42,14 @@ ga('send', 'pageview');
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Android,Java,新手">
-    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：  for循环语句源码：（请动手）12345678910111213141516public class Demo01 &amp;#123;	public static void main(String[] arg">
-<meta name="keywords" content="Android,Java,新手">
+    <meta name="keywords" content="Android,新手,Java">
+    <meta name="description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：                                                                                              图3.3.01。循">
+<meta name="keywords" content="Android,新手,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Monkey Java》课程3.3之循环语句">
 <meta property="og:url" content="http://sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/index.html">
 <meta property="og:site_name" content="安卓猴">
-<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：  for循环语句源码：（请动手）12345678910111213141516public class Demo01 &amp;#123;	public static void main(String[] arg">
+<meta property="og:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：                                                                                              图3.3.01。循">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sunjiajia.com/img/java/3_3_01_loop_statement.jpg">
 <meta property="og:image" content="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png">
@@ -57,7 +57,7 @@ ga('send', 'pageview');
 <meta property="og:updated_time" content="2016-05-13T20:10:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Monkey Java》课程3.3之循环语句">
-<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：  for循环语句源码：（请动手）12345678910111213141516public class Demo01 &amp;#123;	public static void main(String[] arg">
+<meta name="twitter:description" content="转发请注明出处：安卓猴的博客（http://sunjiajia.com）   本节课程将学习以下知识点：  循环结构 for循环语句 while循环语句   循环结构一张图看懂什么是循环结构：                                                                                              图3.3.01。循">
 <meta name="twitter:image" content="http://sunjiajia.com/img/java/3_3_01_loop_statement.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="安卓猴" href="/atom.xml">
@@ -249,7 +249,13 @@ ga('send', 'pageview');
 </ul>
 <hr>
 <h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>一张图看懂什么是循环结构：</p>
-<p><img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/java/3_3_01_loop_statement.jpg" alt="图3.3.01。循环结构" title="">
+                </div>
+                <div class="image-caption">图3.3.01。循环结构</div>
+            </figure>
 <h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入for循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. &#123;&#125;中的语句执行完毕后，执行 i++ ；</span></div><div class="line">		<span class="comment">// 5. 再次判断 i &lt; 10；</span></div><div class="line">		<span class="comment">// 6. 如果i依旧小于10，重复3~5的过程，这个过程就是循环；</span></div><div class="line">		<span class="comment">// 7. 如果i &gt;= 10 ，那么循环停止。</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"for循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"准备进入while循环语句。"</span>);</div><div class="line">		<span class="comment">// 1. 执行 int i = 0;</span></div><div class="line">		<span class="comment">// 2. 判断i的值是否小于10（即执行i &lt; 10;）；</span></div><div class="line">		<span class="comment">// 3. 如果i &lt; 10 ，即i &lt; 10的值为true，则执行&#123;&#125;中的语句；</span></div><div class="line">		<span class="comment">// 4. 如果 i &lt; 10的值为false，则while循环结束。</span></div><div class="line"></div><div class="line"></div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		<span class="keyword">while</span>(i &lt; <span class="number">10</span>)&#123;</div><div class="line">			System.out.println(i);</div><div class="line">			i++; <span class="comment">// 如果没有这一行，则成为while死循环。</span></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"while循环语句结束。"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <hr>
@@ -260,7 +266,13 @@ ga('send', 'pageview');
 <ul>
 <li>微信公众号：Android奇想录（android_amazing）</li>
 </ul>
-<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号" title="">
+                </div>
+                <div class="image-caption">扫描二维码关注公众号</div>
+            </figure>
 
         </div>
 

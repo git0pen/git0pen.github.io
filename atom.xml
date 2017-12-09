@@ -4299,11 +4299,11 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程5.3之子类实例化</title>
-    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
-    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
+    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
+    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
+    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
     <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2016-05-13T20:09:28.000Z</updated>
+    <updated>2016-05-13T20:09:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
@@ -4311,25 +4311,30 @@
 <hr>
 <p>本节课程将学习以下内容：</p>
 <ul>
-<li>生成子类的过程</li>
-<li>使用super调用父类构造函数的方法</li>
+<li>函数的复写（override）</li>
+<li>使用super调用父类的成员函数</li>
 </ul>
 <hr>
-<h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p>
+<h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote>
+<p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p>
+</blockquote>
+<p>特点：</p>
 <blockquote>
 <ul>
-<li>在子类的构造函数中，必须调用父类的构造函数；</li>
-<li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li>
-<li>super(参数);必须是构造函数的第一行。</li>
+<li>1.在具有父子关系的两个类当中；</li>
+<li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li>
 </ul>
 </blockquote>
-<p>例子：（请动手）</p>
-<p>1.新建一个名为Person.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line">  Person()&#123;</div><div class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"吃东西"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p>
+<blockquote>
+<p>减少子类复写父类的成员方法时出现的重复代码。</p>
+</blockquote>
+<h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.新建一个名为Student.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  Student()&#123;</div><div class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</div><div class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></div><div class="line">    <span class="keyword">super</span>(name, age);</div><div class="line">    <span class="keyword">this</span>.grade = grade;</div><div class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></div><div class="line">    <span class="comment">// 它不一定必须写在第一行。</span></div><div class="line">    <span class="keyword">super</span>.introduce();</div><div class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3.新建一个名为Demo01.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</div><div class="line">    stu01.eat();</div><div class="line">    stu01.introduce();</div><div class="line">    stu01.study();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student();</div><div class="line">    stu01.name = <span class="string">"zhang3"</span>;</div><div class="line">    stu01.age = <span class="number">19</span>;</div><div class="line">    stu01.grade = <span class="number">8</span>;</div><div class="line">    stu01.introduce();</div><div class="line"></div><div class="line">    Person p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.name = <span class="string">"zhang3"</span>;</div><div class="line">    p1.age = <span class="number">19</span>;</div><div class="line">    p1.introduce();</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
@@ -4371,11 +4376,11 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
-    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
-    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
+    <title>《Monkey Java》课程5.3之子类实例化</title>
+    <link href="http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
+    <id>http://sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
     <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2016-05-13T20:09:24.000Z</updated>
+    <updated>2016-05-13T20:09:28.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p>
@@ -4383,30 +4388,25 @@
 <hr>
 <p>本节课程将学习以下内容：</p>
 <ul>
-<li>函数的复写（override）</li>
-<li>使用super调用父类的成员函数</li>
+<li>生成子类的过程</li>
+<li>使用super调用父类构造函数的方法</li>
 </ul>
 <hr>
-<h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote>
-<p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p>
-</blockquote>
-<p>特点：</p>
+<h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p>
 <blockquote>
 <ul>
-<li>1.在具有父子关系的两个类当中；</li>
-<li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li>
+<li>在子类的构造函数中，必须调用父类的构造函数；</li>
+<li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li>
+<li>super(参数);必须是构造函数的第一行。</li>
 </ul>
 </blockquote>
-<h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p>
-<blockquote>
-<p>减少子类复写父类的成员方法时出现的重复代码。</p>
-</blockquote>
-<h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>例子：（请动手）</p>
+<p>1.新建一个名为Person.java的Java源文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">  String name;</div><div class="line">  <span class="keyword">int</span> age;</div><div class="line">  Person()&#123;</div><div class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"吃东西"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.新建一个名为Student.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></div><div class="line">    <span class="comment">// 它不一定必须写在第一行。</span></div><div class="line">    <span class="keyword">super</span>.introduce();</div><div class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> grade;</div><div class="line">  Student()&#123;</div><div class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</div><div class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></div><div class="line">    <span class="keyword">super</span>(name, age);</div><div class="line">    <span class="keyword">this</span>.grade = grade;</div><div class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3.新建一个名为Demo01.java的Java源文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student();</div><div class="line">    stu01.name = <span class="string">"zhang3"</span>;</div><div class="line">    stu01.age = <span class="number">19</span>;</div><div class="line">    stu01.grade = <span class="number">8</span>;</div><div class="line">    stu01.introduce();</div><div class="line"></div><div class="line">    Person p1 = <span class="keyword">new</span> Person();</div><div class="line">    p1.name = <span class="string">"zhang3"</span>;</div><div class="line">    p1.age = <span class="number">19</span>;</div><div class="line">    p1.introduce();</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</div><div class="line">    stu01.eat();</div><div class="line">    stu01.introduce();</div><div class="line">    stu01.study();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
 <li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>

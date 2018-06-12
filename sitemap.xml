@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
+    
+    <lastmod>2018-06-12T14:05:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/404.html</loc>
+    
+    <lastmod>2018-06-12T13:04:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjiajia.com/about/index.html</loc>
     
     <lastmod>2018-06-12T12:49:43.000Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://sunjiajia.com/about/404.html</loc>
     
     <lastmod>2018-06-12T12:47:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
-    
-    <lastmod>2018-04-01T14:50:34.000Z</lastmod>
     
   </url>
   

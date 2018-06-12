@@ -331,41 +331,220 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="author" content="songjinzhong,songjz.ecnu@gmail.com">
+    <title>404</title>
+    <!-- 记住把下面的 homePageName、homePageUrl 改成你想需要的内容 -->
+    <script type="text/javascript" src="#" homepagename="返回主页" homepageurl="/" charset="utf-8"></script>
+    <script type="text/javascript" src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
+    <script src="https://qzonestyle.gtimg.cn/ac/qzfl/stat.js"></script>
+    <script type="text/javascript">
+        ! function() {
+            function a(a, b) {
+                return (/string|function/.test(typeof b) ? h : g)(a, b)
+            }
+
+            function b(a, c) {
+                return "string" != typeof a && (c = typeof a, "number" === c ? a += "" : a = "function" === c ? b(a.call(a)) : ""), a
+            }
+
+            function c(a) {
+                return l[a]
+            }
+
+            function d(a) {
+                return b(a).replace(/&(?![\w#]+;)|[<>"']/g, c)
+            }
+
+            function e(a, b) {
+                if (m(a))
+                    for (var c = 0, d = a.length; d > c; c++) b.call(a, a[c], c, a);
+                else
+                    for (c in a) b.call(a, a[c], c)
+            }
+
+            function f(a, b) {
+                var c = /(\/)[^/]+\1\.\.\1/,
+                    d = ("./" + a).replace(/[^/]+$/, ""),
+                    e = d + b;
+                for (e = e.replace(/\/\.\//g, "/"); e.match(c);) e =
+                    e.replace(c, "/");
+                return e
+            }
+
+            function g(b, c) {
+                var d = a.get(b) || i({
+                    filename: b,
+                    name: "Render Error",
+                    message: "Template not found"
+                });
+                return c ? d(c) : d
+            }
+
+            function h(a, b) {
+                if ("string" == typeof b) {
+                    var c = b;
+                    b = function() {
+                        return new k(c)
+                    }
+                }
+                var d = j[a] = function(c) {
+                    try {
+                        return new b(c, a) + ""
+                    } catch (d) {
+                        return i(d)()
+                    }
+                };
+                return d.prototype = b.prototype = n, d.toString = function() {
+                    return b + ""
+                }, d
+            }
+
+            function i(a) {
+                var b = "{Template Error}",
+                    c = a.stack || "";
+                if (c) c = c.split("\n").slice(0, 2).join("\n");
+                else
+                    for (var d in a) c += "<" + d + ">\n" + a[d] + "\n\n";
+                return function() {
+                    return "object" == typeof console && console.error(b + "\n\n" + c), b
+                }
+            }
+            var j = a.cache = {},
+                k = this.String,
+                l = {
+                    "<": "&#60;",
+                    ">": "&#62;",
+                    '"': "&#34;",
+                    "'": "&#39;",
+                    "&": "&#38;"
+                },
+                m = Array.isArray || function(a) {
+                    return "[object Array]" === {}.toString.call(a)
+                },
+                n = a.utils = {
+                    $helpers: {},
+                    $include: function(a, b, c) {
+                        return a = f(c, a), g(a, b)
+                    },
+                    $string: b,
+                    $escape: d,
+                    $each: e
+                },
+                o = a.helpers = n.$helpers;
+            a.get = function(a) {
+                    return j[a.replace(/^\.\//, "")]
+                }, a.helper = function(a, b) {
+                    o[a] = b
+                }, "function" == typeof define ? define(function() {
+                    return a
+                }) :
+                "undefined" != typeof exports ? module.exports = a : this.template = a, a("body", function(a) {
+                    var b = this,
+                        c = (b.$helpers, b.$escape),
+                        d = "/",
+                        e = "返回主页",
+                        f = a.topid,
+                        g = a.topimg,
+                        h = a.topname,
+                        i = a.topgender,
+                        j = a.topbirth,
+                        l = a.toplostdate,
+                        m = a.toplostplace,
+                        n = a.toplostdesc,
+                        o = a.toplink,
+                        p = b.$each,
+                        q = a.otherdata,
+                        r = (a.otheritem, a.index, "");
+                    var scs = document.getElementsByTagName("script");
+                    for (var i = 0; i < scs.length; i++)
+                    if (scs[i].src.indexOf("/404/search_children.js") > -1) {
+                        if (scs[i].getAttribute("homePageUrl")) d = scs[i].getAttribute("homePageUrl");
+                        if (scs[i].getAttribute("homePageName")) e = scs[i].getAttribute("homePageName");
+                        break
+                    }
+                    return r += '<div class="mod_404"> <div class="wrapper" id="mainWrap"> <div class="mod_hd"> <h1 class="title"><span class="title_inner">404，您访问的页面找不回来了，但我们可以一起帮他们回家！</span></h1> <div class="desc"><a href="',
+                        r += c(d), r += '" class="desc_link">', r += c(e), r += '</a></div> </div> <div class="mod_bd"> <div class="child_box"> <div class="mod_404_child child_in" data-id="', r += c(f), r += '" id="top_', r += c(f), r += '"> <div class="child_main cf"> <div class="child_avatar"><img src="', r += c(g), r += '" onload="imagezoom(this, 160, 216);" style="opacity:0"></div> <div class="child_info"> <div class="info_name"> <h2><span class="name_inner">', r += c(h), r += '</span><span class="info_sex">(', r += c(i), r += ')</span></h2> </div> <div class="info_item info_birth"><span class="info_lbl">出生日期：</span><span class="item_inner">',
+                        r += c(j), r += '</span></div> <div class="info_item info_time"><span class="info_lbl">失踪时间：</span><span class="item_inner">', r += c(l), r += '</span></div> <div class="info_item info_address"><span class="info_lbl">失踪地点：</span><span class="item_inner">', r += c(m), r += '</span></div> <div class="info_item info_desc"><span class="info_lbl">失踪人特征描述：</span><span class="item_inner">', r += c(n), r += '</span></div> <a href="', r += c(o),
+                        r += '" class="link_view" title="查看详情"><span class="link_inner">查看详情</span></a> </div> </div> <div class="child_bottom cf"> <div class="bottom_logo"> <ul class="logo_list"> <li><a href="http://e.t.qq.com/Tencent-Volunteers" title="腾讯志愿者"><img src="http://qzone.qq.com/gy/404/style/image/logo_tencentvolunteers.png"></a></li> <li><a href="http://bbs.baobeihuijia.com/forum.php" title="宝贝回家"><img src="http://qzone.qq.com/gy/404/style/image/logo_baobeihuijia.png"></a></li> </ul> </div> <div class="bottom_right"> <div class="mod_share" onmouseover="this.className += \' mod_share_hover\';" onmouseout="this.className = this.className.replace(\' mod_share_hover\',\'\')"> <span class="share_inner">分享</span> <ul class="share_list"> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weibo\');return false;" title="腾讯微博"><span class="link_inner">腾讯微博</span><i class="ico_tencentweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'qzone\');return false;" title="QQ空间"><span class="link_inner">QQ空间</span><i class="ico_qzone"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'sina\');return false;" title="新浪微博"><span class="link_inner">新浪微博</span><i class="ico_sinaweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weixin\');return false;" title="微信"><span class="link_inner">微信</span><i class="ico_weixin"></i></a></li> </ul> <span style="clear: both;"></span> </div> </div> </div> </div> <i class="ico_corner"></i> </div> </div> <div class="mod_fd"> <div class="mod_404_children"> <ul class="children_list"> ',
+                        p(q, function(a) {
+                            r += ' <li class="', r += c(f == a._id ? "current" : ""), r += '"><a href="javascript:;" onclick="toThis(\'', r += c(a._id), r += '\');" title="', r += c(a.name), r += '" ><img src="', r += c(a.child_pic), r += '"></a></li> '
+                        }), r += " </ul> </div> </div> </div> </div>", new k(r)
+                })
+        }();
+    </script>
+
     
+  </head>
+  <body>
+    <!--body is here
+        当 IE 认为这个404页面是不友好的，就不会跳转，所有下面的 404 默认提示
+    -->
+<h1 style="font-size:30px;">
+404
+</h1>
+
+
     
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/01/vps-install-nexus-maven/" >
-            
-                <span>VPS上部署maven私服</span>
-        </a>
-        <div class="abstract-content">
-            一、前言“明明我挂了梯子，可gradle build还是卡住不动，过会儿就干脆error了”，小明如是说。Android Studio的gradle下载依赖过慢是广大Android程序员的痛点。于是有很多公司都构建了内网的Nexus Repository Manager OSS私服，来解决痛点，缩短该司程序员等待的闲暇时间，提高压榨的效率。但是，对于各位码神来说，离开公司还是要做独立项目的，于是痛点又回来。将maven部署在自己的VPS，彻底解决gradle各种慢，供自己享用，随时随地无痛码起来，不枉码神的名号。
-二、其实过程很简单
-首先，有自己的vps，最好在境外，哦不，是必须在境外（...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "CentOS">CentOS</a>
-    
-</div>
-            
-        </div>
+  </body>
+</html>
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者: <a href="http://sunjiajia.com">GitOPEN</a>
+            <p>原文链接: <a href="http://sunjiajia.com/404.html">http://sunjiajia.com/404.html</a>
+            <p>发表日期: <a href="http://sunjiajia.com/404.html">June 12th 2018, 9:04:02</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC8zNzI3Mi8xMzgwNg==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             

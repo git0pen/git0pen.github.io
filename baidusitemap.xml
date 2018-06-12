@@ -3,9 +3,31 @@
 
 
     
+    
+    
+  <url>
+    <loc>http://sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
+    <lastmod>2018-04-01T14:50:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>VPS上部署maven私服</title>
+        <pubTime>2018-04-01T12:11:11.000Z</pubTime>
+        
+        <tag>CentOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CentOS" url="http://sunjiajia.com/categories/CentOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
-    <lastmod>2017-08-16T03:20:25.000Z</lastmod>
+    <lastmod>2017-08-16T03:20:26.000Z</lastmod>
     <data>
         <display>
         <title>在自己的VPS上搭建Hexo博客</title>
@@ -47,7 +69,7 @@
     
   <url>
     <loc>http://sunjiajia.com/2017/03/07/taobao-spider/</loc>
-    <lastmod>2017-05-25T15:28:53.000Z</lastmod>
+    <lastmod>2017-05-25T15:28:54.000Z</lastmod>
     <data>
         <display>
         <title>淘宝商品信息定向爬虫</title>
@@ -69,7 +91,7 @@
     
   <url>
     <loc>http://sunjiajia.com/2017/01/07/recycler-bottom/</loc>
-    <lastmod>2017-01-07T13:31:49.000Z</lastmod>
+    <lastmod>2017-01-07T13:31:50.000Z</lastmod>
     <data>
         <display>
         <title>自定义RecyclerView监听滑动到底部Bottom</title>
@@ -89,7 +111,7 @@
     
   <url>
     <loc>http://sunjiajia.com/2017/01/07/double-tap-toolbar/</loc>
-    <lastmod>2017-01-07T13:29:43.000Z</lastmod>
+    <lastmod>2017-01-07T13:29:44.000Z</lastmod>
     <data>
         <display>
         <title>自定义Toolbar添加双击事件</title>
@@ -109,7 +131,7 @@
     
   <url>
     <loc>http://sunjiajia.com/2016/05/07/daily-tips/</loc>
-    <lastmod>2016-11-26T11:15:13.000Z</lastmod>
+    <lastmod>2016-11-26T11:15:14.000Z</lastmod>
     <data>
         <display>
         <title>Daily Tips（Updated）</title>
@@ -1675,6 +1697,5 @@
     </data>
     </url>
 
-    
     
 </urlset>

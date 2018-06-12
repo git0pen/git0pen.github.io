@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjiajia.com/about/index.html</loc>
+    
+    <lastmod>2018-06-12T12:49:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/about/404.html</loc>
+    
+    <lastmod>2018-06-12T12:47:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
+    
+    <lastmod>2018-04-01T14:50:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
     
-    <lastmod>2017-08-16T03:20:25.000Z</lastmod>
+    <lastmod>2017-08-16T03:20:26.000Z</lastmod>
     
   </url>
   
@@ -18,42 +39,42 @@
   <url>
     <loc>http://sunjiajia.com/2017/03/07/taobao-spider/</loc>
     
-    <lastmod>2017-05-25T15:28:53.000Z</lastmod>
+    <lastmod>2017-05-25T15:28:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjiajia.com/2017/01/07/recycler-bottom/</loc>
     
-    <lastmod>2017-01-07T13:31:49.000Z</lastmod>
+    <lastmod>2017-01-07T13:31:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjiajia.com/2017/01/07/double-tap-toolbar/</loc>
     
-    <lastmod>2017-01-07T13:29:43.000Z</lastmod>
+    <lastmod>2017-01-07T13:29:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjiajia.com/2016/05/07/daily-tips/</loc>
     
-    <lastmod>2016-11-26T11:15:13.000Z</lastmod>
+    <lastmod>2016-11-26T11:15:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjiajia.com/categories/index.html</loc>
     
-    <lastmod>2016-11-09T10:31:43.000Z</lastmod>
+    <lastmod>2016-11-09T10:31:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://sunjiajia.com/tags/index.html</loc>
     
-    <lastmod>2016-11-09T10:31:03.000Z</lastmod>
+    <lastmod>2016-11-09T10:31:04.000Z</lastmod>
     
   </url>
   
@@ -516,13 +537,6 @@
     <loc>http://sunjiajia.com/2016/04/19/android-m-permissions/</loc>
     
     <lastmod>2016-05-13T20:05:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://sunjiajia.com/about/index.html</loc>
-    
-    <lastmod>2016-05-02T23:37:08.000Z</lastmod>
     
   </url>
   

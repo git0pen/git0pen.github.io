@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sunjiajia.com/test/test01_selectors.html</loc>
+    
+    <lastmod>2018-06-13T14:31:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
     
     <lastmod>2018-06-13T13:13:10.000Z</lastmod>

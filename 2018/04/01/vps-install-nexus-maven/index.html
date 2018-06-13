@@ -403,113 +403,63 @@ height:50vh;
 <li><p>其次，就是安装过程，听我娓娓道来。如果你是新手，请自行Google一下<code>如何用ssh连接到VPS</code>，然后继续。</p>
 </li>
 <li><p>配置jdk环境：</p>
-<ul>
-<li>下载jdk</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --no-cookies --no-check-certificate --header <span class="string">"Cookie: oraclelicense=accept-securebackup-cookie"</span> http://download.oracle.com/otn-pub/java/jdk/8u162-b12/0da788060d494f5095bf8624735fa2f1/jdk-8u162-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>解压jdk</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-8u162-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>创建<code>/usr/local/java</code>文件夹</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/<span class="built_in">local</span>/java</div></pre></td></tr></table></figure>
-<ul>
-<li>移动jdk到创建的文件夹</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv jdk1.8.0_162 /usr/<span class="built_in">local</span>/java</div></pre></td></tr></table></figure>
-<ul>
-<li>设置环境变量，<code>vim /etc/profile</code>填入以下内容</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_162</div><div class="line">JRE_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_162/jre</div><div class="line">CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib</div><div class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JRE_HOME</span>/bin</div><div class="line"><span class="built_in">export</span> JAVA_HOME JRE_HOME CLASS_PATH PATH</div></pre></td></tr></table></figure>
-<ul>
-<li>生效环境变量</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
+<p> 下载jdk</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --no-cookies --no-check-certificate --header <span class="string">"Cookie: oraclelicense=accept-securebackup-cookie"</span> http://download.oracle.com/otn-pub/java/jdk/8u162-b12/0da788060d494f5095bf8624735fa2f1/jdk-8u162-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</code></pre><p> 解压jdk</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-8u162-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</code></pre><p> 创建<code>/usr/local/java</code>文件夹</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/<span class="built_in">local</span>/java</div></pre></td></tr></table></figure>
+</code></pre><p> 移动jdk到创建的文件夹</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv jdk1.8.0_162 /usr/<span class="built_in">local</span>/java</div></pre></td></tr></table></figure>
+</code></pre><p> 设置环境变量，<code>vim /etc/profile</code>填入以下内容</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_162</div><div class="line">JRE_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_162/jre</div><div class="line">CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib</div><div class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JRE_HOME</span>/bin</div><div class="line"><span class="built_in">export</span> JAVA_HOME JRE_HOME CLASS_PATH PATH</div></pre></td></tr></table></figure>
+</code></pre><p> 生效环境变量</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure>
+</code></pre></li>
 <li><p>安装<code>Nexus Repository Manager OSS</code></p>
-<ul>
-<li>下载 Nexus Repository Manager OSS</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>解压nexus</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget nexus-2.14.8-01-bundle.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>创建<code>/usr/local/nexus</code>文件夹</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/<span class="built_in">local</span>/nexus</div></pre></td></tr></table></figure>
-<ul>
-<li>移动nexus到创建的文件夹</li>
-</ul>
+<p>下载 Nexus Repository Manager OSS</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.8-01-bundle.tar.gz</div></pre></td></tr></table></figure>
+<p>解压nexus</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget nexus-2.14.8-01-bundle.tar.gz</div></pre></td></tr></table></figure>
+<p>创建<code>/usr/local/nexus</code>文件夹</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/<span class="built_in">local</span>/nexus</div></pre></td></tr></table></figure>
+<p>移动nexus到创建的文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv nexus-2.14.8-01 /usr/<span class="built_in">local</span>/nexus</div></pre></td></tr></table></figure>
-<ul>
-<li>修改配置，先<code>cd /usr/local/nexus/nexus-2.14.8-01</code>，然后<code>vim bin/nexus</code>，在<code>NEXUS_HOME=&quot;..&quot;</code>上面一行，加入以下内容</li>
-</ul>
+<p>修改配置，先<code>cd /usr/local/nexus/nexus-2.14.8-01</code>，然后<code>vim bin/nexus</code>，在<code>NEXUS_HOME=&quot;..&quot;</code>上面一行，加入以下内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN_AS_USER=root</div></pre></td></tr></table></figure>
-<ul>
-<li>启动nexus</li>
-</ul>
+<p>启动nexus</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/nexus start</div></pre></td></tr></table></figure>
-<ul>
-<li>访问nexus，默认登录账户名<code>admin</code>，默认密码<code>admin123</code>。<code>xxx.xxx.xxx.xxx</code>是vps的ip地址</li>
-</ul>
+<p>访问nexus，默认登录账户名<code>admin</code>，默认密码<code>admin123</code>。<code>xxx.xxx.xxx.xxx</code>是vps的ip地址</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://xxx.xxx.xxx.xxx:8081/nexus/</div></pre></td></tr></table></figure>
 <p>​</p>
 </li>
 <li><p>设置<code>Nexus Repository Manager OSS</code></p>
-<ul>
-<li>登录后的界面预览，进入用户管理</li>
-</ul>
+<p>登录后的界面预览，进入用户管理</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-1.jpg" alt="nexus-1"></p>
-<ul>
-<li>重新设置admin密码</li>
-</ul>
+<p>重新设置admin密码</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-2.jpg" alt="nexus-2"></p>
-<ul>
-<li>禁用<code>匿名账户</code>，防止全网可用，节省vps流量和空间</li>
-</ul>
+<p>禁用<code>匿名账户</code>，防止全网可用，节省vps流量和空间</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-3.jpg" alt="nexus-3"></p>
-<ul>
-<li>同样的方法，禁用<code>development</code>账户，或者修改密码</li>
-<li>进入<code>Repositories</code>，这是我新建的三个<code>proxy  repositories</code>，设置方法往后看</li>
-</ul>
+<p>同样的方法，禁用<code>development</code>账户，或者修改密码<br>进入<code>Repositories</code>，这是我新建的三个<code>proxy  repositories</code>，设置方法往后看</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-4.jpg" alt="nexus-4"></p>
-<ul>
-<li>点击<code>Add...</code>，选择<code>Proxy Repositories</code>，按照图中的信息设置<code>google</code>repositories</li>
-</ul>
+<p>点击<code>Add...</code>，选择<code>Proxy Repositories</code>，按照图中的信息设置<code>google</code>repositories</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-5.jpg" alt="nexus-5"></p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-6.jpg" alt="nexus-6"></p>
-<ul>
-<li>同样的方法，新建和设置<code>Jcenter</code>和<code>jitpack</code></li>
-</ul>
+<p> 同样的方法，新建和设置<code>Jcenter</code>和<code>jitpack</code></p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-7.jpg" alt="nexus-7"></p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-8.jpg" alt="nexus-8"></p>
-<ul>
-<li>新建一个<code>Repositories Group</code> ，并设置信息，如图所示</li>
-</ul>
+<p>新建一个<code>Repositories Group</code> ，并设置信息，如图所示</p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-9.jpg" alt="nexus-9"></p>
 <p><img src="http://sunjiajia.com/img/2018/nexus/nexus-10.jpg" alt="nexus-10"></p>
-<ul>
-<li>到这里，设置就完毕了。</li>
-</ul>
+<p>到这里，设置就完毕了。</p>
 </li>
 <li><p>在Android Studio中使用的时候，<code>maven url</code>地址为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://xxx.xxx.xxx.xxx:8081/nexus/content/groups/private/</div></pre></td></tr></table></figure>
-<ul>
-<li>具体使用，在项目根目录下的<code>build.gradle</code>中添加maven url，格式如下</li>
-</ul>
+<p>具体使用，在项目根目录下的<code>build.gradle</code>中添加maven url，格式如下</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">maven &#123;</div><div class="line">           url <span class="string">'http://xxx.xxx.xxx.xxx:8081/nexus/content/groups/private/'</span></div><div class="line">           credentials &#123;</div><div class="line">               username <span class="string">'admin'</span></div><div class="line">               password <span class="string">'admin123'</span></div><div class="line">           &#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>整个<code>build.gradle</code>看起来是这个样子</li>
-</ul>
+<p>整个<code>build.gradle</code>看起来是这个样子</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></div><div class="line"></div><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123;</div><div class="line">            url <span class="string">'http://xxx.xxx.xxx.xxx:8081/nexus/content/groups/private/'</span></div><div class="line">            credentials &#123;</div><div class="line">                <span class="comment">// 此处为nexus users中设置的有权限的账户，例如你的admin账户和密码</span></div><div class="line">                <span class="comment">// 修改为自己的账户和密码</span></div><div class="line">                username <span class="string">'admin'</span></div><div class="line">                password <span class="string">'admin123'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"><span class="comment">//       google()</span></div><div class="line"><span class="comment">//       jcenter()</span></div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:3.1.0'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123;</div><div class="line">            url <span class="string">'http://xxx.xxx.xxx.xxx:8081/nexus/content/groups/private/'</span></div><div class="line">            credentials &#123;</div><div class="line">                username <span class="string">'admin'</span></div><div class="line">                password <span class="string">'admin123'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"><span class="comment">//        google()</span></div><div class="line"><span class="comment">//        jcenter()</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">task clean(<span class="string">type:</span> Delete) &#123;</div><div class="line">    delete rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>现在，我们就解决掉<code>痛点</code>了。gradle在构建的时候，我们的nexus私服中没有的依赖，将由私服自动到仓库中去拉取，并保存到私服中，于是，我们的gradle下载依赖再也不会被蔷了，相当于给gradle部署了一个跳板。</li>
-</ul>
+<p>现在，我们就解决掉<code>痛点</code>了。gradle在构建的时候，我们的nexus私服中没有的依赖，将由私服自动到仓库中去拉取，并保存到私服中，于是，我们的gradle下载依赖再也不会被蔷了，相当于给gradle部署了一个跳板。</p>
 </li>
 </ol>
 <h1 id="再次邀请您"><a href="#再次邀请您" class="headerlink" title="再次邀请您"></a>再次邀请您</h1><p>在总结了长期使用VPS的经验后，我向您隆重推荐两家VPS服务商，vultr和Digital Ocean。这两家的服务非常友好，用我的连接注册并购买，可以得到💲10的免费使用额度。</p>
@@ -1785,46 +1735,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 73
@@ -1957,12 +1867,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2137,12 +2047,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2240,9 +2150,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
+    
+        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
     
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
@@ -2299,9 +2209,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     

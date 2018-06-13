@@ -339,25 +339,25 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
+        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-3/" >
             
-                <span>《Monkey Java》课程3.4之练习课</span>
+                <span>《Monkey Java》课程3.3之循环语句</span>
         </a>
         <div class="abstract-content">
             
 转发请注明出处：安卓猴的博客（http://sunjiajia.com）
 
 
-本节课程将学习以下两个练习：
+本节课程将学习以下知识点：
 
-练习1：打印100~200之间的所有素数。
-练习2：用*在命令行中打印出金字塔图案。
-
-
-目标：熟悉Java语言中的for循环的使用方法。
+循环结构
+for循环语句
+while循环语句
 
 
-练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            bool...
+循环结构一张图看懂什么是循环结构：
+
+for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -385,25 +385,25 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-3/" >
+        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
             
-                <span>《Monkey Java》课程3.3之循环语句</span>
+                <span>《Monkey Java》课程3.4之练习课</span>
         </a>
         <div class="abstract-content">
             
 转发请注明出处：安卓猴的博客（http://sunjiajia.com）
 
 
-本节课程将学习以下知识点：
+本节课程将学习以下两个练习：
 
-循环结构
-for循环语句
-while循环语句
+练习1：打印100~200之间的所有素数。
+练习2：用*在命令行中打印出金字塔图案。
 
 
-循环结构一张图看懂什么是循环结构：
+目标：熟悉Java语言中的for循环的使用方法。
 
-for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; ...
+
+练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            bool...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -733,20 +733,25 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-1-1/" >
+        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-2-0/" >
             
-                <span>《Monkey Java》课程1.1之JDK环境配置</span>
+                <span>《Monkey Java》课程2.0之变量</span>
         </a>
         <div class="abstract-content">
-            JDK下载
-注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址
+            
+转发请注明出处：安卓猴的博客（http://sunjiajia.com）
 
-参考图1.1_01:
-JDK安装
-JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位置在
+什么是变量简单理解就是，在计算机中存储信息的东西。
+什么是语法语法，就是一种规则，根据这种规则可以编写出正确的代码。
+变量的声明1int age = 20;
 
-12C:\Program Files\Java\jdk1.7.0_80C:\Program Files\Java\jre7
-配置环境变量安装后，检测环境变量是否配置好：打开命令行窗口，输入命令java -version回显如下则已配置好：1234C:\Users\Administrator&gt;java -versionjava version "1.7.0_80-ea"Java(TM) SE...
+int       表示变量类型
+age     表示变量名
+=         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”
+;          英文分号，表示语句结束
+这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；
+
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -774,25 +779,20 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-2-0/" >
+        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-1-1/" >
             
-                <span>《Monkey Java》课程2.0之变量</span>
+                <span>《Monkey Java》课程1.1之JDK环境配置</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
+            JDK下载
+注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址
 
-什么是变量简单理解就是，在计算机中存储信息的东西。
-什么是语法语法，就是一种规则，根据这种规则可以编写出正确的代码。
-变量的声明1int age = 20;
+参考图1.1_01:
+JDK安装
+JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位置在
 
-int       表示变量类型
-age     表示变量名
-=         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”
-;          英文分号，表示语句结束
-这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；
-
-...
+12C:\Program Files\Java\jdk1.7.0_80C:\Program Files\Java\jre7
+配置环境变量安装后，检测环境变量是否配置好：打开命令行窗口，输入命令java -version回显如下则已配置好：1234C:\Users\Administrator&gt;java -versionjava version "1.7.0_80-ea"Java(TM) SE...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -2182,46 +2182,6 @@ API Level 22
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 73
@@ -2354,12 +2314,12 @@ API Level 22
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2534,12 +2494,12 @@ API Level 22
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2637,9 +2597,9 @@ API Level 22
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
+    
+        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
     
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
@@ -2696,9 +2656,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     

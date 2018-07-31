@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sunjiajia.com/"/>
-  <updated>2018-07-31T12:28:14.064Z</updated>
+  <updated>2018-07-31T12:29:43.839Z</updated>
   <id>http://sunjiajia.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://sunjiajia.com/2018/07/26/little-tips/"/>
     <id>http://sunjiajia.com/2018/07/26/little-tips/</id>
     <published>2018-07-26T11:11:11.000Z</published>
-    <updated>2018-07-31T12:28:14.064Z</updated>
+    <updated>2018-07-31T12:29:43.839Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我的博客好久没有更新过了！太过时的东西，我都想把它们干掉。</p></blockquote><p>这里就用来记录在编程过程中遇到的小问题或者小技巧。</p><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><h2 id="过滤字符串中的emoji表情和符号-Python"><a href="#过滤字符串中的emoji表情和符号-Python" class="headerlink" title="过滤字符串中的emoji表情和符号[Python]"></a>过滤字符串中的emoji表情和符号[Python]</h2><p>最近在抓取了几十万条微博数据，目的是对其进行情感分析，这就需要过滤掉内容中表情等特殊符号。在Google了一圈以后，发现很多方法过滤的效果不好，因此自己记录一下，如何更加全面的过滤掉表情符号。这个方法综合使用了正则表达式和emoji库。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> emoji</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_emoji</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">        过滤表情。</span></div><div class="line"><span class="string">        Author: GitOPEN</span></div><div class="line"><span class="string">    """</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        regex = re.compile(<span class="string">u'[\U00010000-\U0010ffff]'</span>)</div><div class="line">    <span class="keyword">except</span> re.error:</div><div class="line">        regex = re.compile(<span class="string">u'[\uD800-\uDBFF][\uDC00-\uDFFF]'</span>)</div><div class="line"></div><div class="line">    text = regex.sub(<span class="string">u''</span>, text)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(word <span class="keyword">for</span> word <span class="keyword">in</span> text <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> emoji.UNICODE_EMOJI)</div><div class="line"></div><div class="line"><span class="comment"># 测试：随机输入3个人物emoji，3个自然，3个食物，3个符号，3个物体，3个旗帜</span></div><div class="line">emoji_text = <span class="string">'🤡👨‍👮世界，我是周董🙉🦎🦀，🍑🍔🍤你好吗？❤️㊗️🆘我很好，日子过得还算不错！📡🕯🔨你呢？🇧🇷🇻🇬🇺🇸'</span></div><div class="line">print(filter_emoji(emoji_text))</div></pre></td></tr></table></figure><h2 id="git-设置代理"><a href="#git-设置代理" class="headerlink" title="git 设置代理"></a>git 设置代理</h2><p>由于众所周知的原因，git速度实在是蜗速，只有几KB/s。挂上小飞机✈️，按照下面设置，速度瞬间飞起！当然你得有一架好飞机~😀<br>如果你的✈️非得不够高，那么请参考之前我的推荐<a href="https://sunjiajia.com/2018/04/01/vps-install-nexus-maven/#%E5%86%8D%E6%AC%A1%E9%82%80%E8%AF%B7%E6%82%A8">《快的飞起小飞滴~》</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></div><div class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></div></pre></td></tr></table></figure><hr>]]></content>
     
@@ -246,11 +246,11 @@
       <category term="Android新手" scheme="http://sunjiajia.com/categories/Android%E6%96%B0%E6%89%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -276,11 +276,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -306,11 +306,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -336,11 +336,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -366,11 +366,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -398,11 +398,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -430,11 +430,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -462,11 +462,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -494,11 +494,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -526,11 +526,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -559,11 +559,11 @@
       <category term="Android进阶" scheme="http://sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="进阶" scheme="http://sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -592,11 +592,11 @@
       <category term="Android进阶" scheme="http://sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="进阶" scheme="http://sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -625,11 +625,11 @@
       <category term="Android新手" scheme="http://sunjiajia.com/categories/Android%E6%96%B0%E6%89%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -658,11 +658,11 @@
       <category term="Android进阶" scheme="http://sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="进阶" scheme="http://sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -691,11 +691,11 @@
       <category term="Android进阶" scheme="http://sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="进阶" scheme="http://sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -725,11 +725,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -786,11 +786,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -820,11 +820,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -854,11 +854,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -888,11 +888,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -921,11 +921,11 @@
       <category term="《Monkey Android》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Android%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -954,11 +954,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -989,46 +989,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
-      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程9.1之类集框架一</title>
-    <link href="http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
-    <id>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
-    <published>2015-07-26T14:20:27.000Z</published>
-    <updated>2016-05-13T20:08:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p></blockquote><hr><p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 它的长度是无限延伸的</span></div><div class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></div><div class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">arrayList.add(<span class="string">"A"</span>);</div><div class="line">arrayList.add(<span class="string">"AA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAAA"</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.get(<span class="number">2</span>));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</div><div class="line">System.out.println(arrayList.get(i));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 移除一个元素</span></div><div class="line">arrayList.remove(<span class="number">0</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.size());</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul><li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li></ul><p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p><ul><li>微信公众号：Android奇想录（android_amazing）</li></ul><p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
     
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1059,11 +1024,46 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程9.1之类集框架一</title>
+    <link href="http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
+    <id>http://sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
+    <published>2015-07-26T14:20:27.000Z</published>
+    <updated>2016-05-13T20:08:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a></p></blockquote><hr><p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 它的长度是无限延伸的</span></div><div class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></div><div class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">arrayList.add(<span class="string">"A"</span>);</div><div class="line">arrayList.add(<span class="string">"AA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAAA"</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.get(<span class="number">2</span>));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</div><div class="line">System.out.println(arrayList.get(i));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 移除一个元素</span></div><div class="line">arrayList.remove(<span class="number">0</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.size());</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul><li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li></ul><p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p><ul><li>微信公众号：Android奇想录（android_amazing）</li></ul><p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;转发请注明出处：&lt;br&gt;&lt;a href=&quot;http://sunjiajia.com&quot;&gt;安卓猴的博客（http://sunjiajia.com）&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
       <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
+      <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
+    
+      <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1094,11 +1094,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1129,11 +1129,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1164,11 +1164,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1199,11 +1199,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1234,11 +1234,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1269,11 +1269,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1304,11 +1304,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1339,11 +1339,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1374,11 +1374,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1409,11 +1409,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1444,11 +1444,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1479,11 +1479,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1514,11 +1514,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1549,11 +1549,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1584,11 +1584,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1619,11 +1619,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1654,11 +1654,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1689,11 +1689,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1724,11 +1724,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1759,11 +1759,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1793,11 +1793,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1827,11 +1827,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1861,11 +1861,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1895,11 +1895,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1929,11 +1929,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1962,11 +1962,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1997,11 +1997,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2059,11 +2059,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2089,11 +2089,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2118,11 +2118,11 @@
       <category term="《Monkey Java》" scheme="http://sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
     
     
+      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
+    
       <category term="Android" scheme="http://sunjiajia.com/tags/Android/"/>
     
       <category term="新手" scheme="http://sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="http://sunjiajia.com/tags/Java/"/>
     
   </entry>
   

@@ -359,19 +359,11 @@ height:50vh;
                 <span>《Monkey Android》第8课FrameLayout、GridLayout</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：
-安卓猴的博客（http://sunjiajia.com）
-安卓猴的微博（@安卓猴）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 FrameLayout的用法
-
 GridLayout的用法
-
 
 
 
@@ -385,7 +377,9 @@ FrameLayout
 帧布局，在这种布局下，每个添加的子控件都被放在布局的左上角，并覆盖在前一个子控件的上层；此外，FrameLayout中的子控件的位置不能被指定。
 
 GridLayout
-自Android4.0版...
+自Android4.0版本（API level 14）后，新增的网格布局。
+
+注意：如果要达到网格的效果，推荐使用LinearLayou...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -398,9 +392,9 @@ GridLayout
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -418,19 +412,11 @@ GridLayout
                 <span>《Monkey Android》第7课RelativeLayout、TableLayout</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：
-安卓猴的博客（http://sunjiajia.com）
-安卓猴的微博（@安卓猴）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 RelativeLayout以及它的相关属性
-
 TableLayout以及它的特有属性
-
 
 
 
@@ -444,7 +430,20 @@ RelativeLayout
 顾名思义，RelativeLayout就是相对布局，置于其中的控件在摆放的时候需要相对于布局中的其它控件来摆放。
 
 RelativeLayout相关属性
-这些属...
+这些属性十分“众多”，因此大致了解即可，关键是在敲代码的过程中熟练运用。
+
+
+
+
+—
+属性
+作用
+
+
+
+
+第1组属性
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -457,9 +456,9 @@ RelativeLayout相关属性
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -472,20 +471,15 @@ RelativeLayout相关属性
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/09/02/android-kitkat-translucent-statusbar/" >
+        <a class="abstract-title" href = "/2015/09/02/gradle-umeng-channels/" >
             
-                <span>Android &gt;= 4.4 适配沉浸状态栏颜色</span>
+                <span>Gradle多渠道打包[umeng]</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？
-其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。
-效果图：
-Android 5.0+实现方法参见文章：《Android L+ Theme 与 Toolbar 实例》
-A...
+            前言国内Android应用市场品种太多，血统不纯，每次上线App都打包打到手软，上传上到吐血！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！
+正文Umeng多渠道我们在项目中会使用统计SDK，用的最流行的当属umeng了吧。这里我们就用友盟来说明。用了友盟的App的清单文件AndroidManifest.xml中都会写上meta-data，来区分不同的渠道：
+123&lt;meta-data    android:name="UMENG_CHANNEL"    android:value="Channel_ID" /&gt;
+1.将Channel...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -513,18 +507,17 @@ A...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/09/02/gradle-umeng-channels/" >
+        <a class="abstract-title" href = "/2015/09/02/android-kitkat-translucent-statusbar/" >
             
-                <span>Gradle多渠道打包[umeng]</span>
+                <span>Android &gt;= 4.4 适配沉浸状态栏颜色</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言国内Android应用市场品种太多，血统不纯，每次上线App都打包打到手软，上传上到吐血！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！
-正文Umeng多渠道我们在项目中会使用统计SDK，用的最流行的当属umeng了吧。这里我们就用友盟来说明。用了友盟的App的清单文件AndroidManifest.xml中都会写上meta-data，来区分不同的渠道：
-123&lt;meta-data    android:name="UMENG_CHANNEL"    and...
+            前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？
+其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。
+效果图：
+Android 5.0+实现方法参见文章：《Android L+ Theme 与 Toolbar 实例》
+Android 4.4 实现方法1.使用开源库SystemBarTint
+2.然后...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -557,11 +550,7 @@ A...
                 <span>体验极速Android Sdk更新与下载</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。
+            前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。
 2015-09-07更新其他源部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。
 配置说明：东软信息学院开源镜像站 Android SDK 配置说明
 2015-08-16更新腾讯Bugly Android SDk 镜像使用指南
@@ -569,7 +558,7 @@ A...
 
 1.打开独立Android SDK 管理器，在Android Studio中打开**：
 
-2.菜单依次打开Tools–&...
+2.菜单依次打开Tools–&gt;Manage Add-on Sites...–&gt;User Defin...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -582,9 +571,9 @@ A...
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -602,11 +591,7 @@ A...
                 <span>编译Android5.1.1源码</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言编译Android源码是为了更好的学习源码，当然，如果要做第三方ROM适配，也可以尝试；我们这篇重点学习如下内容：
+            前言编译Android源码是为了更好的学习源码，当然，如果要做第三方ROM适配，也可以尝试；我们这篇重点学习如下内容：
 
 
 如何在Ubuntu下编译Android5.1.1源码；
@@ -617,7 +602,7 @@ A...
 2.安装openJDK 7:
 12$ sudo apt-get update$ sudo apt-get install openjdk-7-jdk
 3.更新jDK环境变量：
-12...
+12$ sudo update-alternatives --config java...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -650,11 +635,7 @@ A...
                 <span>国内镜像加速Android源码下载</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-1.首先，感谢伟大的Google；
+            1.首先，感谢伟大的Google；
 2.其次，感谢清华镜像；
 3.最后，感谢小水管以及长城。
 
@@ -665,7 +646,9 @@ Ubuntu源使用方法不多说了，不会的自行Google。
 Android源码清华镜像使用方法官方介绍使用方法====点击浏览====
 我来介绍1.下载修改好的repo，====下载地址====，密码：rb5t；
 2.打开终端，输入：
-12mkdir ~/...
+12mkdir ~/binPATH=~/bin:$PATH
+3.将repo放入~/bin目录下；
+4...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -698,11 +681,7 @@ Android源码清华镜像使用方法官方介绍使用方法====点击浏览===
                 <span>《Monkey Android》第6课点击事件的四种写法</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 Button和TextView的简单使用
@@ -712,7 +691,7 @@ LinearLayout的用法
 
 
 LinearLayout中的Button、TextView布局文件的源码：
-123456789101112131415161718192021222324252627282930313233343536373839404142&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  ...
+123456789101112131415161718192021222324252627282930313233343536373839404142&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="match_parent"   ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -725,9 +704,9 @@ LinearLayout中的Button、TextView布局文件的源码：
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -780,11 +759,7 @@ Ubuntu昨天在我的Thinkpad上配置了基于Ubuntu系统的Android开发环�
                 <span>《Monkey Android》第5课之剖析第一个App</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 第一个App最重要的三个文件
@@ -794,7 +769,8 @@ AndroidManifest.xml代码分析
 
 
 
-最重要的三个文件我们的第一个项目FirstDemo.java建立以后，Android Studio首先展示给我们的就是activity_main.xml和MainAcivity.java源文件，另外，还有一个无比重要的文件AndroidMenifest.xml，下面我们着重理解这三个文件的作用以及代码的含义。...
+最重要的三个文件我们的第一个项目FirstDemo.java建立以后，Android Studio首先展示给我们的就是activity_main.xml和MainAcivity.java源文件，另外，还有一个无比重要的文件AndroidMenifest.xml，下面我们着重理解这三个文件的作用以及代码的含义。
+MainAcivity.java代码分析顾名思义，Main的意思是主要的，Ac...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -807,9 +783,9 @@ AndroidManifest.xml代码分析
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -827,11 +803,7 @@ AndroidManifest.xml代码分析
                 <span>《Monkey Android》第4课之运行第一个App</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 运行第一个App
@@ -845,7 +817,8 @@ AndroidManifest.xml代码分析
 
 第2步 点击Next后，打开Android5.1模拟器，可以看到第一个App已经运行了！如图：
 
-学习几个adb命令第1步 将SDK的platform-tools文件夹...
+学习几个adb命令第1步 将SDK的platform-tools文件夹加入到系统环境变量中。
+第2步 打开你的Genymotion模拟器，打开cmd命...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -858,9 +831,9 @@ AndroidManifest.xml代码分析
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -878,11 +851,7 @@ AndroidManifest.xml代码分析
                 <span>《Monkey Android》第3课之Android Studio简介与模拟器</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 Android Studio新建工程
@@ -897,7 +866,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
 
 第3步： 选择App的运行设备类型和相应的系统版本。如图：
 
-第4步： 选择新建Activi...
+第4步： 选择新建Activity的类型，我们保持默认。如图：
+
+第5步： 需要填写Activity Name...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -910,9 +881,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -930,11 +901,7 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
                 <span>《Monkey Android》第2课之环境搭建</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 Android开发环境的搭建
@@ -944,7 +911,9 @@ SDK的下载和SDK目录详解
 
 
 环境搭建安装JDK建议安装最新版JDK，下载链接，版本信息为：
-123java version "1.8.0_51"Java(TM) SE Runtime Environment (build 1.8.0_51-b16)Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)...
+123java version "1.8.0_51"Java(TM) SE Runtime Environment (build 1.8.0_51-b16)Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
+一路点击“下一步”，即可安装好JDK并配置好环境变量。
+安装SDK在Googl...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -957,9 +926,9 @@ SDK的下载和SDK目录详解
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -977,11 +946,7 @@ SDK的下载和SDK目录详解
                 <span>《Monkey Android》第1课之前言</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言《Monkey Java》刚刚撸完，立刻就开始撸《Monkey Android》系列了。
+            前言《Monkey Java》刚刚撸完，立刻就开始撸《Monkey Android》系列了。
 目标群体：
 
 Android新手
@@ -998,12 +963,7 @@ Android新手
 
 初级阶段；能写出简单界面的App，并能加入广告SDK上传市场赚取广告费；对Android环境有了解，根据自己的规划进一步深入学习。
 
-关于我
-微博：@安卓猴
 
-
-
-微信公众号：A...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1016,9 +976,9 @@ Android新手
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1036,21 +996,12 @@ Android新手
                 <span>《Monkey Java》课程10.0之结束篇</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-结语到今天，《Monkey Java》系列的知识点都写完了，从头到尾都遵循着“入门”的准则，没有任何深奥的东西，几乎全部篇章都是在例子和注释中讲解知识点。在学习编程的过程中，如果不动手，那绝对就OUT了。
+            结语到今天，《Monkey Java》系列的知识点都写完了，从头到尾都遵循着“入门”的准则，没有任何深奥的东西，几乎全部篇章都是在例子和注释中讲解知识点。在学习编程的过程中，如果不动手，那绝对就OUT了。
 另外，《Monkey Java》中的Java知识绝对是不够用，它的目的在于为学习Android编程铺路。
 接下来，我们会一直将《Monkey Android》系列走起，直到我们能写出一个自己的Android App。
 
 
-关于我
-微博：@安卓猴
 
-
-
-微信公众号：Android奇想录（android_ama...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1063,9 +1014,9 @@ Android新手
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1083,11 +1034,7 @@ Android新手
                 <span>《Monkey Java》课程9.1之类集框架二</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 Collection和Iterator接口
 Set和HashSet的使用方法
@@ -1100,7 +1047,7 @@ Iterator &lt;– Collection &lt;– Set &lt;– HashSetIterator &lt;– Collecti
 
 Collection接口方法：
 
-boolean add(Object o) 向集合中加入一个对象void cl...
+boolean add(Object o) 向集合中加入一个对象void clear() 删除集合当中的所有对象boolean isEmpty() 判断集合是...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1113,9 +1060,9 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -2410,15 +2357,9 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 72
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -2553,12 +2494,12 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2623,22 +2564,22 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2688,12 +2629,12 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2818,16 +2759,6 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2015/05/04/accelerate-gps/" >加速gps搜星</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2015/05/03/new-blog-preface/" >新博客前言</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
         </li>
     
@@ -2836,13 +2767,9 @@ boolean add(Object o) 向集合中加入一个对象void cl...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
-    
-        <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
@@ -2850,17 +2777,17 @@ boolean add(Object o) 向集合中加入一个对象void cl...
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
-    
         <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2895,15 +2822,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

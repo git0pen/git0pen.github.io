@@ -344,11 +344,7 @@
                 <span>体验极速Android Sdk更新与下载</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。
+            前言国内下载或者更新Android SDK的速度奇慢，福利来了，专门解决这个问题。
 2015-09-07更新其他源部分网友反应，腾讯的Android SDK镜像不可用，再分享一个速度比较快的。
 配置说明：东软信息学院开源镜像站 Android SDK 配置说明
 2015-08-16更新腾讯Bugly Android SDk 镜像使用指南
@@ -356,7 +352,7 @@
 
 1.打开独立Android SDK 管理器，在Android Studio中打开**：
 
-2.菜单依次打开Tools–&...
+2.菜单依次打开Tools–&gt;Manage Add-on Sites...–&gt;User Defin...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -369,9 +365,9 @@
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -389,11 +385,7 @@
                 <span>编译Android5.1.1源码</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-前言编译Android源码是为了更好的学习源码，当然，如果要做第三方ROM适配，也可以尝试；我们这篇重点学习如下内容：
+            前言编译Android源码是为了更好的学习源码，当然，如果要做第三方ROM适配，也可以尝试；我们这篇重点学习如下内容：
 
 
 如何在Ubuntu下编译Android5.1.1源码；
@@ -404,7 +396,7 @@
 2.安装openJDK 7:
 12$ sudo apt-get update$ sudo apt-get install openjdk-7-jdk
 3.更新jDK环境变量：
-12...
+12$ sudo update-alternatives --config java...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -437,11 +429,7 @@
                 <span>国内镜像加速Android源码下载</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-1.首先，感谢伟大的Google；
+            1.首先，感谢伟大的Google；
 2.其次，感谢清华镜像；
 3.最后，感谢小水管以及长城。
 
@@ -452,7 +440,9 @@ Ubuntu源使用方法不多说了，不会的自行Google。
 Android源码清华镜像使用方法官方介绍使用方法====点击浏览====
 我来介绍1.下载修改好的repo，====下载地址====，密码：rb5t；
 2.打开终端，输入：
-12mkdir ~/...
+12mkdir ~/binPATH=~/bin:$PATH
+3.将repo放入~/bin目录下；
+4...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -485,11 +475,7 @@ Android源码清华镜像使用方法官方介绍使用方法====点击浏览===
                 <span>《Monkey Android》第6课点击事件的四种写法</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 Button和TextView的简单使用
@@ -499,7 +485,7 @@ LinearLayout的用法
 
 
 LinearLayout中的Button、TextView布局文件的源码：
-123456789101112131415161718192021222324252627282930313233343536373839404142&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  ...
+123456789101112131415161718192021222324252627282930313233343536373839404142&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="match_parent"   ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -512,9 +498,9 @@ LinearLayout中的Button、TextView布局文件的源码：
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -567,11 +553,7 @@ Ubuntu昨天在我的Thinkpad上配置了基于Ubuntu系统的Android开发环�
                 <span>《Monkey Android》第5课之剖析第一个App</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 第一个App最重要的三个文件
@@ -581,7 +563,8 @@ AndroidManifest.xml代码分析
 
 
 
-最重要的三个文件我们的第一个项目FirstDemo.java建立以后，Android Studio首先展示给我们的就是activity_main.xml和MainAcivity.java源文件，另外，还有一个无比重要的文件AndroidMenifest.xml，下面我们着重理解这三个文件的作用以及代码的含义。...
+最重要的三个文件我们的第一个项目FirstDemo.java建立以后，Android Studio首先展示给我们的就是activity_main.xml和MainAcivity.java源文件，另外，还有一个无比重要的文件AndroidMenifest.xml，下面我们着重理解这三个文件的作用以及代码的含义。
+MainAcivity.java代码分析顾名思义，Main的意思是主要的，Ac...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -594,9 +577,9 @@ AndroidManifest.xml代码分析
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -614,11 +597,7 @@ AndroidManifest.xml代码分析
                 <span>《Monkey Android》第4课之运行第一个App</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 运行第一个App
@@ -632,7 +611,8 @@ AndroidManifest.xml代码分析
 
 第2步 点击Next后，打开Android5.1模拟器，可以看到第一个App已经运行了！如图：
 
-学习几个adb命令第1步 将SDK的platform-tools文件夹...
+学习几个adb命令第1步 将SDK的platform-tools文件夹加入到系统环境变量中。
+第2步 打开你的Genymotion模拟器，打开cmd命...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -645,9 +625,9 @@ AndroidManifest.xml代码分析
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -665,11 +645,7 @@ AndroidManifest.xml代码分析
                 <span>《Monkey Android》第3课之Android Studio简介与模拟器</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-通过本节课可以学习到的内容：
+            通过本节课可以学习到的内容：
 
 
 Android Studio新建工程
@@ -684,7 +660,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
 
 第3步： 选择App的运行设备类型和相应的系统版本。如图：
 
-第4步： 选择新建Activi...
+第4步： 选择新建Activity的类型，我们保持默认。如图：
+
+第5步： 需要填写Activity Name...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -697,9 +675,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1884,15 +1862,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 72
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -2027,12 +1999,12 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2097,22 +2069,22 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2162,12 +2134,12 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2292,16 +2264,6 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2015/05/04/accelerate-gps/" >加速gps搜星</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2015/05/03/new-blog-preface/" >新博客前言</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
         </li>
     
@@ -2310,13 +2272,9 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
-    
-        <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
@@ -2324,17 +2282,17 @@ Android Studio新建工程第1步： 打开Android Studio，点击Start a New An
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
-    
         <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2369,15 +2327,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

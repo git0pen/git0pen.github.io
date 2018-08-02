@@ -263,15 +263,15 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">628</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">585</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,11 +401,7 @@ height:50vh;
             <main class="main post-page">
 
     <article class="article-entry">
-        <blockquote>
-<p>转发请注明出处：<br><a href="http://sunjiajia.com">安卓猴的博客（http://sunjiajia.com）</a><br><a href="http://weibo.com/androidmonkey" target="_blank" rel="external">安卓猴的微博（@安卓猴）</a></p>
-</blockquote>
-<hr>
-<p>通过本节课可以学习到的内容：</p>
+        <p>通过本节课可以学习到的内容：</p>
 <blockquote>
 <ul>
 <li>ToggleButton的用法</li>
@@ -425,14 +421,6 @@ height:50vh;
 <h2 id="Activity源码"><a href="#Activity源码" class="headerlink" title="Activity源码"></a>Activity源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.sunjiajia.monkeyandroid;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</div><div class="line"><span class="keyword">import</span> android.widget.CompoundButton;</div><div class="line"><span class="keyword">import</span> android.widget.RatingBar;</div><div class="line"><span class="keyword">import</span> android.widget.Switch;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"><span class="keyword">import</span> android.widget.ToggleButton;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Created by monkey on 1/2/16.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ToggleButtonRadioBarActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span></span></div><div class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">CompoundButton</span>.<span class="title">OnCheckedChangeListener</span>, <span class="title">RatingBar</span>.<span class="title">OnRatingBarChangeListener</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">giveViewResId</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> R.layout.activity_togglebutton_radiobar;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> ToggleButton mTb;</div><div class="line">  <span class="keyword">private</span> Switch mSwitch;</div><div class="line">  <span class="keyword">private</span> RatingBar mRb;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    mTb = (ToggleButton) findViewById(R.id.toggle_button);</div><div class="line">    mSwitch = (Switch) findViewById(R.id.switch_button);</div><div class="line">    mRb = (RatingBar) findViewById(R.id.rating_bar);</div><div class="line"></div><div class="line">    mTb.setOnCheckedChangeListener(<span class="keyword">this</span>);</div><div class="line">    mSwitch.setOnCheckedChangeListener(<span class="keyword">this</span>);</div><div class="line">    mRb.setOnRatingBarChangeListener(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line"><span class="comment">   * ToggleButton和Switch的事件监听</span></div><div class="line"><span class="comment">   */</span></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton buttonView, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (buttonView.getId()) &#123;</div><div class="line">      <span class="keyword">case</span> R.id.toggle_button:</div><div class="line">        showToast(isChecked);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">case</span> R.id.switch_button:</div><div class="line">        showToast(isChecked);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showToast</span><span class="params">(<span class="keyword">boolean</span> isChecked)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (isChecked) &#123;</div><div class="line">      Toast.makeText(ToggleButtonRadioBarActivity.<span class="keyword">this</span>, <span class="string">"开"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      Toast.makeText(ToggleButtonRadioBarActivity.<span class="keyword">this</span>, <span class="string">"关"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line"><span class="comment">   * RatingBar的事件监听方法</span></div><div class="line"><span class="comment">   */</span></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRatingChanged</span><span class="params">(RatingBar ratingBar, <span class="keyword">float</span> rating, <span class="keyword">boolean</span> fromUser)</span> </span>&#123;</div><div class="line">    Toast.makeText(ToggleButtonRadioBarActivity.<span class="keyword">this</span>, <span class="string">"获得了#"</span> + rating + <span class="string">"#星好评！"</span>, Toast.LENGTH_SHORT)</div><div class="line">        .show();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="布局文件xml源码"><a href="#布局文件xml源码" class="headerlink" title="布局文件xml源码"></a>布局文件xml源码</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></div><div class="line"><span class="tag">    &gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">      android:textOff="关闭"</span></div><div class="line"><span class="comment">        用来设置关闭状态时的文字显示；</span></div><div class="line"><span class="comment">      android:textOn="打开"</span></div><div class="line"><span class="comment">        用来设置打开状态时的文字显示；</span></div><div class="line"><span class="comment">      android:checked="true"</span></div><div class="line"><span class="comment">        true表示默认状态为打开，false表示默认状态为关闭。</span></div><div class="line"><span class="comment">  --&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">ToggleButton</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/toggle_button"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:checked</span>=<span class="string">"true"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"ToggleButton"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textOff</span>=<span class="string">"关闭"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:textOn</span>=<span class="string">"打开"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">Switch</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/switch_button"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:text</span>=<span class="string">"Switch"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!--</span></div><div class="line"><span class="comment">      android:numStars="5"</span></div><div class="line"><span class="comment">        用来设置星型的个数；</span></div><div class="line"><span class="comment">      android:rating="1.5"</span></div><div class="line"><span class="comment">        默认选定的星型个数，可为小数；</span></div><div class="line"><span class="comment">      android:stepSize="0.5"</span></div><div class="line"><span class="comment">        用来设置星型改变时的步频。</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">      注意：</span></div><div class="line"><span class="comment">          如果设置了android:numStars，那么android:layout_width必须设置为wrap_content</span></div><div class="line"><span class="comment">  --&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">RatingBar</span></span></div><div class="line"><span class="tag">      <span class="attr">android:id</span>=<span class="string">"@+id/rating_bar"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:numStars</span>=<span class="string">"5"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:rating</span>=<span class="string">"1.5"</span></span></div><div class="line"><span class="tag">      <span class="attr">android:stepSize</span>=<span class="string">"0.5"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>这一节课，我们主要学习了ToggleButton和RatingBar，前者在App的设置页面，后者在商店商品的评分方面，应用都是十分广泛的。</p>
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><ul>
-<li>微博：<a href="http://weibo.com/208931921" target="_blank" rel="external">@安卓猴</a></li>
-</ul>
-<p><a href="http://weibo.com/u/5358335375?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/5358335375/ec0d271f/1.png"></a></p>
-<ul>
-<li>微信公众号：Android奇想录（android_amazing）</li>
-</ul>
-<p><img src="/img/qrcode_for_android_amazing.jpg" alt="扫描二维码关注公众号"></p>
 
 
         <!-- 捐赠&推广 -->
@@ -631,7 +619,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ToggleButton的用法"><span class="toc-number">1.</span> <span class="toc-text">ToggleButton的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RatingBar的用法"><span class="toc-number">2.</span> <span class="toc-text">RatingBar的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果预览"><span class="toc-number">3.</span> <span class="toc-text">效果预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity源码"><span class="toc-number">4.</span> <span class="toc-text">Activity源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局文件xml源码"><span class="toc-number">5.</span> <span class="toc-text">布局文件xml源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下课"><span class="toc-number">6.</span> <span class="toc-text">下课</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于我"><span class="toc-number">6.1.</span> <span class="toc-text">关于我</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ToggleButton的用法"><span class="toc-number">1.</span> <span class="toc-text">ToggleButton的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RatingBar的用法"><span class="toc-number">2.</span> <span class="toc-text">RatingBar的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果预览"><span class="toc-number">3.</span> <span class="toc-text">效果预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity源码"><span class="toc-number">4.</span> <span class="toc-text">Activity源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局文件xml源码"><span class="toc-number">5.</span> <span class="toc-text">布局文件xml源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下课"><span class="toc-number">6.</span> <span class="toc-text">下课</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1710,15 +1698,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 72
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -1853,12 +1835,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -1923,22 +1905,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -1988,12 +1970,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2118,16 +2100,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2015/05/04/accelerate-gps/" >加速gps搜星</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2015/05/03/new-blog-preface/" >新博客前言</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
         </li>
     
@@ -2136,13 +2108,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
-    
-        <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
@@ -2150,17 +2118,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
-    
         <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2195,15 +2163,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

@@ -339,32 +339,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
             
-                <span>《Monkey Java》课程5.3之子类实例化</span>
+                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
+            本节课程将学习以下内容：
+
+函数的复写（override）
+使用super调用父类的成员函数
 
 
-本节课程将学习以下内容：
+函数的复写（override）
+复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
 
-生成子类的过程
-使用super调用父类构造函数的方法
-
-
-生成子类的过程使用super调用父类构造函数的方法注意：
+特点：
 
 
-在子类的构造函数中，必须调用父类的构造函数；
-super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
-super(参数);必须是构造函数的第一行。
+1.在具有父子关系的两个类当中；
+2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
 
 
-例子：（请动手）
-1.新建一个名为Person.java的Java源文件：
-123456789101112131415161718class Person&#123;  String na...
+使用super调用父类的成员函数左右:
+
+减少子类复写父类的成员方法时出现的重复代码。
+
+例子：（请动手）1.新建一个名为Person.java的Java源文件：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -377,9 +377,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -397,11 +397,7 @@ super(参数);必须是构造函数的第一行。
                 <span>《Monkey Java》课程5.2之继承（extends）基础</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 什么是继承
 为什么要使用继承
@@ -416,7 +412,10 @@ super(参数);必须是构造函数的第一行。
 
 格式：12345678910class A&#123;  语句；&#125;class B extends A&#123;  语句；&#125;class C extends A&#123;  语句1；  语句2；&#125;
 
-注意：Java中只允许单继承，不...
+注意：Java中只允许单继承，不允许多继承。
+
+例子：（请动手）
+1.新建一个名为Person.java的Jav...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -429,9 +428,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -449,11 +448,7 @@ super(参数);必须是构造函数的第一行。
                 <span>《Monkey Java》课程5.1之static关键字的作用</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 静态成员变量的语法特点
 静态函数的语法特点
@@ -476,7 +471,8 @@ super(参数);必须是构造函数的第一行。
 静态、普通成员变量的区别：
 看图：（理解）
 例子：（请动手加深理解）
-1.新建一个名为Person.java的Jav...
+1.新建一个名为Person.java的Java源代码文件：
+123class Person&#123;  static in...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -489,9 +485,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -509,11 +505,7 @@ super(参数);必须是构造函数的第一行。
                 <span>《Monkey Java》课程5.0之this的使用方法</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 this的涵义
 使用this调用成员变量和成员函数
@@ -525,7 +517,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 
 使用this调用成员变量和成员函数例子：（请动手）
 1.新建一个名为Person.java的Java源文件：
-12345678class Person&#123;  String name;  void talk()&#123;    // 这里的this就是一个Person的对象。    System.out.pri...
+12345678class Person&#123;  String name;  void talk()&#123;    // 这里的this就是一个Person的对象。    System.out.println("My name is " + this.name);  &#125;...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -538,9 +530,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -558,11 +550,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程4.3之面向对象基础4</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 函数的重载
 构造函数的作用
@@ -578,7 +566,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 
 例子：（请动手）
 1.新建一个名称为Demo01.java的java源文件。
-12345678910111213class Demo01 &#123;  void funDemo01() &#123;    System.out.println("没有参数的funDemo01函数");  &#125;  // 这...
+12345678910111213class Demo01 &#123;  void funDemo01() &#123;    System.out.println("没有参数的funDemo01函数");  &#125;  // 这个funDemo01函数重载了上面的funDemo01函数，特点为：  // 1...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -591,9 +579,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -611,11 +599,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程4.2之面向对象基础3</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 对象的使用方法
 多对象的创建方法
@@ -625,7 +609,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 对象的使用方法对象调用变量格式：1对象.变量
 对象调用函数格式：1对象.函数()
 例子：（请动手）1.创建一个名为Dog.java的java源文件：123456789class Dog &#123;  String name;  int age;  String color;  void jump &#123;    System.out.println("dog jump");  &#125;&#125;
-2.创建一...
+2.创建一个名为Demo01.java的Java源文件，它包含主函数：1234567891...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -638,9 +622,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -658,11 +642,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程4.1之面向对象基础2</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 创建类的方法
 创建对象的方法
@@ -676,7 +656,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 方法，也叫成员方法，主要用于描述类的行为。
 
 
-例子：（勤动手）123456789// Person是类名，首字母通常大写。class Person &#123;  // 成员变量  int age = 18;  // 成员方法，它可以访问同一个类中的成员变量。  void shout() &#123...
+例子：（勤动手）123456789// Person是类名，首字母通常大写。class Person &#123;  // 成员变量  int age = 18;  // 成员方法，它可以访问同一个类中的成员变量。  void shout() &#123;    System.out.println("oh,I am " + age...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -689,9 +669,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -709,11 +689,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程4.0之面向对象基础1</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下内容：
+            本节课程将学习以下内容：
 
 什么是面向对象
 应该如何学习面向对象
@@ -740,7 +716,11 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 面向对象的思维方式
 首先确定谁来做，其次确定怎么做；
 首先考虑整体，其次考虑局部；
-首先考虑抽...
+首先考虑抽象，其次考虑具体。
+
+总结
+不要认为掌握了一门面向对象语言就是掌握了面向对象；
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -753,9 +733,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -773,11 +753,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程3.4之练习课</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下两个练习：
+            本节课程将学习以下两个练习：
 
 练习1：打印100~200之间的所有素数。
 练习2：用*在命令行中打印出金字塔图案。
@@ -786,7 +762,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
 目标：熟悉Java语言中的for循环的使用方法。
 
 
-练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            bool...
+练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            boolean b = false;            for(int j = 2;...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -799,9 +775,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -819,11 +795,7 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
                 <span>《Monkey Java》课程3.3之循环语句</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下知识点：
+            本节课程将学习以下知识点：
 
 循环结构
 for循环语句
@@ -832,7 +804,7 @@ while循环语句
 
 循环结构一张图看懂什么是循环结构：
 
-for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; ...
+for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; 10;）；		// 3. 如果i &lt; 10 ，则执行&#123;&#125...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -845,9 +817,9 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -865,11 +837,7 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
                 <span>《Monkey Java》课程3.2之练习课</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本节课程将学习以下知识点：
+            本节课程将学习以下知识点：
 
 练习1：将学生的分数按照标准分为优、良、中、差四个级别。
 练习2：猜拳游戏。
@@ -883,7 +851,7 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
 使用if…else…结构对分数进行分级。
 
 
-源码：（请动手）123456789101112131415161718public class Demo01 &#123;	public static void main(String[] args) &#123;		int scor...
+源码：（请动手）123456789101112131415161718public class Demo01 &#123;	public static void main(String[] args) &#123;		int score = 60;		if (score &gt;= 85 &amp;&amp; s...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -896,9 +864,9 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -916,11 +884,7 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
                 <span>《Monkey Java》课程3.1之分支语句</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-本届课程将学习以下知识点：
+            本届课程将学习以下知识点：
 
 程序运行流程的分类
 if…else…分支语句
@@ -935,7 +899,7 @@ switch分支语句
 
 ##if…else…分支语句
 结构1：1234567// 布尔类型表达式 为true，才会执行&#123;&#125;里面的句子if(布尔类型表达式)&#123;  语句1;  语句2;  语句3;  ... ...&#125;
-例子：（请动手）12345678public class Demo&#123;  public static v...
+例子：（请动手）12345678public class Demo&#123;  public static void main(String[] args) &#123;    int i ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -948,9 +912,9 @@ switch分支语句
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -968,10 +932,7 @@ switch分支语句
                 <span>《Monkey Java》课程3.0之运算符与表达式</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-##运算符的分类
+            ##运算符的分类
 
 算术运算符：+,-,*,/,%,++,–
 关系运算符：&lt;,&gt;,&gt;=,&lt;=,==,!=
@@ -982,7 +943,10 @@ switch分支语句
 字符串连接运算符：+
 
 ##各种运算符的使用方法
-###算术运算符：关于算术运算符就不多说了，因为我大...
+###算术运算符：关于算术运算符就不多说了，因为我大中国的教育是从小就学加减乘除。
+注意1：
+
+int i = 3/2;请问i的值...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -995,9 +959,9 @@ switch分支语句
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1015,11 +979,7 @@ switch分支语句
                 <span>《Monkey Java》课程2.x之巩固练习</span>
         </a>
         <div class="abstract-content">
-            
-转发请注明出处：安卓猴的博客（http://sunjiajia.com）
-
-
-练习：（请动手）1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * 注意：类名一定和java源文件的名称一致。即 Demo。 * * @author Monkey * */public class Demo &#123;	public static void main(String[] args) &#123;		// 布尔型		boolean b = fa...
+            练习：（请动手）1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * 注意：类名一定和java源文件的名称一致。即 Demo。 * * @author Monkey * */public class Demo &#123;	public static void main(String[] args) &#123;		// 布尔型		boolean b = false;		boolean bb = true;		System.out.pri...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1032,9 +992,9 @@ switch分支语句
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1108,9 +1068,9 @@ unicode字符集是什么？
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -1123,20 +1083,27 @@ unicode字符集是什么？
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-1-1/" >
+        <a class="abstract-title" href = "/2015/07/01/monkey-java-basic-courses-2-0/" >
             
-                <span>《Monkey Java》课程1.1之JDK环境配置</span>
+                <span>《Monkey Java》课程2.0之变量</span>
         </a>
         <div class="abstract-content">
-            JDK下载
-注意：JDK有多个版本，请注意按照系统架构选择相应版本。JDK官网下载地址
+            什么是变量简单理解就是，在计算机中存储信息的东西。
+什么是语法语法，就是一种规则，根据这种规则可以编写出正确的代码。
+变量的声明1int age = 20;
 
-参考图1.1_01:
-JDK安装
-JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位置在
+int       表示变量类型
+age     表示变量名
+=         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”
+;          英文分号，表示语句结束
+这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；
 
-12C:\Program Files\Java\jdk1.7.0_80C:\Program Files\Java\jre7
-配置环境变量安装后，检测环境变量是否配置好：打开命令行窗口，输入命令java -version回显如下则已配置好：1234C:\Users\Administrator&gt;java -versionjava version "1.7.0_80-ea"Java(TM) SE...
+这条语句回答了2个问题：
+
+存储数据的空间有多大
+数据存储在什么位置
+
+变量的...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1149,9 +1116,9 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -2340,15 +2307,9 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 74
+        Total : 72
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -2483,12 +2444,12 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2553,22 +2514,22 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2618,12 +2579,12 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2748,16 +2709,6 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/04</span><a class="archive-post-title" href= "/2015/05/04/accelerate-gps/" >加速gps搜星</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2015/05/03/new-blog-preface/" >新博客前言</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
         </li>
     
@@ -2766,13 +2717,9 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
-    
-        <span class="sidebar-tag-name" data-tags="gps"><span class="iconfont-archer">&#xe606;</span>gps</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
@@ -2780,17 +2727,17 @@ JDK的安装一直点击“下一步”即可。安装后的JDK、JRE默认位�
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
-    
         <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2825,15 +2772,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

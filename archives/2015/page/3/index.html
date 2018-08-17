@@ -339,28 +339,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
             
-                <span>《Monkey Java》课程5.3之子类实例化</span>
+                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
         </a>
         <div class="abstract-content">
             本节课程将学习以下内容：
 
-生成子类的过程
-使用super调用父类构造函数的方法
+函数的复写（override）
+使用super调用父类的成员函数
 
 
-生成子类的过程使用super调用父类构造函数的方法注意：
+函数的复写（override）
+复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
+
+特点：
 
 
-在子类的构造函数中，必须调用父类的构造函数；
-super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
-super(参数);必须是构造函数的第一行。
+1.在具有父子关系的两个类当中；
+2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
 
 
-例子：（请动手）
-1.新建一个名为Person.java的Java源文件：
-123456789101112131415161718class Person&#123;  String name;  int age;  Person()&#123;    System....
+使用super调用父类的成员函数左右:
+
+减少子类复写父类的成员方法时出现的重复代码。
+
+例子：（请动手）1.新建一个名为Person.java的Java源文件：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -388,32 +392,28 @@ super(参数);必须是构造函数的第一行。
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
             
-                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
+                <span>《Monkey Java》课程5.3之子类实例化</span>
         </a>
         <div class="abstract-content">
             本节课程将学习以下内容：
 
-函数的复写（override）
-使用super调用父类的成员函数
+生成子类的过程
+使用super调用父类构造函数的方法
 
 
-函数的复写（override）
-复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
-
-特点：
+生成子类的过程使用super调用父类构造函数的方法注意：
 
 
-1.在具有父子关系的两个类当中；
-2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
+在子类的构造函数中，必须调用父类的构造函数；
+super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
+super(参数);必须是构造函数的第一行。
 
 
-使用super调用父类的成员函数左右:
-
-减少子类复写父类的成员方法时出现的重复代码。
-
-例子：（请动手）1.新建一个名为Person.java的Java源文件：...
+例子：（请动手）
+1.新建一个名为Person.java的Java源文件：
+123456789101112131415161718class Person&#123;  String name;  int age;  Person()&#123;    System....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -797,21 +797,21 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
+        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-3/" >
             
-                <span>《Monkey Java》课程3.4之练习课</span>
+                <span>《Monkey Java》课程3.3之循环语句</span>
         </a>
         <div class="abstract-content">
-            本节课程将学习以下两个练习：
+            本节课程将学习以下知识点：
 
-练习1：打印100~200之间的所有素数。
-练习2：用*在命令行中打印出金字塔图案。
-
-
-目标：熟悉Java语言中的for循环的使用方法。
+循环结构
+for循环语句
+while循环语句
 
 
-练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            boolean b = false;            for(int j = 2;...
+循环结构一张图看懂什么是循环结构：
+
+for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; 10;）；		// 3. 如果i &lt; 10 ，则执行&#123;&#125...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -839,21 +839,21 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-3/" >
+        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
             
-                <span>《Monkey Java》课程3.3之循环语句</span>
+                <span>《Monkey Java》课程3.4之练习课</span>
         </a>
         <div class="abstract-content">
-            本节课程将学习以下知识点：
+            本节课程将学习以下两个练习：
 
-循环结构
-for循环语句
-while循环语句
+练习1：打印100~200之间的所有素数。
+练习2：用*在命令行中打印出金字塔图案。
 
 
-循环结构一张图看懂什么是循环结构：
+目标：熟悉Java语言中的for循环的使用方法。
 
-for循环语句源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;		System.out.println("准备进入for循环语句。");		// 1. 执行 int i = 0;		// 2. 判断i的值是否小于10（即执行i &lt; 10;）；		// 3. 如果i &lt; 10 ，则执行&#123;&#125...
+
+练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            boolean b = false;            for(int j = 2;...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1204,7 +1204,7 @@ unicode字符集是什么？
     
         
             
-                <a href="//blog.sunjiajia.com/baidusitemap.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+                <a href="//sunjiajia.com/baidusitemap.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
             
         
     
@@ -1242,6 +1242,18 @@ unicode字符集是什么？
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2399,12 +2411,12 @@ unicode字符集是什么？
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2469,22 +2481,22 @@ unicode字符集是什么？
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2534,12 +2546,12 @@ unicode字符集是什么？
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2579,12 +2591,12 @@ unicode字符集是什么？
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2619,12 +2631,12 @@ unicode字符集是什么？
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
         </li>
     
     
@@ -2676,11 +2688,11 @@ unicode字符集是什么？
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
     
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
-    
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
@@ -2688,9 +2700,9 @@ unicode字符集是什么？
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
         <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
         <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
@@ -2729,9 +2741,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
@@ -2741,9 +2753,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="技术相关"><span class="iconfont-archer">&#xe60a;</span>技术相关</span>
     
-        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
-    
         <span class="sidebar-category-name" data-categories="CentOS"><span class="iconfont-archer">&#xe60a;</span>CentOS</span>
+    
+        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

@@ -193,7 +193,7 @@
         var _hmt = _hmt || [];
         (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ff369b26cfb193d98df5011f8f400b82";
+        hm.src = "https://hm.baidu.com/hm.js?14c2dbf2b53b29adbd6e49c3aeab5e2c";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
         })();
@@ -444,15 +444,17 @@ SuperRecycler.java代码：12...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/09/02/gradle-umeng-channels/" >
+        <a class="abstract-title" href = "/2015/09/02/android-kitkat-translucent-statusbar/" >
             
-                <span>Gradle多渠道打包[umeng]</span>
+                <span>Android &gt;= 4.4 适配沉浸状态栏颜色</span>
         </a>
         <div class="abstract-content">
-            前言国内Android应用市场品种太多，血统不纯，每次上线App都打包打到手软，上传上到吐血！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！
-正文Umeng多渠道我们在项目中会使用统计SDK，用的最流行的当属umeng了吧。这里我们就用友盟来说明。用了友盟的App的清单文件AndroidManifest.xml中都会写上meta-data，来区分不同的渠道：
-123&lt;meta-data    android:name="UMENG_CHANNEL"    android:value="Channel_ID" /&gt;
-1.将Channel...
+            前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？
+其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。
+效果图：
+Android 5.0+实现方法参见文章：《Android L+ Theme 与 Toolbar 实例》
+Android 4.4 实现方法1.使用开源库SystemBarTint
+2.然后...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -480,17 +482,15 @@ SuperRecycler.java代码：12...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/09/02/android-kitkat-translucent-statusbar/" >
+        <a class="abstract-title" href = "/2015/09/02/gradle-umeng-channels/" >
             
-                <span>Android &gt;= 4.4 适配沉浸状态栏颜色</span>
+                <span>Gradle多渠道打包[umeng]</span>
         </a>
         <div class="abstract-content">
-            前言Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？
-其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。
-效果图：
-Android 5.0+实现方法参见文章：《Android L+ Theme 与 Toolbar 实例》
-Android 4.4 实现方法1.使用开源库SystemBarTint
-2.然后...
+            前言国内Android应用市场品种太多，血统不纯，每次上线App都打包打到手软，上传上到吐血！好在我们有了Android studio和gradle，一条命令打包各种渠道版本App！
+正文Umeng多渠道我们在项目中会使用统计SDK，用的最流行的当属umeng了吧。这里我们就用友盟来说明。用了友盟的App的清单文件AndroidManifest.xml中都会写上meta-data，来区分不同的渠道：
+123&lt;meta-data    android:name="UMENG_CHANNEL"    android:value="Channel_ID" /&gt;
+1.将Channel...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1846,42 +1846,6 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 72
@@ -2019,12 +1983,12 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
@@ -2089,12 +2053,12 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
@@ -2154,12 +2118,12 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2199,12 +2163,12 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2239,12 +2203,12 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
         </li>
     
     
@@ -2310,9 +2274,9 @@ Drawerlayout和NavigationView实现优雅的Google范儿侧边栏；
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
-    
         <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
+    
+        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

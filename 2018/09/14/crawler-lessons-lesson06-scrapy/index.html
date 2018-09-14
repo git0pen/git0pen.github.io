@@ -1,0 +1,2689 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="GitOPEN">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="GitOPEN">
+    <meta name="keywords" content="GitOPEN | GitOPEN">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy · GitOPEN&#39;s Home</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180604 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180604 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?14c2dbf2b53b29adbd6e49c3aeab5e2c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 百度站点推送  -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-86934944-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+    <!-- 360搜索站点推送  -->
+    <script>(function(){
+        var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?__":"https://jspassport.ssl.qhimg.com/11.0.1.js?__";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+        </script>
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >GitOPEN&#39;s Home.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>GitOPEN's Home.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "爬虫">爬虫</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Crawler">Crawler</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Spider">Spider</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">4,179</span> / Reading time: <span class="post-count">17 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+
+    <article class="article-entry">
+        <h1 id="强大的爬虫框架Scrapy"><a href="#强大的爬虫框架Scrapy" class="headerlink" title="强大的爬虫框架Scrapy"></a>强大的爬虫框架Scrapy</h1><h1 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h1><p>Scrapy是一个Python爬虫应用框架，爬取和处理结构性数据非常方便。使用它，只需要定制开发几个模块，就可以轻松实现一个爬虫，让爬取数据信息的工作更加简单高效。</p>
+<p>Scrapy使用了Twisted异步网络框架来处理网络通信，可以加快下载速度。结合Scrapy-redis，我们可以实现分布式爬虫，极大地提高了爬虫的效率。试想一下，10台、20台、100台服务器同时爬取数据。。。</p>
+<p>Scrapy的安装也非常简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install scrapy</div></pre></td></tr></table></figure>
+<h1 id="Scrapy架构初体验"><a href="#Scrapy架构初体验" class="headerlink" title="Scrapy架构初体验"></a>Scrapy架构初体验</h1><h2 id="Scrapy架构及组件"><a href="#Scrapy架构及组件" class="headerlink" title="Scrapy架构及组件"></a>Scrapy架构及组件</h2><p>我们先看一下Scrapy的架构图，来试图理解一下Scrapy的执行流程，然后，带着这些问题，进入Scrapy框架的编写爬虫学习。</p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_01.png" alt=""></p>
+<p>这张官方的图解非常形象，但看起来不那么直观，我们来看另一张网友做的图，简单好看，<strong>点个赞！</strong></p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_02.png" alt=""></p>
+<p>首先，解释一下图中各个组件的作用：</p>
+<p>5个组件：</p>
+<p><code>Scrapy Engine</code>：核心引擎，负责控制和调度各个组件，保证数据流转；</p>
+<p><code>Scheduler</code>：负责管理任务、过滤任务、输出任务的调度器，存储、去重任务都在此控制；</p>
+<p><code>Downloader</code>：下载器，负责在网上下载网页数据，输入待下载URL，输出下载结果；</p>
+<p><code>Spiders</code>：用户自己编写的爬虫脚本，自定义抓取的意图，就是说你需要哪些数据，怎么爬，在这里定义；</p>
+<p><code>Item Pipline</code>：负责将获取到的数据格式化，格式化、存储、存储位置等在这里质量定义；</p>
+<p>2个中间件组件：</p>
+<p><code>Downloader middlewares</code>：介于引擎和下载器之间，对Scrapy的request/response处理的钩子框架，是用于全局修改Scrapy request和response的一个组件，可以在网页下载前后进行逻辑处理；</p>
+<p><code>Spider middlewares</code>：介于引擎和爬虫之间，处理引擎发送给Spiders的response，处理spider产生的item和request返回给引擎。</p>
+<h2 id="Scrapy执行流程"><a href="#Scrapy执行流程" class="headerlink" title="Scrapy执行流程"></a>Scrapy执行流程</h2><p>用根据图中的序号，我们用文字来描述一下，Scrapy的运转流程：</p>
+<ol>
+<li>Engine从Spiders中获取到初始化requests，在自定义spider中叫做<code>start_urls</code>；</li>
+<li>Engine把起始请求放入Scheduler，同时，向Scheduler获取一个待下载的request；</li>
+<li>Scheduler返回给Engine一个待下载的request；</li>
+<li>Engine发送request给Downloader，会经过Downloader middlewares；</li>
+<li>这个request通过Downloader下载完成后，生成了一个response，经过Downloader middlewares后到达Engine；</li>
+<li>Engine收到response后，经过Spider middlewares发送给Spiders中的自定义spider，执行自定义的爬虫逻辑；</li>
+<li>spider执行相应的回调方法，例如parse()处理response，返回item或者新的request，返回的时候经过Spider middlewares；</li>
+<li>Engine把item交给Item pipline处理，把新的request通过Engine交给Scheduler；</li>
+<li>如此往复，直到Scheduler中没有新的request。</li>
+</ol>
+<h1 id="Scrapy项目初体验"><a href="#Scrapy项目初体验" class="headerlink" title="Scrapy项目初体验"></a>Scrapy项目初体验</h1><h2 id="Scrapy项目创建和执行"><a href="#Scrapy项目创建和执行" class="headerlink" title="Scrapy项目创建和执行"></a>Scrapy项目创建和执行</h2><p>构建和运行一个基于Scrapy框架的爬虫的通用步骤如下：</p>
+<ol>
+<li>使用<code>scrapy startproject demoSpider</code>创建基于Scrapy框架的爬虫项目；</li>
+<li>使用<code>scrapy genspider demo demo.com</code>生成一个基于basic模板的自定义爬虫，爬虫名字为demo；</li>
+<li>重写<code>pasrse</code>方法，编写处理和爬取规则；</li>
+<li>使用<code>scrapy crawl demo</code>执行爬虫。</li>
+</ol>
+<p>在命令行中创建基于Scrapy框架的爬虫的步骤：</p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_03.png" alt=""></p>
+<h2 id="Scrapy项目结构解析"><a href="#Scrapy项目结构解析" class="headerlink" title="Scrapy项目结构解析"></a>Scrapy项目结构解析</h2><p>我们在PyCharm中打开创建的项目，项目结构如图：</p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_04.png" alt=""></p>
+<ul>
+<li><code>scrapy.cfg</code>：项目的主配置文件；</li>
+<li><code>demoSpider</code>：最外层的是项目根目录；第二个是该项目的Python模块；</li>
+<li><code>demoSpider/items.py</code>：项目中item文件，设置数据存储模板，保存爬取到的数据的容器，用于结构化数据，使用方法和字典类似；</li>
+<li><code>demoSpider/piplines.py</code>：项目中的pipelines文件（管道文件），用于数据的持久化处理；</li>
+<li><code>demoSpider/middlewares.py</code>：项目的中间件；</li>
+<li><code>demoSpider/settings.py</code>：项目的设置文件，如，下载延迟、并发数等；</li>
+<li><code>demoSpider/spiders/</code>：编写spider代码的目录。</li>
+</ul>
+<h3 id="settings-py文件内容解析"><a href="#settings-py文件内容解析" class="headerlink" title="settings.py文件内容解析"></a><code>settings.py</code>文件内容解析</h3><p>刚创建好的demoSpider的settings文件内容是这样的，每个配置项有什么作用，在注释中已经标明了，这里做到心中有数即可，后面实战的时候，会再次使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="comment"># 爬虫项目的名字</span></div><div class="line">BOT_NAME = <span class="string">'demoSpider'</span></div><div class="line"></div><div class="line"><span class="comment"># 爬虫的路径</span></div><div class="line">SPIDER_MODULES = [<span class="string">'demoSpider.spiders'</span>]</div><div class="line">NEWSPIDER_MODULE = <span class="string">'demoSpider.spiders'</span></div><div class="line"></div><div class="line"><span class="comment"># 是否遵守爬虫协议</span></div><div class="line">ROBOTSTXT_OBEY = <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment"># 设置并发请求书，最大是32，默认是16</span></div><div class="line"><span class="comment">#CONCURRENT_REQUESTS = 32</span></div><div class="line"></div><div class="line"><span class="comment"># 为同一个网站的请求配置延迟，默认为0；通常用来控制访问爬取频率，防止被识别被禁止。</span></div><div class="line"><span class="comment"># 例如设置为0.25，则表示250ms的延迟。</span></div><div class="line"><span class="comment">#DOWNLOAD_DELAY = 3</span></div><div class="line"><span class="comment"># 每个域名最大并发请求数</span></div><div class="line"><span class="comment">#CONCURRENT_REQUESTS_PER_DOMAIN = 16</span></div><div class="line"><span class="comment"># 每个ip最大并发请求数，如果设置了，将忽略设置的域名最大并发请求数</span></div><div class="line"><span class="comment">#CONCURRENT_REQUESTS_PER_IP = 16</span></div><div class="line"></div><div class="line"><span class="comment"># 是否禁用cookies，默认不禁用</span></div><div class="line"><span class="comment">#COOKIES_ENABLED = False</span></div><div class="line"></div><div class="line"><span class="comment"># 通过Telnet可以监听当前爬虫的状态、信息，操作爬虫等。使用方法是：打开cmd，使用telnet 127.0.0.1 6023 以及est()，即可进入操作页面。不常用。</span></div><div class="line"><span class="comment">#TELNETCONSOLE_ENABLED = False</span></div><div class="line"></div><div class="line"><span class="comment"># 默认的请求头，每个请求都可以携带。</span></div><div class="line"><span class="comment">#DEFAULT_REQUEST_HEADERS = &#123;</span></div><div class="line"><span class="comment">#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',</span></div><div class="line"><span class="comment">#   'Accept-Language': 'en',</span></div><div class="line"><span class="comment">#&#125;</span></div><div class="line"></div><div class="line"><span class="comment"># 开始或者禁用中间件，后面的顺序表示优先级，数字越小优先级越高</span></div><div class="line"><span class="comment"># 第一个中间件是靠近引擎的中间件，最后一个是靠近蜘蛛的中间件</span></div><div class="line"><span class="comment"># 文档 https://doc.scrapy.org/en/latest/topics/spider-middleware.html</span></div><div class="line"><span class="comment">#SPIDER_MIDDLEWARES = &#123;</span></div><div class="line"><span class="comment">#    'demoSpider.middlewares.DemospiderSpiderMiddleware': 543,</span></div><div class="line"><span class="comment">#&#125;</span></div><div class="line"></div><div class="line"><span class="comment"># 下载中间件，后面的顺序表示优先级，数字越小优先级越高</span></div><div class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html</span></div><div class="line"><span class="comment">#DOWNLOADER_MIDDLEWARES = &#123;</span></div><div class="line"><span class="comment">#    'demoSpider.middlewares.DemospiderDownloaderMiddleware': 543,</span></div><div class="line"><span class="comment">#&#125;</span></div><div class="line"></div><div class="line"><span class="comment"># 自定义扩展</span></div><div class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/extensions.html</span></div><div class="line"><span class="comment">#EXTENSIONS = &#123;</span></div><div class="line"><span class="comment">#    'scrapy.extensions.telnet.TelnetConsole': None,</span></div><div class="line"><span class="comment">#&#125;</span></div><div class="line"></div><div class="line"><span class="comment"># 自定义PIPELINES处理请求，主要为了存储数据使用，后面的顺序表示优先级，数字越小优先级越高</span></div><div class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span></div><div class="line"><span class="comment">#ITEM_PIPELINES = &#123;</span></div><div class="line"><span class="comment">#    'demoSpider.pipelines.DemospiderPipeline': 300,</span></div><div class="line"><span class="comment">#&#125;</span></div><div class="line"></div><div class="line"><span class="comment"># 做智能的限速请求。从AUTOTHROTTLE_ENABLED = True开始，到AUTOTHROTTLE_DEBUG = False结束。中间的设置AUTOTHROTTLE_START_DELAY = 5表示第一个请求延迟多少秒。</span></div><div class="line"><span class="comment"># 默认禁用。</span></div><div class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/autothrottle.html</span></div><div class="line"><span class="comment">#AUTOTHROTTLE_ENABLED = True</span></div><div class="line"><span class="comment"># 起始请求的延迟</span></div><div class="line"><span class="comment">#AUTOTHROTTLE_START_DELAY = 5</span></div><div class="line"><span class="comment"># 最大的请求延迟</span></div><div class="line"><span class="comment">#AUTOTHROTTLE_MAX_DELAY = 60</span></div><div class="line"><span class="comment"># The average number of requests Scrapy should be sending in parallel to</span></div><div class="line"><span class="comment"># each remote server</span></div><div class="line"><span class="comment">#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0</span></div><div class="line"><span class="comment"># 启用后，显示每个响应的控制信息</span></div><div class="line"><span class="comment">#AUTOTHROTTLE_DEBUG = False</span></div><div class="line"></div><div class="line"><span class="comment"># 默认禁用，设置HTTP缓存</span></div><div class="line"><span class="comment"># See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings</span></div><div class="line"><span class="comment">#HTTPCACHE_ENABLED = True</span></div><div class="line"><span class="comment">#HTTPCACHE_EXPIRATION_SECS = 0</span></div><div class="line"><span class="comment">#HTTPCACHE_DIR = 'httpcache'</span></div><div class="line"><span class="comment">#HTTPCACHE_IGNORE_HTTP_CODES = []</span></div><div class="line"><span class="comment">#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'</span></div></pre></td></tr></table></figure>
+<h3 id="demoSpider-spiders-demo-py文件内容解析"><a href="#demoSpider-spiders-demo-py文件内容解析" class="headerlink" title="demoSpider/spiders/demo.py文件内容解析"></a><code>demoSpider/spiders/demo.py</code>文件内容解析</h3><p>这是一个依据默认模板Scrapy帮我们生成的爬虫，内容简单，由于没有任何自定义的编写，因此，现在还不具备爬虫的功能，我们看一下它的默认内容的使用方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    <span class="comment"># 爬虫的名字，对应于刚才生成爬虫时指定的名字</span></div><div class="line">    name = <span class="string">'demo'</span></div><div class="line">    <span class="comment"># 支持的域名，对应于刚才生成爬虫时指定的域名</span></div><div class="line">    allowed_domains = [<span class="string">'demo.com'</span>]</div><div class="line">    <span class="comment"># 起始链接，爬虫启动后，默认会从这里的url开始发送请求</span></div><div class="line">    start_urls = [<span class="string">'http://demo.com/'</span>]</div><div class="line">	</div><div class="line">    <span class="comment"># 处理方法，处理引擎转发回来的响应response</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p>parse方法是我们今后处理内容的方法，也就是从response中提取网页的元素或内容。</p>
+<p>parse方法的response中，有很多我们可以用的东西：</p>
+<p><code>response.url</code>：访问的连接；</p>
+<p><code>response.text</code>：响应的字符串内容；</p>
+<p><code>response.body</code>：响应的二进制格式内容；</p>
+<p><code>response.meta</code>：它包含四个信息，如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">'depth'</span>: 1, <span class="string">'download_timeout'</span>: 180.0, <span class="string">'download_slot'</span>: <span class="string">'dig.chouti.com'</span>, <span class="string">'download_latency'</span>: 0.23752975463867188&#125;</div></pre></td></tr></table></figure>
+<h3 id="demoSpider-items-py文件内容解析"><a href="#demoSpider-items-py文件内容解析" class="headerlink" title="demoSpider/items.py文件内容解析"></a><code>demoSpider/items.py</code>文件内容解析</h3><p><code>items.py</code>文件中定义数据存储模板，用面向对象的思维来思考，items中的每个类的实例化对象都是一个包含特定字段和值的结构化数据对象，我们可以将在<code>parse</code>方法中提取到的数据，保存到这个对象中，然后通过管道文件<code>pipeline</code>进行后续处理，如保存到文件，或者保存到数据库。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="comment"># 定义数据模板</span></div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemospiderItem</span><span class="params">(scrapy.Item)</span>:</span></div><div class="line">    <span class="comment"># 定义字段</span></div><div class="line">    <span class="comment"># name = scrapy.Field()</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p>例如，假设我们提取了学生信息，有<code>name</code>、<code>age</code>、<code>score</code>等数据，那么我们可以在<code>items.py</code>中编写一个<code>StudentsItem</code>类，来存储结构化数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentsItem</span><span class="params">(scrapy.Item)</span>:</span></div><div class="line">    <span class="comment"># 姓名</span></div><div class="line">    name = scrapy.Field()</div><div class="line">    <span class="comment"># 年龄</span></div><div class="line">    age = scrapy.Field()</div><div class="line">    <span class="comment"># 分数</span></div><div class="line">    score = scrapy.Field()</div></pre></td></tr></table></figure>
+<p>那么，在<code>parse</code>方法中，提取出来的数据就可以这样存储：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">item[<span class="string">'name'</span>] = <span class="string">'zhangsan'</span></div><div class="line">item[<span class="string">'age'</span>] = <span class="number">18</span></div><div class="line">item[<span class="string">'score'</span>] = <span class="number">99</span></div></pre></td></tr></table></figure>
+<h3 id="demoSpider-middlewares-py文件内容解析"><a href="#demoSpider-middlewares-py文件内容解析" class="headerlink" title="demoSpider/middlewares.py文件内容解析"></a><code>demoSpider/middlewares.py</code>文件内容解析</h3><p>该文件中包含两个类，分别是<code>DemospiderSpiderMiddleware</code>爬虫中间件和<code>DemospiderDownloaderMiddleware</code>下载中间件，如果自定义了它们，那么需要在<code>settings.py</code>文件中配置它们。在这里，我们不去细致讨论它们，仅需要知道它们在scrapy中的作用即可。关于它们的详解，将在用到的时候进行详细讲解。</p>
+<h3 id="demoSpider-pipelines-py文件内容解析"><a href="#demoSpider-pipelines-py文件内容解析" class="headerlink" title="demoSpider/pipelines.py文件内容解析"></a><code>demoSpider/pipelines.py</code>文件内容解析</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="comment"># 定义item的管道文件</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 不要忘记在settings文件的ITEM_PIPELINES中启用它</span></div><div class="line"><span class="comment"># See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemospiderPipeline</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="comment"># 处理item的方法，该方法必须要返回一个字典数据，Item（或其子类）或者 抛出一个 DropItem 异常。被 drop 的 Item 将不会被接下来的 pipeline 组件处理。</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        <span class="comment"># raise DropItem()</span></div><div class="line">        <span class="keyword">return</span> item</div></pre></td></tr></table></figure>
+<p>定义item的管道文件，用来对结构化数据item进行处理，存储到文件或者存储到数据库中。<code>process_item</code>方法中有两个参数：</p>
+<p><code>item</code>：爬取的 Item对象；</p>
+<p><code>spider</code>：爬起item对象的爬虫。</p>
+<p>编写好<code>pipelines.py</code>文件以后，需要在<code>settings.py</code>文件中启用它：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    <span class="string">'demoSpider.pipelines.DemospiderPipeline'</span>: <span class="number">300</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="XPath语法"><a href="#XPath语法" class="headerlink" title="XPath语法"></a>XPath语法</h1><p>XPath 使用路径表达式来选取 XML 文档中的节点或节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。</p>
+<p>XPath基于XML的树状结构，有不同类型的节点，包括元素节点，属性节点和文本节点，提供在数据结构树中找寻节点的能力。起初 XPath 的提出的初衷是将其作为一个通用的、介于XPointer与XSLT间的语法模型。但是 XPath 很快的被开发者采用来当作小型查询语言。</p>
+<p>简单来说，我们通过Xpath可以获取XML中的指定元素和指定节点的值。在网络爬虫中通常会把爬虫获取的HTML数据转换成XML结构，然后通过XPath解析，获取我们想要的结果。</p>
+<p>下面，看一下最常用的路径表达式，也是最基础的：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取。</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点。</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="XPath-Helper插件"><a href="#XPath-Helper插件" class="headerlink" title="XPath Helper插件"></a>XPath Helper插件</h2><h3 id="XPath-Helper插件安装"><a href="#XPath-Helper插件安装" class="headerlink" title="XPath Helper插件安装"></a>XPath Helper插件安装</h3><p>为了使用方便，我们在Chrome浏览器中安装<code>XPath Helper</code>插件，帮助我们在页面上测试<code>XPath</code>表达式。</p>
+<p>你可以在Chrome扩展商店中直接搜索下载，由于众所周知的原因，很可能（100%）不能访问，那么可以使用备份下载地址：</p>
+<p><a href="https://github.com/opengit/CrawlerLessons/raw/master/codes/lesson06/xpath_helper_hgimnogjllphhhkhlmebbmlgjoejdpjl.crx" target="_blank" rel="external">XPath Helper备份下载地址</a></p>
+<p>安装方法如图所示：</p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_05.png" alt=""></p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_06.png" alt=""></p>
+<h3 id="XPath-Helper插件使用"><a href="#XPath-Helper插件使用" class="headerlink" title="XPath Helper插件使用"></a>XPath Helper插件使用</h3><p>安装完成以后，在Chrome浏览器右上角的扩展插件区域，点击<code>XPath Helper</code>图标即可激活使用。</p>
+<p>这里，我们使用<a href="https://movie.douban.com/top250?start=0" target="_blank" rel="external">豆瓣电影Top250</a>作为测试页面，同时实战一下<code>XPath Helper</code>的用法。如图所示：</p>
+<p><img src="/img/crawler/lessons/lesson06_scrapy_07.png" alt=""></p>
+<h2 id="常用XPath表达式用法"><a href="#常用XPath表达式用法" class="headerlink" title="常用XPath表达式用法"></a>常用XPath表达式用法</h2><table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>//div</code></td>
+<td>选取页面上全部div元素</td>
+</tr>
+<tr>
+<td><code>//div[@class=&#39;article&#39;]</code></td>
+<td>选取页面上属性class的值为article的div元素</td>
+</tr>
+<tr>
+<td><code>//div[@class=&#39;article&#39;]//div[@class=&#39;item&#39;]//div[@class=&#39;hd&#39;]//span[@class=&#39;title&#39;][1]//text()</code></td>
+<td>在上面选取的基础上，选取class属性为title的span元素，由于这个span元素有多个，是同一层级下的并列关系，我们只提取第一个，因此需要用[1]获取。text()用来获取文本内容</td>
+</tr>
+<tr>
+<td><code>//div[@class=&#39;article&#39;]//div[@class=&#39;item&#39;]//div[@class=&#39;hd&#39;]//a//@href</code></td>
+<td>获取a标签的属性href的值，也就是电影详细信息页面的URL连接</td>
+</tr>
+<tr>
+<td><code>//a[contains(@href,&#39;douban&#39;)]//@href</code></td>
+<td>找到a标签属性href的值中包含douban字符串的a元素，然后取出来href的值</td>
+</tr>
+<tr>
+<td><code>//a[starts-with(@href,&#39;https://movie.douban.com&#39;)]//@href</code></td>
+<td>找到a标签属性href的值中以<code>https://movie.douban.com</code>字符串开头的a元素，然后取出来href的值</td>
+</tr>
+</tbody>
+</table>
+<h1 id="CSS选择器基础"><a href="#CSS选择器基础" class="headerlink" title="CSS选择器基础"></a>CSS选择器基础</h1><p>CSS选择器是用来对HTML页面中的元素进行控制的，然后设置属性与值，达到对网页样式就行修饰的目的。</p>
+<p>要使用css对HTML页面中的元素实现一对一，一对多或者多对一的控制，这就需要用到CSS选择器。</p>
+<p>我们在编写爬虫的过程中，可以使用CSS选择器来对网页上的元素、内容进行定位或者获取。</p>
+<h2 id="常用CSS选择器语法"><a href="#常用CSS选择器语法" class="headerlink" title="常用CSS选择器语法"></a>常用CSS选择器语法</h2><table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>选择所有节点</td>
+</tr>
+<tr>
+<td><code>#container</code></td>
+<td>选择id为container的节点</td>
+</tr>
+<tr>
+<td><code>.container</code></td>
+<td>选择所有class包含container的节点</td>
+</tr>
+<tr>
+<td><code>li a</code></td>
+<td>选取所有li 下所有a节点</td>
+</tr>
+<tr>
+<td><code>ul + p</code></td>
+<td>选取ul后面的第一个p元素</td>
+</tr>
+<tr>
+<td><code>div#container &gt; ul</code></td>
+<td>选取id为container的div的第一个ul子元素</td>
+</tr>
+<tr>
+<td><code>ul ~p</code></td>
+<td>选取与ul相邻的所有p元素</td>
+</tr>
+<tr>
+<td><code>a[title]</code></td>
+<td>选取所有有title属性的a元素</td>
+</tr>
+<tr>
+<td><code>a[href=&quot;http://sunjiajia.com&quot;]</code></td>
+<td>选取所有href属性为<code>http://sunjiajia.com</code>的a元素</td>
+</tr>
+<tr>
+<td><code>a[href*=&quot;sunjiajia&quot;]</code></td>
+<td>选取所有href属性值中包含sunjiajia的a元素</td>
+</tr>
+<tr>
+<td><code>a[href^=&quot;http&quot;]</code></td>
+<td>选取所有href属性值中以http开头的a元素</td>
+</tr>
+<tr>
+<td><code>a[href$=&quot;.jpg&quot;]</code></td>
+<td>选取所有href属性值中以.jpg结尾的a元素</td>
+</tr>
+<tr>
+<td><code>input[type=radio]:checked</code></td>
+<td>选择选中的radio的元素</td>
+</tr>
+<tr>
+<td><code>div:not(#container)</code></td>
+<td>选取所有id为非container 的div属性</td>
+</tr>
+<tr>
+<td><code>li:nth-child(3)</code></td>
+<td>选取第三个li元素</td>
+</tr>
+<tr>
+<td><code>li:nth-child(2n)</code></td>
+<td>选取第偶数个li元素</td>
+</tr>
+</tbody>
+</table>
+<p>有关CSS选择器的用法，我们将在实战中进行编写体验。</p>
+<h1 id="实战──用Scrapy爬取豆瓣电影Top250"><a href="#实战──用Scrapy爬取豆瓣电影Top250" class="headerlink" title="实战──用Scrapy爬取豆瓣电影Top250"></a>实战──用Scrapy爬取豆瓣电影Top250</h1><p>这章的第1个实战，就是用Scrapy框架重新来爬取豆瓣电影Top250，在这个过程中，熟悉Scrapy框架编写爬虫的基本步骤。</p>
+<ol>
+<li><p>新建<code>doubanSpider</code>Scrapy项目：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy startproject doubanSpider</div></pre></td></tr></table></figure>
+</li>
+<li><p>基于默认模板，生成爬虫<code>douban</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy genspider douban douban.com</div></pre></td></tr></table></figure>
+</li>
+<li><p>用Pycharm编辑器打开项目；</p>
+</li>
+<li><p>在<code>settings.py</code>中，将<code>ROBOTSTXT_OBEY = True</code>改为<code>ROBOTSTXT_OBEY = False</code>；</p>
+</li>
+<li><p>在<code>settings.py</code>中，配置User-Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">USER_AGENT = <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>编写<code>items.py</code>文件，定义我们需要的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanspiderItem</span><span class="params">(scrapy.Item)</span>:</span></div><div class="line">    <span class="comment"># 标题</span></div><div class="line">    title = scrapy.Field()</div><div class="line">    <span class="comment"># 信息</span></div><div class="line">    bd = scrapy.Field()</div><div class="line">    <span class="comment"># 评分</span></div><div class="line">    star = scrapy.Field()</div><div class="line">    <span class="comment"># 简介</span></div><div class="line">    quote = scrapy.Field()</div></pre></td></tr></table></figure>
+</li>
+<li><p>编写<code>spiders/douban.py</code>爬虫文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"><span class="keyword">from</span> doubanSpider.items <span class="keyword">import</span> DoubanspiderItem</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanSpider</span><span class="params">(scrapy.Spider)</span>:</span></div><div class="line">    name = <span class="string">'douban'</span></div><div class="line">    allowed_domains = [<span class="string">'douban.com'</span>]</div><div class="line">    <span class="comment"># 基础url地址</span></div><div class="line">    url = <span class="string">"https://movie.douban.com/top250?start="</span></div><div class="line">    <span class="comment"># url参数</span></div><div class="line">    offset = <span class="number">0</span></div><div class="line">    <span class="comment"># 起始url列表</span></div><div class="line">    start_urls = [</div><div class="line">        url + str(offset)</div><div class="line">    ]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">        item = DoubanspiderItem()</div><div class="line">		<span class="comment"># 拿到</span></div><div class="line">        movies = response.xpath(<span class="string">'//div[@class="info"]'</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> movies:</div><div class="line">            <span class="comment"># 标题</span></div><div class="line">            item[<span class="string">'title'</span>] = each.xpath(</div><div class="line">                <span class="string">'.//div[@class="hd"]//span[@class="title"][1]/text()'</span>).extract()[<span class="number">0</span>]</div><div class="line">            <span class="comment"># 信息</span></div><div class="line">            item[<span class="string">'bd'</span>] = each.xpath(</div><div class="line">                <span class="string">'.//div[@class="bd"]/p/text()'</span>).extract()[<span class="number">0</span>].strip()</div><div class="line">            <span class="comment"># 评分</span></div><div class="line">            item[<span class="string">'star'</span>] = each.xpath(</div><div class="line">                <span class="string">'.//div[@class="star"]/span[@class = "rating_num"]/text()'</span>).extract()[<span class="number">0</span>]</div><div class="line">            <span class="comment"># 简介</span></div><div class="line">            quote = each.xpath(<span class="string">'.//div[@class="bd"]//p[@class="quote"]/span/text()'</span>).extract()</div><div class="line">            <span class="keyword">if</span> len(quote) != <span class="number">0</span>:</div><div class="line">                item[<span class="string">'quote'</span>] = quote[<span class="number">0</span>]</div><div class="line">            </div><div class="line">            <span class="comment"># 交给管道文件处理</span></div><div class="line">            <span class="keyword">yield</span> item</div><div class="line">		</div><div class="line">        <span class="comment"># 循环发送请求，读取每一页的内容</span></div><div class="line">        <span class="keyword">if</span> self.offset &lt; <span class="number">225</span>:</div><div class="line">            self.offset += <span class="number">25</span></div><div class="line">            <span class="keyword">yield</span> scrapy.Request(self.url + str(self.offset), callback=self.parse)</div></pre></td></tr></table></figure>
+</li>
+<li><p>编写<code>pipelines.py</code>管道文件，用来数据持久化处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanspiderPipeline</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        构造方法，在这里打开文件</span></div><div class="line"><span class="string">        """</span></div><div class="line">        self.item_list = []</div><div class="line">        self.filename = open(<span class="string">"douban.json"</span>, <span class="string">"w+"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        处理item数据</span></div><div class="line"><span class="string">        """</span></div><div class="line">        item_json = json.dumps(dict(item), ensure_ascii=<span class="keyword">False</span>)</div><div class="line">        self.item_list.append(item_json)</div><div class="line">        <span class="keyword">return</span> item</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        爬虫关闭时执行，对数据进行最后的修正工作，并且关闭文件输入输出流</span></div><div class="line"><span class="string">        """</span></div><div class="line">        content = <span class="string">"["</span> + <span class="string">","</span>.join(self.item_list) + <span class="string">"]"</span></div><div class="line">        self.filename.write(content)</div><div class="line">        self.filename.close()</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>settings.py</code>文件中，配置管道文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    <span class="string">'doubanSpider.pipelines.DoubanspiderPipeline'</span>: <span class="number">300</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在命令行中执行爬虫：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scrapy crawl douban</div></pre></td></tr></table></figure>
+</li>
+<li><p>结果示例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"title"</span>: <span class="string">"肖申克的救赎"</span>,</div><div class="line">        <span class="attr">"bd"</span>: <span class="string">"导演: 弗兰克·德拉邦特 Frank Darabont   主演: 蒂姆·罗宾斯 Tim Robbins /..."</span>,</div><div class="line">        <span class="attr">"star"</span>: <span class="string">"9.6"</span>,</div><div class="line">        <span class="attr">"quote"</span>: <span class="string">"希望让人自由。"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"title"</span>: <span class="string">"霸王别姬"</span>,</div><div class="line">        <span class="attr">"bd"</span>: <span class="string">"导演: 陈凯歌 Kaige Chen   主演: 张国荣 Leslie Cheung / 张丰毅 Fengyi Zha..."</span>,</div><div class="line">        <span class="attr">"star"</span>: <span class="string">"9.5"</span>,</div><div class="line">        <span class="attr">"quote"</span>: <span class="string">"风华绝代。"</span></div><div class="line">    &#125;,</div><div class="line">	&#123;</div><div class="line">        <span class="attr">"title"</span>: <span class="string">"这个杀手不太冷"</span>,</div><div class="line">        <span class="attr">"bd"</span>: <span class="string">"导演: 吕克·贝松 Luc Besson   主演: 让·雷诺 Jean Reno / 娜塔莉·波特曼 ..."</span>,</div><div class="line">        <span class="attr">"star"</span>: <span class="string">"9.4"</span>,</div><div class="line">        <span class="attr">"quote"</span>: <span class="string">"怪蜀黍和小萝莉不得不说的故事。"</span></div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="作业──使用CSS选择器改写实战项目"><a href="#作业──使用CSS选择器改写实战项目" class="headerlink" title="作业──使用CSS选择器改写实战项目"></a>作业──使用CSS选择器改写实战项目</h1><p>要求：</p>
+<ol>
+<li>将<code>parse()</code>方法中用<code>XPath</code>表达式提取数据的方式，修改为<code>CSS选择器</code>方式提取；</li>
+<li>增加对电影详细信息页面url的爬取。</li>
+</ol>
+
+
+        <!-- 捐赠&推广 -->
+        <hr style="height:2px;border:none;border-top:2px dotted grey;" >
+        <div style="display:inline;text-align:center;margin-top: 10px">
+            <div  style="float: left; width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">欣慰帮到你 一杯热咖啡</font><br>
+                <img src="/img/wechat_pay.png" style="width: 200px;height: 200px">
+            </div>
+            <div style="float: left;width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">【奋斗的Coder！】企鹅群</font><br>
+                <img src="/img/qq_qun.png" style="width: 200px;height: 200px">
+            </div>
+            <div style="float: left;width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">【奋斗的Coder】公众号</font><br>
+                <img src="/img/wechat_coder.jpg" style="width: 200px;height: 200px">
+            </div>
+            <div style="clear:both;"></div>  
+        </div>
+    </article>
+
+
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者: <a href="https://blog.sunjiajia.com">GitOPEN</a>
+            <p>原文链接: <a href="https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson06-scrapy/">https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson06-scrapy/</a>
+            <p>发表日期: <a href="https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson06-scrapy/">九月 14日 2018, 12:12:06</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/09/14/crawler-lessons-lesson05-selenium/" title= 《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法 >
+                    <div class="prevTitle">《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        
+        var gitalk = new Gitalk({
+            clientID: '8caf553257a047738c65',
+            clientSecret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            repo: 'BlogComment',
+            owner: 'opengit',
+            admin: ['opengit'],
+            id: "《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy", // 如出现问题，可设置为 location.href
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:gitopen@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/opengit" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wx_qr.jpeg" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/qq_qr.jpeg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="//weibo.com/gitopen" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//twitter.com/gitopen" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//blog.sunjiajia.com/baidusitemap.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="theme-info">Themed by <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://pages.coding.me" style="font-weight: bold">GitHub Pages</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://www.vultr.com/?ref=7147564" style="font-weight: bold">Vultr</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span></span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#强大的爬虫框架Scrapy"><span class="toc-number">1.</span> <span class="toc-text">强大的爬虫框架Scrapy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简介与安装"><span class="toc-number">2.</span> <span class="toc-text">简介与安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scrapy架构初体验"><span class="toc-number">3.</span> <span class="toc-text">Scrapy架构初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy架构及组件"><span class="toc-number">3.1.</span> <span class="toc-text">Scrapy架构及组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy执行流程"><span class="toc-number">3.2.</span> <span class="toc-text">Scrapy执行流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scrapy项目初体验"><span class="toc-number">4.</span> <span class="toc-text">Scrapy项目初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy项目创建和执行"><span class="toc-number">4.1.</span> <span class="toc-text">Scrapy项目创建和执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy项目结构解析"><span class="toc-number">4.2.</span> <span class="toc-text">Scrapy项目结构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#settings-py文件内容解析"><span class="toc-number">4.2.1.</span> <span class="toc-text">settings.py文件内容解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demoSpider-spiders-demo-py文件内容解析"><span class="toc-number">4.2.2.</span> <span class="toc-text">demoSpider/spiders/demo.py文件内容解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demoSpider-items-py文件内容解析"><span class="toc-number">4.2.3.</span> <span class="toc-text">demoSpider/items.py文件内容解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demoSpider-middlewares-py文件内容解析"><span class="toc-number">4.2.4.</span> <span class="toc-text">demoSpider/middlewares.py文件内容解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demoSpider-pipelines-py文件内容解析"><span class="toc-number">4.2.5.</span> <span class="toc-text">demoSpider/pipelines.py文件内容解析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XPath语法"><span class="toc-number">5.</span> <span class="toc-text">XPath语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XPath-Helper插件"><span class="toc-number">5.1.</span> <span class="toc-text">XPath Helper插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XPath-Helper插件安装"><span class="toc-number">5.1.1.</span> <span class="toc-text">XPath Helper插件安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XPath-Helper插件使用"><span class="toc-number">5.1.2.</span> <span class="toc-text">XPath Helper插件使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用XPath表达式用法"><span class="toc-number">5.2.</span> <span class="toc-text">常用XPath表达式用法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS选择器基础"><span class="toc-number">6.</span> <span class="toc-text">CSS选择器基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用CSS选择器语法"><span class="toc-number">6.1.</span> <span class="toc-text">常用CSS选择器语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战──用Scrapy爬取豆瓣电影Top250"><span class="toc-number">7.</span> <span class="toc-text">实战──用Scrapy爬取豆瓣电影Top250</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#作业──使用CSS选择器改写实战项目"><span class="toc-number">8.</span> <span class="toc-text">作业──使用CSS选择器改写实战项目</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 78
+        <!-- search  -->
+        </div>
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/little-tips/" >Little Tips 记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/01</span><a class="archive-post-title" href= "/2018/04/01/vps-install-nexus-maven/" >VPS上部署maven私服</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2017/08/16/vps-install-hexo-blog/" >在自己的VPS上搭建Hexo博客</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2017/07/10/virtualbox-centos-ssh-git-server/" >VirtualBox中CentOS配置git服务器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2017/03/07/taobao-spider/" >淘宝商品信息定向爬虫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2017/01/07/double-tap-toolbar/" >自定义Toolbar添加双击事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2017/01/07/recycler-bottom/" >自定义RecyclerView监听滑动到底部Bottom</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2016 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2016/05/07/daily-tips/" >Daily Tips（Updated）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2016/04/19/android-m-permissions/" >Android M (API23) 中对权限的授权处理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-15/" >《Monkey Android》第15课Spinner和AutoCompleteTextView</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-14/" >《Monkey Android》第14课ToggleButton和RatingBar</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-13/" >《Monkey Android》第13课CheckBox和RadioButton</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-12/" >《Monkey Android》第12课ImageView</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2015 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href= "/2015/12/09/monkey-android-11/" >《Monkey Android》第11课Button和ImageButton</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2015/12/08/monkey-android-10/" >《Monkey Android》第10课TextView和EditText</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-9/" >《Monkey Android》第9课Toast土司</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-8/" >《Monkey Android》第8课FrameLayout、GridLayout</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-7/" >《Monkey Android》第7课RelativeLayout、TableLayout</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2015/08/16/tencent-bugly-android-sdk-mirror/" >体验极速Android Sdk更新与下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2015/08/16/make-android-open-source/" >编译Android5.1.1源码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2015/08/14/download-android-open-source-projects/" >国内镜像加速Android源码下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2015/08/10/monkey-android-6/" >《Monkey Android》第6课点击事件的四种写法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/09</span><a class="archive-post-title" href= "/2015/08/09/my-develop-environment/" >我的开发环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2015/08/07/monkey-android-5/" >《Monkey Android》第5课之剖析第一个App</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href= "/2015/08/03/monkey-android-4/" >《Monkey Android》第4课之运行第一个App</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2015/08/02/monkey-android-3/" >《Monkey Android》第3课之Android Studio简介与模拟器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2015/07/31/monkey-android-2/" >《Monkey Android》第2课之环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2015/07/31/monkey-android-1/" >《Monkey Android》第1课之前言</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2015/07/29/monkey-java-basic-courses-10-0/" >《Monkey Java》课程10.0之结束篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span><a class="archive-post-title" href= "/2015/07/27/monkey-java-basic-courses-9-2/" >《Monkey Java》课程9.1之类集框架二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/21</span><a class="archive-post-title" href= "/2015/07/21/monkey-java-basic-courses-7-1/" >《Monkey Java》课程7.1之IO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2015/07/20/monkey-java-basic-courses-7-0/" >《Monkey Java》课程7.0之Java当中的异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2015/07/18/monkey-java-basic-courses-6-4/" >《Monkey Java》课程6.4之接口的基本语法与应用（重要）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-3/" >《Monkey Java》课程6.3之protected权限</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-2/" >《Monkey Java》课程6.2之访问权限</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-1/" >《Monkey Java》课程6.1之包（package）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-0/" >《Monkey Java》课程6.0之抽象类和抽象函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-5-6/" >《Monkey Java》课程5.6之面向对象应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-5-5/" >《Monkey Java》课程5.5之对象的转型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-2/" >《Monkey Java》课程5.2之继承（extends）基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2015/07/13/monkey-java-basic-courses-5-1/" >《Monkey Java》课程5.1之static关键字的作用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2015/07/13/monkey-java-basic-courses-5-0/" >《Monkey Java》课程5.0之this的使用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-3/" >《Monkey Java》课程4.3之面向对象基础4</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-2/" >《Monkey Java》课程4.2之面向对象基础3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-1/" >《Monkey Java》课程4.1之面向对象基础2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-0/" >《Monkey Java》课程4.0之面向对象基础1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-2/" >《Monkey Java》课程3.2之练习课</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2015/07/09/monkey-java-basic-courses-3-1/" >《Monkey Java》课程3.1之分支语句</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href= "/2015/07/04/monkey-java-basic-courses-3-0/" >《Monkey Java》课程3.0之运算符与表达式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/03</span><a class="archive-post-title" href= "/2015/07/03/monkey-java-basic-courses-2-x-exercises/" >《Monkey Java》课程2.x之巩固练习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/03</span><a class="archive-post-title" href= "/2015/07/03/monkey-java-basic-courses-2-1/" >《Monkey Java》课程2.1之基本数据类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2015/07/02/android-new-widgets-demo/" >一个Demo学会用Android兼容包新控件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2015/06/30/monkey-java-basic-courses-1-0/" >《Monkey Java》课程1.0之前言</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2015/06/24/android-api-document-download/" >Android完整Api文档离线下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/19</span><a class="archive-post-title" href= "/2015/06/19/android-material-theme-and-toolbar/" >Android L+ Theme 与 Toolbar 实例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2015/05/29/fitness-notes/" >健身日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href= "/2015/05/10/ubuntu-fonts/" >Ubuntu安装字体and切换默认字体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2015/05/07/daily-exercise/" >程序员也要有个好身体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2015/05/06/android-shape-attribute/" >Android中shape的使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
+    
+        <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
+    
+        <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
+    
+        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
+    
+        <span class="sidebar-tag-name" data-tags="Crawler"><span class="iconfont-archer">&#xe606;</span>Crawler</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spider"><span class="iconfont-archer">&#xe606;</span>Spider</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+    
+        <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
+    
+        <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
+    
+        <span class="sidebar-category-name" data-categories="技术相关"><span class="iconfont-archer">&#xe60a;</span>技术相关</span>
+    
+        <span class="sidebar-category-name" data-categories="CentOS"><span class="iconfont-archer">&#xe60a;</span>CentOS</span>
+    
+        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "GitOPEN"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

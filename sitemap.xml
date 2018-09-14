@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
+    <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
     
-    <lastmod>2018-08-02T04:11:10.000Z</lastmod>
+    <lastmod>2018-09-14T07:18:40.069Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson06-scrapy/</loc>
     
-    <lastmod>2018-08-02T04:11:08.000Z</lastmod>
+    <lastmod>2018-09-14T07:18:33.309Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson05-selenium/</loc>
+    
+    <lastmod>2018-09-14T07:16:57.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson04-re/</loc>
+    
+    <lastmod>2018-09-14T07:11:57.210Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/</loc>
+    
+    <lastmod>2018-09-14T07:11:16.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
+    
+    <lastmod>2018-09-14T07:10:36.670Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson01-introduce/</loc>
+    
+    <lastmod>2018-09-14T07:10:01.728Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
+    
+    <lastmod>2018-08-02T04:11:10.000Z</lastmod>
     
   </url>
   

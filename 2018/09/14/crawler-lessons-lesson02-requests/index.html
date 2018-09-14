@@ -1,0 +1,2787 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="GitOPEN">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="GitOPEN">
+    <meta name="keywords" content="GitOPEN | GitOPEN">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>《手把手带你学爬虫──初级篇》第2课 Requests库讲解 · GitOPEN&#39;s Home</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180604 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180604 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?14c2dbf2b53b29adbd6e49c3aeab5e2c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 百度站点推送  -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-86934944-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+    <!-- 360搜索站点推送  -->
+    <script>(function(){
+        var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?__":"https://jspassport.ssl.qhimg.com/11.0.1.js?__";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+        </script>
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >GitOPEN&#39;s Home.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>GitOPEN's Home.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            《手把手带你学爬虫──初级篇》第2课 Requests库讲解
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "爬虫">爬虫</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Crawler">Crawler</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Spider">Spider</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">3,757</span> / Reading time: <span class="post-count">16 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+
+    <article class="article-entry">
+        <h1 id="Requests库讲解"><a href="#Requests库讲解" class="headerlink" title="Requests库讲解"></a>Requests库讲解</h1><h1 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h1><p>Requests是一常用的http请求库，它使用python语言编写，可以方便地发送http请求，以及方便地处理响应结果。</p>
+<p>引用官方文档中的第一句话，来对Requests库进行一句话简介：</p>
+<blockquote>
+<p>Requests 唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。</p>
+</blockquote>
+<p>翻译一下，就是：</p>
+<blockquote>
+<p>Requests库使用简单安全，威力无边，老少皆宜。</p>
+</blockquote>
+<p>至于安装，使用pip安装，简直不能更方便了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install requests</div></pre></td></tr></table></figure>
+<p>其他不多说，直接上手！</p>
+<h1 id="Requests库的基本用法"><a href="#Requests库的基本用法" class="headerlink" title="Requests库的基本用法"></a>Requests库的基本用法</h1><h2 id="体验入门"><a href="#体验入门" class="headerlink" title="体验入门"></a>体验入门</h2><p>通过用一个读取百度首页的例子，来体验一下如何在不用浏览器的情况下，读取互联网上的信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span><span class="params">()</span>:</span></div><div class="line">    response = requests.get(<span class="string">"http://www.baidu.com"</span>)</div><div class="line">    print(response.status_code)</div><div class="line">    print(response.encoding)</div><div class="line">    html_text = response.text</div><div class="line">    <span class="keyword">with</span> open(<span class="string">"baidu.html"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> file:</div><div class="line">        file.write(html_text)</div><div class="line">        print(<span class="string">"write finished."</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    get_html()</div></pre></td></tr></table></figure>
+<p>多次运行程序，控制台下输出的结果有两种，并且在当前文件夹下生成了一个<code>baidu.html</code>的文件，保存了从互联网上读取来的百度首页的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># HTTP请求状态码</span></div><div class="line">200</div><div class="line"><span class="comment"># 网页编码</span></div><div class="line">ISO-8859-1</div><div class="line"><span class="comment"># 响应头信息(headers)</span></div><div class="line">&#123;<span class="string">'Content-Length'</span>: <span class="string">'7610'</span>, <span class="string">'Cache-Control'</span>: <span class="string">'private, no-cache, no-store, proxy-revalidate, no-transform'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>, <span class="string">'Date'</span>: <span class="string">'Sat, 16 Jun 2018 07:00:11 GMT'</span>, <span class="string">'Keep-Alive'</span>: <span class="string">'timeout=4'</span>, <span class="string">'Last-Modified'</span>: <span class="string">'Mon, 23 Jan 2017 13:27:29 GMT'</span>, <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>, <span class="string">'Proxy-Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Server'</span>: <span class="string">'bfe/1.0.8.18'</span>, <span class="string">'Set-Cookie'</span>: <span class="string">'BDORZ=27315; max-age=86400; domain=.baidu.com; path=/'</span>&#125;</div><div class="line"><span class="comment"># 文件写入完毕</span></div><div class="line">write finished.</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">200</div><div class="line">UTF-8</div><div class="line">&#123;<span class="string">'Content-Length'</span>: <span class="string">'12886'</span>, <span class="string">'Cache-Control'</span>: <span class="string">'no-cache'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=UTF-8'</span>, <span class="string">'Keep-Alive'</span>: <span class="string">'timeout=4'</span>, <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>, <span class="string">'Proxy-Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Server'</span>: <span class="string">'Apache-Coyote/1.1'</span>, <span class="string">'Set-Cookie'</span>: <span class="string">'andr_zz=7;domain=.baidu.com;path=/;max-age=600'</span>&#125;</div><div class="line">write finished.</div></pre></td></tr></table></figure>
+<p>输出的结果有两种，是因为每一次服务器都给Requests发送的请求回应了不同的响应信息。这点不重要，这个现象是为了后面讨论<code>response.encoding</code>的用法。</p>
+<h2 id="入门例子剖析"><a href="#入门例子剖析" class="headerlink" title="入门例子剖析"></a>入门例子剖析</h2><h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>当你需要访问一个网页时，你的浏览器（这里是Requests库）向网页所在的服务器（百度服务器）发出请求；服务器会返回一个头信息（server header），用以</p>
+<p>常用HTTP请求状态码含义：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">请求成功</td>
+</tr>
+<tr>
+<td style="text-align:center">301</td>
+<td style="text-align:center">资源被永久转移到其它URL</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">请求的资源不存在</td>
+</tr>
+<tr>
+<td style="text-align:center">505</td>
+<td style="text-align:center">内部服务器错误</td>
+</tr>
+</tbody>
+</table>
+<p>这些状态码的含义不必死记硬背，可以在需要的时候搜索一下。这里方便参考，给出简记方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">非正常状态码</th>
+<th style="text-align:center">简记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1xx</td>
+<td style="text-align:center">服务器对客户端说：收到了</td>
+</tr>
+<tr>
+<td style="text-align:center">2xx</td>
+<td style="text-align:center">服务器对客户端说：合作愉快</td>
+</tr>
+<tr>
+<td style="text-align:center">3xx</td>
+<td style="text-align:center">服务器对客户端说：回头见</td>
+</tr>
+<tr>
+<td style="text-align:center">4xx</td>
+<td style="text-align:center">服务器对客户端说：你错了</td>
+</tr>
+<tr>
+<td style="text-align:center">5xx</td>
+<td style="text-align:center">服务器对客户端说：我错了</td>
+</tr>
+</tbody>
+</table>
+<p>更详细的有关用法，只在有需求的时候查阅就可以了。参见<a href="http://www.runoob.com/http/http-status-codes.html" target="_blank" rel="external">《HTTP状态码》</a>。</p>
+<h3 id="网页编码"><a href="#网页编码" class="headerlink" title="网页编码"></a>网页编码</h3><p>当得到的网页编码是<code>ISO-8859-1</code>时，我们在浏览器中打开<code>baidu.html</code>文件，发现是页面中凡是中文的地方都是乱码，如图：</p>
+<p><img src="/img/crawler/lessons/lesson02_requests_demo01_01.jpg" alt=""></p>
+<p>当得到的网页编码是<code>utf-8</code>时，我们在浏览器中打开<code>baidu.html</code>文件，发现是页面是正常的，如图：</p>
+<p><img src="/img/crawler/lessons/lesson02_requests_demo01_02.jpg" alt=""></p>
+<p>总结：</p>
+<ul>
+<li>当headers中不存在charset时，<code>response.encoding</code>默认认为编码为<code>ISO-8859-1</code></li>
+<li>当headers中存在charset时，<code>response.encoding</code>显示为headers中charset的编码</li>
+</ul>
+<h3 id="头信息"><a href="#头信息" class="headerlink" title="头信息"></a>头信息</h3><p>浏览器在与服务器进行交流的过程中，会协商一些参数，用于影响页面的渲染和展示。当浏览器向服务器发送请求的时候，所携带的信息为<code>请求头信息</code>；当服务器向浏览器返回响应信息的时候，携带的信息<code>响应头信息</code>。在浏览器中，我们可以直观的看到这些信息：</p>
+<p><img src="/img/crawler/lessons/lesson02_requests_03.jpg" alt=""></p>
+<p>这里我们不做详细的讲解，有兴趣的同学可以参考<a href="http://www.runoob.com/http/http-tutorial.html" target="_blank" rel="external">《HTTP教程》</a>。</p>
+<h2 id="HTTP请求报文（了解）"><a href="#HTTP请求报文（了解）" class="headerlink" title="HTTP请求报文（了解）"></a>HTTP请求报文（了解）</h2><p>HTTP请求报文由3部分组成：<strong>请求行+请求头+请求体</strong></p>
+<p>获取请求报文的方法（Chrome浏览器）如图所示：</p>
+<p><img src="/img/crawler/lessons/lesson02_requests_04.png" alt=""></p>
+<p>Request Headers的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">GET / HTTP/1.1</div><div class="line">Host: www.baidu.com</div><div class="line">Connection: keep-alive</div><div class="line">Cache-Control: max-age=0</div><div class="line">Upgrade-Insecure-Requests: 1</div><div class="line">DNT: 1</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</div><div class="line">Accept-Encoding: gzip, deflate, br</div><div class="line">Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7</div><div class="line">Cookie: BAIDUID=2D5F6595F31C411DF5DADEA1C10D8A81:FG=1; BIDUPSID=2D5F6595F31C411DF5DADEA1C10D8A81; PSTM=1529210459; BD_HOME=0; H_PS_PSSID=1446_21122_26350_26432; BD_UPN=123253</div></pre></td></tr></table></figure>
+<p>图解为：</p>
+<p><img src="/img/crawler/lessons/lesson02_requests_05.png" alt=""></p>
+<p>Requests库也可以帮助我们拿到这些信息，以下代码在ipython中进行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">20</span>]: r = requests.post(<span class="string">'http://httpbin.org/post'</span>, data = &#123;<span class="string">'username'</span>:<span class="string">'zhangsan'</span>,<span class="string">'password'</span>:<span class="string">'123456'</span>&#125;)</div><div class="line"></div><div class="line">In [<span class="number">21</span>]: r.request.method</div><div class="line">Out[<span class="number">21</span>]: <span class="string">'POST'</span></div><div class="line"></div><div class="line">In [<span class="number">22</span>]: r.request.url</div><div class="line">Out[<span class="number">22</span>]: <span class="string">'http://httpbin.org/post'</span></div><div class="line"></div><div class="line">In [<span class="number">23</span>]: r.request.headers</div><div class="line">Out[<span class="number">23</span>]: &#123;<span class="string">'User-Agent'</span>: <span class="string">'python-requests/2.18.4'</span>, <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>, <span class="string">'Accept'</span>: <span class="string">'*/*'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Length'</span>: <span class="string">'33'</span>, <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>&#125;</div><div class="line"></div><div class="line">In [<span class="number">24</span>]: r.request.body</div><div class="line">Out[<span class="number">24</span>]: <span class="string">'username=zhangsan&amp;password=123456'</span></div></pre></td></tr></table></figure>
+<p>Request Headers的字段讲解：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Accept</td>
+<td style="text-align:center">请求报文通过该属性告诉服务端，客户端接受什么类型的响应</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Cookie</strong></td>
+<td style="text-align:center">HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">Referer</td>
+<td style="text-align:center">先前网页的地址，当前请求网页紧随其后,即来路</td>
+</tr>
+<tr>
+<td style="text-align:center">Cache-Control</td>
+<td style="text-align:center">指定请求和响应遵循的缓存机制</td>
+</tr>
+<tr>
+<td style="text-align:center">Connection</td>
+<td style="text-align:center">表示是否需要持久连接（HTTP 1.1默认进行持久连接）</td>
+</tr>
+<tr>
+<td style="text-align:center">Upgrade-Insecure-Requests</td>
+<td style="text-align:center">让浏览器自动升级请求 （由 http 升级成 https）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>User-Agent</strong></td>
+<td style="text-align:center">浏览器的<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86" target="_blank" rel="external">浏览器身份标识字符串</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Accept-Encoding</strong></td>
+<td style="text-align:center">能够接受的编码方式列表</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Accept-Language</strong></td>
+<td style="text-align:center">能够接受的回应内容的自然语言列表</td>
+</tr>
+<tr>
+<td style="text-align:center">Accept-Charset</td>
+<td style="text-align:center">能够接受的字符集</td>
+</tr>
+</tbody>
+</table>
+<p> 更多具体的请求字段含义，请参考维基<a href="https://zh.wikipedia.org/wiki/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5" target="_blank" rel="external">HTTP头字段</a>，这里不做详细讲解。</p>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>HTTP协议可是互联网最基础最重要的协议。它可是一门大的学问。我们这里仅仅讲解一些基本概念。</p>
+<p>HTTP协议，超文本传输协议，即HyperText Transfer Protocol，是互联网上应用最为广泛的一种网络协议。所有的WWW文件都必须遵守这个标准。</p>
+<p>HTTP是一个基于“请求与响应”模式的、无状态的应用层协议。<code>无状态</code>可以理解为：每一个请求与响应没有上下文联系。</p>
+<p>对于HTTP协议，我们在日常使用过程中，最直观的就是URL，即<code>统一资源定位符</code>。它的格式为：<code>http://host[:port][path]</code>。URL是通过HTTP协议存取互联网资源的路径，一个URL对应一个数据资源。</p>
+<p>HTTP协议的请求方法，常用的有6种，Requests的几个常用方法是和这个对应的：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">请求获取URL位置的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）</td>
+</tr>
+<tr>
+<td style="text-align:center">HEAD</td>
+<td style="text-align:center">向服务器请求与GET请求相一致的响应，只不过响应体将不会被返回。这一方法可以再不必传输整个响应内容的情况下，就可以获取包含在响应小消息头中的元信息。</td>
+</tr>
+<tr>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">向指定资源位置上传其最新内容，覆盖原资源</td>
+</tr>
+<tr>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:center">请求服务器删除URL定位的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">PATCH</td>
+<td style="text-align:center">请求局部更新URL定位的资源，节省网络带宽</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Requests库常用方法入门"><a href="#Requests库常用方法入门" class="headerlink" title="Requests库常用方法入门"></a>Requests库常用方法入门</h2><p>需要知道的7个方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名称</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>requests.request()</strong></td>
+<td style="text-align:center"><strong>构造一个请求。它是基础方法</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>requests.get()</strong></td>
+<td style="text-align:center"><strong>发送Get请求获取网页信息， 并返回实体主体，也可以提交数据，包含在url中</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>requests.post()</strong></td>
+<td style="text-align:center"><strong>向指定资源提交数据进行处理请求（提交表单或者上传文件），数据被包含在请求体中</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">requests.head()</td>
+<td style="text-align:center">类似于get请求，返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td style="text-align:center">requests.put()</td>
+<td style="text-align:center">发送PUT请求的方法， 从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td style="text-align:center">requests.patch()</td>
+<td style="text-align:center">发送PATCH（局部修改）请求的方法</td>
+</tr>
+<tr>
+<td style="text-align:center">requests.delete()</td>
+<td style="text-align:center">发送DELETE（删除）请求的方法， 请求服务器删除指定的资源</td>
+</tr>
+</tbody>
+</table>
+<p>在实际编写爬虫的时候，最最常用的也就是加粗显示的3个方法。下面，我们在<code>ipython</code>中测试使用这几个方法。</p>
+<h3 id="requests-head-使用方法"><a href="#requests-head-使用方法" class="headerlink" title="requests.head()使用方法"></a>requests.head()使用方法</h3><p>获取响应头信息，没有返回内容体。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ ipython</div><div class="line">Python 3.6.5 (default, Mar 30 2018, 06:42:10)</div><div class="line">Type <span class="string">'copyright'</span>, <span class="string">'credits'</span> or <span class="string">'license'</span> <span class="keyword">for</span> more information</div><div class="line">IPython 6.4.0 -- An enhanced Interactive Python. Type <span class="string">'?'</span> <span class="keyword">for</span> <span class="built_in">help</span>.</div><div class="line"></div><div class="line">In [1]: import requests</div><div class="line"></div><div class="line">In [2]: r = requests.head(<span class="string">'http://httpbin.org/get'</span>)</div><div class="line"></div><div class="line">In [3]: r.headers</div><div class="line">Out[3]: &#123;<span class="string">'Content-Length'</span>: <span class="string">'208'</span>, <span class="string">'Access-Control-Allow-Credentials'</span>: <span class="string">'true'</span>, <span class="string">'Access-Control-Allow-Origin'</span>: <span class="string">'*'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>, <span class="string">'Date'</span>: <span class="string">'Sat, 16 Jun 2018 10:44:44 GMT'</span>, <span class="string">'Keep-Alive'</span>: <span class="string">'timeout=4'</span>, <span class="string">'Proxy-Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Server'</span>: <span class="string">'gunicorn/19.8.1'</span>, <span class="string">'Via'</span>: <span class="string">'1.1 vegur'</span>&#125;</div></pre></td></tr></table></figure>
+<h3 id="requests-post"><a href="#requests-post" class="headerlink" title="requests.post()"></a>requests.post()</h3><p>向URL用POST请求发送一个<strong>字典</strong>，自动编码为form表单数据。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [4]: payload = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</div><div class="line"></div><div class="line">In [5]: r = requests.post(<span class="string">'http://httpbin.org/post'</span>,data = payload)</div><div class="line"></div><div class="line">In [6]: <span class="built_in">print</span>(r.text)</div><div class="line">&#123;<span class="string">"args"</span>:&#123;&#125;,<span class="string">"data"</span>:<span class="string">""</span>,<span class="string">"files"</span>:&#123;&#125;,<span class="string">"form"</span>:&#123;<span class="string">"key1"</span>:<span class="string">"value1"</span>,<span class="string">"key2"</span>:<span class="string">"value2"</span>&#125;,<span class="string">"headers"</span>:&#123;<span class="string">"Accept"</span>:<span class="string">"*/*"</span>,<span class="string">"Accept-Encoding"</span>:<span class="string">"gzip, deflate"</span>,<span class="string">"Connection"</span>:<span class="string">"close"</span>,<span class="string">"Content-Length"</span>:<span class="string">"23"</span>,<span class="string">"Content-Type"</span>:<span class="string">"application/x-www-form-urlencoded"</span>,<span class="string">"Host"</span>:<span class="string">"httpbin.org"</span>,<span class="string">"User-Agent"</span>:<span class="string">"python-requests/2.18.4"</span>&#125;,<span class="string">"json"</span>:null,<span class="string">"origin"</span>:<span class="string">"45.77.28.136"</span>,<span class="string">"url"</span>:<span class="string">"http://httpbin.org/post"</span>&#125;</div></pre></td></tr></table></figure>
+<p>form字段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">"form":&#123;"key1":"value1","key2":"value2"&#125;</div></pre></td></tr></table></figure>
+<p>向URL用POST请求发送一个<strong>字符串</strong>，自动编码为data。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">7</span>]: abc = <span class="string">'ABC'</span></div><div class="line"></div><div class="line">In [<span class="number">8</span>]: r = requests.post(<span class="string">'http://httpbin.org/post'</span>,data = abc)</div><div class="line"></div><div class="line">In [<span class="number">9</span>]: print(r.text)</div><div class="line">&#123;<span class="string">"args"</span>:&#123;&#125;,<span class="string">"data"</span>:<span class="string">"ABC"</span>,<span class="string">"files"</span>:&#123;&#125;,<span class="string">"form"</span>:&#123;&#125;,<span class="string">"headers"</span>:&#123;<span class="string">"Accept"</span>:<span class="string">"*/*"</span>,<span class="string">"Accept-Encoding"</span>:<span class="string">"gzip, deflate"</span>,<span class="string">"Connection"</span>:<span class="string">"close"</span>,<span class="string">"Content-Length"</span>:<span class="string">"3"</span>,<span class="string">"Host"</span>:<span class="string">"httpbin.org"</span>,<span class="string">"User-Agent"</span>:<span class="string">"python-requests/2.18.4"</span>&#125;,<span class="string">"json"</span>:null,<span class="string">"origin"</span>:<span class="string">"45.77.28.136"</span>,<span class="string">"url"</span>:<span class="string">"http://httpbin.org/post"</span>&#125;</div></pre></td></tr></table></figure>
+<p>data字段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">"data":"ABC"</div></pre></td></tr></table></figure>
+<h3 id="requests-put"><a href="#requests-put" class="headerlink" title="requests.put()"></a>requests.put()</h3><p>该方法和<code>post()</code>方法的使用类似，只不过它可以将原有的数据覆盖掉。</p>
+<h2 id="Requests库主要方法解析"><a href="#Requests库主要方法解析" class="headerlink" title="Requests库主要方法解析"></a>Requests库主要方法解析</h2><p>requests.request(<code>method,url,**kwargs</code>)</p>
+<ul>
+<li>method：请求方式，对应get/put/post等7种</li>
+<li>url：获取页面的url连接</li>
+<li>**kwargs：控制访问的参数，共13个，均为可选项</li>
+</ul>
+<p>因此，将<code>method</code>改为不同的请求方式，将等同于具体的requests请求方法。</p>
+<p>例如：<code>requests.request(&quot;GET&quot;,url,**kwargs)</code>等同于<code>requests.get(url,**kwargs)</code>。</p>
+<p>**kwargs：控制访问的参数，13个可用参数的具体使用方法如下：</p>
+<ol>
+<li><p>params：字典或者字节序列，作为参数增加到url中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [10]: kv = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</div><div class="line"></div><div class="line">In [11]: r = requests.request(<span class="string">'GET'</span>,<span class="string">'http://python123.io/ws'</span>, params = kv)</div><div class="line"></div><div class="line">In [12]: <span class="built_in">print</span>(r.url)</div><div class="line">https://python123.io/ws?key1=value1&amp;key2=value2</div></pre></td></tr></table></figure>
+</li>
+<li><p>data：字典、字节序列或者文件对象，作为Request的内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">In [21]: kv = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</div><div class="line"></div><div class="line">In [22]: r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>, data = kv)</div><div class="line"></div><div class="line">In [23]: body = <span class="string">'主体内容'</span></div><div class="line"></div><div class="line">In [24]: r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>, data = body.encode(<span class="string">'utf-8'</span>))</div></pre></td></tr></table></figure>
+</li>
+<li><p>json：JSON格式的数据，作为Request的内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln [25]: kv = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>,<span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</div><div class="line"></div><div class="line">In [26]: r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>, json = kv)</div></pre></td></tr></table></figure>
+</li>
+<li><p>headers：字典，用来指定请求头。⭐️</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [27]: hd = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Chrome/10'</span>&#125;</div><div class="line"></div><div class="line">In [28]: r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>, headers = hd)</div></pre></td></tr></table></figure>
+</li>
+<li><p>cookies：字典或者CookieJar，Request中的cookie。⭐️</p>
+</li>
+<li><p>auth：元祖，支持HTTP认证功能。</p>
+</li>
+<li><p>files：字典类型，传输文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [35]: fs = &#123;<span class="string">'file'</span>: open(<span class="string">'baidu.html'</span>,<span class="string">'rb'</span>)&#125;</div><div class="line"></div><div class="line">In [36]: r = requests.request(<span class="string">'POST'</span>,<span class="string">'http://python123.io/ws'</span>, files = fs)</div></pre></td></tr></table></figure>
+</li>
+<li><p>timeout：设定超时时间，单位，秒。⭐️</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">In [37]: r = requests.request(<span class="string">'GET'</span>,<span class="string">'http://python123.io/ws'</span>, timeout = 10)</div></pre></td></tr></table></figure>
+</li>
+<li><p>proxies：字典类型，设定访问代理服务器，可以增加登录认证。⭐️</p>
+<p>使用这个字段，可以隐藏自己的ip，防止服务器识别爬虫。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">In [40]: pxs = &#123;</div><div class="line">    ...: <span class="string">'http'</span>: <span class="string">'http://user:pass@10.10.10.10:1234'</span>,</div><div class="line">    ...: <span class="string">'https'</span>: <span class="string">'https://10.10.10.10:4321'</span>&#125;</div><div class="line"></div><div class="line">In [41]: r = requests.request(<span class="string">'GET'</span>, <span class="string">'http://www.baidu.com'</span>, proxies = pxs)</div></pre></td></tr></table></figure>
+</li>
+<li><p>allow_redirects：它的值为True/False，默认为True，重定向开关。表示，是否允许对url进行重定向。</p>
+</li>
+<li><p>stream：True/False，默认值为True，获取的内容是否立即下载。默认是立即下载的。</p>
+</li>
+<li><p>verify：True/False，默认为True，认证SSL证书开关。是否对SSL证书进行认证。</p>
+</li>
+<li><p>cert：本地SSL证书路径。</p>
+</li>
+</ol>
+<h2 id="Response对象的属性"><a href="#Response对象的属性" class="headerlink" title="Response对象的属性"></a>Response对象的属性</h2><p>需要记住的几个属性为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">response.status_code</td>
+<td style="text-align:center">HTTP响应状态码</td>
+</tr>
+<tr>
+<td style="text-align:center">response.encoding</td>
+<td style="text-align:center">从HTTP中charset推断的网页编码方式，如果charset不存在，返回ISO-8859-1</td>
+</tr>
+<tr>
+<td style="text-align:center">response.apparent_encoding</td>
+<td style="text-align:center">从响应内容中分析出的内容编码方式</td>
+</tr>
+<tr>
+<td style="text-align:center">response.content</td>
+<td style="text-align:center">二进制形式的响应内容，如请求的连接是一个图片等二进制文件，返回的内容用response.content</td>
+</tr>
+<tr>
+<td style="text-align:center">response.text</td>
+<td style="text-align:center">字符串形式的响应内容，如请求的连接是一个网页，其内容为html等字符串形式内容，返回的内容用response.text</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在爬虫实践中，如果是反复循环迭代大量信息，不建议使用response.apparent_encoding来推断网页编码，因为这个操作非常耗时。因此，通常的做法是，我们在编写爬虫时，提前确定网页的编码方式，然后设置给response.encoding。</p>
+</blockquote>
+<h2 id="Requests库的异常"><a href="#Requests库的异常" class="headerlink" title="Requests库的异常"></a>Requests库的异常</h2><table>
+<thead>
+<tr>
+<th>异常</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requests.ConnectionError</td>
+<td>网络连接出现异常，如拒绝连接等</td>
+</tr>
+<tr>
+<td>requests.HTTPError</td>
+<td>HTTP错误异常</td>
+</tr>
+<tr>
+<td>requests.URLRequired</td>
+<td>URL缺失异常</td>
+</tr>
+<tr>
+<td>requests.TooManyRedirects</td>
+<td>请求超过了设定的最大重定向次数</td>
+</tr>
+<tr>
+<td>requests.ConnectTimeout</td>
+<td>连接远程服务器超时异常</td>
+</tr>
+<tr>
+<td>requests.Timeout</td>
+<td>请求URL超时，产生超时异常</td>
+</tr>
+</tbody>
+</table>
+<p>动手试一试：</p>
+<p>在下面的通用代码中，用Exception这个父类，捕捉了所有可能出现的异常。如果将<code>url = &quot;http://www.baidu.com&quot;</code>中的网址写错了，例如将<code>http://</code>去掉，将会报错<code>requests.exceptions.MissingSchema</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">出现异常，类型为：&lt;class <span class="string">'requests.exceptions.MissingSchema'</span>&gt;，内容为：Invalid URL <span class="string">'www.baidu.com'</span>: No schema supplied. Perhaps you meant http://www.baidu.com?</div></pre></td></tr></table></figure>
+<h2 id="爬取网页的通用代码示例"><a href="#爬取网页的通用代码示例" class="headerlink" title="爬取网页的通用代码示例"></a>爬取网页的通用代码示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        r = requests.get(url, timeout=<span class="number">30</span>)</div><div class="line">        r.raise_for_status()</div><div class="line">        r.encoding = r.apparent_encoding</div><div class="line">        <span class="keyword">return</span> r.text</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        print(<span class="string">"出现异常，类型为：&#123;&#125;，内容为：&#123;&#125;"</span>, type(e), str(e))</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    url = <span class="string">"http://www.baidu.com"</span></div><div class="line">    result = get_html(url)</div><div class="line">    print(result)</div></pre></td></tr></table></figure>
+<h1 id="实战——获取京东商品页面信息"><a href="#实战——获取京东商品页面信息" class="headerlink" title="实战——获取京东商品页面信息"></a>实战——获取京东商品页面信息</h1><p>该实验在ipython下进行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [1]: import requests</div><div class="line"></div><div class="line">In [2]: r = requests.get(<span class="string">"https://item.jd.com/3446665.html"</span>)</div><div class="line"></div><div class="line">In [3]: r.status_code</div><div class="line">Out[3]: 200</div><div class="line"></div><div class="line">In [4]: r.encoding</div><div class="line">Out[4]: <span class="string">'gbk'</span></div><div class="line"></div><div class="line">In [5]: r.text[:500]</div><div class="line">Out[5]: <span class="string">'&lt;!DOCTYPE HTML&gt;\n&lt;html lang="zh-CN"&gt;\n&lt;head&gt;\n    &lt;!-- shouji --&gt;\n    &lt;meta http-equiv="Content-Type" content="text/html; charset=gbk" /&gt;\n    &lt;title&gt;【LG27UD58】LG 27UD58-B 27英寸4K IPS硬屏 低闪屏滤蓝光LED背光液晶显示器【行情 报价 价格 评测】-京东&lt;/title&gt;\n    &lt;meta name="keywords" content="LG27UD58,LG27UD58,LG27UD58报价,LG27UD58报价"/&gt;\n    &lt;meta name="description" content="【LG27UD58】京东JD.COM提供LG27UD58正品行货，并包括LG27UD58网购指南，以及LG27UD58图片、27UD58参数、27UD58评论、27UD58心得、27UD58技巧等信息，网购LG27UD58上京东,放心又轻松" /&gt;\n    &lt;meta name="format-detection" con'</span></div></pre></td></tr></table></figure>
+<h1 id="实战——爬取网络图片并存储在本地"><a href="#实战——爬取网络图片并存储在本地" class="headerlink" title="实战——爬取网络图片并存储在本地"></a>实战——爬取网络图片并存储在本地</h1><p>该实验在pycharm编辑器中编写并执行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pic</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="comment"># Linux、Unix系统路径</span></div><div class="line">    <span class="comment"># 如果是Windows系统应该写 file_dir = ".//pics//"</span></div><div class="line">    file_dir = <span class="string">'./pics/'</span></div><div class="line">    filename = url.split(<span class="string">"/"</span>)[<span class="number">-1</span>]</div><div class="line">    file_path = file_dir + filename</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file_dir):</div><div class="line">            os.mkdir(file_dir)</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file_path):</div><div class="line">            r = requests.get(url, timeout=<span class="number">30</span>)</div><div class="line">            r.raise_for_status()</div><div class="line">            <span class="keyword">with</span> open(file_path, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">                f.write(r.content)</div><div class="line">            print(<span class="string">'文件保存成功'</span>)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(<span class="string">'图片已经存在'</span>)</div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">        print(<span class="string">"出现异常，类型为：&#123;&#125;，内容为：&#123;&#125;"</span>.format(type(e), str(e)))</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    url = <span class="string">"http://image.ngchina.com.cn/2018/0616/20180616123038195.jpg"</span></div><div class="line">    get_pic(url)</div></pre></td></tr></table></figure>
+<h1 id="参考资料推荐"><a href="#参考资料推荐" class="headerlink" title="参考资料推荐"></a>参考资料推荐</h1><ul>
+<li>Requests官方文档：<a href="http://docs.python-requests.org/en/master/" target="_blank" rel="external">《Requests: HTTP for Humans》</a></li>
+</ul>
+
+
+        <!-- 捐赠&推广 -->
+        <hr style="height:2px;border:none;border-top:2px dotted grey;" >
+        <div style="display:inline;text-align:center;margin-top: 10px">
+            <div  style="float: left; width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">欣慰帮到你 一杯热咖啡</font><br>
+                <img src="/img/wechat_pay.png" style="width: 200px;height: 200px">
+            </div>
+            <div style="float: left;width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">【奋斗的Coder！】企鹅群</font><br>
+                <img src="/img/qq_qun.png" style="width: 200px;height: 200px">
+            </div>
+            <div style="float: left;width: 220px;text-align:center;">
+                <font style="font-size: 18px;font-weight: bold;color: red;">【奋斗的Coder】公众号</font><br>
+                <img src="/img/wechat_coder.jpg" style="width: 200px;height: 200px">
+            </div>
+            <div style="clear:both;"></div>  
+        </div>
+    </article>
+
+
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者: <a href="https://blog.sunjiajia.com">GitOPEN</a>
+            <p>原文链接: <a href="https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/">https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</a>
+            <p>发表日期: <a href="https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/">九月 14日 2018, 12:12:02</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" title= 《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解 >
+                    <div class="nextTitle">《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/09/14/crawler-lessons-lesson01-introduce/" title= 《手把手带你学爬虫──初级篇》第1课 基础知识 >
+                    <div class="prevTitle">《手把手带你学爬虫──初级篇》第1课 基础知识</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        
+        var gitalk = new Gitalk({
+            clientID: '8caf553257a047738c65',
+            clientSecret: '76eced25c2e54141d530af8ee687413a79c0d61b',
+            repo: 'BlogComment',
+            owner: 'opengit',
+            admin: ['opengit'],
+            id: "《手把手带你学爬虫──初级篇》第2课 Requests库讲解", // 如出现问题，可设置为 location.href
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:gitopen@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/opengit" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wx_qr.jpeg" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/qq_qr.jpeg" />
+                </span>
+            
+        
+    
+        
+            
+                <a href="//weibo.com/gitopen" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//twitter.com/gitopen" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//blog.sunjiajia.com/baidusitemap.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="theme-info">Themed by <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://pages.coding.me" style="font-weight: bold">GitHub Pages</a></span>
+        <span class="iconfont-archer power">&#xe635;</span>
+        <span id="hexo-power">Hosted by <a href="https://www.vultr.com/?ref=7147564" style="font-weight: bold">Vultr</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span></span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Requests库讲解"><span class="toc-number">1.</span> <span class="toc-text">Requests库讲解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简介与安装"><span class="toc-number">2.</span> <span class="toc-text">简介与安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Requests库的基本用法"><span class="toc-number">3.</span> <span class="toc-text">Requests库的基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#体验入门"><span class="toc-number">3.1.</span> <span class="toc-text">体验入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#入门例子剖析"><span class="toc-number">3.2.</span> <span class="toc-text">入门例子剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP状态码"><span class="toc-number">3.2.1.</span> <span class="toc-text">HTTP状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页编码"><span class="toc-number">3.2.2.</span> <span class="toc-text">网页编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#头信息"><span class="toc-number">3.2.3.</span> <span class="toc-text">头信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP请求报文（了解）"><span class="toc-number">3.3.</span> <span class="toc-text">HTTP请求报文（了解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">3.4.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requests库常用方法入门"><span class="toc-number">3.5.</span> <span class="toc-text">Requests库常用方法入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requests-head-使用方法"><span class="toc-number">3.5.1.</span> <span class="toc-text">requests.head()使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requests-post"><span class="toc-number">3.5.2.</span> <span class="toc-text">requests.post()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requests-put"><span class="toc-number">3.5.3.</span> <span class="toc-text">requests.put()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requests库主要方法解析"><span class="toc-number">3.6.</span> <span class="toc-text">Requests库主要方法解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Response对象的属性"><span class="toc-number">3.7.</span> <span class="toc-text">Response对象的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Requests库的异常"><span class="toc-number">3.8.</span> <span class="toc-text">Requests库的异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#爬取网页的通用代码示例"><span class="toc-number">3.9.</span> <span class="toc-text">爬取网页的通用代码示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战——获取京东商品页面信息"><span class="toc-number">4.</span> <span class="toc-text">实战——获取京东商品页面信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战——爬取网络图片并存储在本地"><span class="toc-number">5.</span> <span class="toc-text">实战——爬取网络图片并存储在本地</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料推荐"><span class="toc-number">6.</span> <span class="toc-text">参考资料推荐</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 78
+        <!-- search  -->
+        </div>
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/little-tips/" >Little Tips 记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/01</span><a class="archive-post-title" href= "/2018/04/01/vps-install-nexus-maven/" >VPS上部署maven私服</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2017/08/16/vps-install-hexo-blog/" >在自己的VPS上搭建Hexo博客</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2017/07/10/virtualbox-centos-ssh-git-server/" >VirtualBox中CentOS配置git服务器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2017/03/07/taobao-spider/" >淘宝商品信息定向爬虫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2017/01/07/double-tap-toolbar/" >自定义Toolbar添加双击事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2017/01/07/recycler-bottom/" >自定义RecyclerView监听滑动到底部Bottom</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2016 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2016/05/07/daily-tips/" >Daily Tips（Updated）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2016/04/19/android-m-permissions/" >Android M (API23) 中对权限的授权处理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-15/" >《Monkey Android》第15课Spinner和AutoCompleteTextView</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-14/" >《Monkey Android》第14课ToggleButton和RatingBar</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-13/" >《Monkey Android》第13课CheckBox和RadioButton</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2016/04/11/monkey-android-12/" >《Monkey Android》第12课ImageView</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2015 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href= "/2015/12/09/monkey-android-11/" >《Monkey Android》第11课Button和ImageButton</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2015/12/08/monkey-android-10/" >《Monkey Android》第10课TextView和EditText</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-9/" >《Monkey Android》第9课Toast土司</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-8/" >《Monkey Android》第8课FrameLayout、GridLayout</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href= "/2015/12/06/monkey-android-7/" >《Monkey Android》第7课RelativeLayout、TableLayout</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2015/08/16/tencent-bugly-android-sdk-mirror/" >体验极速Android Sdk更新与下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/16</span><a class="archive-post-title" href= "/2015/08/16/make-android-open-source/" >编译Android5.1.1源码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2015/08/14/download-android-open-source-projects/" >国内镜像加速Android源码下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2015/08/10/monkey-android-6/" >《Monkey Android》第6课点击事件的四种写法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/09</span><a class="archive-post-title" href= "/2015/08/09/my-develop-environment/" >我的开发环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span><a class="archive-post-title" href= "/2015/08/07/monkey-android-5/" >《Monkey Android》第5课之剖析第一个App</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href= "/2015/08/03/monkey-android-4/" >《Monkey Android》第4课之运行第一个App</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2015/08/02/monkey-android-3/" >《Monkey Android》第3课之Android Studio简介与模拟器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2015/07/31/monkey-android-2/" >《Monkey Android》第2课之环境搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2015/07/31/monkey-android-1/" >《Monkey Android》第1课之前言</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2015/07/29/monkey-java-basic-courses-10-0/" >《Monkey Java》课程10.0之结束篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span><a class="archive-post-title" href= "/2015/07/27/monkey-java-basic-courses-9-2/" >《Monkey Java》课程9.1之类集框架二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/21</span><a class="archive-post-title" href= "/2015/07/21/monkey-java-basic-courses-7-1/" >《Monkey Java》课程7.1之IO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2015/07/20/monkey-java-basic-courses-7-0/" >《Monkey Java》课程7.0之Java当中的异常</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2015/07/18/monkey-java-basic-courses-6-4/" >《Monkey Java》课程6.4之接口的基本语法与应用（重要）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-3/" >《Monkey Java》课程6.3之protected权限</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-2/" >《Monkey Java》课程6.2之访问权限</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-1/" >《Monkey Java》课程6.1之包（package）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-6-0/" >《Monkey Java》课程6.0之抽象类和抽象函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-5-6/" >《Monkey Java》课程5.6之面向对象应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2015/07/16/monkey-java-basic-courses-5-5/" >《Monkey Java》课程5.5之对象的转型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-2/" >《Monkey Java》课程5.2之继承（extends）基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2015/07/13/monkey-java-basic-courses-5-1/" >《Monkey Java》课程5.1之static关键字的作用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2015/07/13/monkey-java-basic-courses-5-0/" >《Monkey Java》课程5.0之this的使用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-3/" >《Monkey Java》课程4.3之面向对象基础4</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-2/" >《Monkey Java》课程4.2之面向对象基础3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-1/" >《Monkey Java》课程4.1之面向对象基础2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span><a class="archive-post-title" href= "/2015/07/11/monkey-java-basic-courses-4-0/" >《Monkey Java》课程4.0之面向对象基础1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-2/" >《Monkey Java》课程3.2之练习课</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2015/07/09/monkey-java-basic-courses-3-1/" >《Monkey Java》课程3.1之分支语句</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href= "/2015/07/04/monkey-java-basic-courses-3-0/" >《Monkey Java》课程3.0之运算符与表达式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/03</span><a class="archive-post-title" href= "/2015/07/03/monkey-java-basic-courses-2-x-exercises/" >《Monkey Java》课程2.x之巩固练习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/03</span><a class="archive-post-title" href= "/2015/07/03/monkey-java-basic-courses-2-1/" >《Monkey Java》课程2.1之基本数据类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2015/07/02/android-new-widgets-demo/" >一个Demo学会用Android兼容包新控件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2015/06/30/monkey-java-basic-courses-1-0/" >《Monkey Java》课程1.0之前言</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2015/06/24/android-api-document-download/" >Android完整Api文档离线下载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/19</span><a class="archive-post-title" href= "/2015/06/19/android-material-theme-and-toolbar/" >Android L+ Theme 与 Toolbar 实例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2015/05/29/fitness-notes/" >健身日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href= "/2015/05/10/ubuntu-fonts/" >Ubuntu安装字体and切换默认字体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2015/05/07/daily-exercise/" >程序员也要有个好身体</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span><a class="archive-post-title" href= "/2015/05/06/android-shape-attribute/" >Android中shape的使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href= "/2015/05/02/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
+    
+        <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
+    
+        <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
+    
+        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
+    
+        <span class="sidebar-tag-name" data-tags="Crawler"><span class="iconfont-archer">&#xe606;</span>Crawler</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spider"><span class="iconfont-archer">&#xe606;</span>Spider</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+    
+        <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
+    
+        <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
+    
+        <span class="sidebar-category-name" data-categories="技术相关"><span class="iconfont-archer">&#xe60a;</span>技术相关</span>
+    
+        <span class="sidebar-category-name" data-categories="CentOS"><span class="iconfont-archer">&#xe60a;</span>CentOS</span>
+    
+        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "GitOPEN"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

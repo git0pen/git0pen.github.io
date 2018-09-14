@@ -4,6 +4,182 @@
 
     
   <url>
+    <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
+    <lastmod>2018-09-14T07:18:40.069Z</lastmod>
+    <data>
+        <display>
+        <title>VPS上部署maven私服</title>
+        <pubTime>2018-04-01T12:11:11.000Z</pubTime>
+        
+        <tag>CentOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CentOS" url="https://blog.sunjiajia.com/categories/CentOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson06-scrapy/</loc>
+    <lastmod>2018-09-14T07:18:33.309Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</title>
+        <pubTime>2018-09-14T04:12:06.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson05-selenium/</loc>
+    <lastmod>2018-09-14T07:16:57.429Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</title>
+        <pubTime>2018-09-14T04:12:05.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson04-re/</loc>
+    <lastmod>2018-09-14T07:11:57.210Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</title>
+        <pubTime>2018-09-14T04:12:04.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/</loc>
+    <lastmod>2018-09-14T07:11:16.604Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</title>
+        <pubTime>2018-09-14T04:12:03.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
+    <lastmod>2018-09-14T07:10:36.670Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第2课 Requests库讲解</title>
+        <pubTime>2018-09-14T04:12:02.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson01-introduce/</loc>
+    <lastmod>2018-09-14T07:10:01.728Z</lastmod>
+    <data>
+        <display>
+        <title>《手把手带你学爬虫──初级篇》第1课 基础知识</title>
+        <pubTime>2018-09-14T04:12:01.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>Crawler</tag>
+         
+        <tag>Spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
     <lastmod>2018-08-02T04:11:10.000Z</lastmod>
     <data>
@@ -17,26 +193,6 @@
            
              
               <breadCrumb title="技术相关" url="https://blog.sunjiajia.com/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
-    <lastmod>2018-08-02T04:11:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>VPS上部署maven私服</title>
-        <pubTime>2018-04-01T12:11:11.000Z</pubTime>
-        
-        <tag>CentOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="CentOS" url="https://blog.sunjiajia.com/categories/CentOS/"/>
           
         </display>
     </data>
@@ -71,9 +227,9 @@
         <title>VirtualBox中CentOS配置git服务器</title>
         <pubTime>2017-07-10T04:11:52.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>CentOS</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -177,9 +333,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -201,9 +357,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -225,9 +381,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -249,9 +405,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -273,9 +429,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -297,9 +453,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -321,9 +477,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -345,9 +501,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -369,9 +525,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -393,9 +549,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -465,9 +621,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -537,9 +693,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -583,9 +739,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -607,9 +763,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -631,9 +787,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -655,9 +811,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -679,9 +835,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -703,9 +859,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -727,9 +883,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -751,9 +907,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -775,9 +931,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -799,9 +955,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -823,9 +979,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -847,9 +1003,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -871,9 +1027,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -895,9 +1051,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -919,9 +1075,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -943,9 +1099,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -967,9 +1123,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -991,9 +1147,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1015,9 +1171,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1039,9 +1195,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1063,9 +1219,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1087,9 +1243,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1111,9 +1267,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1135,9 +1291,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1159,9 +1315,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1183,9 +1339,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1207,9 +1363,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1231,9 +1387,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1255,9 +1411,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1279,9 +1435,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1303,9 +1459,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1327,9 +1483,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1351,9 +1507,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1375,9 +1531,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1399,9 +1555,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1423,9 +1579,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1469,9 +1625,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1493,9 +1649,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            
@@ -1517,9 +1673,9 @@
         
         <tag>Android</tag>
          
-        <tag>新手</tag>
-         
         <tag>Java</tag>
+         
+        <tag>新手</tag>
          
          
            

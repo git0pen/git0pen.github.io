@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
+    
+    <lastmod>2018-09-21T00:32:48.730Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson01-introduce/</loc>
     
     <lastmod>2018-09-19T00:52:52.135Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
     
     <lastmod>2018-09-14T07:18:40.069Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
-    
-    <lastmod>2018-08-02T04:11:10.000Z</lastmod>
     
   </url>
   

@@ -816,9 +816,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -845,9 +845,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -905,9 +905,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -939,9 +939,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1252,42 +1252,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程9.1之类集框架一</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
-    <published>2015-07-26T14:20:27.000Z</published>
-    <updated>2018-08-02T04:04:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 它的长度是无限延伸的</span></div><div class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></div><div class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">arrayList.add(<span class="string">"A"</span>);</div><div class="line">arrayList.add(<span class="string">"AA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAAA"</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.get(<span class="number">2</span>));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</div><div class="line">System.out.println(arrayList.get(i));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 移除一个元素</span></div><div class="line">arrayList.remove(<span class="number">0</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.size());</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;类集框架&lt;/li&gt;
-&lt;li&gt;集合的种类&lt;/li&gt;
-&lt;li&gt;类集框架的基础结构&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;类集框架&quot;&gt;&lt;a href=&quot;#类集框架&quot; class=&quot;headerlink&quot; title=&quot;
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程8.0之线程</title>
     <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-8-0/"/>
     <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-8-0/</id>
@@ -1325,13 +1289,13 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程7.2之内部类和匿名内部类</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</id>
-    <published>2015-07-26T01:20:27.000Z</published>
-    <updated>2018-08-02T04:03:51.000Z</updated>
+    <title>《Monkey Java》课程9.1之类集框架一</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
+    <published>2015-07-26T14:20:27.000Z</published>
+    <updated>2018-08-02T04:04:25.000Z</updated>
     
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>什么是内部类</li><li>内部类的使用方法</li><li>匿名内部类的使用方法</li></ul><hr><h2 id="什么是内部类"><a href="#什么是内部类" class="headerlink" title="什么是内部类"></a>什么是内部类</h2><p>含义：</p><blockquote><p>一个类定义在另一个类内部。</p></blockquote><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为A.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">int</span> i;</div><div class="line"></div><div class="line"><span class="comment">// B类就是内部类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">funB</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">// 内部类B可以使用外部类A的成员变量和成员方法</span></div><div class="line"><span class="keyword">int</span> result = i + j;</div><div class="line"><span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>注意：</p><blockquote><p>在编译A.java源文件后，会生成两个class文件，即A.class和A$B.class。</p></blockquote><h2 id="内部类的使用方法"><a href="#内部类的使用方法" class="headerlink" title="内部类的使用方法"></a>内部类的使用方法</h2><blockquote><ul><li>要生成一个内部类对象，首先要有一个外部类对象。</li></ul></blockquote><h3 id="例子2："><a href="#例子2：" class="headerlink" title="例子2："></a>例子2：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 生成外部类的对象</span></div><div class="line">A a = <span class="keyword">new</span> A();</div><div class="line"></div><div class="line"><span class="comment">// 生成内部类的对象</span></div><div class="line">A.B b = <span class="keyword">new</span> A().new B();</div><div class="line"></div><div class="line">a.i= <span class="number">3</span>;</div><div class="line">b.j = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> result = b.funB();</div><div class="line">System.out.println(result);</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><blockquote><ul><li>首先是一个内部类</li><li>其次它没有名字</li></ul></blockquote><h3 id="例子3："><a href="#例子3：" class="headerlink" title="例子3："></a>例子3：</h3><p>1.新建一个名为C.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">C</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>2.新建一个名为D.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(C c)</span></span>&#123;</div><div class="line">System.out.println(<span class="string">"D类的fun函数"</span>);</div><div class="line">c.doSomething();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>3.新建一个名为Demo02.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">D d = <span class="keyword">new</span> D();</div><div class="line"><span class="comment">// fun括号中就是匿名内部类</span></div><div class="line">d.fun(<span class="keyword">new</span> C()&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</div><div class="line">System.out.println(<span class="string">"匿名内部类"</span>);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 它的长度是无限延伸的</span></div><div class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></div><div class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">arrayList.add(<span class="string">"A"</span>);</div><div class="line">arrayList.add(<span class="string">"AA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAA"</span>);</div><div class="line">arrayList.add(<span class="string">"AAAA"</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.get(<span class="number">2</span>));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</div><div class="line">System.out.println(arrayList.get(i));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 移除一个元素</span></div><div class="line">arrayList.remove(<span class="number">0</span>);</div><div class="line"></div><div class="line">System.out.println(arrayList.size());</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -1339,12 +1303,12 @@
       
         &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;什么是内部类&lt;/li&gt;
-&lt;li&gt;内部类的使用方法&lt;/li&gt;
-&lt;li&gt;匿名内部类的使用方法&lt;/li&gt;
+&lt;li&gt;类集框架&lt;/li&gt;
+&lt;li&gt;集合的种类&lt;/li&gt;
+&lt;li&gt;类集框架的基础结构&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;什么是内部类&quot;&gt;&lt;a href=&quot;#什么是内部类&quot; class=&quot;headerlin
+&lt;h2 id=&quot;类集框架&quot;&gt;&lt;a href=&quot;#类集框架&quot; class=&quot;headerlink&quot; title=&quot;
       
     
     </summary>
@@ -1381,6 +1345,42 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程7.2之内部类和匿名内部类</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</id>
+    <published>2015-07-26T01:20:27.000Z</published>
+    <updated>2018-08-02T04:03:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>什么是内部类</li><li>内部类的使用方法</li><li>匿名内部类的使用方法</li></ul><hr><h2 id="什么是内部类"><a href="#什么是内部类" class="headerlink" title="什么是内部类"></a>什么是内部类</h2><p>含义：</p><blockquote><p>一个类定义在另一个类内部。</p></blockquote><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为A.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">int</span> i;</div><div class="line"></div><div class="line"><span class="comment">// B类就是内部类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">funB</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">// 内部类B可以使用外部类A的成员变量和成员方法</span></div><div class="line"><span class="keyword">int</span> result = i + j;</div><div class="line"><span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>注意：</p><blockquote><p>在编译A.java源文件后，会生成两个class文件，即A.class和A$B.class。</p></blockquote><h2 id="内部类的使用方法"><a href="#内部类的使用方法" class="headerlink" title="内部类的使用方法"></a>内部类的使用方法</h2><blockquote><ul><li>要生成一个内部类对象，首先要有一个外部类对象。</li></ul></blockquote><h3 id="例子2："><a href="#例子2：" class="headerlink" title="例子2："></a>例子2：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="comment">// 生成外部类的对象</span></div><div class="line">A a = <span class="keyword">new</span> A();</div><div class="line"></div><div class="line"><span class="comment">// 生成内部类的对象</span></div><div class="line">A.B b = <span class="keyword">new</span> A().new B();</div><div class="line"></div><div class="line">a.i= <span class="number">3</span>;</div><div class="line">b.j = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> result = b.funB();</div><div class="line">System.out.println(result);</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><blockquote><ul><li>首先是一个内部类</li><li>其次它没有名字</li></ul></blockquote><h3 id="例子3："><a href="#例子3：" class="headerlink" title="例子3："></a>例子3：</h3><p>1.新建一个名为C.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">C</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>2.新建一个名为D.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(C c)</span></span>&#123;</div><div class="line">System.out.println(<span class="string">"D类的fun函数"</span>);</div><div class="line">c.doSomething();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>3.新建一个名为Demo02.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">D d = <span class="keyword">new</span> D();</div><div class="line"><span class="comment">// fun括号中就是匿名内部类</span></div><div class="line">d.fun(<span class="keyword">new</span> C()&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</div><div class="line">System.out.println(<span class="string">"匿名内部类"</span>);</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是内部类&lt;/li&gt;
+&lt;li&gt;内部类的使用方法&lt;/li&gt;
+&lt;li&gt;匿名内部类的使用方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;什么是内部类&quot;&gt;&lt;a href=&quot;#什么是内部类&quot; class=&quot;headerlin
       
     
     </summary>
@@ -2040,6 +2040,41 @@
   </entry>
   
   <entry>
+    <title>《Monkey Java》课程3.4之练习课</title>
+    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
+    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
+    <published>2015-07-10T04:34:27.000Z</published>
+    <updated>2018-08-02T04:00:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</div><div class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</div><div class="line">                <span class="keyword">int</span> k = i % j;</div><div class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</div><div class="line">                    b = <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(!b)&#123;</div><div class="line">                System.out.println(i);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</div><div class="line">System.out.print(<span class="string">" "</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</div><div class="line">System.out.println(<span class="string">"* "</span>);</div><div class="line">&#125;</div><div class="line">System.out.println(<span class="string">""</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
+&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《Monkey Java》课程3.3之循环语句</title>
     <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/"/>
     <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-3/</id>
@@ -2060,41 +2095,6 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;循环结构&quot;&gt;&lt;a href=&quot;#循环结构&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程3.4之练习课</title>
-    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
-    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
-    <published>2015-07-10T04:34:27.000Z</published>
-    <updated>2018-08-02T04:00:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</div><div class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</div><div class="line">                <span class="keyword">int</span> k = i % j;</div><div class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</div><div class="line">                    b = <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(!b)&#123;</div><div class="line">                System.out.println(i);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</div><div class="line">System.out.print(<span class="string">" "</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</div><div class="line">System.out.println(<span class="string">"* "</span>);</div><div class="line">&#125;</div><div class="line">System.out.println(<span class="string">""</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
-&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
       
     
     </summary>

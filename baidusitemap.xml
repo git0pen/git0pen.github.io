@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
-    <lastmod>2018-09-21T00:32:48.730Z</lastmod>
-    <data>
-        <display>
-        <title>Little Tips 记录</title>
-        <pubTime>2018-07-26T11:11:11.000Z</pubTime>
-        
-        <tag>技巧</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术相关" url="https://blog.sunjiajia.com/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson01-introduce/</loc>
-    <lastmod>2018-09-19T00:52:52.135Z</lastmod>
+    <lastmod>2018-09-25T14:13:36.162Z</lastmod>
     <data>
         <display>
         <title>《手把手带你学爬虫──初级篇》第1课 基础知识</title>
@@ -43,6 +23,26 @@
            
              
               <breadCrumb title="爬虫" url="https://blog.sunjiajia.com/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.sunjiajia.com/2018/07/26/little-tips/</loc>
+    <lastmod>2018-09-21T00:32:48.730Z</lastmod>
+    <data>
+        <display>
+        <title>Little Tips 记录</title>
+        <pubTime>2018-07-26T11:11:11.000Z</pubTime>
+        
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术相关" url="https://blog.sunjiajia.com/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
           
         </display>
     </data>
@@ -227,9 +227,9 @@
         <title>VirtualBox中CentOS配置git服务器</title>
         <pubTime>2017-07-10T04:11:52.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>CentOS</tag>
+         
+        <tag>Python</tag>
          
          
            

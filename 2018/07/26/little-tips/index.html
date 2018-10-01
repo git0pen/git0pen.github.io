@@ -309,7 +309,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">570</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">725</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -451,8 +451,16 @@ height:50vh;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global --<span class="built_in">unset</span> http.proxy</div><div class="line">git config --global --<span class="built_in">unset</span> https.proxy</div></pre></td></tr></table></figure>
 <h2 id="Python-Django生成CSV文件内容乱码"><a href="#Python-Django生成CSV文件内容乱码" class="headerlink" title="Python/Django生成CSV文件内容乱码"></a>Python/Django生成CSV文件内容乱码</h2><p>在Django视图函数中生成CSV文件，用微软妹子家的Excel打开会乱码，解决方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">book_price</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="keyword">import</span> csv, codecs</div><div class="line"></div><div class="line">    titles = [<span class="string">'明朝那些事儿'</span>, <span class="string">'围城'</span>, <span class="string">'北京法源寺'</span>, <span class="string">'平凡的世界'</span>, <span class="string">'丰乳肥臀'</span>]</div><div class="line">    response = HttpResponse(content_type=<span class="string">'text/csv'</span>)</div><div class="line">    <span class="comment"># 解决乱码</span></div><div class="line">    response.write(codecs.BOM_UTF8)</div><div class="line">    response[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=book_price.csv'</span></div><div class="line">    writer = csv.writer(response)</div><div class="line">    writer.writerow([<span class="string">'title'</span>, <span class="string">'price'</span>])</div><div class="line">    <span class="keyword">for</span> (title, price) <span class="keyword">in</span> zip(titles, range(<span class="number">69</span>, <span class="number">99</span>)):</div><div class="line">        print(title, price)</div><div class="line">        writer.writerow([title, price])</div><div class="line"></div><div class="line">    <span class="keyword">return</span> response</div></pre></td></tr></table></figure>
-<p>使用Python写CSV文件时，也会出现相同的问题：</p>
+<p>使用Python写CSV文件时，也会出现相同的问题，解决方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv, codecs</div><div class="line">f=open(<span class="string">'temp.csv'</span>,<span class="string">'w'</span>)</div><div class="line"><span class="comment"># 解决乱码</span></div><div class="line">f.write(codecs.BOM_UTF8)</div><div class="line">writer = csv.writer(f)</div><div class="line">writer.writerow([<span class="string">'图书'</span>,<span class="string">'出版社'</span>,<span class="string">'价格'</span>])</div><div class="line">writer.writerow([<span class="string">'明朝那些事儿'</span>,<span class="string">'机械工业出版社'</span>,<span class="string">'146.99'</span>])</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<p>使用Python读取CSV文件时，也会出现乱码的问题，解决方法，指定目标文件的编码方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">    f_csv = csv.reader(f)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</div><div class="line">        print(row)</div></pre></td></tr></table></figure>
+<h2 id="macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><a href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序" class="headerlink" title="macOS 移除Google的GoogleSoftwareUpdateAgent更新程序"></a>macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</h2><p>查看该程序有没有在运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults <span class="built_in">read</span> com.google.Keystone.Agent</div></pre></td></tr></table></figure>
+<p>如果看到的是<code>Domain com.google.Keystone.Agent does not exist</code>，则没有运行，无需移除；</p>
+<p>如果是一长串吧哩巴拉，那么需要移除。移除方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/ksinstall --uninstall</div></pre></td></tr></table></figure>
+<p>移除完毕后可再次检测一遍。</p>
 <hr>
 
 
@@ -656,7 +664,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#碎片"><span class="toc-number">2.</span> <span class="toc-text">碎片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤字符串中的emoji表情和符号-Python"><span class="toc-number">2.1.</span> <span class="toc-text">过滤字符串中的emoji表情和符号[Python]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-设置代理"><span class="toc-number">2.2.</span> <span class="toc-text">git 设置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Django生成CSV文件内容乱码"><span class="toc-number">2.3.</span> <span class="toc-text">Python/Django生成CSV文件内容乱码</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#碎片"><span class="toc-number">2.</span> <span class="toc-text">碎片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤字符串中的emoji表情和符号-Python"><span class="toc-number">2.1.</span> <span class="toc-text">过滤字符串中的emoji表情和符号[Python]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-设置代理"><span class="toc-number">2.2.</span> <span class="toc-text">git 设置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Django生成CSV文件内容乱码"><span class="toc-number">2.3.</span> <span class="toc-text">Python/Django生成CSV文件内容乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><span class="toc-number">2.4.</span> <span class="toc-text">macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -669,6 +677,60 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1863,7 +1925,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
         </li>
     
     
@@ -1873,12 +1935,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -1888,7 +1945,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
         </li>
     
     
@@ -2080,12 +2142,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
@@ -2145,12 +2207,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
@@ -2283,15 +2345,15 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
-    
-        <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
+    
+        <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
@@ -2299,9 +2361,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
-        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
-    
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="CentOS"><span class="iconfont-archer">&#xe606;</span>CentOS</span>
     
         <span class="sidebar-tag-name" data-tags="爬虫"><span class="iconfont-archer">&#xe606;</span>爬虫</span>
     
@@ -2342,11 +2404,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
@@ -2356,9 +2418,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="技术相关"><span class="iconfont-archer">&#xe60a;</span>技术相关</span>
     
-        <span class="sidebar-category-name" data-categories="CentOS"><span class="iconfont-archer">&#xe60a;</span>CentOS</span>
-    
         <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="CentOS"><span class="iconfont-archer">&#xe60a;</span>CentOS</span>
     
         <span class="sidebar-category-name" data-categories="爬虫"><span class="iconfont-archer">&#xe60a;</span>爬虫</span>
     

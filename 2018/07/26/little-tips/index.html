@@ -309,7 +309,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">725</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">829</span> / Reading time: <span class="post-count">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -444,23 +444,29 @@ height:50vh;
 </blockquote>
 <p>这里就用来记录在编程过程中遇到的小问题或者小技巧。</p>
 <h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><h2 id="过滤字符串中的emoji表情和符号-Python"><a href="#过滤字符串中的emoji表情和符号-Python" class="headerlink" title="过滤字符串中的emoji表情和符号[Python]"></a>过滤字符串中的emoji表情和符号[Python]</h2><p>最近在抓取了几十万条微博数据，目的是对其进行情感分析，这就需要过滤掉内容中表情等特殊符号。在Google了一圈以后，发现很多方法过滤的效果不好，因此自己记录一下，如何更加全面的过滤掉表情符号。这个方法综合使用了正则表达式和emoji库。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> emoji</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_emoji</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">        过滤表情。</span></div><div class="line"><span class="string">        Author: GitOPEN</span></div><div class="line"><span class="string">    """</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        regex = re.compile(<span class="string">u'[\U00010000-\U0010ffff]'</span>)</div><div class="line">    <span class="keyword">except</span> re.error:</div><div class="line">        regex = re.compile(<span class="string">u'[\uD800-\uDBFF][\uDC00-\uDFFF]'</span>)</div><div class="line"></div><div class="line">    text = regex.sub(<span class="string">u''</span>, text)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(word <span class="keyword">for</span> word <span class="keyword">in</span> text <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> emoji.UNICODE_EMOJI)</div><div class="line"></div><div class="line"><span class="comment"># 测试：随机输入3个人物emoji，3个自然，3个食物，3个符号，3个物体，3个旗帜</span></div><div class="line">emoji_text = <span class="string">'🤡👨‍👮世界，我是周董🙉🦎🦀，🍑🍔🍤你好吗？❤️㊗️🆘我很好，日子过得还算不错！📡🕯🔨你呢？🇧🇷🇻🇬🇺🇸'</span></div><div class="line">print(filter_emoji(emoji_text))</div></pre></td></tr></table></figure>
-<h2 id="git-设置代理"><a href="#git-设置代理" class="headerlink" title="git 设置代理"></a>git 设置代理</h2><p>由于众所周知的原因，git速度实在是蜗速，只有几KB/s。挂上小飞机✈️，按照下面设置，速度瞬间飞起！当然你得有一架好飞机~😀<br>如果你的✈️非得不够高，那么请参考之前我的推荐<a href="https://sunjiajia.com/2018/04/01/vps-install-nexus-maven/#%E5%86%8D%E6%AC%A1%E9%82%80%E8%AF%B7%E6%82%A8" target="_blank" rel="external">《快的飞起小飞滴~》</a>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></div><div class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> emoji</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_emoji</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        过滤表情。</span></span><br><span class="line"><span class="string">        Author: GitOPEN</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\U00010000-\U0010ffff]'</span>)</span><br><span class="line">    <span class="keyword">except</span> re.error:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\uD800-\uDBFF][\uDC00-\uDFFF]'</span>)</span><br><span class="line"></span><br><span class="line">    text = regex.sub(<span class="string">u''</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(word <span class="keyword">for</span> word <span class="keyword">in</span> text <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> emoji.UNICODE_EMOJI)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试：随机输入3个人物emoji，3个自然，3个食物，3个符号，3个物体，3个旗帜</span></span><br><span class="line">emoji_text = <span class="string">'🤡👨‍👮世界，我是周董🙉🦎🦀，🍑🍔🍤你好吗？❤️㊗️🆘我很好，日子过得还算不错！📡🕯🔨你呢？🇧🇷🇻🇬🇺🇸'</span></span><br><span class="line">print(filter_emoji(emoji_text))</span><br></pre></td></tr></table></figure>
+<h2 id="git-设置代理"><a href="#git-设置代理" class="headerlink" title="git 设置代理"></a>git 设置代理</h2><p>由于众所周知的原因，git速度实在是蜗速，只有几KB/s。挂上小飞机✈️，按照下面设置，速度瞬间飞起！当然你得有一架好飞机~😀<br>如果你的✈️非得不够高，那么请参考之前我的推荐<a href="https://sunjiajia.com/2018/04/01/vps-install-nexus-maven/#%E5%86%8D%E6%AC%A1%E9%82%80%E8%AF%B7%E6%82%A8" target="_blank" rel="noopener">《快的飞起小飞滴~》</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure>
 <p>取消git代理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global --<span class="built_in">unset</span> http.proxy</div><div class="line">git config --global --<span class="built_in">unset</span> https.proxy</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
 <h2 id="Python-Django生成CSV文件内容乱码"><a href="#Python-Django生成CSV文件内容乱码" class="headerlink" title="Python/Django生成CSV文件内容乱码"></a>Python/Django生成CSV文件内容乱码</h2><p>在Django视图函数中生成CSV文件，用微软妹子家的Excel打开会乱码，解决方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">book_price</span><span class="params">(request)</span>:</span></div><div class="line">    <span class="keyword">import</span> csv, codecs</div><div class="line"></div><div class="line">    titles = [<span class="string">'明朝那些事儿'</span>, <span class="string">'围城'</span>, <span class="string">'北京法源寺'</span>, <span class="string">'平凡的世界'</span>, <span class="string">'丰乳肥臀'</span>]</div><div class="line">    response = HttpResponse(content_type=<span class="string">'text/csv'</span>)</div><div class="line">    <span class="comment"># 解决乱码</span></div><div class="line">    response.write(codecs.BOM_UTF8)</div><div class="line">    response[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=book_price.csv'</span></div><div class="line">    writer = csv.writer(response)</div><div class="line">    writer.writerow([<span class="string">'title'</span>, <span class="string">'price'</span>])</div><div class="line">    <span class="keyword">for</span> (title, price) <span class="keyword">in</span> zip(titles, range(<span class="number">69</span>, <span class="number">99</span>)):</div><div class="line">        print(title, price)</div><div class="line">        writer.writerow([title, price])</div><div class="line"></div><div class="line">    <span class="keyword">return</span> response</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">book_price</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">import</span> csv, codecs</span><br><span class="line"></span><br><span class="line">    titles = [<span class="string">'明朝那些事儿'</span>, <span class="string">'围城'</span>, <span class="string">'北京法源寺'</span>, <span class="string">'平凡的世界'</span>, <span class="string">'丰乳肥臀'</span>]</span><br><span class="line">    response = HttpResponse(content_type=<span class="string">'text/csv'</span>)</span><br><span class="line">    <span class="comment"># 解决乱码</span></span><br><span class="line">    response.write(codecs.BOM_UTF8)</span><br><span class="line">    response[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=book_price.csv'</span></span><br><span class="line">    writer = csv.writer(response)</span><br><span class="line">    writer.writerow([<span class="string">'title'</span>, <span class="string">'price'</span>])</span><br><span class="line">    <span class="keyword">for</span> (title, price) <span class="keyword">in</span> zip(titles, range(<span class="number">69</span>, <span class="number">99</span>)):</span><br><span class="line">        print(title, price)</span><br><span class="line">        writer.writerow([title, price])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
 <p>使用Python写CSV文件时，也会出现相同的问题，解决方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv, codecs</div><div class="line">f=open(<span class="string">'temp.csv'</span>,<span class="string">'w'</span>)</div><div class="line"><span class="comment"># 解决乱码</span></div><div class="line">f.write(codecs.BOM_UTF8)</div><div class="line">writer = csv.writer(f)</div><div class="line">writer.writerow([<span class="string">'图书'</span>,<span class="string">'出版社'</span>,<span class="string">'价格'</span>])</div><div class="line">writer.writerow([<span class="string">'明朝那些事儿'</span>,<span class="string">'机械工业出版社'</span>,<span class="string">'146.99'</span>])</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv, codecs</span><br><span class="line">f=open(<span class="string">'temp.csv'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 解决乱码</span></span><br><span class="line">f.write(codecs.BOM_UTF8)</span><br><span class="line">writer = csv.writer(f)</span><br><span class="line">writer.writerow([<span class="string">'图书'</span>,<span class="string">'出版社'</span>,<span class="string">'价格'</span>])</span><br><span class="line">writer.writerow([<span class="string">'明朝那些事儿'</span>,<span class="string">'机械工业出版社'</span>,<span class="string">'146.99'</span>])</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
 <p>使用Python读取CSV文件时，也会出现乱码的问题，解决方法，指定目标文件的编码方式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">    f_csv = csv.reader(f)</div><div class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</div><div class="line">        print(row)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        print(row)</span><br></pre></td></tr></table></figure>
 <h2 id="macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><a href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序" class="headerlink" title="macOS 移除Google的GoogleSoftwareUpdateAgent更新程序"></a>macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</h2><p>查看该程序有没有在运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults <span class="built_in">read</span> com.google.Keystone.Agent</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults <span class="built_in">read</span> com.google.Keystone.Agent</span><br></pre></td></tr></table></figure>
 <p>如果看到的是<code>Domain com.google.Keystone.Agent does not exist</code>，则没有运行，无需移除；</p>
 <p>如果是一长串吧哩巴拉，那么需要移除。移除方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/ksinstall --uninstall</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/ksinstall --uninstall</span><br></pre></td></tr></table></figure>
 <p>移除完毕后可再次检测一遍。</p>
+<h2 id="Firefox开启Youtube的4k视频"><a href="#Firefox开启Youtube的4k视频" class="headerlink" title="Firefox开启Youtube的4k视频"></a>Firefox开启Youtube的4k视频</h2><p>macOS上Firefox默认不能看Youtube的4k及以上分辨率视频，调整ff的设置即可打开。</p>
+<ul>
+<li>在Firefox中打开<code>about:config</code></li>
+<li>搜索<code>media.mediasource.webm.enabled</code></li>
+<li>将其值设置为<code>true</code>即可</li>
+</ul>
 <hr>
 
 
@@ -664,7 +670,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#碎片"><span class="toc-number">2.</span> <span class="toc-text">碎片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤字符串中的emoji表情和符号-Python"><span class="toc-number">2.1.</span> <span class="toc-text">过滤字符串中的emoji表情和符号[Python]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-设置代理"><span class="toc-number">2.2.</span> <span class="toc-text">git 设置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Django生成CSV文件内容乱码"><span class="toc-number">2.3.</span> <span class="toc-text">Python/Django生成CSV文件内容乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><span class="toc-number">2.4.</span> <span class="toc-text">macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#碎片"><span class="toc-number">2.</span> <span class="toc-text">碎片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤字符串中的emoji表情和符号-Python"><span class="toc-number">2.1.</span> <span class="toc-text">过滤字符串中的emoji表情和符号[Python]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-设置代理"><span class="toc-number">2.2.</span> <span class="toc-text">git 设置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-Django生成CSV文件内容乱码"><span class="toc-number">2.3.</span> <span class="toc-text">Python/Django生成CSV文件内容乱码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><span class="toc-number">2.4.</span> <span class="toc-text">macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Firefox开启Youtube的4k视频"><span class="toc-number">2.5.</span> <span class="toc-text">Firefox开启Youtube的4k视频</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -677,10 +683,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -1935,11 +1937,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1951,6 +1948,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2072,12 +2074,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2207,12 +2209,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2252,12 +2254,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2345,19 +2347,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2404,15 +2406,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

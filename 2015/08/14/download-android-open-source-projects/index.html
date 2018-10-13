@@ -313,7 +313,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">365</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">369</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -451,21 +451,21 @@ height:50vh;
 </blockquote>
 <h2 id="清华大学镜像"><a href="#清华大学镜像" class="headerlink" title="清华大学镜像"></a>清华大学镜像</h2><p>无论是Ubuntu源更新还是Android源码下砸，都是使用清华大学镜像。</p>
 <h3 id="Ubuntu源使用方法"><a href="#Ubuntu源使用方法" class="headerlink" title="Ubuntu源使用方法"></a>Ubuntu源使用方法</h3><p>不多说了，不会的自行Google。</p>
-<h2 id="Android源码清华镜像使用方法"><a href="#Android源码清华镜像使用方法" class="headerlink" title="Android源码清华镜像使用方法"></a>Android源码清华镜像使用方法</h2><h3 id="官方介绍使用方法"><a href="#官方介绍使用方法" class="headerlink" title="官方介绍使用方法"></a>官方介绍使用方法</h3><p><a href="https://wiki.tuna.tsinghua.edu.cn/MirrorUsage/android" target="_blank" rel="external">====<strong>点击浏览</strong>====</a></p>
-<h3 id="我来介绍"><a href="#我来介绍" class="headerlink" title="我来介绍"></a>我来介绍</h3><p>1.下载修改好的<strong>repo</strong>，<a href="http://pan.baidu.com/s/1dDpqsmd" target="_blank" rel="external">====<strong>下载地址</strong>====</a>，密码：<code>rb5t</code>；</p>
+<h2 id="Android源码清华镜像使用方法"><a href="#Android源码清华镜像使用方法" class="headerlink" title="Android源码清华镜像使用方法"></a>Android源码清华镜像使用方法</h2><h3 id="官方介绍使用方法"><a href="#官方介绍使用方法" class="headerlink" title="官方介绍使用方法"></a>官方介绍使用方法</h3><p><a href="https://wiki.tuna.tsinghua.edu.cn/MirrorUsage/android" target="_blank" rel="noopener">====<strong>点击浏览</strong>====</a></p>
+<h3 id="我来介绍"><a href="#我来介绍" class="headerlink" title="我来介绍"></a>我来介绍</h3><p>1.下载修改好的<strong>repo</strong>，<a href="http://pan.baidu.com/s/1dDpqsmd" target="_blank" rel="noopener">====<strong>下载地址</strong>====</a>，密码：<code>rb5t</code>；</p>
 <p>2.打开终端，输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line">PATH=~/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/bin</span><br><span class="line">PATH=~/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 <p>3.将<strong>repo</strong>放入<code>~/bin</code>目录下；</p>
 <p>4.赋予执行权限，终端输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod a+x ~/bin/repo</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
 <p>5.建立android源码存放目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir android_source</div><div class="line">cd android_source</div></pre></td></tr></table></figure>
-<p>6.查看想要下载的源码的Tag和Builds，网址：<a href="https://source.android.com/source/build-numbers.html#source-code-tags-and-builds" target="_blank" rel="external">====<strong>点击查看，需要翻蔷</strong>====</a>，这里 @安卓猴 给你们截下图，自己放大查看：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir android_source</span><br><span class="line">cd android_source</span><br></pre></td></tr></table></figure>
+<p>6.查看想要下载的源码的Tag和Builds，网址：<a href="https://source.android.com/source/build-numbers.html#source-code-tags-and-builds" target="_blank" rel="noopener">====<strong>点击查看，需要翻蔷</strong>====</a>，这里 @安卓猴 给你们截下图，自己放大查看：</p>
 <p><img src="/img/201508/android-source-Tags-and-Builds.jpg" alt="Android源码Tags和Builds"></p>
 <p>7.例如我要下载android-5.1.1_r3，就在终端输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">repo init -u git://aosp.tuna.tsinghua.edu.cn/android/platform/manifest -b android-5.1.1_r3</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u git://aosp.tuna.tsinghua.edu.cn/android/platform/manifest -b android-5.1.1_r3</span><br></pre></td></tr></table></figure>
 <p>8.终端输入下面命令使用<strong>repo</strong>开始源代码下载同步，<code>-j4</code>表示并发数为4，清华镜像只支持最大并发数4：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">repo sync -j4</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo sync -j4</span><br></pre></td></tr></table></figure>
 <p>9.漫长的等待后，源码下载完毕。速度在200～800KB/s不等。</p>
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>Android源码终于下载完毕，历程才刚刚开始，接下来的<strong>编译</strong>工作，才最考验耐心。</p>
 
@@ -1907,10 +1907,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1941,11 +1937,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1957,6 +1948,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2078,12 +2074,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2213,12 +2209,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2258,12 +2254,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2351,19 +2347,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2410,15 +2406,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

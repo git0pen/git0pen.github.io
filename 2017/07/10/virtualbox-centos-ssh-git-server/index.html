@@ -311,7 +311,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,313</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">1,342</span> / Reading time: <span class="post-count">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -445,19 +445,19 @@ height:50vh;
 <h2 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h2><p>SSH是程序员链接服务器的居家必备之花露水啊！因此在VirtualBox中安装好CentOS（最小化安装）后，首要工作就是配置它的SSH。</p>
 <h3 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h3><ol>
 <li><p>更新系统：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装openssh-server：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y openssl openssh-server</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl openssh-server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动SSH服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start sshd.service</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd.service</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置开机启动ssh服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl enable sshd.service</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable sshd.service</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="配置免密登录"><a href="#配置免密登录" class="headerlink" title="配置免密登录"></a>配置免密登录</h3><p>1.在客户端系统（我的是Mac）终端中生成密钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;gitopen@gmail.com&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="配置免密登录"><a href="#配置免密登录" class="headerlink" title="配置免密登录"></a>配置免密登录</h3><p>1.在客户端系统（我的是Mac）终端中生成密钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;gitopen@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意输入自己的邮箱</p>
 </blockquote>
@@ -466,68 +466,68 @@ height:50vh;
 <blockquote>
 <p>注意保存这两个文件，哪怕你换了电脑，重做了系统，也要记得备份。</p>
 </blockquote>
-<p>4.查看VirtualBox中CentOS的ip地址：<br>运行CentOS，root用户登录后输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ip addr</div></pre></td></tr></table></figure></p>
+<p>4.查看VirtualBox中CentOS的ip地址：<br>运行CentOS，root用户登录后输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure></p>
 <p>如图所示：<img src="/img/2017_all/centos_ip.png" alt="CentOS ip地址"></p>
-<p>5.在客户端中用ssh连接CentOS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@xxx.xxx.xxx.xxx -p 22</div></pre></td></tr></table></figure></p>
+<p>5.在客户端中用ssh连接CentOS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx.xxx.xxx.xxx -p 22</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>xxx.xxx.xxx.xxx是CentOS的ip地址，此时还需要输入CentOS的root账户密码。此时之所用SSH登录，是为了方便拷贝密钥到authorized_keys。</p>
 </blockquote>
-<p>6.在VirtualBox中的<code>CentOS</code>服务器中进行配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//创建.ssh文件夹：</div><div class="line">mkdir .ssh</div><div class="line">//创建authorized_keys文件：</div><div class="line">touch .ssh/authorized_keys</div><div class="line">//修改authorized_keys的权限：</div><div class="line">chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
-<p>7.在客户端（Mac）中查看id_rsa.pub，并复制其中的密钥。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat .ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
-<p>8.在CentOS中打开authorized_keys，将刚才复制的密钥粘贴进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<p>6.在VirtualBox中的<code>CentOS</code>服务器中进行配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//创建.ssh文件夹：</span><br><span class="line">mkdir .ssh</span><br><span class="line">//创建authorized_keys文件：</span><br><span class="line">touch .ssh/authorized_keys</span><br><span class="line">//修改authorized_keys的权限：</span><br><span class="line">chmod 600 .ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>7.在客户端（Mac）中查看id_rsa.pub，并复制其中的密钥。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
+<p>8.在CentOS中打开authorized_keys，将刚才复制的密钥粘贴进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
 <p>9.配置完毕了。</p>
 <h3 id="客户端（Mac）配置CentOS别名"><a href="#客户端（Mac）配置CentOS别名" class="headerlink" title="客户端（Mac）配置CentOS别名"></a>客户端（Mac）配置CentOS别名</h3><p>1.为VirtualBox中CentOS的网络设置端口转发<br>设置网络类型为NAT，如图所示：<br><img src="/img/2017_all/centos_nat.png" alt="CentOS NAT网络"></p>
 <p>设置端口转发，如图所示：<br><img src="/img/2017_all/centos_port.png" alt="CentOS 端口转发"></p>
 <blockquote>
 <p>以上操作是为了在客户端（Mac）中设置别名登录的时候，将ip地址写为127.0.0.1，避免每次启动CentOS自动获取ip的变化，需要修改太麻烦。</p>
 </blockquote>
-<p>2.客户端（Mac）配置CentOS的别名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi .ssh/config</div></pre></td></tr></table></figure></p>
-<p>输入以下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Host cent</div><div class="line">	HostName 127.0.0.1</div><div class="line">	User root</div><div class="line">	Port 4444</div></pre></td></tr></table></figure></p>
+<p>2.客户端（Mac）配置CentOS的别名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .ssh/config</span><br></pre></td></tr></table></figure></p>
+<p>输入以下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host cent</span><br><span class="line">	HostName 127.0.0.1</span><br><span class="line">	User root</span><br><span class="line">	Port 4444</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>cent为别名，可以自由设置。</p>
 </blockquote>
-<h3 id="很方便的连接CentOS"><a href="#很方便的连接CentOS" class="headerlink" title="很方便的连接CentOS"></a>很方便的连接CentOS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh cent</div></pre></td></tr></table></figure>
+<h3 id="很方便的连接CentOS"><a href="#很方便的连接CentOS" class="headerlink" title="很方便的连接CentOS"></a>很方便的连接CentOS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh cent</span><br></pre></td></tr></table></figure>
 <h2 id="配置和安装git服务器"><a href="#配置和安装git服务器" class="headerlink" title="配置和安装git服务器"></a>配置和安装git服务器</h2><blockquote>
 <p>所有操作可在客户机（Mac）上用SSH连接CentOS进行</p>
 </blockquote>
-<p>1.CentOS安装最新git，依赖库安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</div><div class="line">yum install gcc perl-ExtUtils-MakeMaker</div></pre></td></tr></table></figure></p>
-<p>2.卸载低版本Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum remove git</div></pre></td></tr></table></figure></p>
-<p>3.创建git目录并进入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /usr/local</div><div class="line">mkdir git</div><div class="line">cd git</div></pre></td></tr></table></figure></p>
-<p>4.下载最新版Git 2.13.2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/git/git/archive/v2.13.2.tar.gz</div></pre></td></tr></table></figure></p>
+<p>1.CentOS安装最新git，依赖库安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line">yum install gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure></p>
+<p>2.卸载低版本Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure></p>
+<p>3.创建git目录并进入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">mkdir git</span><br><span class="line">cd git</span><br></pre></td></tr></table></figure></p>
+<p>4.下载最新版Git 2.13.2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/git/git/archive/v2.13.2.tar.gz</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>截至目前最新版是2.13.2，可以到<a href="https://github.com/git/git/releases" target="_blank" rel="external">https://github.com/git/git/releases</a> 复制最新版链接进行下载。</p>
+<p>截至目前最新版是2.13.2，可以到<a href="https://github.com/git/git/releases" target="_blank" rel="noopener">https://github.com/git/git/releases</a> 复制最新版链接进行下载。</p>
 </blockquote>
-<p>5.解压到git目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xzvf v2.13.2.tar.gz</div></pre></td></tr></table></figure></p>
-<p>6.安装v2.13.2版Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd git-2.13.2</div><div class="line">make prefix=/usr/local/git all</div><div class="line">make prefix=/usr/local/git install</div></pre></td></tr></table></figure></p>
+<p>5.解压到git目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf v2.13.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>6.安装v2.13.2版Git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd git-2.13.2</span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line">make prefix=/usr/local/git install</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>编译过程稍微较长，耐心等待</p>
 </blockquote>
-<p>7.添加到环境变量中<br>打开/etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/profile</div></pre></td></tr></table></figure></p>
-<p>加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;/usr/local/git/bin:$PATH&quot;</div></pre></td></tr></table></figure></p>
-<p>使配置立即生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure></p>
-<p>8.查看git版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git --version</div></pre></td></tr></table></figure></p>
-<p>9.将最新版git设置为系统默认，避免克隆时出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/git/bin/git-upload-pack /usr/bin/git-upload-pack </div><div class="line">ln -s /usr/local/git/bin/git-receive-pack /usr/bin/git-receive-pack</div></pre></td></tr></table></figure></p>
+<p>7.添加到环境变量中<br>打开/etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/usr/local/git/bin:$PATH&quot;</span><br></pre></td></tr></table></figure></p>
+<p>使配置立即生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>8.查看git版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure></p>
+<p>9.将最新版git设置为系统默认，避免克隆时出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/git/bin/git-upload-pack /usr/bin/git-upload-pack </span><br><span class="line">ln -s /usr/local/git/bin/git-receive-pack /usr/bin/git-receive-pack</span><br></pre></td></tr></table></figure></p>
 <p>10.最新版v2.13.2 Git安装成功</p>
-<h2 id="创建git用户组和添加用户"><a href="#创建git用户组和添加用户" class="headerlink" title="创建git用户组和添加用户"></a>创建git用户组和添加用户</h2><p>1.添加用户组合用户，并设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd git</div><div class="line">useradd git -g git</div><div class="line">passwd git</div></pre></td></tr></table></figure></p>
-<p>切换到git账户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -git</div></pre></td></tr></table></figure></p>
+<h2 id="创建git用户组和添加用户"><a href="#创建git用户组和添加用户" class="headerlink" title="创建git用户组和添加用户"></a>创建git用户组和添加用户</h2><p>1.添加用户组合用户，并设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd git</span><br><span class="line">useradd git -g git</span><br><span class="line">passwd git</span><br></pre></td></tr></table></figure></p>
+<p>切换到git账户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su -git</span><br></pre></td></tr></table></figure></p>
 <p>2.证书登录，免密码使用git</p>
 <blockquote>
 <p>创建<code>.ssh</code>目录和<code>.ssh/authorized_keys</code>文件，将客户端（Mac）的id_rsa.pub中的密钥添加到<code>authorized_keys</code>文件中</p>
 </blockquote>
-<p>修改目录和文件的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod 700 .ssh</div><div class="line">chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure></p>
-<h2 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h2><p>1.我的所有仓库都放在gitrepos目录下，因此我创建了这个目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/git</div><div class="line">mkdir gitrepos</div><div class="line">cd gitrepos</div></pre></td></tr></table></figure></p>
-<p>2.初始化第一个test仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare test.git</div></pre></td></tr></table></figure></p>
-<h2 id="本地客户端克隆仓库"><a href="#本地客户端克隆仓库" class="headerlink" title="本地客户端克隆仓库"></a>本地客户端克隆仓库</h2><p>在客户端（Mac）上克隆CentOS上的test.git库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@cent:/gitrepos/test.git</div></pre></td></tr></table></figure></p>
+<p>修改目录和文件的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 .ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<h2 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h2><p>1.我的所有仓库都放在gitrepos目录下，因此我创建了这个目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git</span><br><span class="line">mkdir gitrepos</span><br><span class="line">cd gitrepos</span><br></pre></td></tr></table></figure></p>
+<p>2.初始化第一个test仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare test.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="本地客户端克隆仓库"><a href="#本地客户端克隆仓库" class="headerlink" title="本地客户端克隆仓库"></a>本地客户端克隆仓库</h2><p>在客户端（Mac）上克隆CentOS上的test.git库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@cent:/gitrepos/test.git</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p><code>cent</code>是章节2.3中设置的CentOS的SSH连接别名，也可以换成相应的ip地址</p>
 </blockquote>
 <h2 id="禁止Shell登录"><a href="#禁止Shell登录" class="headerlink" title="禁止Shell登录"></a>禁止Shell登录</h2><blockquote>
 <p>如果你是在远程的VPS服务器上配置git服务器，那么为了安全考虑，可以禁止Shell登录；如果像本文的初衷那样，是为了构建<code>史上距离你最近的服务器</code>，那么这一步就可以不做。</p>
 </blockquote>
-<p>切换到root账户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su</div></pre></td></tr></table></figure></p>
-<p>编辑<code>/etc/passwd</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div></pre></td></tr></table></figure></p>
-<p>将这一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:502:502::/home/git:/bin/bash</div></pre></td></tr></table></figure></p>
-<p>替换为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git:x:502:502::/home/git:/usr/local/git/bin/git-shell</div></pre></td></tr></table></figure></p>
+<p>切换到root账户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su</span><br></pre></td></tr></table></figure></p>
+<p>编辑<code>/etc/passwd</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<p>将这一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:502:502::/home/git:/bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>替换为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:502:502::/home/git:/usr/local/git/bin/git-shell</span><br></pre></td></tr></table></figure></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>通过用Virtualbox在本机上构建CentOS，方便于开发人员进行测试；通过在CentOS上搭建自己的Git服务器，可以将自己独立开发的代码很好的管理与备份。</p>
 
 
@@ -1968,10 +1968,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -2002,11 +1998,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -2018,6 +2009,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2139,12 +2135,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2274,12 +2270,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2319,12 +2315,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2412,19 +2408,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2471,15 +2467,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

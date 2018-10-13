@@ -309,7 +309,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,367</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">1,439</span> / Reading time: <span class="post-count">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -450,10 +450,10 @@ height:50vh;
 <h2 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h2><hr>
 <h3 id="No-001-ubuntu-linux-下查看Gtk版本（version）信息？"><a href="#No-001-ubuntu-linux-下查看Gtk版本（version）信息？" class="headerlink" title="[No.001] ubuntu(linux)下查看Gtk版本（version）信息？"></a><em>[No.001]</em> ubuntu(linux)下查看Gtk版本（version）信息？</h3><ul>
 <li><p>打开终端输入以下命令即可：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg -l libgtk2.0-0 libgtk-3-0</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l libgtk2.0-0 libgtk-3-0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>得到如下反馈：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">||/ Name           Version      Architecture Description</div><div class="line">+++-==============-============-============-=================================</div><div class="line">ii  libgtk-3-0:amd 3.10.8-0ubun amd64        GTK+ graphical user interface lib</div><div class="line">ii  libgtk2.0-0:am 2.24.23-0ubu amd64        GTK+ graphical user interface lib</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">||/ Name           Version      Architecture Description</span><br><span class="line">+++-==============-============-============-=================================</span><br><span class="line">ii  libgtk-3-0:amd 3.10.8-0ubun amd64        GTK+ graphical user interface lib</span><br><span class="line">ii  libgtk2.0-0:am 2.24.23-0ubu amd64        GTK+ graphical user interface lib</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>其中<code>3.10.8</code>、<code>2.24.23</code>分别为<code>gtk3</code>、<code>gtk2</code>的版本信息。</p>
 </li>
@@ -461,24 +461,24 @@ height:50vh;
 <hr>
 <h3 id="No-002-重装ubuntu后终端terminal的Tab键无法自动补全！"><a href="#No-002-重装ubuntu后终端terminal的Tab键无法自动补全！" class="headerlink" title="[No.002] 重装ubuntu后终端terminal的Tab键无法自动补全！"></a><em>[No.002]</em> 重装ubuntu后终端terminal的Tab键无法自动补全！</h3><ul>
 <li><p>打开终端，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/bash.bashrc</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>(ubuntu13.04以上版本)在打开的文件中搜索以下代码，并修改为以下样子（就是将之前每行开头的#删除），保存退出问题解决：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></div><div class="line">     <span class="keyword">if</span> [-f  /usr/share/bash-completion/bash_completion ]; <span class="keyword">then</span></div><div class="line">          . /usr/share/bash-completion/bash_completion</div><div class="line">      <span class="keyword">elif</span> [ -f /etc/bash_completion]; <span class="keyword">then</span></div><div class="line">           . /etc/bash_completion</div><div class="line">      <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></span><br><span class="line">     <span class="keyword">if</span> [-f  /usr/share/bash-completion/bash_completion ]; <span class="keyword">then</span></span><br><span class="line">          . /usr/share/bash-completion/bash_completion</span><br><span class="line">      <span class="keyword">elif</span> [ -f /etc/bash_completion]; <span class="keyword">then</span></span><br><span class="line">           . /etc/bash_completion</span><br><span class="line">      <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>(ubuntu12.04及老版本)将以下代码前的#去掉：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ -f /etc/bash_completion ] &amp;&amp; ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></div><div class="line">    . /etc/bash_completion</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /etc/bash_completion ] &amp;&amp; ! <span class="built_in">shopt</span> -oq posix; <span class="keyword">then</span></span><br><span class="line">    . /etc/bash_completion</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
 <h3 id="No-003-老版本Ubuntu（12-04）中安装新nodejs！"><a href="#No-003-老版本Ubuntu（12-04）中安装新nodejs！" class="headerlink" title="[No.003] 老版本Ubuntu（12.04）中安装新nodejs！"></a><em>[No.003]</em> 老版本Ubuntu（12.04）中安装新nodejs！</h3><blockquote>
-<p>还有问题再看 <a href="https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource" target="_blank" rel="external">作者链接</a></p>
+<p>还有问题再看 <a href="https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource" target="_blank" rel="noopener">作者链接</a></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install curl</div><div class="line">curl -sL https://deb.nodesource.com/setup | sudo bash -</div><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl</span><br><span class="line">curl -sL https://deb.nodesource.com/setup | sudo bash -</span><br><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low"><a href="#No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low" class="headerlink" title="[No.004] Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low."></a><em>[No.004]</em> Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gedit /etc/sysctl.conf</div></pre></td></tr></table></figure>
-<p>在文件中加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Inotify Watches Limit</span></div><div class="line">fs.inotify.max_user_watches = 524288</div></pre></td></tr></table></figure></p>
-<p>参考官方网页：<a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="external">点击打开</a></p>
+<h3 id="No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low"><a href="#No-004-Android-Studio启动后提示External-file-changes-sync-may-be-slow-The-current-inotify-7-watch-limit-is-too-low" class="headerlink" title="[No.004] Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low."></a><em>[No.004]</em> Android Studio启动后提示External file changes sync may be slow The current inotify(7) watch limit is too low.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>在文件中加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Inotify Watches Limit</span></span><br><span class="line">fs.inotify.max_user_watches = 524288</span><br></pre></td></tr></table></figure></p>
+<p>参考官方网页：<a href="https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit" target="_blank" rel="noopener">点击打开</a></p>
 <hr>
 <h3 id="No-005-Ubuntu16-04下打开Eclipse后各种按钮太大"><a href="#No-005-Ubuntu16-04下打开Eclipse后各种按钮太大" class="headerlink" title="[No.005] Ubuntu16.04下打开Eclipse后各种按钮太大"></a><em>[No.005]</em> Ubuntu16.04下打开Eclipse后各种按钮太大</h3><ul>
 <li>这个问题是由与Ubuntu16.04中，eclipse默认使用了gtk3的原因，解决问题如下：<blockquote>
@@ -486,41 +486,41 @@ height:50vh;
 </blockquote>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--launcher.GTK_version</div><div class="line">2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--launcher.GTK_version</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="No-006-Ubuntu16-04下编译Android源码的jdk问题"><a href="#No-006-Ubuntu16-04下编译Android源码的jdk问题" class="headerlink" title="[No.006] Ubuntu16.04下编译Android源码的jdk问题"></a><em>[No.006]</em> Ubuntu16.04下编译Android源码的jdk问题</h3><ul>
 <li>在最新版本的Ubuntu下编译Android源码，由于Ubuntu16.04默认舍弃了openjdk-7-jdk，所以在编译的时候会提示如下错误：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Checking build tools versions...</div><div class="line">************************************************************</div><div class="line">You asked <span class="keyword">for</span> an OpenJDK 7 build but your version is</div><div class="line">java version <span class="string">"1.7.0_80"</span> Java(TM) SE Runtime Environment (build 1.7.0_80-b15) Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode).</div><div class="line">************************************************************</div><div class="line">build/core/main.mk:191: *** stop.  Stop.</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Checking build tools versions...</span><br><span class="line">************************************************************</span><br><span class="line">You asked <span class="keyword">for</span> an OpenJDK 7 build but your version is</span><br><span class="line">java version <span class="string">"1.7.0_80"</span> Java(TM) SE Runtime Environment (build 1.7.0_80-b15) Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode).</span><br><span class="line">************************************************************</span><br><span class="line">build/core/main.mk:191: *** stop.  Stop.</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解决的办法就是，利用ppa在Ubuntu16.04下安装openjdk-7-jdk：</li>
 </ul>
 <ol>
 <li><p>删除系统中所有与java有关的包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove openjdk-* icedtea-* icedtea6-*</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove openjdk-* icedtea-* icedtea6-*</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>给Xenial添加OpenJDK7的PPA，并更新包索引：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:openjdk-r/ppa &amp;&amp; sudo apt-get update</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:openjdk-r/ppa &amp;&amp; sudo apt-get update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装所有当前可用的更新，以确保需要的包准备就绪：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装openjdk7，以及所有Android构建所依赖的包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install adb fastboot openjdk-7-jdk git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven python-mako python3-mako python python3 syslinux-utils google-android-build-tools-installer</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install adb fastboot openjdk-7-jdk git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven python-mako python3-mako python python3 syslinux-utils google-android-build-tools-installer</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新一下java的环境变量，选择里面有openjdk-7的那一项：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config java</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>这样再次编译源码，就不会出现jdk的version错误了。</p>
 </li>
 <li><p>关于如何编译Android源码（AOSP），请参考博文：</p>
 <blockquote>
-<p><a href="http://sunjiajia.com/2015/08/16/make-android-open-source/" target="_blank" rel="external">《编译Android5.1.1源码》</a></p>
+<p><a href="http://sunjiajia.com/2015/08/16/make-android-open-source/" target="_blank" rel="noopener">《编译Android5.1.1源码》</a></p>
 </blockquote>
 </li>
 <li><p>关于国内下载AOSP源码速度太慢，请参考博文：</p>
 <blockquote>
-<p><a href="http://sunjiajia.com/2015/08/14/download-android-open-source-projects/" target="_blank" rel="external">《国内镜像加速Android源码下载》</a></p>
+<p><a href="http://sunjiajia.com/2015/08/14/download-android-open-source-projects/" target="_blank" rel="noopener">《国内镜像加速Android源码下载》</a></p>
 </blockquote>
 <hr>
 <h3 id="No-007-解决Ubuntu16-04-字体太细发虚（表现在Chrome中浏览中文）"><a href="#No-007-解决Ubuntu16-04-字体太细发虚（表现在Chrome中浏览中文）" class="headerlink" title="[No.007] 解决Ubuntu16.04 字体太细发虚（表现在Chrome中浏览中文）"></a><em>[No.007]</em> 解决Ubuntu16.04 字体太细发虚（表现在Chrome中浏览中文）</h3><blockquote>
@@ -530,25 +530,25 @@ height:50vh;
 </ol>
 <ol>
 <li><p>删除系统自带的<code>fonts-noto-cjk</code>包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove fonts-noto-cjk</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove fonts-noto-cjk</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用Ubuntu 开发团队的 Gunnar Hjalmarsson 制作的<code>fonts-noto-cjk</code>个人PPA，它修复了这个bug：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:gunnarhj/fonts-noto-cjk</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:gunnarhj/fonts-noto-cjk</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>刷新一下包索引：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装修复了bug的<code>fonts-noto-cjk</code>包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install fonts-noto-cjk</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fonts-noto-cjk</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
 <h3 id="No-008-Android-emulator-启动失败，提示错误：libGL-error-unable-to-load-driver-i965-dri-so"><a href="#No-008-Android-emulator-启动失败，提示错误：libGL-error-unable-to-load-driver-i965-dri-so" class="headerlink" title="[No.008] Android emulator 启动失败，提示错误：libGL error: unable to load driver: i965_dri.so"></a><em>[No.008]</em> Android emulator 启动失败，提示错误：libGL error: unable to load driver: i965_dri.so</h3><ol>
 <li>具体的错误详细信息是：</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Cannot launch AVD <span class="keyword">in</span> emulator.</div><div class="line">Output:</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: swrast_dri.so</div><div class="line">libGL error: failed to load driver: swrast</div><div class="line">X Error of failed request:  GLXBadContext</div><div class="line">  Major opcode of failed request:  155 (GLX)</div><div class="line">  Minor opcode of failed request:  6 (X_GLXIsDirect)</div><div class="line">  Serial number of failed request:  55</div><div class="line">  Current serial number <span class="keyword">in</span> output stream:  54</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: i965_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: i965</div><div class="line">libGL error: unable to load driver: swrast_dri.so</div><div class="line">libGL error: failed to load driver: swrast</div><div class="line">X Error of failed request:  GLXBadContext</div><div class="line">  Major opcode of failed request:  155 (GLX)</div><div class="line">  Minor opcode of failed r</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Cannot launch AVD <span class="keyword">in</span> emulator.</span><br><span class="line">Output:</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br><span class="line">X Error of failed request:  GLXBadContext</span><br><span class="line">  Major opcode of failed request:  155 (GLX)</span><br><span class="line">  Minor opcode of failed request:  6 (X_GLXIsDirect)</span><br><span class="line">  Serial number of failed request:  55</span><br><span class="line">  Current serial number <span class="keyword">in</span> output stream:  54</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: i965_dri.so</span><br><span class="line">libGL error: driver pointer missing</span><br><span class="line">libGL error: failed to load driver: i965</span><br><span class="line">libGL error: unable to load driver: swrast_dri.so</span><br><span class="line">libGL error: failed to load driver: swrast</span><br><span class="line">X Error of failed request:  GLXBadContext</span><br><span class="line">  Major opcode of failed request:  155 (GLX)</span><br><span class="line">  Minor opcode of failed r</span><br></pre></td></tr></table></figure>
 <p>2.解决方法如下：（Linux）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Android/Sdk/tools/lib64/libstdc++/</div><div class="line">mv libstdc++.so.6 libstdc++.so.6.bak</div><div class="line">ln -s /usr/lib64/libstdc++.so.6</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Android/Sdk/tools/lib64/libstdc++/</span><br><span class="line">mv libstdc++.so.6 libstdc++.so.6.bak</span><br><span class="line">ln -s /usr/lib64/libstdc++.so.6</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="未完待续～～"><a href="#未完待续～～" class="headerlink" title="未完待续～～"></a>未完待续～～</h3><ul>
 <li>该博文会持续更新，记录遇到的问题与解决问题的方法，希望能够帮到大家。</li>
@@ -1992,10 +1992,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -2026,11 +2022,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -2042,6 +2033,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2163,12 +2159,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2298,12 +2294,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2343,12 +2339,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2436,19 +2432,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2495,15 +2491,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

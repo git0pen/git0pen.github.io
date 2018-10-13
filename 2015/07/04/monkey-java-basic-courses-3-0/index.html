@@ -305,15 +305,15 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">685</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">745</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -458,31 +458,39 @@ height:50vh;
 <p>注意1：</p>
 <blockquote>
 <p>int i = 3/2;<br>请问i的值是几？<br>答：i的值是1。</p>
+</blockquote>
+<blockquote>
 <p>一个运算的过程，它的结果的类型取决于这一次运算当中，所有操作数里面最大的操作数的类型。<br>3/2.0就等于1.5。由于2.0是double类型，3是整型，double比int类型的表数范围要大，因此结果的类型应该是double类型。</p>
 </blockquote>
 <p>注意2：</p>
 <blockquote>
 <p>i++ 和 ++i 的区别是什么？</p>
+</blockquote>
+<blockquote>
 <p>答：i++先将i的值参加运算后在将i加1；++i是将i加1后再参加运算。</p>
 </blockquote>
 <p>例子：（亲手敲代码）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span> j = i++ + <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span> h = <span class="number">100</span>;</div><div class="line">    <span class="keyword">int</span> k = ++h + <span class="number">5</span>;</div><div class="line">    System.out.println(j);</div><div class="line">    System.out.println(i);</div><div class="line">    System.out.println(k);</div><div class="line">    System.out.println(h);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> j = i++ + <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int</span> k = ++h + <span class="number">5</span>;</span><br><span class="line">    System.out.println(j);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">    System.out.println(k);</span><br><span class="line">    System.out.println(h);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###关系运算符</p>
 <p>它得到的结果是<strong>布尔类型</strong>的值，也就是<strong>true</strong>或者<strong>false</strong>。<br>例子：（亲手敲代码）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span> h = <span class="number">100</span>;</div><div class="line">    <span class="keyword">int</span> k = <span class="number">5</span>;</div><div class="line">    <span class="keyword">boolean</span> result01 = i &gt; h;</div><div class="line">    <span class="keyword">boolean</span> result02 = i != h;</div><div class="line">    <span class="keyword">boolean</span> result03 = i == k;</div><div class="line">    System.out.println(result01);</div><div class="line">    System.out.println(result02);</div><div class="line">    System.out.println(result03);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">boolean</span> result01 = i &gt; h;</span><br><span class="line">    <span class="keyword">boolean</span> result02 = i != h;</span><br><span class="line">    <span class="keyword">boolean</span> result03 = i == k;</span><br><span class="line">    System.out.println(result01);</span><br><span class="line">    System.out.println(result02);</span><br><span class="line">    System.out.println(result03);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###布尔逻辑运算符（重点）</p>
 <p>它其实就是用来计算<code>true</code>或者<code>false</code>。</p>
 <p>我们用一张图表来展示逻辑运算符的结果：<br><img src="/img/java/3_0_01_logical_operator.jpg" alt="图3.0.01。逻辑运算符"></p>
-<p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> a = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">boolean</span> c = a &amp; b;</div><div class="line">    <span class="keyword">boolean</span> d = a &amp;&amp; b;</div><div class="line">    System.out.println(c);</div><div class="line">    System.out.println(d);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">    <span class="comment">// 注意： &amp; 两边的表达式都会运算</span></div><div class="line">    <span class="keyword">boolean</span> e = i &gt; <span class="number">6</span> &amp; i++ &gt; <span class="number">7</span>;</div><div class="line">    <span class="comment">// 注意：使用 &amp;&amp; 时，如果 i&gt;6为false，则i++&gt;7就不会运算了。</span></div><div class="line">    <span class="keyword">boolean</span> f = i &gt; <span class="number">6</span> &amp;&amp; i++ &gt; <span class="number">7</span>;</div><div class="line">    System.out.println(e);</div><div class="line">    System.out.println(f);</div><div class="line">    System.out.println(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="扩展赋值运算符"><a href="#扩展赋值运算符" class="headerlink" title="扩展赋值运算符"></a>扩展赋值运算符</h3><p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">    i += <span class="number">5</span>; <span class="comment">// 相当于i = i + 5;</span></div><div class="line">    i *= <span class="number">5</span>; <span class="comment">// 相当于i = i * 5;</span></div><div class="line">    System.out.println(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> a = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">boolean</span> c = a &amp; b;</span><br><span class="line">    <span class="keyword">boolean</span> d = a &amp;&amp; b;</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    System.out.println(d);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="comment">// 注意： &amp; 两边的表达式都会运算</span></span><br><span class="line">    <span class="keyword">boolean</span> e = i &gt; <span class="number">6</span> &amp; i++ &gt; <span class="number">7</span>;</span><br><span class="line">    <span class="comment">// 注意：使用 &amp;&amp; 时，如果 i&gt;6为false，则i++&gt;7就不会运算了。</span></span><br><span class="line">    <span class="keyword">boolean</span> f = i &gt; <span class="number">6</span> &amp;&amp; i++ &gt; <span class="number">7</span>;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">    System.out.println(f);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="扩展赋值运算符"><a href="#扩展赋值运算符" class="headerlink" title="扩展赋值运算符"></a>扩展赋值运算符</h3><p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line">    i += <span class="number">5</span>; <span class="comment">// 相当于i = i + 5;</span></span><br><span class="line">    i *= <span class="number">5</span>; <span class="comment">// 相当于i = i * 5;</span></span><br><span class="line">    System.out.println(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>##什么是表达式</p>
 <p>概念：（实记）</p>
 <blockquote>
 <p><strong>表达式</strong>是符合一定语法规则的运算符和操作符的序列。</p>
+</blockquote>
+<blockquote>
 <p>对表达式中操作数进行运算得到的结果称为<strong>表达式的值</strong>。</p>
+</blockquote>
+<blockquote>
 <p>表达式的值的数据类型即为<strong>表达式的类型</strong>。</p>
 </blockquote>
-<p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">    <span class="comment">// 这是一个表达式，它的类型是int整型，它的值是10；</span></div><div class="line">    <span class="keyword">int</span> j = i + <span class="number">5</span>;</div><div class="line">    <span class="comment">// 请自己表述一下。</span></div><div class="line">    <span class="keyword">boolean</span> b = i &lt; <span class="number">10</span>;</div><div class="line"></div><div class="line">    System.out.println(i);</div><div class="line">    System.out.println(j);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>例子：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="comment">// 这是一个表达式，它的类型是int整型，它的值是10；</span></span><br><span class="line">    <span class="keyword">int</span> j = i + <span class="number">5</span>;</span><br><span class="line">    <span class="comment">// 请自己表述一下。</span></span><br><span class="line">    <span class="keyword">boolean</span> b = i &lt; <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    System.out.println(i);</span><br><span class="line">    System.out.println(j);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
 
         <!-- 捐赠&推广 -->
@@ -1922,10 +1930,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1956,11 +1960,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1972,6 +1971,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2093,12 +2097,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2228,12 +2232,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2273,12 +2277,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2366,19 +2370,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2425,15 +2429,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

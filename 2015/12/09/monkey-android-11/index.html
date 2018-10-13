@@ -305,15 +305,15 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">591</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">628</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -456,14 +456,16 @@ height:50vh;
 <p>实例代码:</p>
 <blockquote>
 <p>运行效果参见本课程示例App：安卓猴Demos</p>
-<p>github地址：<a href="https://github.com/opengit/MonkeyAndroid" target="_blank" rel="external">https://github.com/opengit/MonkeyAndroid</a></p>
+</blockquote>
+<blockquote>
+<p>github地址：<a href="https://github.com/opengit/MonkeyAndroid" target="_blank" rel="noopener">https://github.com/opengit/MonkeyAndroid</a></p>
 </blockquote>
 <hr>
 <h2 id="Button的用法"><a href="#Button的用法" class="headerlink" title="Button的用法"></a>Button的用法</h2><blockquote>
 <p>按钮，可以按下它，或者点击，由用户来执行一个动作或者操作。</p>
 </blockquote>
 <p>Button的xml写法：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Button</span></span></div><div class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/btn_btn"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:drawableLeft</span>=<span class="string">"@mipmap/ic_launcher"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:onClick</span>=<span class="string">"btnClicked"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:text</span>=<span class="string">"安卓猴是Button"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:textSize</span>=<span class="string">"26sp"</span></span></div><div class="line"><span class="tag">  /&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/btn_btn"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:drawableLeft</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:onClick</span>=<span class="string">"btnClicked"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:text</span>=<span class="string">"安卓猴是Button"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:textSize</span>=<span class="string">"26sp"</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br></pre></td></tr></table></figure>
 <p>上面使用的Button的xml属性介绍：</p>
 <ul>
 <li>android:layout_gravity=”center_horizontal”</li>
@@ -485,10 +487,10 @@ height:50vh;
 <li><p>打开<code>bg_btn.xml</code>文件，里面的内容为，实现的效果为默认状态下是<code>holo_blue_bright</code>颜色，按下状态的颜色是<code>holo_red_light</code>：</p>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@android:color/holo_red_light"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@android:color/holo_blue_bright"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@android:color/holo_red_light"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@android:color/holo_blue_bright"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>其中的<code>item</code>标签，用来定义Button的不同状态下显示的<code>drawable</code>，它可以是<code>图片或者颜色值</code>，关于状态有如下几个：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8" ?&gt;   </div><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 默认时的背景图片--&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/image1"</span> /&gt;</span>    </div><div class="line"><span class="comment">&lt;!-- 没有焦点时的背景图片 --&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_window_focused</span>=<span class="string">"false"</span>   </span></div><div class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/image2"</span> /&gt;</span>   </div><div class="line"><span class="comment">&lt;!-- 非触摸模式下获得焦点并单击时的背景图片 --&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"true"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>= <span class="string">"@drawable/image3"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- 触摸模式下单击时的背景图片--&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"false"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image4"</span> /&gt;</span>  </div><div class="line"><span class="comment">&lt;!--选中时的图片背景--&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_selected</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image5"</span> /&gt;</span>   </div><div class="line"><span class="comment">&lt;!--获得焦点时的图片背景--&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image6"</span> /&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="ImageButton的用法"><a href="#ImageButton的用法" class="headerlink" title="ImageButton的用法"></a>ImageButton的用法</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ImageButton</span></span></div><div class="line"><span class="tag">  <span class="attr">android:onClick</span>=<span class="string">"btnClicked"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/imagebtn"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">  <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span></span></div><div class="line"><span class="tag">  /&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8" ?&gt;   </span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 默认时的背景图片--&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/image1"</span> /&gt;</span>    </span><br><span class="line"><span class="comment">&lt;!-- 没有焦点时的背景图片 --&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_window_focused</span>=<span class="string">"false"</span>   </span></span><br><span class="line"><span class="tag">        <span class="attr">android:drawable</span>=<span class="string">"@drawable/image2"</span> /&gt;</span>   </span><br><span class="line"><span class="comment">&lt;!-- 非触摸模式下获得焦点并单击时的背景图片 --&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"true"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>= <span class="string">"@drawable/image3"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 触摸模式下单击时的背景图片--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"false"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image4"</span> /&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--选中时的图片背景--&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_selected</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image5"</span> /&gt;</span>   </span><br><span class="line"><span class="comment">&lt;!--获得焦点时的图片背景--&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_focused</span>=<span class="string">"true"</span>   <span class="attr">android:drawable</span>=<span class="string">"@drawable/image6"</span> /&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ImageButton的用法"><a href="#ImageButton的用法" class="headerlink" title="ImageButton的用法"></a>ImageButton的用法</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageButton</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:onClick</span>=<span class="string">"btnClicked"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">"@+id/imagebtn"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>android:src=&quot;@mipmap/ic_launcher&quot;</code>用来设定ImageButton中的图片。</li>
 </ul>
@@ -1932,10 +1934,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1966,11 +1964,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1982,6 +1975,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2103,12 +2101,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2238,12 +2236,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2283,12 +2281,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2376,19 +2374,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2435,15 +2433,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

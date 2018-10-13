@@ -313,7 +313,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">272</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">284</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -446,10 +446,10 @@ height:50vh;
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p>
 <p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p>
 <p>效果图：<br><img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android &gt;= 4.4 Status Bar"><br><img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar"></p>
-<h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/" target="_blank" rel="external">《Android L+ Theme 与 Toolbar 实例》</a></p>
-<h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a></p>
+<h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/" target="_blank" rel="noopener">《Android L+ Theme 与 Toolbar 实例》</a></p>
+<h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a></p>
 <p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line"></div><div class="line">     Window mWindow = getWindow();</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</div><div class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</div><div class="line"></div><div class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</div><div class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</div><div class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line"></span><br><span class="line">     Window mWindow = getWindow();</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line"></span><br><span class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</span><br><span class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>
 
 
@@ -487,16 +487,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2015/09/02/gradle-umeng-channels/" title= Gradle多渠道打包[umeng] >
-                    <div class="nextTitle">Gradle多渠道打包[umeng]</div>
+                <a href= "/2015/12/06/monkey-android-7/" title= 《Monkey Android》第7课RelativeLayout、TableLayout >
+                    <div class="nextTitle">《Monkey Android》第7课RelativeLayout、TableLayout</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2015/08/16/tencent-bugly-android-sdk-mirror/" title= 体验极速Android Sdk更新与下载 >
-                    <div class="prevTitle">体验极速Android Sdk更新与下载</div>
+                <a href= "/2015/09/02/gradle-umeng-channels/" title= Gradle多渠道打包[umeng] >
+                    <div class="prevTitle">Gradle多渠道打包[umeng]</div>
                 </a>
             
         </li>
@@ -1890,10 +1890,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1924,11 +1920,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1940,6 +1931,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2061,12 +2057,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2196,12 +2192,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2241,12 +2237,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2334,19 +2330,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2393,15 +2389,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

@@ -309,7 +309,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">539</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">549</span> / Reading time: <span class="post-count">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -441,7 +441,7 @@ height:50vh;
     <article class="article-entry">
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着Android L和M的发布，app的Material  Design也逐渐普及。材料设计是良心之作，不仅逐渐推动Android琳琅满目的app界面的统一，而且使开发者更加关注app的功能，而非UI设计。于是乎，我也开始学习它，这里随着学习的进度会写相应的博文。</p>
 <blockquote>
-<p>有关Material Design的学习资料还是Google的官方文档最好，<br>这里给出有分享精神的小伙伴们的翻译项目<a href="http://design.1sters.com/" target="_blank" rel="external">Material Design 中文版</a>,<br>供大家学习与参考。</p>
+<p>有关Material Design的学习资料还是Google的官方文档最好，<br>这里给出有分享精神的小伙伴们的翻译项目<a href="http://design.1sters.com/" target="_blank" rel="noopener">Material Design 中文版</a>,<br>供大家学习与参考。</p>
 </blockquote>
 <p>##Android L +的Theme<br>细心的朋友会发现，Material 的主题有：具体有什么效果，自己试下。</p>
 <ul>
@@ -456,8 +456,8 @@ height:50vh;
 <li>Theme.AppCompat.Light.DarkActionBar</li>
 </ul>
 <h2 id="Toolbar的用法"><a href="#Toolbar的用法" class="headerlink" title="Toolbar的用法"></a>Toolbar的用法</h2><p>Toolbar的引入又是一个良心之作啊，之前的actionbar实在难用，很不方便。下面就看下Toolbar的用法，以及<strong>状态栏沉浸</strong>的用法。</p>
-<h3 id="Toolbar就是一个ViewGroup"><a href="#Toolbar就是一个ViewGroup" class="headerlink" title="Toolbar就是一个ViewGroup"></a>Toolbar就是一个ViewGroup</h3><p>简单一点儿说就是，使用Toolbar，需要在布局文件xml中引入：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></div><div class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>然后需要在Activity中使用它：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">setSupportActionBar(mToolbar);</div></pre></td></tr></table></figure></p>
+<h3 id="Toolbar就是一个ViewGroup"><a href="#Toolbar就是一个ViewGroup" class="headerlink" title="Toolbar就是一个ViewGroup"></a>Toolbar就是一个ViewGroup</h3><p>简单一点儿说就是，使用Toolbar，需要在布局文件xml中引入：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后需要在Activity中使用它：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">setSupportActionBar(mToolbar);</span><br></pre></td></tr></table></figure></p>
 <h3 id="Toolbar的定制"><a href="#Toolbar的定制" class="headerlink" title="Toolbar的定制"></a>Toolbar的定制</h3><p>先看看本实例中Toolbar的样子吧，然后再来说Toolbar的一些属性，如图：<br><img src="/img/201506/toolbar_attribute.png" alt="Toolbar与statusbar颜色属性详图"></p>
 <p>####xml style属性：</p>
 <ul>
@@ -471,11 +471,11 @@ height:50vh;
 <li>app:subtitle=”Sub Title” ：Toobar中的小标题</li>
 <li>app:navigationIcon=”@android:drawable/ic_menu_sort_by_size” ： 导航图标（注意和Logo的区别）</li>
 </ul>
-<p>####用java代码设置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mToolbar.setTitle(<span class="string">"App Title"</span>); <span class="comment">//设置Toolbar标题</span></div><div class="line">mToolbar.setSubtitle(<span class="string">"Sub Title"</span>); <span class="comment">//设置Toolbar 副标题</span></div><div class="line">mToolbar.setLogo(R.mipmap.ic_launcher);<span class="comment">//设置Toolbar的Logo</span></div><div class="line"><span class="comment">//设置Toolbar的 导航图标</span></div><div class="line">mToolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);</div></pre></td></tr></table></figure></p>
+<p>####用java代码设置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mToolbar.setTitle(<span class="string">"App Title"</span>); <span class="comment">//设置Toolbar标题</span></span><br><span class="line">mToolbar.setSubtitle(<span class="string">"Sub Title"</span>); <span class="comment">//设置Toolbar 副标题</span></span><br><span class="line">mToolbar.setLogo(R.mipmap.ic_launcher);<span class="comment">//设置Toolbar的Logo</span></span><br><span class="line"><span class="comment">//设置Toolbar的 导航图标</span></span><br><span class="line">mToolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);</span><br></pre></td></tr></table></figure></p>
 <p>如图：<br><img src="/img/201506/toolbar_demo.png" alt="Toolbar的属性设置"></p>
 <p>###完整代码</p>
 <blockquote>
-<p>源码下载：<br><a href="http://download.csdn.net/detail/androidmonkey/8824337" target="_blank" rel="external">Toolbar实例源码下载</a></p>
+<p>源码下载：<br><a href="http://download.csdn.net/detail/androidmonkey/8824337" target="_blank" rel="noopener">Toolbar实例源码下载</a></p>
 </blockquote>
 
 
@@ -504,7 +504,7 @@ height:50vh;
         <div class="license-wrapper">
             <p>原文作者: <a href="https://blog.sunjiajia.com">GitOPEN</a>
             <p>原文链接: <a href="https://blog.sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">https://blog.sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/</a>
-            <p>发表日期: <a href="https://blog.sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">六月 19日 2015, 4:51:52</a>
+            <p>发表日期: <a href="https://blog.sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/">June 19th 2015, 4:51:52</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1916,10 +1916,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1950,11 +1946,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
@@ -1966,6 +1957,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2087,12 +2083,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/gradle-umeng-channels/" >Gradle多渠道打包[umeng]</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2015/09/02/android-kitkat-translucent-statusbar/" >Android >= 4.4 适配沉浸状态栏颜色</a>
         </li>
     
     
@@ -2222,12 +2218,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2267,12 +2263,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2360,19 +2356,19 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2419,15 +2415,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
-    
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

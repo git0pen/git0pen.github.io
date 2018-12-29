@@ -318,7 +318,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">3,945</span> / Reading time: <span class="post-count">17 min</span></span>
+                        <span>Word count: <span class="post-count">3,953</span> / Reading time: <span class="post-count">17 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -469,7 +469,7 @@ height:50vh;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HTTP请求状态码</span></span><br><span class="line">200</span><br><span class="line"><span class="comment"># 网页编码</span></span><br><span class="line">ISO-8859-1</span><br><span class="line"><span class="comment"># 响应头信息(headers)</span></span><br><span class="line">&#123;<span class="string">'Content-Length'</span>: <span class="string">'7610'</span>, <span class="string">'Cache-Control'</span>: <span class="string">'private, no-cache, no-store, proxy-revalidate, no-transform'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>, <span class="string">'Date'</span>: <span class="string">'Sat, 16 Jun 2018 07:00:11 GMT'</span>, <span class="string">'Keep-Alive'</span>: <span class="string">'timeout=4'</span>, <span class="string">'Last-Modified'</span>: <span class="string">'Mon, 23 Jan 2017 13:27:29 GMT'</span>, <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>, <span class="string">'Proxy-Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Server'</span>: <span class="string">'bfe/1.0.8.18'</span>, <span class="string">'Set-Cookie'</span>: <span class="string">'BDORZ=27315; max-age=86400; domain=.baidu.com; path=/'</span>&#125;</span><br><span class="line"><span class="comment"># 文件写入完毕</span></span><br><span class="line">write finished.</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">200</span><br><span class="line">UTF-8</span><br><span class="line">&#123;<span class="string">'Content-Length'</span>: <span class="string">'12886'</span>, <span class="string">'Cache-Control'</span>: <span class="string">'no-cache'</span>, <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=UTF-8'</span>, <span class="string">'Keep-Alive'</span>: <span class="string">'timeout=4'</span>, <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>, <span class="string">'Proxy-Connection'</span>: <span class="string">'keep-alive'</span>, <span class="string">'Server'</span>: <span class="string">'Apache-Coyote/1.1'</span>, <span class="string">'Set-Cookie'</span>: <span class="string">'andr_zz=7;domain=.baidu.com;path=/;max-age=600'</span>&#125;</span><br><span class="line">write finished.</span><br></pre></td></tr></table></figure>
 <p>输出的结果有两种，是因为每一次服务器都给Requests发送的请求回应了不同的响应信息。这点不重要，这个现象是为了后面讨论<code>response.encoding</code>的用法。</p>
-<h2 id="入门例子剖析"><a href="#入门例子剖析" class="headerlink" title="入门例子剖析"></a>入门例子剖析</h2><h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>当你需要访问一个网页时，你的浏览器（这里是Requests库）向网页所在的服务器（百度服务器）发出请求；服务器会返回一个头信息（server header），用以</p>
+<h2 id="入门例子剖析"><a href="#入门例子剖析" class="headerlink" title="入门例子剖析"></a>入门例子剖析</h2><h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>当你需要访问一个网页时，你的浏览器（这里是Requests库）向网页所在的服务器（百度服务器）发出请求；服务器会返回一个头信息（server header），用以响应浏览器的请求。</p>
 <p>常用HTTP请求状态码含义：</p>
 <table>
 <thead>
@@ -2188,6 +2188,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -2213,12 +2225,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
         </li>
     
     
@@ -2228,17 +2245,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
     
@@ -2435,12 +2447,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2490,12 +2502,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2535,12 +2547,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2575,12 +2587,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
         </li>
     
     
@@ -2632,11 +2644,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
@@ -2689,9 +2701,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     

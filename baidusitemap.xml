@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
+    <lastmod>2018-12-29T14:34:12.842Z</lastmod>
+  </url>  <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
+    <lastmod>2018-12-29T14:30:54.284Z</lastmod>
+  </url>  <url>
     <loc>https://blog.sunjiajia.com/2018/10/22/little-tips/</loc>
     <lastmod>2018-10-22T09:29:47.000Z</lastmod>
   </url>  <url>
@@ -19,14 +25,8 @@
     <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/</loc>
     <lastmod>2018-09-19T00:51:05.000Z</lastmod>
   </url>  <url>
-    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
-    <lastmod>2018-09-19T00:51:00.000Z</lastmod>
-  </url>  <url>
     <loc>https://blog.sunjiajia.com/2018/04/01/vps-install-nexus-maven/</loc>
     <lastmod>2018-09-14T07:18:40.000Z</lastmod>
-  </url>  <url>
-    <loc>https://blog.sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
-    <lastmod>2018-08-02T04:11:03.000Z</lastmod>
   </url>  <url>
     <loc>https://blog.sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/</loc>
     <lastmod>2018-08-02T04:10:55.000Z</lastmod>

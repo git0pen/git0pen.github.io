@@ -312,7 +312,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">706</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">715</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -447,22 +447,22 @@ height:50vh;
 <p>大家可以用下面的链接来购买 Vultr：</p>
 <p><a href="http://www.vultr.com/?ref=7147564" target="_blank" rel="noopener">购买 Vultr链接</a></p>
 <h2 id="更新-CentOS-的-git"><a href="#更新-CentOS-的-git" class="headerlink" title="更新 CentOS 的 git"></a>更新 CentOS 的 git</h2><p>我的 VPS 的系统是<code>CentOS 7 x64</code>，它自带的 git 版本太低，因此将它更新到最新的 git。</p>
-<p>关于如何更新git，请参考我之前的博文：<br><a href="http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#配置和安装git服务器" target="_blank" rel="noopener">配置和安装git服务器</a></p>
-<h2 id="创建git用户组和添加用户"><a href="#创建git用户组和添加用户" class="headerlink" title="创建git用户组和添加用户"></a>创建git用户组和添加用户</h2><p>参考之前写的步骤：<br><a href="http://sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#创建git用户组和添加用户" target="_blank" rel="noopener">创建git用户组和添加用户</a></p>
+<p>关于如何更新git，请参考我之前的博文：<br><a href="http://blog.sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#配置和安装git服务器">配置和安装git服务器</a></p>
+<h2 id="创建git用户组和添加用户"><a href="#创建git用户组和添加用户" class="headerlink" title="创建git用户组和添加用户"></a>创建git用户组和添加用户</h2><p>参考之前写的步骤：<br><a href="http://blog.sunjiajia.com/2017/07/10/virtualbox-centos-ssh-git-server/#创建git用户组和添加用户">创建git用户组和添加用户</a></p>
 <h2 id="初始化用于存放博客静态文件的仓库"><a href="#初始化用于存放博客静态文件的仓库" class="headerlink" title="初始化用于存放博客静态文件的仓库"></a>初始化用于存放博客静态文件的仓库</h2><p>切换到 git 用户：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br></pre></td></tr></table></figure></p>
-<p>创建仓库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare sunjiajia.com.git</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-hooks"><a href="#配置-hooks" class="headerlink" title="配置 hooks"></a>配置 hooks</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/sunjiajia.com.git/hooks</span><br><span class="line">vi post-receive</span><br></pre></td></tr></table></figure>
-<p>添加下面的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash -l</span></span><br><span class="line">GIT_REPO=/home/git/sunjiajia.com.git</span><br><span class="line">TMP_GIT_CLONE=/tmp/sunjiajia.com</span><br><span class="line">PUBLIC_WWW=/home/wwwroot/sunjiajia.com</span><br><span class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span></span><br><span class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span></span><br><span class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span>/*</span><br><span class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="variable">$&#123;PUBLIC_WWW&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>创建仓库：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare blog.sunjiajia.com.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-hooks"><a href="#配置-hooks" class="headerlink" title="配置 hooks"></a>配置 hooks</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/blog.sunjiajia.com.git/hooks</span><br><span class="line">vi post-receive</span><br></pre></td></tr></table></figure>
+<p>添加下面的代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash -l</span></span><br><span class="line">GIT_REPO=/home/git/blog.sunjiajia.com.git</span><br><span class="line">TMP_GIT_CLONE=/tmp/blog.sunjiajia.com</span><br><span class="line">PUBLIC_WWW=/home/wwwroot/blog.sunjiajia.com</span><br><span class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span></span><br><span class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span></span><br><span class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span>/*</span><br><span class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="variable">$&#123;PUBLIC_WWW&#125;</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p><code>/home/wwwroot/sunjiajia.com</code>是后面 lnmp 绑定的网站根目录。</p>
+<p><code>/home/wwwroot/blog.sunjiajia.com</code>是后面 lnmp 绑定的网站根目录。</p>
 </blockquote>
 <h2 id="切换到-root-用户"><a href="#切换到-root-用户" class="headerlink" title="切换到 root 用户"></a>切换到 root 用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
 <h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><p>这里我们使用的是<a href="https://lnmp.org/install.html" target="_blank" rel="noopener">lnmp 一键安装包</a>，请参考该页面的安装步骤。</p>
 <h2 id="添加-host-并绑定域名"><a href="#添加-host-并绑定域名" class="headerlink" title="添加 host 并绑定域名"></a>添加 host 并绑定域名</h2><p>安装 lnmp 之后，添加主机和绑定域名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lnmp vhost add</span><br></pre></td></tr></table></figure></p>
 <p>安装提示绑定域名等操作即可。</p>
-<h2 id="赋予-git-用户操作网站根目录的权限"><a href="#赋予-git-用户操作网站根目录的权限" class="headerlink" title="赋予 git 用户操作网站根目录的权限"></a>赋予 git 用户操作网站根目录的权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown git:git /home/wwwroot/sunjiajia.com</span><br></pre></td></tr></table></figure>
+<h2 id="赋予-git-用户操作网站根目录的权限"><a href="#赋予-git-用户操作网站根目录的权限" class="headerlink" title="赋予 git 用户操作网站根目录的权限"></a>赋予 git 用户操作网站根目录的权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown git:git /home/wwwroot/blog.sunjiajia.com</span><br></pre></td></tr></table></figure>
 <p>这样git 就可以操作网站根目录了。</p>
-<h2 id="配置完毕"><a href="#配置完毕" class="headerlink" title="配置完毕"></a>配置完毕</h2><p>在 hexo 的 <code>_config.yml</code> 中配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  message: &quot;安卓猴写了新博文&quot;</span><br><span class="line">  repo: git@sunjiajia.com:sunjiajia.com.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置完毕"><a href="#配置完毕" class="headerlink" title="配置完毕"></a>配置完毕</h2><p>在 hexo 的 <code>_config.yml</code> 中配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  message: &quot;安卓猴写了新博文&quot;</span><br><span class="line">  repo: git@blog.sunjiajia.com:blog.sunjiajia.com.git</span><br></pre></td></tr></table></figure></p>
 <p>生成hexo 静态文件并部署到 VPS：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>在配置好自己的 VPS+Hexo 博客以后，今后写博客就比较方便了，速度还可以，而且也有利于搜索引擎收录。</p>
 
@@ -1837,6 +1837,18 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -1862,12 +1874,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
         </li>
     
     
@@ -1877,17 +1894,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson02-requests/" >《手把手带你学爬虫──初级篇》第2课 Requests库讲解</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson04-re/" >《手把手带你学爬虫──初级篇》第4课 正则表达式以及re库的用法</a>
         </li>
     
     
@@ -2084,12 +2096,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2139,12 +2151,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2184,12 +2196,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2224,12 +2236,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
         </li>
     
     
@@ -2281,11 +2293,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
@@ -2338,9 +2350,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     

@@ -440,9 +440,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -478,9 +478,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -517,9 +517,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -556,9 +556,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -595,9 +595,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -632,9 +632,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -671,9 +671,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -710,9 +710,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -749,9 +749,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -787,36 +787,7 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android &gt;= 4.4 适配沉浸状态栏颜色</title>
-    <link href="https://blog.sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/"/>
-    <id>https://blog.sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</id>
-    <published>2015-09-01T23:50:27.000Z</published>
-    <updated>2018-08-02T04:07:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p><p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p><p>效果图：<br><img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android &gt;= 4.4 Status Bar"><br><img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar"></p><h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/" target="_blank" rel="noopener">《Android L+ Theme 与 Toolbar 实例》</a></p><h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a></p><p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line"></span><br><span class="line">     Window mWindow = getWindow();</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line"></span><br><span class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</span><br><span class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本An
-      
-    
-    </summary>
-    
-      <category term="Android进阶" scheme="https://blog.sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
     
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
@@ -836,6 +807,35 @@
       
       
         &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;国内&lt;code&gt;Android应用市场&lt;/code&gt;品种太多，血统不纯，每次上线App都&lt;code&gt;打包打到手软，上传上到吐血&lt;/code&gt;
+      
+    
+    </summary>
+    
+      <category term="Android进阶" scheme="https://blog.sunjiajia.com/categories/Android%E8%BF%9B%E9%98%B6/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
+      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android &gt;= 4.4 适配沉浸状态栏颜色</title>
+    <link href="https://blog.sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/"/>
+    <id>https://blog.sunjiajia.com/2015/09/02/android-kitkat-translucent-statusbar/</id>
+    <published>2015-09-01T23:50:27.000Z</published>
+    <updated>2018-08-02T04:07:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本Android上可以用吗？</p><p>其实，在Android &gt;= 4.4的版本中，都可以进行“沉浸式”状态栏适配的，只不过效果不太一样，Android &gt;= 5.0 版本中设置更加简单，Android &gt;= 4.4 但 &lt; 5就比较麻烦。</p><p>效果图：<br><img src="/img/201509/statubar-in-lollipop-and-kitkat.jpg" alt="Android &gt;= 4.4 Status Bar"><br><img src="/img/201509/statubar-in-miui.jpg" alt="MIUI Status Bar"></p><h2 id="Android-5-0-实现方法"><a href="#Android-5-0-实现方法" class="headerlink" title="Android 5.0+实现方法"></a>Android 5.0+实现方法</h2><p>参见文章：<a href="http://sunjiajia.com/2015/06/19/android-material-theme-and-toolbar/" target="_blank" rel="noopener">《Android L+ Theme 与 Toolbar 实例》</a></p><h2 id="Android-4-4-实现方法"><a href="#Android-4-4-实现方法" class="headerlink" title="Android 4.4 实现方法"></a>Android 4.4 实现方法</h2><p>1.使用开源库<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a></p><p>2.然后在BaseActivity中的OnCreate方法中进行设置：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line"></span><br><span class="line">     Window mWindow = getWindow();</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br><span class="line">     mWindow.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,</span><br><span class="line">         WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</span><br><span class="line"></span><br><span class="line">     SystemBarTintManager mSystemBarTintManager = <span class="keyword">new</span> SystemBarTintManager(<span class="keyword">this</span>);</span><br><span class="line">     mSystemBarTintManager.setStatusBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setNavigationBarTintEnabled(<span class="keyword">true</span>);</span><br><span class="line">     mSystemBarTintManager.setTintColor(Color.parseColor(<span class="string">"#E03131"</span>));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>文章比较简单，权当记录用吧。最近一直在独立开发一个项目，由于每天时间不多，进度也比较慢。新的App中适配了Material Design，极大的节省了UI的设计时间，况且我还是一个不懂PS的。有兴趣的话，可以交流。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Google的Material Design的发布让Android具备了更多的个性化元素，例如，“沉浸式”状态栏。问题来了，那么在低版本An
       
     
     </summary>
@@ -875,9 +875,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -977,9 +977,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1039,9 +1039,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1078,9 +1078,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1113,9 +1113,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1149,9 +1149,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1180,9 +1180,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1209,9 +1209,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1245,9 +1245,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1281,9 +1281,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1318,9 +1318,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1354,9 +1354,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1390,9 +1390,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1427,9 +1427,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1465,9 +1465,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1502,9 +1502,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1536,9 +1536,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1571,9 +1571,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1607,9 +1607,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1643,9 +1643,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1676,9 +1676,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1711,44 +1711,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程5.3之子类实例化</title>
-    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
-    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
-    <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2018-08-02T04:01:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>生成子类的过程</li><li>使用super调用父类构造函数的方法</li></ul><hr><h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p><blockquote><ul><li>在子类的构造函数中，必须调用父类的构造函数；</li><li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li><li>super(参数);必须是构造函数的第一行。</li></ul></blockquote><p>例子：（请动手）</p><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  Person()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"吃东西"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  Student()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</span><br><span class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></span><br><span class="line">    <span class="keyword">super</span>(name, age);</span><br><span class="line">    <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</span><br><span class="line">    stu01.eat();</span><br><span class="line">    stu01.introduce();</span><br><span class="line">    stu01.study();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;生成子类的过程&lt;/li&gt;
-&lt;li&gt;使用super调用父类构造函数的方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;生成子类的过程&quot;&gt;&lt;a href=&quot;#生成子类的过程&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1781,9 +1746,44 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程5.3之子类实例化</title>
+    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
+    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
+    <published>2015-07-15T04:00:27.000Z</published>
+    <updated>2018-08-02T04:01:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>生成子类的过程</li><li>使用super调用父类构造函数的方法</li></ul><hr><h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p><blockquote><ul><li>在子类的构造函数中，必须调用父类的构造函数；</li><li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li><li>super(参数);必须是构造函数的第一行。</li></ul></blockquote><p>例子：（请动手）</p><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  Person()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"吃东西"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  Student()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</span><br><span class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></span><br><span class="line">    <span class="keyword">super</span>(name, age);</span><br><span class="line">    <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</span><br><span class="line">    stu01.eat();</span><br><span class="line">    stu01.introduce();</span><br><span class="line">    stu01.study();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生成子类的过程&lt;/li&gt;
+&lt;li&gt;使用super调用父类构造函数的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;生成子类的过程&quot;&gt;&lt;a href=&quot;#生成子类的过程&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1817,9 +1817,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1853,9 +1853,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1889,9 +1889,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1924,9 +1924,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1960,9 +1960,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1996,9 +1996,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2033,9 +2033,44 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程3.4之练习课</title>
+    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
+    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
+    <published>2015-07-10T04:34:27.000Z</published>
+    <updated>2018-08-02T04:00:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = i % j;</span><br><span class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">                    b = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</span><br><span class="line">System.out.print(<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</span><br><span class="line">System.out.println(<span class="string">"* "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
+&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2069,44 +2104,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程3.4之练习课</title>
-    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
-    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
-    <published>2015-07-10T04:34:27.000Z</published>
-    <updated>2018-08-02T04:00:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = i % j;</span><br><span class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">                    b = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</span><br><span class="line">System.out.print(<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</span><br><span class="line">System.out.println(<span class="string">"* "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
-&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2139,9 +2139,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2178,9 +2178,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2211,9 +2211,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2240,9 +2240,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2275,9 +2275,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2332,9 +2332,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2362,9 +2362,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2391,9 +2391,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   

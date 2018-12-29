@@ -384,28 +384,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
             
-                <span>《Monkey Java》课程5.3之子类实例化</span>
+                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
         </a>
         <div class="abstract-content">
             本节课程将学习以下内容：
 
-生成子类的过程
-使用super调用父类构造函数的方法
+函数的复写（override）
+使用super调用父类的成员函数
 
 
-生成子类的过程使用super调用父类构造函数的方法注意：
+函数的复写（override）
+复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
+
+特点：
 
 
-在子类的构造函数中，必须调用父类的构造函数；
-super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
-super(参数);必须是构造函数的第一行。
+1.在具有父子关系的两个类当中；
+2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
 
 
-例子：（请动手）
-1.新建一个名为Person.java的Java源文件：
-123456789101112131415161718class Person&#123;  String name;  int age;  Person()&#123;    System....
+使用super调用父类的成员函数左右:
+
+减少子类复写父类的成员方法时出现的重复代码。
+
+例子：（请动手）1.新建一个名为Person.java的Java源文件：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -418,9 +422,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -469,9 +473,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -526,9 +530,9 @@ super(参数);必须是构造函数的第一行。
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -571,9 +575,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -622,9 +626,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -665,9 +669,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -712,9 +716,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -776,51 +780,9 @@ this代表一个对象，它代表了调用当前类中的变量或者函数的�
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
-            
-                <span>《Monkey Java》课程3.4之练习课</span>
-        </a>
-        <div class="abstract-content">
-            本节课程将学习以下两个练习：
-
-练习1：打印100~200之间的所有素数。
-练习2：用*在命令行中打印出金字塔图案。
-
-
-目标：熟悉Java语言中的for循环的使用方法。
-
-
-练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            boolean b = false;            for(int j = 2;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/07/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
     
 </div>
             
@@ -860,9 +822,51 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
         <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2015/07/10/monkey-java-basic-courses-3-4/" >
+            
+                <span>《Monkey Java》课程3.4之练习课</span>
+        </a>
+        <div class="abstract-content">
+            本节课程将学习以下两个练习：
+
+练习1：打印100~200之间的所有素数。
+练习2：用*在命令行中打印出金字塔图案。
+
+
+目标：熟悉Java语言中的for循环的使用方法。
+
+
+练习1源码：（请动手）12345678910111213141516public class Demo01 &#123;	public static void main(String[] args) &#123;        for(int i = 100; i &lt; 201; i++)&#123;            boolean b = false;            for(int j = 2;...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/07/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -907,9 +911,9 @@ for循环语句源码：（请动手）12345678910111213141516public class Demo0
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -955,9 +959,9 @@ switch分支语句
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -1002,9 +1006,9 @@ int i = 3/2;请问i的值...
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -1035,9 +1039,9 @@ int i = 3/2;请问i的值...
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -1111,9 +1115,9 @@ unicode字符集是什么？
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -1165,9 +1169,9 @@ age     表示变量名
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
 </div>
             
@@ -2451,42 +2455,6 @@ age     表示变量名
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 78
@@ -2512,12 +2480,17 @@ age     表示变量名
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson05-selenium/" >《手把手带你学爬虫──初级篇》第5课  Selenium WebDriver的用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson03-beautifulsoup4/" >《手把手带你学爬虫──初级篇》第3课 Beautiful Soup 4 库讲解</a>
         </li>
     
     
@@ -2533,11 +2506,6 @@ age     表示变量名
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson06-scrapy/" >《手把手带你学爬虫──初级篇》第6课  强大的爬虫框架Scrapy</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2018/09/14/crawler-lessons-lesson01-introduce/" >《手把手带你学爬虫──初级篇》第1课 基础知识</a>
         </li>
     
     
@@ -2734,12 +2702,12 @@ age     表示变量名
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
         </li>
     
     
@@ -2834,12 +2802,12 @@ age     表示变量名
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
@@ -2937,9 +2905,9 @@ age     表示变量名
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
-    
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2992,9 +2960,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
-    
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
+    
+        <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
+    <lastmod>2019-01-12T14:25:37.904Z</lastmod>
+  </url>  <url>
     <loc>https://blog.sunjiajia.com/2019/01/09/little-tips/</loc>
     <lastmod>2019-01-09T08:56:13.127Z</lastmod>
   </url>  <url>
     <loc>https://blog.sunjiajia.com/2017/08/16/vps-install-hexo-blog/</loc>
     <lastmod>2018-12-29T14:34:12.842Z</lastmod>
-  </url>  <url>
-    <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
-    <lastmod>2018-12-29T14:30:54.284Z</lastmod>
   </url>  <url>
     <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson01-introduce/</loc>
     <lastmod>2018-10-21T09:31:44.000Z</lastmod>

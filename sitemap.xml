@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.sunjiajia.com/assets/user.json</loc>
+    
+    <lastmod>2019-01-23T14:54:11.755Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.sunjiajia.com/2018/09/14/crawler-lessons-lesson02-requests/</loc>
     
     <lastmod>2019-01-12T14:25:37.904Z</lastmod>

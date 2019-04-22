@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.sunjiajia.com/2019/04/22/my-tweets/</loc>
+    
+    <lastmod>2019-04-22T02:01:15.536Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.sunjiajia.com/assets/user.json</loc>
     
     <lastmod>2019-01-23T14:54:11.755Z</lastmod>

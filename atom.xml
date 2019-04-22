@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.sunjiajia.com/"/>
-  <updated>2019-01-09T08:56:13.127Z</updated>
+  <updated>2019-04-22T02:01:15.536Z</updated>
   <id>https://blog.sunjiajia.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“我的碎碎念&quot;</title>
+    <link href="https://blog.sunjiajia.com/2019/04/22/my-tweets/"/>
+    <id>https://blog.sunjiajia.com/2019/04/22/my-tweets/</id>
+    <published>2019-04-22T01:25:37.000Z</published>
+    <updated>2019-04-22T02:01:15.536Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h2><p>最近发现，我越来越少的会在不经意间去逛社交网络（微博、朋友圈），最多偶尔逛一下v2ex。今天想了想，应该是因为<code>厌烦了各种无聊、杂乱的信息流</code>：一是我这个人喜欢静谧，二是如果真的对<code>娱乐</code>有需求，那么不如去逛逛糗事百科式的短笑话平台，也可以在烦累之余获得较大开心。这篇博文取名为<code>“我的碎碎念”</code>，用来记录我自己的一点感想或思路。“开放性社交平台好似有千万人在等着围观赤裸的身体”般的感受，让我逐渐从内心敬而远之。每次写一点纯粹的东西，却总是不自觉地在咬文嚼字时，潜意识中关注别人的看法。在这个节奏贼快的社会上，片刻的独处和静思，可以给心灵带来最纯粹的享受。    </p><p>我想，做个结尾：在这里，写下最真心的话。    </p><h2 id="2019-04-22-09-41"><a href="#2019-04-22-09-41" class="headerlink" title="2019-04-22 09:41"></a>2019-04-22 09:41</h2><p>昨天是周末，就把电脑上的重要资料备份一下。说到备份这个东西，其实是一件非常重要的事情。重要到什么程度呢？重要到<code>偶尔为之觉得多余，资料丢了喊娘没用</code>的地步。既然决定备份了，那么用什么方式好呢？</p><p>U盘？No，容量小，容易丢；<br>移动硬盘？No，容量大，插着、带着太麻烦；<br>So，云☁️？No，隐私泄露还不够吗，每天骚扰电话接到手软；<br>亦或，NAS？No，成本较高，大材小用，杀鸡焉用牛刀；<br>想了一大圈，终于想到了一个，对于我个人来说，最方便的备份方案：    </p><p>硬件：老旧Thinkpad、移动硬盘<br>软件：Win7➕VirtualBox➕Ubuntu Linux Server➕nextcloud    </p><p>老旧Thinkpad用上Win7系统，偶尔用来看看电视剧和视频；Win7上跑VirtualBox，用来运行Server；Ubuntu Server上部署nextcloud，用来同步备份。</p><p>这样一个组合，很好的满足了我的需求：</p><p>首先，旧电脑可以用来娱乐，主要是用来在家庭健身时看电视连续剧；<br>其次，虚拟机跑Linux Server部署nextcloud，用来备份，可以满足家庭多用户的备份需求。</p><p>也就是说，使用了该备份方案，我可以：<br>1️⃣在回家的时候，打开睡眠中的Thinkpad，将外出时主力机上写的文档和代码，自动同步备份到nextcloud上，并且，可以在家庭健身时用Win7播放视频；<br>2️⃣在外出时，将旧Thinkpad睡眠即可，不用关机，安全省电，方便随时回家打开使用。</p><p>写到这里，我想，如果可以用语音将上述思路用淇县话直接说出来记录下来就更过瘾了。</p><hr><h3 id="未完待续～～"><a href="#未完待续～～" class="headerlink" title="未完待续～～"></a>未完待续～～</h3><ul><li>记录生活中的点滴感悟和思路，不定期更新。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;我的碎碎念&quot;&gt;&lt;a href=&quot;#我的碎碎念&quot; class=&quot;headerlink&quot; title=&quot;我的碎碎念&quot;&gt;&lt;/a&gt;我的碎碎念&lt;/h2&gt;&lt;p&gt;最近发现，我越来越少的会在不经意间去逛社交网络（微博、朋友圈），最多偶尔逛一下v2ex。今天想了想，应该是因为&lt;co
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="https://blog.sunjiajia.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="https://blog.sunjiajia.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Little Tips 记录</title>
@@ -307,9 +332,9 @@
       <category term="Python" scheme="https://blog.sunjiajia.com/categories/Python/"/>
     
     
-      <category term="CentOS" scheme="https://blog.sunjiajia.com/tags/CentOS/"/>
-    
       <category term="Python" scheme="https://blog.sunjiajia.com/tags/Python/"/>
+    
+      <category term="CentOS" scheme="https://blog.sunjiajia.com/tags/CentOS/"/>
     
   </entry>
   
@@ -440,9 +465,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -478,9 +503,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -517,9 +542,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -556,9 +581,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -595,9 +620,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -632,9 +657,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -671,9 +696,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -710,9 +735,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -749,9 +774,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -787,9 +812,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -875,9 +900,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -977,9 +1002,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1039,9 +1064,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1078,9 +1103,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1113,9 +1138,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1149,9 +1174,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1180,9 +1205,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1209,9 +1234,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1245,9 +1270,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1281,9 +1306,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1318,45 +1343,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程9.0之数组</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
-    <published>2015-07-26T01:20:27.000Z</published>
-    <updated>2018-08-02T04:04:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数组的类型&lt;/li&gt;
-&lt;li&gt;数组的定义方法&lt;/li&gt;
-&lt;li&gt;数组的操作方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1390,9 +1379,45 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程9.0之数组</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
+    <published>2015-07-26T01:20:27.000Z</published>
+    <updated>2018-08-02T04:04:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数组的类型&lt;/li&gt;
+&lt;li&gt;数组的定义方法&lt;/li&gt;
+&lt;li&gt;数组的操作方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1427,9 +1452,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1465,9 +1490,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1502,9 +1527,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1536,9 +1561,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1571,9 +1596,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1607,9 +1632,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1643,9 +1668,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1676,9 +1701,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1711,44 +1736,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程5.3之子类实例化</title>
-    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
-    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
-    <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2018-08-02T04:01:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>生成子类的过程</li><li>使用super调用父类构造函数的方法</li></ul><hr><h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p><blockquote><ul><li>在子类的构造函数中，必须调用父类的构造函数；</li><li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li><li>super(参数);必须是构造函数的第一行。</li></ul></blockquote><p>例子：（请动手）</p><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  Person()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"吃东西"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  Student()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</span><br><span class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></span><br><span class="line">    <span class="keyword">super</span>(name, age);</span><br><span class="line">    <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</span><br><span class="line">    stu01.eat();</span><br><span class="line">    stu01.introduce();</span><br><span class="line">    stu01.study();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;生成子类的过程&lt;/li&gt;
-&lt;li&gt;使用super调用父类构造函数的方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;生成子类的过程&quot;&gt;&lt;a href=&quot;#生成子类的过程&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1781,9 +1771,44 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程5.3之子类实例化</title>
+    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/"/>
+    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-3/</id>
+    <published>2015-07-15T04:00:27.000Z</published>
+    <updated>2018-08-02T04:01:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>生成子类的过程</li><li>使用super调用父类构造函数的方法</li></ul><hr><h2 id="生成子类的过程"><a href="#生成子类的过程" class="headerlink" title="生成子类的过程"></a>生成子类的过程</h2><h2 id="使用super调用父类构造函数的方法"><a href="#使用super调用父类构造函数的方法" class="headerlink" title="使用super调用父类构造函数的方法"></a>使用super调用父类构造函数的方法</h2><p>注意：</p><blockquote><ul><li>在子类的构造函数中，必须调用父类的构造函数；</li><li>super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；</li><li>super(参数);必须是构造函数的第一行。</li></ul></blockquote><p>例子：（请动手）</p><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  Person()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Person的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Person(String name, <span class="keyword">int</span> age)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    System.out.println(<span class="string">"Person的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"吃东西"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  Student()&#123;</span><br><span class="line">    System.out.println(<span class="string">"Student的无参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Student(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> grade)&#123;</span><br><span class="line">    <span class="comment">// 调用父类Person当中的有两个参数name和age的构造函数</span></span><br><span class="line">    <span class="keyword">super</span>(name, age);</span><br><span class="line">    <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    System.out.println(<span class="string">"Student的有参数构造函数"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我学习的年级是 "</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student(<span class="string">"zhang3"</span>,<span class="number">18</span>,<span class="number">3</span>);</span><br><span class="line">    stu01.eat();</span><br><span class="line">    stu01.introduce();</span><br><span class="line">    stu01.study();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生成子类的过程&lt;/li&gt;
+&lt;li&gt;使用super调用父类构造函数的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;生成子类的过程&quot;&gt;&lt;a href=&quot;#生成子类的过程&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1817,9 +1842,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1853,9 +1878,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1889,9 +1914,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1924,9 +1949,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1960,9 +1985,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1996,9 +2021,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2033,9 +2058,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2068,9 +2093,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2104,9 +2129,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2139,9 +2164,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2178,9 +2203,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2211,9 +2236,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2240,9 +2265,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2275,9 +2300,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2309,36 +2334,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程2.0之变量</title>
-    <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
-    <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
-    <published>2015-07-01T04:04:27.000Z</published>
-    <updated>2018-08-02T03:58:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p><h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int age = 20;</span><br></pre></td></tr></table></figure><blockquote><p><strong>int</strong>       表示变量类型</p></blockquote><blockquote><p><strong>age</strong>     表示变量名</p></blockquote><blockquote><p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p></blockquote><blockquote><p><strong>;</strong>          英文分号，表示语句结束</p></blockquote><blockquote><p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p></blockquote><p>这条语句回答了2个问题：</p><ul><li>存储数据的空间有多大</li><li>数据存储在什么位置</li></ul><h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p><h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p><h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul><li>应该以字母、下划线或者美元符开头；</li><li>后面跟字母、下划线、美元符或者数字；</li><li>Java变量名没有长度限制；</li><li>Java变量名对字母大小写敏感</li></ul><h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p><ul><li>变量名应该用有意义的英文单词；</li><li>变量名如果只有一个单词，则所有的字母用小写；</li><li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li></ul><h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 变量声明的正确写法，</span></span><br><span class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></span><br><span class="line">            <span class="comment">// 应按照 驼峰命名法</span></span><br><span class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</span><br><span class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</span><br><span class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></span><br><span class="line">            <span class="comment">// int 8age = 60;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量&quot; class=&quot;headerlink&quot; title=&quot;什么是变量&quot;&gt;&lt;/a&gt;什么是变量&lt;/h2&gt;&lt;p&gt;简单理解就是，在计算机中存储信息的东西。&lt;/p&gt;
-&lt;h2 id=&quot;什么是语法&quot;&gt;&lt;a href=&quot;#什么是语法&quot; c
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程1.1之JDK环境配置</title>
     <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/"/>
     <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/</id>
@@ -2362,9 +2357,39 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程2.0之变量</title>
+    <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
+    <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
+    <published>2015-07-01T04:04:27.000Z</published>
+    <updated>2018-08-02T03:58:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p><h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int age = 20;</span><br></pre></td></tr></table></figure><blockquote><p><strong>int</strong>       表示变量类型</p></blockquote><blockquote><p><strong>age</strong>     表示变量名</p></blockquote><blockquote><p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p></blockquote><blockquote><p><strong>;</strong>          英文分号，表示语句结束</p></blockquote><blockquote><p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p></blockquote><p>这条语句回答了2个问题：</p><ul><li>存储数据的空间有多大</li><li>数据存储在什么位置</li></ul><h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p><h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p><h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul><li>应该以字母、下划线或者美元符开头；</li><li>后面跟字母、下划线、美元符或者数字；</li><li>Java变量名没有长度限制；</li><li>Java变量名对字母大小写敏感</li></ul><h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p><ul><li>变量名应该用有意义的英文单词；</li><li>变量名如果只有一个单词，则所有的字母用小写；</li><li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li></ul><h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 变量声明的正确写法，</span></span><br><span class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></span><br><span class="line">            <span class="comment">// 应按照 驼峰命名法</span></span><br><span class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</span><br><span class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</span><br><span class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></span><br><span class="line">            <span class="comment">// int 8age = 60;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量&quot; class=&quot;headerlink&quot; title=&quot;什么是变量&quot;&gt;&lt;/a&gt;什么是变量&lt;/h2&gt;&lt;p&gt;简单理解就是，在计算机中存储信息的东西。&lt;/p&gt;
+&lt;h2 id=&quot;什么是语法&quot;&gt;&lt;a href=&quot;#什么是语法&quot; c
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2391,9 +2416,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   

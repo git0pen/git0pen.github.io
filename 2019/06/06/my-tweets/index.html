@@ -16,7 +16,7 @@
     <meta name="description" content="Cease to struggle and you cease to live.">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>《Monkey Android》第6课点击事件的四种写法 · GitOPEN&#39;s Home</title>
+    <title>“我的碎碎念&#34; · GitOPEN&#39;s Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -255,7 +255,7 @@
                 <a href="/" >GitOPEN&#39;s Home.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">《Monkey Android》第6课点击事件的四种写法</a>
+                <a href="#" class="post-name">“我的碎碎念"</a>
             </div>
     </div>
     
@@ -287,7 +287,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            《Monkey Android》第6课点击事件的四种写法
+            “我的碎碎念"
             <!-- 404 -->
             
         </h1>
@@ -306,22 +306,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "新手">新手</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "生活">生活</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">842</span> / Reading time: <span class="post-count">4 min</span></span>
+                        <span>Word count: <span class="post-count">904</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2015/08/10</span>
+                    <span class="post-intro-time">2019/06/06</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -446,56 +442,38 @@ height:50vh;
             <main class="main post-page">
 
     <article class="article-entry">
-        <p>通过本节课可以学习到的内容：</p>
-<blockquote>
-<ul>
-<li>Button和TextView的简单使用</li>
-<li>LinearLayout的用法</li>
-<li>点击事件的4种写法</li>
-</ul>
-</blockquote>
+        <h2 id="我的碎碎念"><a href="#我的碎碎念" class="headerlink" title="我的碎碎念"></a>我的碎碎念</h2><p>最近发现，我越来越少的会在不经意间去逛社交网络（微博、朋友圈），最多偶尔逛一下v2ex。今天想了想，应该是因为<code>厌烦了各种无聊、杂乱的信息流</code>：一是我这个人喜欢静谧，二是如果真的对<code>娱乐</code>有需求，那么不如去逛逛糗事百科式的短笑话平台，也可以在烦累之余获得较大开心。这篇博文取名为<code>“我的碎碎念”</code>，用来记录我自己的一点感想或思路。“开放性社交平台好似有千万人在等着围观赤裸的身体”般的感受，让我逐渐从内心敬而远之。每次写一点纯粹的东西，却总是不自觉地在咬文嚼字时，潜意识中关注别人的看法。在这个节奏贼快的社会上，片刻的独处和静思，可以给心灵带来最纯粹的享受。    </p>
+<p>我想，做个结尾：在这里，写下最真心的话。    </p>
 <hr>
-<h2 id="LinearLayout中的Button、TextView"><a href="#LinearLayout中的Button、TextView" class="headerlink" title="LinearLayout中的Button、TextView"></a>LinearLayout中的Button、TextView</h2><p>布局文件的源码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"点击事件的4种写法"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#ff002e"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"22sp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn01"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"按钮01"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn02"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"按钮02"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn03"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"按钮03"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn04"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"clickButton04"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"按钮04"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="布局文件解析"><a href="#布局文件解析" class="headerlink" title="布局文件解析"></a>布局文件解析</h2><p>LinearLayout：</p>
-<blockquote>
-<ul>
-<li>将RelativeLayout改为LinearLayout，即线性布局；</li>
-<li>它里面的控件成线性排列，竖直或者水平，用android:orientation=”vertical”或者android:orientation=”horizontal”来设置；</li>
-<li>android:gravity=”center”设置子控件全部居中；</li>
+<h2 id="2019-04-22-09-41"><a href="#2019-04-22-09-41" class="headerlink" title="2019-04-22 09:41"></a>2019-04-22 09:41</h2><p>昨天是周末，就把电脑上的重要资料备份一下。说到备份这个东西，其实是一件非常重要的事情。重要到什么程度呢？重要到<code>偶尔为之觉得多余，资料丢了喊娘没用</code>的地步。既然决定备份了，那么用什么方式好呢？</p>
+<p>U盘？No，容量小，容易丢；<br>移动硬盘？No，容量大，插着、带着太麻烦；<br>So，云☁️？No，隐私泄露还不够吗，每天骚扰电话接到手软；<br>亦或，NAS？No，成本较高，大材小用，杀鸡焉用牛刀；<br>想了一大圈，终于想到了一个，对于我个人来说，最方便的备份方案：    </p>
+<p>硬件：老旧Thinkpad、移动硬盘<br>软件：Win7➕VirtualBox➕Ubuntu Linux Server➕nextcloud    </p>
+<p>老旧Thinkpad用上Win7系统，偶尔用来看看电视剧和视频；Win7上跑VirtualBox，用来运行Server；Ubuntu Server上部署nextcloud，用来同步备份。</p>
+<p>这样一个组合，很好的满足了我的需求：</p>
+<p>首先，旧电脑可以用来娱乐，主要是用来在家庭健身时看电视连续剧；<br>其次，虚拟机跑Linux Server部署nextcloud，用来备份，可以满足家庭多用户的备份需求。</p>
+<p>也就是说，使用了该备份方案，我可以：<br>1️⃣在回家的时候，打开睡眠中的Thinkpad，将外出时主力机上写的文档和代码，自动同步备份到nextcloud上，并且，可以在家庭健身时用Win7播放视频；<br>2️⃣在外出时，将旧Thinkpad睡眠即可，不用关机，安全省电，方便随时回家打开使用。</p>
+<p>写到这里，我想，如果可以用语音将上述思路用淇县话直接说出来记录下来就更过瘾了。</p>
+<hr>
+<h2 id="2019-04-28-16-09"><a href="#2019-04-28-16-09" class="headerlink" title="2019-04-28 16:09"></a>2019-04-28 16:09</h2><p>今天静静告诉我说，“不要轻易对被你帮助的人说：应该做的。”。</p>
+<p>体味许久，感觉很有道理。</p>
+<p>很多人在用你的时候就出现了，用完就消失的无影无踪。</p>
+<p>我想，“应该做的”这句话应该改成“不用谢”更好。</p>
+<hr>
+<h2 id="2019-04-28-16-56"><a href="#2019-04-28-16-56" class="headerlink" title="2019-04-28 16:56"></a>2019-04-28 16:56</h2><pre><code>谎言的代价是什么？
+What is the cost of lies?
+
+不是我们错把谎言当成真相.
+It&apos;s not that we&apos;ll mistake them for the truth.
+
+真正的危险在于，如果我们听信了太多的谎言，就难以辨别真相了。
+The real danger is that if we hear enough lies,
+then we no longer recognize the truth at all.
+
+                            ————《切尔诺贝利》开场白
+</code></pre><hr>
+<h3 id="未完待续～～"><a href="#未完待续～～" class="headerlink" title="未完待续～～"></a>未完待续～～</h3><ul>
+<li>记录生活中的点滴感悟和思路，不定期更新。</li>
 </ul>
-</blockquote>
-<p>TextView:</p>
-<blockquote>
-<ul>
-<li>用来显示文本的控件；</li>
-<li>android:text设置显示的内容；</li>
-<li>android:textColor设置字体颜色；</li>
-<li>android:textSize设置字体大小；</li>
-</ul>
-</blockquote>
-<p>Button：</p>
-<blockquote>
-<ul>
-<li>按钮控件；</li>
-<li>android:onClick设置点击事件的方法名称；</li>
-<li>android:text设置按钮的文字；</li>
-</ul>
-</blockquote>
-<h2 id="点击事件的4种写法"><a href="#点击事件的4种写法" class="headerlink" title="点击事件的4种写法"></a>点击事件的4种写法</h2><p>MainActivity源码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.sunjiajia.firstdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> butterknife.ButterKnife;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Button mButton01;</span><br><span class="line">    <span class="keyword">private</span> Button mButton02;</span><br><span class="line">    <span class="keyword">private</span> Button mButton03;</span><br><span class="line">    <span class="keyword">private</span> Button mButton04;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mButton01 = (Button) findViewById(R.id.btn01);</span><br><span class="line">        mButton02 = (Button) findViewById(R.id.btn02);</span><br><span class="line">        mButton03 = (Button) findViewById(R.id.btn03);</span><br><span class="line">        mButton04 = (Button) findViewById(R.id.btn04);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第1种写法：</span></span><br><span class="line">        mButton01.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, mButton01.getClass().toString() +<span class="string">"--&gt; Button01"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第2种写法：主类实现OnClickListener接口，并在主类中复写方法onClick</span></span><br><span class="line">        mButton02.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第3种写法：内部类实现OnClickListener接口，复写方法onClick</span></span><br><span class="line">        MyButtonClickListener mButtonClickListener = <span class="keyword">new</span> MyButtonClickListener();</span><br><span class="line">        mButton03.setOnClickListener(mButtonClickListener);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第4种写法：在布局文件中给Button04添加android:onClick="clickButton04"属性，并指定了点击触发的方法clickButton04</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clickButton04</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Toast.makeText(<span class="keyword">this</span>, mButton04.getClass().toString() +<span class="string">"--&gt; Button04"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyButtonClickListener</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            Toast.makeText(MainActivity.<span class="keyword">this</span>, mButton03.getClass().toString() +<span class="string">"--&gt; Button03"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Toast.makeText(MainActivity.<span class="keyword">this</span>, mButton02.getClass().toString() +<span class="string">"--&gt; Button02"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要点解析：</p>
-<blockquote>
-<ul>
-<li>4种写法位于源码注释中，请敲代码体验；</li>
-<li>Toast为“土司”控件，即在Activity上显示一个弹出来的提示；</li>
-<li>mButton02.getClass().toString()得到控件对象的类名并转换为字符串；</li>
-</ul>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我们在“Button”上按住“ctrl”键，并点击鼠标左键，跟踪到Button的源码类，发现它是继承于TextView，继续跟踪，发现TextView继承于View。实际上，Android中所有可视控件都是继承自View。</p>
-<p>据此，我们可以推断出来，TextView也可以写点击事件，自己动手试试吧。</p>
-<h2 id="下课"><a href="#下课" class="headerlink" title="下课"></a>下课</h2><p>学习了本节课程，点击事件的4种写法已经讲解完毕。</p>
-<p>有什么问题请在下面留言评论，我们一起进步！</p>
 
 
         <!-- 捐赠&推广 -->
@@ -522,8 +500,8 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者: <a href="https://blog.sunjiajia.com">GitOPEN</a>
-            <p>原文链接: <a href="https://blog.sunjiajia.com/2015/08/10/monkey-android-6/">https://blog.sunjiajia.com/2015/08/10/monkey-android-6/</a>
-            <p>发表日期: <a href="https://blog.sunjiajia.com/2015/08/10/monkey-android-6/">August 10th 2015, 7:50:27</a>
+            <p>原文链接: <a href="https://blog.sunjiajia.com/2019/06/06/my-tweets/">https://blog.sunjiajia.com/2019/06/06/my-tweets/</a>
+            <p>发表日期: <a href="https://blog.sunjiajia.com/2019/06/06/my-tweets/">六月 6日 2019, 4:05:37</a>
             <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -531,17 +509,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2015/08/14/download-android-open-source-projects/" title= 国内镜像加速Android源码下载 >
-                    <div class="nextTitle">国内镜像加速Android源码下载</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2015/08/09/my-develop-environment/" title= 我的开发环境 >
-                    <div class="prevTitle">我的开发环境</div>
+                <a href= "/2019/01/09/little-tips/" title= Little Tips 记录 >
+                    <div class="prevTitle">Little Tips 记录</div>
                 </a>
             
         </li>
@@ -564,7 +537,7 @@ height:50vh;
             repo: 'BlogComment',
             owner: 'opengit',
             admin: ['opengit'],
-            id: "《Monkey Android》第6课点击事件的四种写法", // 如出现问题，可设置为 location.href
+            id: "“我的碎碎念"", // 如出现问题，可设置为 location.href
             distractionFreeMode: false // Facebook-like distraction free mode
         })
 
@@ -721,7 +694,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LinearLayout中的Button、TextView"><span class="toc-number">1.</span> <span class="toc-text">LinearLayout中的Button、TextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局文件解析"><span class="toc-number">2.</span> <span class="toc-text">布局文件解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点击事件的4种写法"><span class="toc-number">3.</span> <span class="toc-text">点击事件的4种写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下课"><span class="toc-number">5.</span> <span class="toc-text">下课</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#我的碎碎念"><span class="toc-number">1.</span> <span class="toc-text">我的碎碎念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019-04-22-09-41"><span class="toc-number">2.</span> <span class="toc-text">2019-04-22 09:41</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019-04-28-16-09"><span class="toc-number">3.</span> <span class="toc-text">2019-04-28 16:09</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019-04-28-16-56"><span class="toc-number">4.</span> <span class="toc-text">2019-04-28 16:56</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#未完待续～～"><span class="toc-number">4.1.</span> <span class="toc-text">未完待续～～</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

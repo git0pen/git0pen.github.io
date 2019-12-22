@@ -437,32 +437,28 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
             
-                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
+                <span>《Monkey Java》课程5.3之子类实例化</span>
         </a>
         <div class="abstract-content">
             本节课程将学习以下内容：
 
-函数的复写（override）
-使用super调用父类的成员函数
+生成子类的过程
+使用super调用父类构造函数的方法
 
 
-函数的复写（override）
-复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
-
-特点：
+生成子类的过程使用super调用父类构造函数的方法注意：
 
 
-1.在具有父子关系的两个类当中；
-2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
+在子类的构造函数中，必须调用父类的构造函数；
+super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
+super(参数);必须是构造函数的第一行。
 
 
-使用super调用父类的成员函数左右:
-
-减少子类复写父类的成员方法时出现的重复代码。
-
-例子：（请动手）1.新建一个名为Person.java的Java源文件：...
+例子：（请动手）
+1.新建一个名为Person.java的Java源文件：
+123456789101112131415161718class Person&#123;  String name;  int age;  Person()&#123;    System....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -490,28 +486,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-3/" >
+        <a class="abstract-title" href = "/2015/07/15/monkey-java-basic-courses-5-4/" >
             
-                <span>《Monkey Java》课程5.3之子类实例化</span>
+                <span>《Monkey Java》课程5.4之函数的复写（override）</span>
         </a>
         <div class="abstract-content">
             本节课程将学习以下内容：
 
-生成子类的过程
-使用super调用父类构造函数的方法
+函数的复写（override）
+使用super调用父类的成员函数
 
 
-生成子类的过程使用super调用父类构造函数的方法注意：
+函数的复写（override）
+复写（override），也被称为覆盖或者重写。在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。
+
+特点：
 
 
-在子类的构造函数中，必须调用父类的构造函数；
-super所调用的是父类的哪个构造函数，是由super(参数)中的参数个数决定；
-super(参数);必须是构造函数的第一行。
+1.在具有父子关系的两个类当中；
+2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。
 
 
-例子：（请动手）
-1.新建一个名为Person.java的Java源文件：
-123456789101112131415161718class Person&#123;  String name;  int age;  Person()&#123;    System....
+使用super调用父类的成员函数左右:
+
+减少子类复写父类的成员方法时出现的重复代码。
+
+例子：（请动手）1.新建一个名为Person.java的Java源文件：...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -2326,6 +2326,110 @@ int i = 3/2;请问i的值...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 73
@@ -2346,7 +2450,7 @@ int i = 3/2;请问i的值...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/06</span><a class="archive-post-title" href= "/2019/06/06/my-tweets/" >“我的碎碎念"</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2019/12/22/my-tweets/" >“我的碎碎念"</a>
         </li>
     
     
@@ -2657,12 +2761,12 @@ int i = 3/2;请问i的值...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2697,12 +2801,12 @@ int i = 3/2;请问i的值...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-1-1/" >《Monkey Java》课程1.1之JDK环境配置</a>
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2015/07/01/monkey-java-basic-courses-2-0/" >《Monkey Java》课程2.0之变量</a>
         </li>
     
     
@@ -2758,11 +2862,11 @@ int i = 3/2;请问i的值...
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2811,11 +2915,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
-        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
-    
         <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

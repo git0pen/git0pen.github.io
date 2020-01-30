@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.sunjiajia.com/2020/01/30/little-tips/</loc>
+    
+    <lastmod>2020-01-30T03:26:10.328Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.sunjiajia.com/2019/12/22/my-tweets/</loc>
     
     <lastmod>2019-12-22T07:17:46.523Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://blog.sunjiajia.com/assets/user.json</loc>
     
     <lastmod>2019-01-23T14:54:11.755Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.sunjiajia.com/2019/01/09/little-tips/</loc>
-    
-    <lastmod>2019-01-09T08:56:13.127Z</lastmod>
     
   </url>
   

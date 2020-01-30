@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.sunjiajia.com/"/>
-  <updated>2020-01-30T03:29:36.567Z</updated>
+  <updated>2020-01-30T03:30:39.642Z</updated>
   <id>https://blog.sunjiajia.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.sunjiajia.com/2020/01/30/little-tips/"/>
     <id>https://blog.sunjiajia.com/2020/01/30/little-tips/</id>
     <published>2020-01-30T02:11:11.000Z</published>
-    <updated>2020-01-30T03:29:36.567Z</updated>
+    <updated>2020-01-30T03:30:39.642Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>在coding的过程中，难免会遇到各种问题，我把踩过/填满的坑记录下来，一方面有助于今后查缺补漏，也希望能够帮到其它小伙伴。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><h2 id="过滤字符串中的emoji表情和符号-Python"><a href="#过滤字符串中的emoji表情和符号-Python" class="headerlink" title="过滤字符串中的emoji表情和符号[Python]"></a>过滤字符串中的emoji表情和符号[Python]</h2><p>最近在抓取了几十万条微博数据，目的是对其进行情感分析，这就需要过滤掉内容中表情等特殊符号。在Google了一圈以后，发现很多方法过滤的效果不好，因此自己记录一下，如何更加全面的过滤掉表情符号。这个方法综合使用了正则表达式和emoji库。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> emoji</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_emoji</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        过滤表情。</span></span><br><span class="line"><span class="string">        Author: GitOPEN</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\U00010000-\U0010ffff]'</span>)</span><br><span class="line">    <span class="keyword">except</span> re.error:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\uD800-\uDBFF][\uDC00-\uDFFF]'</span>)</span><br><span class="line"></span><br><span class="line">    text = regex.sub(<span class="string">u''</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(word <span class="keyword">for</span> word <span class="keyword">in</span> text <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> emoji.UNICODE_EMOJI)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试：随机输入3个人物emoji，3个自然，3个食物，3个符号，3个物体，3个旗帜</span></span><br><span class="line">emoji_text = <span class="string">'🤡👨‍👮世界，我是周董🙉🦎🦀，🍑🍔🍤你好吗？❤️㊗️🆘我很好，日子过得还算不错！📡🕯🔨你呢？🇧🇷🇻🇬🇺🇸'</span></span><br><span class="line">print(filter_emoji(emoji_text))</span><br></pre></td></tr></table></figure><h2 id="git-设置代理"><a href="#git-设置代理" class="headerlink" title="git 设置代理"></a>git 设置代理</h2><p>由于众所周知的原因，git速度实在是蜗速，只有几KB/s。挂上小飞机✈️，按照下面设置，速度瞬间飞起！当然你得有一架好飞机~😀<br>如果你的✈️非得不够高，那么请参考之前我的推荐<a href="https://sunjiajia.com/2018/04/01/vps-install-nexus-maven/#%E5%86%8D%E6%AC%A1%E9%82%80%E8%AF%B7%E6%82%A8" target="_blank" rel="noopener">《快的飞起小飞滴~》</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure><p>取消git代理：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure><h2 id="Python-Django生成CSV文件内容乱码"><a href="#Python-Django生成CSV文件内容乱码" class="headerlink" title="Python/Django生成CSV文件内容乱码"></a>Python/Django生成CSV文件内容乱码</h2><p>在Django视图函数中生成CSV文件，用微软妹子家的Excel打开会乱码，解决方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">book_price</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">import</span> csv, codecs</span><br><span class="line"></span><br><span class="line">    titles = [<span class="string">'明朝那些事儿'</span>, <span class="string">'围城'</span>, <span class="string">'北京法源寺'</span>, <span class="string">'平凡的世界'</span>, <span class="string">'丰乳肥臀'</span>]</span><br><span class="line">    response = HttpResponse(content_type=<span class="string">'text/csv'</span>)</span><br><span class="line">    <span class="comment"># 解决乱码</span></span><br><span class="line">    response.write(codecs.BOM_UTF8)</span><br><span class="line">    response[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=book_price.csv'</span></span><br><span class="line">    writer = csv.writer(response)</span><br><span class="line">    writer.writerow([<span class="string">'title'</span>, <span class="string">'price'</span>])</span><br><span class="line">    <span class="keyword">for</span> (title, price) <span class="keyword">in</span> zip(titles, range(<span class="number">69</span>, <span class="number">99</span>)):</span><br><span class="line">        print(title, price)</span><br><span class="line">        writer.writerow([title, price])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure><p>使用Python写CSV文件时，也会出现相同的问题，解决方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv, codecs</span><br><span class="line">f=open(<span class="string">'temp.csv'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 解决乱码</span></span><br><span class="line">f.write(codecs.BOM_UTF8)</span><br><span class="line">writer = csv.writer(f)</span><br><span class="line">writer.writerow([<span class="string">'图书'</span>,<span class="string">'出版社'</span>,<span class="string">'价格'</span>])</span><br><span class="line">writer.writerow([<span class="string">'明朝那些事儿'</span>,<span class="string">'机械工业出版社'</span>,<span class="string">'146.99'</span>])</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure><p>使用Python读取CSV文件时，也会出现乱码的问题，解决方法，指定目标文件的编码方式：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        print(row)</span><br></pre></td></tr></table></figure><h2 id="macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><a href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序" class="headerlink" title="macOS 移除Google的GoogleSoftwareUpdateAgent更新程序"></a>macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</h2><p>查看该程序有没有在运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults <span class="built_in">read</span> com.google.Keystone.Agent</span><br></pre></td></tr></table></figure><p>如果看到的是<code>Domain com.google.Keystone.Agent does not exist</code>，则没有运行，无需移除；</p><p>如果是一长串吧哩巴拉，那么需要移除。移除方法：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/ksinstall --uninstall</span><br></pre></td></tr></table></figure><p>移除完毕后可再次检测一遍。</p><h2 id="Firefox开启Youtube的4k视频"><a href="#Firefox开启Youtube的4k视频" class="headerlink" title="Firefox开启Youtube的4k视频"></a>Firefox开启Youtube的4k视频</h2><p>macOS上Firefox默认不能看Youtube的4k及以上分辨率视频，调整ff的设置即可打开。</p><ul><li>在Firefox中打开<code>about:config</code></li><li>搜索<code>media.mediasource.webm.enabled</code></li><li>将其值设置为<code>true</code>即可</li></ul><h2 id="macOS-fish-shell-终端设置代理"><a href="#macOS-fish-shell-终端设置代理" class="headerlink" title="macOS fish shell 终端设置代理"></a>macOS fish shell 终端设置代理</h2><p>安装 fish shell 后，iterm2 或 Terminal 用起来不能更爽。但是如果能够让终端中的网络走代理，那么更是爽之又爽。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.config/fish/config.fish</span><br></pre></td></tr></table></figure><p>输入以下设置，端口号按照自己代理的配置进行更改：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set -x https_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x http_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x all_proxy socks5://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7891</span></span><br></pre></td></tr></table></figure><h2 id="matplotlib-后台画图报错-NSInternalInconsistencyException"><a href="#matplotlib-后台画图报错-NSInternalInconsistencyException" class="headerlink" title="matplotlib 后台画图报错 NSInternalInconsistencyException"></a>matplotlib 后台画图报错 NSInternalInconsistencyException</h2><p>更新于 <code>2020/01/30 10:52:00</code>。</p><p>最近在对<code>APS</code>数据集进行分析，需要使用<code>matplotlib</code>网状结构和趋势图，但是由于数据量较大，我加入了多线程进行操作，出现报错（下面还有好多行，省略）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2020-01-29 16:41:59.365 python[78453:3976088] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'NSWindow drag regions should only be invalidated on the Main Thread!'</span><br><span class="line">*** First throw call stack:</span><br><span class="line">(</span><br><span class="line">0   CoreFoundation                      0x00007fff2c5d18ab __exceptionPreprocess + 250</span><br><span class="line">1   libobjc.A.dylib                     0x00007fff62842805 objc_exception_throw + 48</span><br><span class="line">2   CoreFoundation                      0x00007fff2c5fa30c -[NSException raise] + 9</span><br><span class="line">3   AppKit                              0x00007fff2974a538 -[NSWindow(NSWindow_Theme) _postWindowNeedsToResetDragMarginsUnlessPostingDisabled] + 310</span><br><span class="line">4   AppKit                              0x00007fff29731ed5 -[NSWindow _initContent:styleMask:backing:defer:contentView:] + 1416</span><br><span class="line"></span><br><span class="line">    75  python                              0x000000010592e345 PyObject_Call + 101</span><br><span class="line">76  python                              0x0000000105a5d7a6 t_bootstrap + 70</span><br><span class="line">77  libsystem_pthread.dylib             0x00007fff63db4e65 _pthread_start + 148</span><br><span class="line">78  libsystem_pthread.dylib             0x00007fff63db083b thread_start + 15</span><br><span class="line">)</span><br><span class="line">libc++abi.dylib: terminating with uncaught exception of type NSException</span><br><span class="line">fish: 'python make_networks7.py' terminated by signal SIGABRT (Abort)</span><br></pre></td></tr></table></figure><p>主体错误为：</p><p><code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;NSWindow drag regions should only be invalidated on the Main Thread!&#39;</code></p><p>解决方法如下：</p><p>在<code>import matplotlib.pyplot as plt</code>以后，设置<code>matplotlib</code>在后台运行，不显示前台GUI，设置方法如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.use(<span class="string">'agg'</span>)</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.switch_backend(<span class="string">'agg'</span>)</span><br></pre></td></tr></table></figure><hr><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>在coding的过程中，难免会遇到各种问题，我把踩过/填满的坑记录下来，一方面有助于今后查缺补漏，也希望能够帮到其它小伙伴。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><h2 id="过滤字符串中的emoji表情和符号-Python"><a href="#过滤字符串中的emoji表情和符号-Python" class="headerlink" title="过滤字符串中的emoji表情和符号[Python]"></a>过滤字符串中的emoji表情和符号[Python]</h2><p>最近在抓取了几十万条微博数据，目的是对其进行情感分析，这就需要过滤掉内容中表情等特殊符号。在Google了一圈以后，发现很多方法过滤的效果不好，因此自己记录一下，如何更加全面的过滤掉表情符号。这个方法综合使用了正则表达式和emoji库。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> emoji</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_emoji</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        过滤表情。</span></span><br><span class="line"><span class="string">        Author: GitOPEN</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\U00010000-\U0010ffff]'</span>)</span><br><span class="line">    <span class="keyword">except</span> re.error:</span><br><span class="line">        regex = re.compile(<span class="string">u'[\uD800-\uDBFF][\uDC00-\uDFFF]'</span>)</span><br><span class="line"></span><br><span class="line">    text = regex.sub(<span class="string">u''</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(word <span class="keyword">for</span> word <span class="keyword">in</span> text <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> emoji.UNICODE_EMOJI)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试：随机输入3个人物emoji，3个自然，3个食物，3个符号，3个物体，3个旗帜</span></span><br><span class="line">emoji_text = <span class="string">'🤡👨‍👮世界，我是周董🙉🦎🦀，🍑🍔🍤你好吗？❤️㊗️🆘我很好，日子过得还算不错！📡🕯🔨你呢？🇧🇷🇻🇬🇺🇸'</span></span><br><span class="line">print(filter_emoji(emoji_text))</span><br></pre></td></tr></table></figure><h2 id="git-设置代理"><a href="#git-设置代理" class="headerlink" title="git 设置代理"></a>git 设置代理</h2><p>由于众所周知的原因，git速度实在是蜗速，只有几KB/s。挂上小飞机✈️，按照下面设置，速度瞬间飞起！当然你得有一架好飞机~😀<br>如果你的✈️非得不够高，那么请参考之前我的推荐<a href="https://sunjiajia.com/2018/04/01/vps-install-nexus-maven/#%E5%86%8D%E6%AC%A1%E9%82%80%E8%AF%B7%E6%82%A8" target="_blank" rel="noopener">《快的飞起小飞滴~》</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br></pre></td></tr></table></figure><p>取消git代理：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure><h2 id="Python-Django生成CSV文件内容乱码"><a href="#Python-Django生成CSV文件内容乱码" class="headerlink" title="Python/Django生成CSV文件内容乱码"></a>Python/Django生成CSV文件内容乱码</h2><p>在Django视图函数中生成CSV文件，用微软妹子家的Excel打开会乱码，解决方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">book_price</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">import</span> csv, codecs</span><br><span class="line"></span><br><span class="line">    titles = [<span class="string">'明朝那些事儿'</span>, <span class="string">'围城'</span>, <span class="string">'北京法源寺'</span>, <span class="string">'平凡的世界'</span>, <span class="string">'丰乳肥臀'</span>]</span><br><span class="line">    response = HttpResponse(content_type=<span class="string">'text/csv'</span>)</span><br><span class="line">    <span class="comment"># 解决乱码</span></span><br><span class="line">    response.write(codecs.BOM_UTF8)</span><br><span class="line">    response[<span class="string">'Content-Disposition'</span>] = <span class="string">'attachment; filename=book_price.csv'</span></span><br><span class="line">    writer = csv.writer(response)</span><br><span class="line">    writer.writerow([<span class="string">'title'</span>, <span class="string">'price'</span>])</span><br><span class="line">    <span class="keyword">for</span> (title, price) <span class="keyword">in</span> zip(titles, range(<span class="number">69</span>, <span class="number">99</span>)):</span><br><span class="line">        print(title, price)</span><br><span class="line">        writer.writerow([title, price])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure><p>使用Python写CSV文件时，也会出现相同的问题，解决方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv, codecs</span><br><span class="line">f=open(<span class="string">'temp.csv'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># 解决乱码</span></span><br><span class="line">f.write(codecs.BOM_UTF8)</span><br><span class="line">writer = csv.writer(f)</span><br><span class="line">writer.writerow([<span class="string">'图书'</span>,<span class="string">'出版社'</span>,<span class="string">'价格'</span>])</span><br><span class="line">writer.writerow([<span class="string">'明朝那些事儿'</span>,<span class="string">'机械工业出版社'</span>,<span class="string">'146.99'</span>])</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure><p>使用Python读取CSV文件时，也会出现乱码的问题，解决方法，指定目标文件的编码方式：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> f_csv:</span><br><span class="line">        print(row)</span><br></pre></td></tr></table></figure><h2 id="macOS-移除Google的GoogleSoftwareUpdateAgent更新程序"><a href="#macOS-移除Google的GoogleSoftwareUpdateAgent更新程序" class="headerlink" title="macOS 移除Google的GoogleSoftwareUpdateAgent更新程序"></a>macOS 移除Google的GoogleSoftwareUpdateAgent更新程序</h2><p>查看该程序有没有在运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults <span class="built_in">read</span> com.google.Keystone.Agent</span><br></pre></td></tr></table></figure><p>如果看到的是<code>Domain com.google.Keystone.Agent does not exist</code>，则没有运行，无需移除；</p><p>如果是一长串吧哩巴拉，那么需要移除。移除方法：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/ksinstall --uninstall</span><br></pre></td></tr></table></figure><p>移除完毕后可再次检测一遍。</p><h2 id="Firefox开启Youtube的4k视频"><a href="#Firefox开启Youtube的4k视频" class="headerlink" title="Firefox开启Youtube的4k视频"></a>Firefox开启Youtube的4k视频</h2><p>macOS上Firefox默认不能看Youtube的4k及以上分辨率视频，调整ff的设置即可打开。</p><ul><li>在Firefox中打开<code>about:config</code></li><li>搜索<code>media.mediasource.webm.enabled</code></li><li>将其值设置为<code>true</code>即可</li></ul><h2 id="macOS-fish-shell-终端设置代理"><a href="#macOS-fish-shell-终端设置代理" class="headerlink" title="macOS fish shell 终端设置代理"></a>macOS fish shell 终端设置代理</h2><p>安装 fish shell 后，iterm2 或 Terminal 用起来不能更爽。但是如果能够让终端中的网络走代理，那么更是爽之又爽。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.config/fish/config.fish</span><br></pre></td></tr></table></figure><p>输入以下设置，端口号按照自己代理的配置进行更改：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set -x https_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x http_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x all_proxy socks5://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7891</span></span><br></pre></td></tr></table></figure><h2 id="matplotlib-后台画图报错-NSInternalInconsistencyException"><a href="#matplotlib-后台画图报错-NSInternalInconsistencyException" class="headerlink" title="matplotlib 后台画图报错 NSInternalInconsistencyException"></a>matplotlib 后台画图报错 NSInternalInconsistencyException</h2><p>更新于 <code>2020/01/30 10:52:00</code>。</p><p>最近在对<code>APS</code>数据集进行分析，需要使用<code>matplotlib</code>网状结构和趋势图，但是由于数据量较大，我加入了多线程进行操作，出现报错（中间有好多行，省略）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2020-01-29 16:41:59.365 python[78453:3976088] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'NSWindow drag regions should only be invalidated on the Main Thread!'</span><br><span class="line">*** First throw call stack:</span><br><span class="line">(</span><br><span class="line">0   CoreFoundation                      0x00007fff2c5d18ab __exceptionPreprocess + 250</span><br><span class="line">1   libobjc.A.dylib                     0x00007fff62842805 objc_exception_throw + 48</span><br><span class="line">2   CoreFoundation                      0x00007fff2c5fa30c -[NSException raise] + 9</span><br><span class="line">3   AppKit                              0x00007fff2974a538 -[NSWindow(NSWindow_Theme) _postWindowNeedsToResetDragMarginsUnlessPostingDisabled] + 310</span><br><span class="line">4   AppKit                              0x00007fff29731ed5 -[NSWindow _initContent:styleMask:backing:defer:contentView:] + 1416</span><br><span class="line"></span><br><span class="line">    75  python                              0x000000010592e345 PyObject_Call + 101</span><br><span class="line">76  python                              0x0000000105a5d7a6 t_bootstrap + 70</span><br><span class="line">77  libsystem_pthread.dylib             0x00007fff63db4e65 _pthread_start + 148</span><br><span class="line">78  libsystem_pthread.dylib             0x00007fff63db083b thread_start + 15</span><br><span class="line">)</span><br><span class="line">libc++abi.dylib: terminating with uncaught exception of type NSException</span><br><span class="line">fish: 'python make_networks7.py' terminated by signal SIGABRT (Abort)</span><br></pre></td></tr></table></figure><p>主体错误为：</p><p><code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;NSWindow drag regions should only be invalidated on the Main Thread!&#39;</code></p><p>解决方法如下：</p><p>在<code>import matplotlib.pyplot as plt</code>以后，设置<code>matplotlib</code>在后台运行，不显示前台GUI，设置方法如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.use(<span class="string">'agg'</span>)</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.switch_backend(<span class="string">'agg'</span>)</span><br></pre></td></tr></table></figure><hr><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
     
     <summary type="html">
     
@@ -271,9 +271,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -309,9 +309,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -348,9 +348,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -387,9 +387,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -426,9 +426,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -463,9 +463,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -502,9 +502,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -541,9 +541,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -580,9 +580,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -618,9 +618,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -706,9 +706,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -808,9 +808,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -870,9 +870,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -909,9 +909,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -944,9 +944,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -980,9 +980,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1011,9 +1011,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1040,9 +1040,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1076,9 +1076,45 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程9.1之类集框架一</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
+    <published>2015-07-26T14:20:27.000Z</published>
+    <updated>2018-08-02T04:04:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 它的长度是无限延伸的</span></span><br><span class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></span><br><span class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">arrayList.add(<span class="string">"A"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AA"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AAA"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AAAA"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(arrayList.get(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</span><br><span class="line">System.out.println(arrayList.get(i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除一个元素</span></span><br><span class="line">arrayList.remove(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(arrayList.size());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类集框架&lt;/li&gt;
+&lt;li&gt;集合的种类&lt;/li&gt;
+&lt;li&gt;类集框架的基础结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;类集框架&quot;&gt;&lt;a href=&quot;#类集框架&quot; class=&quot;headerlink&quot; title=&quot;
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1113,81 +1149,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程9.1之类集框架一</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-1/</id>
-    <published>2015-07-26T14:20:27.000Z</published>
-    <updated>2018-08-02T04:04:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>类集框架</li><li>集合的种类</li><li>类集框架的基础结构</li></ul><hr><h2 id="类集框架"><a href="#类集框架" class="headerlink" title="类集框架"></a>类集框架</h2><blockquote><ul><li>类集框架是一组类和接口</li><li>位于java.util包当中</li><li>主要用于存储和管理对象</li><li>主要分为三大类：集合、列表和映射</li></ul></blockquote><p>集合：</p><blockquote><p>集合中的对象不按特定的方式排序，并且没有重复对象；</p></blockquote><p>列表：</p><blockquote><p>集合中的对象按照索引位置排序，可以有重复的对象。</p></blockquote><p>映射：</p><blockquote><p>集合中每一个元素包含一个键对象和一个值对象，键不可以重复，值可以重复。</p></blockquote><h2 id="类集框架的基础结构"><a href="#类集框架的基础结构" class="headerlink" title="类集框架的基础结构"></a>类集框架的基础结构</h2><p><img src="/img/java/9-0-01.jpg" alt="图9-0。01类集框架结构"></p><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo6</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 它的长度是无限延伸的</span></span><br><span class="line"><span class="comment">// String是泛型，也可以为其它类型，规定了此ArrayList中只能存放String类型的元素</span></span><br><span class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">arrayList.add(<span class="string">"A"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AA"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AAA"</span>);</span><br><span class="line">arrayList.add(<span class="string">"AAAA"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(arrayList.get(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</span><br><span class="line">System.out.println(arrayList.get(i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除一个元素</span></span><br><span class="line">arrayList.remove(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(arrayList.size());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;类集框架&lt;/li&gt;
-&lt;li&gt;集合的种类&lt;/li&gt;
-&lt;li&gt;类集框架的基础结构&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;类集框架&quot;&gt;&lt;a href=&quot;#类集框架&quot; class=&quot;headerlink&quot; title=&quot;
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程9.0之数组</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
-    <published>2015-07-26T01:20:27.000Z</published>
-    <updated>2018-08-02T04:04:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数组的类型&lt;/li&gt;
-&lt;li&gt;数组的定义方法&lt;/li&gt;
-&lt;li&gt;数组的操作方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1221,9 +1185,45 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程9.0之数组</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
+    <published>2015-07-26T01:20:27.000Z</published>
+    <updated>2018-08-02T04:04:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数组的类型&lt;/li&gt;
+&lt;li&gt;数组的定义方法&lt;/li&gt;
+&lt;li&gt;数组的操作方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1258,9 +1258,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1296,9 +1296,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1333,9 +1333,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1367,9 +1367,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1402,9 +1402,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1438,9 +1438,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1474,9 +1474,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1507,9 +1507,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1542,9 +1542,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1577,9 +1577,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1612,9 +1612,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1648,9 +1648,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1684,9 +1684,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1720,9 +1720,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1755,9 +1755,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1791,9 +1791,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1827,9 +1827,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1864,9 +1864,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1899,9 +1899,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1935,9 +1935,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1970,9 +1970,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2009,9 +2009,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2042,9 +2042,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2071,9 +2071,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2106,9 +2106,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2163,9 +2163,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2193,9 +2193,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -2222,9 +2222,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   

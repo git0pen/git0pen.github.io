@@ -312,7 +312,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,214</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">1,213</span> / Reading time: <span class="post-count">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -474,7 +474,7 @@ height:50vh;
 <p>输入以下设置，端口号按照自己代理的配置进行更改：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set -x https_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x http_proxy http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7890</span></span><br><span class="line">set -x all_proxy socks5://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7891</span></span><br></pre></td></tr></table></figure>
 <h2 id="matplotlib-后台画图报错-NSInternalInconsistencyException"><a href="#matplotlib-后台画图报错-NSInternalInconsistencyException" class="headerlink" title="matplotlib 后台画图报错 NSInternalInconsistencyException"></a>matplotlib 后台画图报错 NSInternalInconsistencyException</h2><p>更新于 <code>2020/01/30 10:52:00</code>。</p>
-<p>最近在对<code>APS</code>数据集进行分析，需要使用<code>matplotlib</code>网状结构和趋势图，但是由于数据量较大，我加入了多线程进行操作，出现报错（下面还有好多行，省略）：</p>
+<p>最近在对<code>APS</code>数据集进行分析，需要使用<code>matplotlib</code>网状结构和趋势图，但是由于数据量较大，我加入了多线程进行操作，出现报错（中间有好多行，省略）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2020-01-29 16:41:59.365 python[78453:3976088] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'NSWindow drag regions should only be invalidated on the Main Thread!'</span><br><span class="line">*** First throw call stack:</span><br><span class="line">(</span><br><span class="line">	0   CoreFoundation                      0x00007fff2c5d18ab __exceptionPreprocess + 250</span><br><span class="line">	1   libobjc.A.dylib                     0x00007fff62842805 objc_exception_throw + 48</span><br><span class="line">	2   CoreFoundation                      0x00007fff2c5fa30c -[NSException raise] + 9</span><br><span class="line">	3   AppKit                              0x00007fff2974a538 -[NSWindow(NSWindow_Theme) _postWindowNeedsToResetDragMarginsUnlessPostingDisabled] + 310</span><br><span class="line">	4   AppKit                              0x00007fff29731ed5 -[NSWindow _initContent:styleMask:backing:defer:contentView:] + 1416</span><br><span class="line"></span><br><span class="line">    75  python                              0x000000010592e345 PyObject_Call + 101</span><br><span class="line">	76  python                              0x0000000105a5d7a6 t_bootstrap + 70</span><br><span class="line">	77  libsystem_pthread.dylib             0x00007fff63db4e65 _pthread_start + 148</span><br><span class="line">	78  libsystem_pthread.dylib             0x00007fff63db083b thread_start + 15</span><br><span class="line">)</span><br><span class="line">libc++abi.dylib: terminating with uncaught exception of type NSException</span><br><span class="line">fish: 'python make_networks7.py' terminated by signal SIGABRT (Abort)</span><br></pre></td></tr></table></figure>
 <p>主体错误为：</p>
 <p><code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;NSWindow drag regions should only be invalidated on the Main Thread!&#39;</code></p>
@@ -1772,6 +1772,50 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 73
@@ -2002,22 +2046,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-8-0/" >《Monkey Java》课程8.0之线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-1/" >《Monkey Java》课程9.1之类集框架一</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-9-0/" >《Monkey Java》课程9.0之数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2015/07/26/monkey-java-basic-courses-7-2/" >《Monkey Java》课程7.2之内部类和匿名内部类</a>
         </li>
     
     
@@ -2067,12 +2111,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-4/" >《Monkey Java》课程5.4之函数的复写（override）</a>
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2015/07/15/monkey-java-basic-courses-5-3/" >《Monkey Java》课程5.3之子类实例化</a>
         </li>
     
     
@@ -2112,12 +2156,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-4/" >《Monkey Java》课程3.4之练习课</a>
+            <span class="archive-post-date">07/10</span><a class="archive-post-title" href= "/2015/07/10/monkey-java-basic-courses-3-3/" >《Monkey Java》课程3.3之循环语句</a>
         </li>
     
     
@@ -2209,15 +2253,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="进阶"><span class="iconfont-archer">&#xe606;</span>进阶</span>
     
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="健身"><span class="iconfont-archer">&#xe606;</span>健身</span>
     
         <span class="sidebar-tag-name" data-tags="跑步"><span class="iconfont-archer">&#xe606;</span>跑步</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="新手"><span class="iconfont-archer">&#xe606;</span>新手</span>
-    
-        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="技巧"><span class="iconfont-archer">&#xe606;</span>技巧</span>
     
@@ -2264,13 +2308,13 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Android进阶"><span class="iconfont-archer">&#xe60a;</span>Android进阶</span>
     
-        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
-    
         <span class="sidebar-category-name" data-categories="系统相关"><span class="iconfont-archer">&#xe60a;</span>系统相关</span>
     
-        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
+        <span class="sidebar-category-name" data-categories="生活点滴"><span class="iconfont-archer">&#xe60a;</span>生活点滴</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Java》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Java》</span>
+    
+        <span class="sidebar-category-name" data-categories="Android新手"><span class="iconfont-archer">&#xe60a;</span>Android新手</span>
     
         <span class="sidebar-category-name" data-categories="《Monkey-Android》"><span class="iconfont-archer">&#xe60a;</span>《Monkey-Android》</span>
     

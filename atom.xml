@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.sunjiajia.com/"/>
-  <updated>2020-01-30T03:30:39.642Z</updated>
+  <updated>2020-03-03T04:46:06.004Z</updated>
   <id>https://blog.sunjiajia.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB技术笔记</title>
+    <link href="https://blog.sunjiajia.com/2020/03/03/mongodb-tips/"/>
+    <id>https://blog.sunjiajia.com/2020/03/03/mongodb-tips/</id>
+    <published>2020-03-03T03:11:11.000Z</published>
+    <updated>2020-03-03T04:46:06.004Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，一来存储、读取方便，二来，做数据分析和挖掘，MongoDB的性能和速度已经完全胜任了。这一篇文摘，就是记录在使用MongoDB的过程中，遇到的问题及解决方案，或者一些常用的Tips。好记性不如烂笔头，既可以帮助遇到同样问题的童鞋，也可以方便今后的查阅。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><hr><h2 id="createIndex-时遇到-checksum-error"><a href="#createIndex-时遇到-checksum-error" class="headerlink" title="createIndex 时遇到 checksum error"></a>createIndex 时遇到 checksum error</h2><p>有这样一个collection，数据量为41443963，在对它的一个名为<code>keywords</code>的field进行<code>createIndex</code>时，出现了<code>checksum error</code>的错误，并且<code>mongod</code>直接crash退出了，错误的详细信息如图所示：<br><img src="img/2020/mongod_checksum_error.png" alt="mongod checksum error"></p><p>在遇到这个问题以后，我想到了<code>--repair</code>操作，在执行了该操作以后，这个coll的数据量减少了104条，这就让我想到了，出现错误的原因很可能是部分数据出现了损坏，进而又想到了我在给这个表<code>insert</code>数据的时候，使用了多线程操作pymongo，因此，为了测试，我使用单线程将该coll的数据重新跑了一遍，又执行了<code>createIndex</code>操作，这次没有错误了！</p><p><strong>总结</strong> 在mongodb执行插入数据的操作是，除非有很高的速度要求，否则不要使用多线程执行并发插入数据操作，避免出现数据损坏的情况，导致后续工作（如<code>createIndex</code>等）出现问题。</p><hr><h2 id="碎片-N"><a href="#碎片-N" class="headerlink" title="碎片 N"></a>碎片 N</h2><h2 id="碎片内容"><a href="#碎片内容" class="headerlink" title="碎片内容"></a>碎片内容</h2><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，
+      
+    
+    </summary>
+    
+      <category term="技术相关" scheme="https://blog.sunjiajia.com/categories/%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.sunjiajia.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>日常踩坑实录</title>
@@ -271,9 +297,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -309,9 +335,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -348,9 +374,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -387,9 +413,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -426,9 +452,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -463,9 +489,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -502,9 +528,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -541,9 +567,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -580,9 +606,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -618,9 +644,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -647,9 +673,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
@@ -676,9 +702,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
@@ -706,9 +732,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -736,9 +762,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
@@ -770,9 +796,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+      <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
@@ -808,9 +834,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -870,9 +896,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -909,9 +935,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -944,9 +970,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -980,9 +1006,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1011,9 +1037,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1040,9 +1066,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1076,9 +1102,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1113,9 +1139,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1149,45 +1175,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程7.2之内部类和匿名内部类</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</id>
-    <published>2015-07-26T01:20:27.000Z</published>
-    <updated>2018-08-02T04:03:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>什么是内部类</li><li>内部类的使用方法</li><li>匿名内部类的使用方法</li></ul><hr><h2 id="什么是内部类"><a href="#什么是内部类" class="headerlink" title="什么是内部类"></a>什么是内部类</h2><p>含义：</p><blockquote><p>一个类定义在另一个类内部。</p></blockquote><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为A.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line"><span class="comment">// B类就是内部类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> j;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">funB</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// 内部类B可以使用外部类A的成员变量和成员方法</span></span><br><span class="line"><span class="keyword">int</span> result = i + j;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：</p><blockquote><p>在编译A.java源文件后，会生成两个class文件，即A.class和A$B.class。</p></blockquote><h2 id="内部类的使用方法"><a href="#内部类的使用方法" class="headerlink" title="内部类的使用方法"></a>内部类的使用方法</h2><blockquote><ul><li>要生成一个内部类对象，首先要有一个外部类对象。</li></ul></blockquote><h3 id="例子2："><a href="#例子2：" class="headerlink" title="例子2："></a>例子2：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 生成外部类的对象</span></span><br><span class="line">A a = <span class="keyword">new</span> A();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成内部类的对象</span></span><br><span class="line">A.B b = <span class="keyword">new</span> A().new B();</span><br><span class="line"></span><br><span class="line">a.i= <span class="number">3</span>;</span><br><span class="line">b.j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> result = b.funB();</span><br><span class="line">System.out.println(result);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><blockquote><ul><li>首先是一个内部类</li><li>其次它没有名字</li></ul></blockquote><h3 id="例子3："><a href="#例子3：" class="headerlink" title="例子3："></a>例子3：</h3><p>1.新建一个名为C.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">C</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为D.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(C c)</span></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"D类的fun函数"</span>);</span><br><span class="line">c.doSomething();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo02.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">D d = <span class="keyword">new</span> D();</span><br><span class="line"><span class="comment">// fun括号中就是匿名内部类</span></span><br><span class="line">d.fun(<span class="keyword">new</span> C()&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"匿名内部类"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;什么是内部类&lt;/li&gt;
-&lt;li&gt;内部类的使用方法&lt;/li&gt;
-&lt;li&gt;匿名内部类的使用方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;什么是内部类&quot;&gt;&lt;a href=&quot;#什么是内部类&quot; class=&quot;headerlin
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1221,9 +1211,45 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程7.2之内部类和匿名内部类</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</id>
+    <published>2015-07-26T01:20:27.000Z</published>
+    <updated>2018-08-02T04:03:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>什么是内部类</li><li>内部类的使用方法</li><li>匿名内部类的使用方法</li></ul><hr><h2 id="什么是内部类"><a href="#什么是内部类" class="headerlink" title="什么是内部类"></a>什么是内部类</h2><p>含义：</p><blockquote><p>一个类定义在另一个类内部。</p></blockquote><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><p>1.新建一个名为A.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line"><span class="comment">// B类就是内部类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> j;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">funB</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// 内部类B可以使用外部类A的成员变量和成员方法</span></span><br><span class="line"><span class="keyword">int</span> result = i + j;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：</p><blockquote><p>在编译A.java源文件后，会生成两个class文件，即A.class和A$B.class。</p></blockquote><h2 id="内部类的使用方法"><a href="#内部类的使用方法" class="headerlink" title="内部类的使用方法"></a>内部类的使用方法</h2><blockquote><ul><li>要生成一个内部类对象，首先要有一个外部类对象。</li></ul></blockquote><h3 id="例子2："><a href="#例子2：" class="headerlink" title="例子2："></a>例子2：</h3><p>1.新建一个名为Demo01.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 生成外部类的对象</span></span><br><span class="line">A a = <span class="keyword">new</span> A();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成内部类的对象</span></span><br><span class="line">A.B b = <span class="keyword">new</span> A().new B();</span><br><span class="line"></span><br><span class="line">a.i= <span class="number">3</span>;</span><br><span class="line">b.j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> result = b.funB();</span><br><span class="line">System.out.println(result);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><blockquote><ul><li>首先是一个内部类</li><li>其次它没有名字</li></ul></blockquote><h3 id="例子3："><a href="#例子3：" class="headerlink" title="例子3："></a>例子3：</h3><p>1.新建一个名为C.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">C</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为D.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(C c)</span></span>&#123;</span><br><span class="line">System.out.println(<span class="string">"D类的fun函数"</span>);</span><br><span class="line">c.doSomething();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo02.java的源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">D d = <span class="keyword">new</span> D();</span><br><span class="line"><span class="comment">// fun括号中就是匿名内部类</span></span><br><span class="line">d.fun(<span class="keyword">new</span> C()&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"匿名内部类"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是内部类&lt;/li&gt;
+&lt;li&gt;内部类的使用方法&lt;/li&gt;
+&lt;li&gt;匿名内部类的使用方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;什么是内部类&quot;&gt;&lt;a href=&quot;#什么是内部类&quot; class=&quot;headerlin
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1258,9 +1284,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1296,9 +1322,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1333,9 +1359,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1367,9 +1393,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1402,9 +1428,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1438,9 +1464,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1474,9 +1500,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1507,9 +1533,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1542,44 +1568,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
-    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
-    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
-    <published>2015-07-15T04:00:27.000Z</published>
-    <updated>2018-08-02T04:01:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>函数的复写（override）</li><li>使用super调用父类的成员函数</li></ul><hr><h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote><p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p></blockquote><p>特点：</p><blockquote><ul><li>1.在具有父子关系的两个类当中；</li><li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li></ul></blockquote><h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p><blockquote><p>减少子类复写父类的成员方法时出现的重复代码。</p></blockquote><h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></span><br><span class="line">    <span class="comment">// 它不一定必须写在第一行。</span></span><br><span class="line">    <span class="keyword">super</span>.introduce();</span><br><span class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student();</span><br><span class="line">    stu01.name = <span class="string">"zhang3"</span>;</span><br><span class="line">    stu01.age = <span class="number">19</span>;</span><br><span class="line">    stu01.grade = <span class="number">8</span>;</span><br><span class="line">    stu01.introduce();</span><br><span class="line"></span><br><span class="line">    Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">    p1.name = <span class="string">"zhang3"</span>;</span><br><span class="line">    p1.age = <span class="number">19</span>;</span><br><span class="line">    p1.introduce();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;函数的复写（override）&lt;/li&gt;
-&lt;li&gt;使用super调用父类的成员函数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;函数的复写（override）&quot;&gt;&lt;a href=&quot;#函数的复写（override）&quot; c
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1612,9 +1603,44 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程5.4之函数的复写（override）</title>
+    <link href="https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/"/>
+    <id>https://blog.sunjiajia.com/2015/07/15/monkey-java-basic-courses-5-4/</id>
+    <published>2015-07-15T04:00:27.000Z</published>
+    <updated>2018-08-02T04:01:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>函数的复写（override）</li><li>使用super调用父类的成员函数</li></ul><hr><h2 id="函数的复写（override）"><a href="#函数的复写（override）" class="headerlink" title="函数的复写（override）"></a>函数的复写（override）</h2><blockquote><p>复写（override），也被称为覆盖或者重写。<br>在你对父类的成员方法不满意的时候，你可以在子类中复写这个方法，来写出符合自己要求的方法。</p></blockquote><p>特点：</p><blockquote><ul><li>1.在具有父子关系的两个类当中；</li><li>2.子类和父类中各有一个函数，这个函数的定义（返回值类型，函数名和参数列表）完全相同，那么它们的关系就是复写。</li></ul></blockquote><h2 id="使用super调用父类的成员函数"><a href="#使用super调用父类的成员函数" class="headerlink" title="使用super调用父类的成员函数"></a>使用super调用父类的成员函数</h2><p>左右:</p><blockquote><p>减少子类复写父类的成员方法时出现的重复代码。</p></blockquote><h2 id="例子：（请动手）"><a href="#例子：（请动手）" class="headerlink" title="例子：（请动手）"></a>例子：（请动手）</h2><p>1.新建一个名为Person.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"我的名字叫 "</span> + <span class="keyword">this</span>.name + <span class="string">"，我的年龄是 "</span> + <span class="keyword">this</span>.age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.新建一个名为Student.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> grade;</span><br><span class="line">  <span class="comment">// 复写（override），也被称为覆盖或者重写</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 使用super调用父类Person的成员函数；</span></span><br><span class="line">    <span class="comment">// 它不一定必须写在第一行。</span></span><br><span class="line">    <span class="keyword">super</span>.introduce();</span><br><span class="line">    System.out.println(<span class="string">"我的年级是 "</span> + grade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.新建一个名为Demo01.java的Java源文件：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Student stu01 = <span class="keyword">new</span> Student();</span><br><span class="line">    stu01.name = <span class="string">"zhang3"</span>;</span><br><span class="line">    stu01.age = <span class="number">19</span>;</span><br><span class="line">    stu01.grade = <span class="number">8</span>;</span><br><span class="line">    stu01.introduce();</span><br><span class="line"></span><br><span class="line">    Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">    p1.name = <span class="string">"zhang3"</span>;</span><br><span class="line">    p1.age = <span class="number">19</span>;</span><br><span class="line">    p1.introduce();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数的复写（override）&lt;/li&gt;
+&lt;li&gt;使用super调用父类的成员函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;函数的复写（override）&quot;&gt;&lt;a href=&quot;#函数的复写（override）&quot; c
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1648,9 +1674,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1684,9 +1710,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1720,9 +1746,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1755,9 +1781,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1791,9 +1817,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1827,9 +1853,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1864,44 +1890,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>《Monkey Java》课程3.4之练习课</title>
-    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
-    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
-    <published>2015-07-10T04:34:27.000Z</published>
-    <updated>2018-08-02T04:00:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = i % j;</span><br><span class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">                    b = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</span><br><span class="line">System.out.print(<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</span><br><span class="line">System.out.println(<span class="string">"* "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
-&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -1935,9 +1926,44 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程3.4之练习课</title>
+    <link href="https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/"/>
+    <id>https://blog.sunjiajia.com/2015/07/10/monkey-java-basic-courses-3-4/</id>
+    <published>2015-07-10T04:34:27.000Z</published>
+    <updated>2018-08-02T04:00:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下两个练习：</p><ul><li>练习1：打印100~200之间的所有素数。</li><li>练习2：用<code>*</code>在命令行中打印出<strong>金字塔</strong>图案。</li></ul><blockquote><p>目标：熟悉Java语言中的for循环的使用方法。</p></blockquote><hr><h2 id="练习1"><a href="#练习1" class="headerlink" title="练习1"></a>练习1</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> k = i % j;</span><br><span class="line">                <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">                    b = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业1：请优化Demo01，提高程序效率。</p></blockquote><h2 id="练习2"><a href="#练习2" class="headerlink" title="练习2"></a>练习2</h2><p>源码：（请动手）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> - i; j++) &#123;</span><br><span class="line">System.out.print(<span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; i; k++) &#123;</span><br><span class="line">System.out.println(<span class="string">"* "</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><blockquote><p>作业2：如果要求大家编写一个程序，可以打印出任意行的<strong>金字塔</strong>图案，应该怎么做呢？</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下两个练习：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;练习1：打印100~200之间的所有素数。&lt;/li&gt;
+&lt;li&gt;练习2：用&lt;code&gt;*&lt;/code&gt;在命令行中打印出&lt;strong&gt;金字塔&lt;/strong&gt;图案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1970,9 +1996,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2009,9 +2035,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2042,9 +2068,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2071,9 +2097,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2106,9 +2132,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2163,9 +2189,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2193,9 +2219,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2222,9 +2248,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   

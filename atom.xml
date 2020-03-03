@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.sunjiajia.com/"/>
-  <updated>2020-03-03T04:46:06.004Z</updated>
+  <updated>2020-03-03T04:49:26.159Z</updated>
   <id>https://blog.sunjiajia.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.sunjiajia.com/2020/03/03/mongodb-tips/"/>
     <id>https://blog.sunjiajia.com/2020/03/03/mongodb-tips/</id>
     <published>2020-03-03T03:11:11.000Z</published>
-    <updated>2020-03-03T04:46:06.004Z</updated>
+    <updated>2020-03-03T04:49:26.159Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，一来存储、读取方便，二来，做数据分析和挖掘，MongoDB的性能和速度已经完全胜任了。这一篇文摘，就是记录在使用MongoDB的过程中，遇到的问题及解决方案，或者一些常用的Tips。好记性不如烂笔头，既可以帮助遇到同样问题的童鞋，也可以方便今后的查阅。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><hr><h2 id="createIndex-时遇到-checksum-error"><a href="#createIndex-时遇到-checksum-error" class="headerlink" title="createIndex 时遇到 checksum error"></a>createIndex 时遇到 checksum error</h2><p>有这样一个collection，数据量为41443963，在对它的一个名为<code>keywords</code>的field进行<code>createIndex</code>时，出现了<code>checksum error</code>的错误，并且<code>mongod</code>直接crash退出了，错误的详细信息如图所示：<br><img src="img/2020/mongod_checksum_error.png" alt="mongod checksum error"></p><p>在遇到这个问题以后，我想到了<code>--repair</code>操作，在执行了该操作以后，这个coll的数据量减少了104条，这就让我想到了，出现错误的原因很可能是部分数据出现了损坏，进而又想到了我在给这个表<code>insert</code>数据的时候，使用了多线程操作pymongo，因此，为了测试，我使用单线程将该coll的数据重新跑了一遍，又执行了<code>createIndex</code>操作，这次没有错误了！</p><p><strong>总结</strong> 在mongodb执行插入数据的操作是，除非有很高的速度要求，否则不要使用多线程执行并发插入数据操作，避免出现数据损坏的情况，导致后续工作（如<code>createIndex</code>等）出现问题。</p><hr><h2 id="碎片-N"><a href="#碎片-N" class="headerlink" title="碎片 N"></a>碎片 N</h2><h2 id="碎片内容"><a href="#碎片内容" class="headerlink" title="碎片内容"></a>碎片内容</h2><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，一来存储、读取方便，二来，做数据分析和挖掘，MongoDB的性能和速度已经完全胜任了。这一篇文摘，就是记录在使用MongoDB的过程中，遇到的问题及解决方案，或者一些常用的Tips。好记性不如烂笔头，既可以帮助遇到同样问题的童鞋，也可以方便今后的查阅。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><hr><h2 id="createIndex-时遇到-checksum-error"><a href="#createIndex-时遇到-checksum-error" class="headerlink" title="createIndex 时遇到 checksum error"></a>createIndex 时遇到 checksum error</h2><p>有这样一个collection，数据量为41443963，在对它的一个名为<code>keywords</code>的field进行<code>createIndex</code>时，出现了<code>checksum error</code>的错误，并且<code>mongod</code>直接crash退出了，错误的详细信息如图所示：<br><img src="/img/2020/mongod_checksum_error.png" alt="mongod checksum error"></p><p>在遇到这个问题以后，我想到了<code>--repair</code>操作，在执行了该操作以后，这个coll的数据量减少了104条，这就让我想到了，出现错误的原因很可能是部分数据出现了损坏，进而又想到了我在给这个表<code>insert</code>数据的时候，使用了多线程操作pymongo，因此，为了测试，我使用单线程将该coll的数据重新跑了一遍，又执行了<code>createIndex</code>操作，这次没有错误了！</p><p><strong>总结</strong> 在mongodb执行插入数据的操作是，除非有很高的速度要求，否则不要使用多线程执行并发插入数据操作，避免出现数据损坏的情况，导致后续工作（如<code>createIndex</code>等）出现问题。</p><hr><h2 id="碎片-N"><a href="#碎片-N" class="headerlink" title="碎片 N"></a>碎片 N</h2><hr><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
     
     <summary type="html">
     
@@ -673,9 +673,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -702,9 +702,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -762,9 +762,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -796,9 +796,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="进阶" scheme="https://blog.sunjiajia.com/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1182,42 +1182,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程9.0之数组</title>
-    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
-    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
-    <published>2015-07-26T01:20:27.000Z</published>
-    <updated>2018-08-02T04:04:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数组的类型&lt;/li&gt;
-&lt;li&gt;数组的定义方法&lt;/li&gt;
-&lt;li&gt;数组的操作方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程7.2之内部类和匿名内部类</title>
     <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/"/>
     <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-7-2/</id>
@@ -1238,6 +1202,42 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;什么是内部类&quot;&gt;&lt;a href=&quot;#什么是内部类&quot; class=&quot;headerlin
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程9.0之数组</title>
+    <link href="https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/"/>
+    <id>https://blog.sunjiajia.com/2015/07/26/monkey-java-basic-courses-9-0/</id>
+    <published>2015-07-26T01:20:27.000Z</published>
+    <updated>2018-08-02T04:04:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本节课程将学习以下内容：</p><ul><li>数组的类型</li><li>数组的定义方法</li><li>数组的操作方法</li></ul><hr><h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><h2 id="数组的定义方法"><a href="#数组的定义方法" class="headerlink" title="数组的定义方法"></a>数组的定义方法</h2><h2 id="数组的操作方法"><a href="#数组的操作方法" class="headerlink" title="数组的操作方法"></a>数组的操作方法</h2><h3 id="例子1："><a href="#例子1：" class="headerlink" title="例子1："></a>例子1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 数组的静态定义法</span></span><br><span class="line"><span class="comment">// arr是一个整型数组</span></span><br><span class="line"><span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取数组中的一个值：arr[下标]，下标从0开始。</span></span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组中所有的元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的动态声明法，10表示数组的长度为10</span></span><br><span class="line"><span class="comment">// arr2中的元素的值默认为0</span></span><br><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 二维数组的定义方法</span></span><br><span class="line"><span class="keyword">int</span>[][] arr3 = &#123;&#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123; <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>&#125;, &#123; <span class="number">2</span>, <span class="number">5</span>&#125;&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr3.length; i++) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr3[i].length; j++) &#123;</span><br><span class="line">System.out.println(arr[i][j]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本节课程将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数组的类型&lt;/li&gt;
+&lt;li&gt;数组的定义方法&lt;/li&gt;
+&lt;li&gt;数组的操作方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;数组的类型&quot;&gt;&lt;a href=&quot;#数组的类型&quot; class=&quot;headerlink&quot; titl
       
     
     </summary>

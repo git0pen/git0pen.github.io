@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.sunjiajia.com/"/>
-  <updated>2020-03-03T04:49:26.159Z</updated>
+  <updated>2020-03-03T05:38:10.914Z</updated>
   <id>https://blog.sunjiajia.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.sunjiajia.com/2020/03/03/mongodb-tips/"/>
     <id>https://blog.sunjiajia.com/2020/03/03/mongodb-tips/</id>
     <published>2020-03-03T03:11:11.000Z</published>
-    <updated>2020-03-03T04:49:26.159Z</updated>
+    <updated>2020-03-03T05:38:10.914Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，一来存储、读取方便，二来，做数据分析和挖掘，MongoDB的性能和速度已经完全胜任了。这一篇文摘，就是记录在使用MongoDB的过程中，遇到的问题及解决方案，或者一些常用的Tips。好记性不如烂笔头，既可以帮助遇到同样问题的童鞋，也可以方便今后的查阅。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><hr><h2 id="createIndex-时遇到-checksum-error"><a href="#createIndex-时遇到-checksum-error" class="headerlink" title="createIndex 时遇到 checksum error"></a>createIndex 时遇到 checksum error</h2><p>有这样一个collection，数据量为41443963，在对它的一个名为<code>keywords</code>的field进行<code>createIndex</code>时，出现了<code>checksum error</code>的错误，并且<code>mongod</code>直接crash退出了，错误的详细信息如图所示：<br><img src="/img/2020/mongod_checksum_error.png" alt="mongod checksum error"></p><p>在遇到这个问题以后，我想到了<code>--repair</code>操作，在执行了该操作以后，这个coll的数据量减少了104条，这就让我想到了，出现错误的原因很可能是部分数据出现了损坏，进而又想到了我在给这个表<code>insert</code>数据的时候，使用了多线程操作pymongo，因此，为了测试，我使用单线程将该coll的数据重新跑了一遍，又执行了<code>createIndex</code>操作，这次没有错误了！</p><p><strong>总结</strong> 在mongodb执行插入数据的操作是，除非有很高的速度要求，否则不要使用多线程执行并发插入数据操作，避免出现数据损坏的情况，导致后续工作（如<code>createIndex</code>等）出现问题。</p><hr><h2 id="碎片-N"><a href="#碎片-N" class="headerlink" title="碎片 N"></a>碎片 N</h2><hr><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>我们实验室在保存和处理数据时，大部分小伙伴习惯于使用SQL系的数据库，可是，我习惯于NoSQL系的MongoDB，一来存储、读取方便，二来，做数据分析和挖掘，MongoDB的性能和速度已经完全胜任了。这一篇文摘，就是记录在使用MongoDB的过程中，遇到的问题及解决方案，或者一些常用的Tips。好记性不如烂笔头，既可以帮助遇到同样问题的童鞋，也可以方便今后的查阅。 —— by GitOPEN</p></blockquote><h1 id="碎片"><a href="#碎片" class="headerlink" title="碎片"></a>碎片</h1><hr><h2 id="createIndex-时遇到-checksum-error"><a href="#createIndex-时遇到-checksum-error" class="headerlink" title="createIndex 时遇到 checksum error"></a>createIndex 时遇到 checksum error</h2><p>有这样一个collection，数据量为41443963，在对它的一个名为<code>keywords</code>的field进行<code>createIndex</code>时，出现了<code>checksum error</code>的错误，并且<code>mongod</code>直接crash退出了，错误的详细信息如图所示：<br><img src="/img/2020/mongod_checksum_error.png" alt="mongod checksum error"></p><p>在遇到这个问题以后，我想到了<code>--repair</code>操作，在执行了该操作以后，这个coll的数据量减少了104条，这就让我想到了，出现错误的原因很可能是部分数据出现了损坏，进而又想到了我在给这个表<code>insert</code>数据的时候，使用了多线程操作pymongo，因此，为了测试，我使用单线程将该coll的数据重新跑了一遍，又执行了<code>createIndex</code>操作，这次没有错误了！</p><p><strong>总结</strong> 在mongodb执行插入数据的操作时，除非有很高的速度要求，否则不要使用多线程执行并发插入数据操作，避免出现数据损坏的情况，导致后续工作（如<code>createIndex</code>等）出现问题。</p><hr><h2 id="碎片-N"><a href="#碎片-N" class="headerlink" title="碎片 N"></a>碎片 N</h2><hr><hr><h2 id="未完待续，越踩坑越🐂🍺"><a href="#未完待续，越踩坑越🐂🍺" class="headerlink" title="未完待续，越踩坑越🐂🍺"></a>未完待续，越踩坑越🐂🍺</h2><hr>]]></content>
     
     <summary type="html">
     
@@ -164,9 +164,9 @@
       <category term="Python" scheme="https://blog.sunjiajia.com/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://blog.sunjiajia.com/tags/Python/"/>
-    
       <category term="CentOS" scheme="https://blog.sunjiajia.com/tags/CentOS/"/>
+    
+      <category term="Python" scheme="https://blog.sunjiajia.com/tags/Python/"/>
     
   </entry>
   
@@ -297,9 +297,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -335,9 +335,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -374,9 +374,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -413,9 +413,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -452,9 +452,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -489,9 +489,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -528,9 +528,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -567,9 +567,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -606,9 +606,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -644,9 +644,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -732,9 +732,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -834,9 +834,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -896,9 +896,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -935,9 +935,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -970,9 +970,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1006,9 +1006,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1037,9 +1037,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1066,9 +1066,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1102,9 +1102,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1139,9 +1139,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1175,9 +1175,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1211,9 +1211,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1247,9 +1247,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1284,9 +1284,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1322,9 +1322,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1359,9 +1359,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1393,9 +1393,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1428,9 +1428,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1464,9 +1464,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1500,9 +1500,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1533,9 +1533,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1568,9 +1568,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1603,9 +1603,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1638,9 +1638,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1674,9 +1674,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1710,9 +1710,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1746,9 +1746,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1781,9 +1781,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1817,9 +1817,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1853,9 +1853,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1890,9 +1890,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1926,9 +1926,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1961,9 +1961,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -1996,9 +1996,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2035,9 +2035,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2068,9 +2068,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2097,9 +2097,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2132,9 +2132,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2166,36 +2166,6 @@
   </entry>
   
   <entry>
-    <title>《Monkey Java》课程2.0之变量</title>
-    <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
-    <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
-    <published>2015-07-01T04:04:27.000Z</published>
-    <updated>2018-08-02T03:58:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p><h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int age = 20;</span><br></pre></td></tr></table></figure><blockquote><p><strong>int</strong>       表示变量类型</p></blockquote><blockquote><p><strong>age</strong>     表示变量名</p></blockquote><blockquote><p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p></blockquote><blockquote><p><strong>;</strong>          英文分号，表示语句结束</p></blockquote><blockquote><p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p></blockquote><p>这条语句回答了2个问题：</p><ul><li>存储数据的空间有多大</li><li>数据存储在什么位置</li></ul><h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p><h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p><h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul><li>应该以字母、下划线或者美元符开头；</li><li>后面跟字母、下划线、美元符或者数字；</li><li>Java变量名没有长度限制；</li><li>Java变量名对字母大小写敏感</li></ul><h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p><ul><li>变量名应该用有意义的英文单词；</li><li>变量名如果只有一个单词，则所有的字母用小写；</li><li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li></ul><h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 变量声明的正确写法，</span></span><br><span class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></span><br><span class="line">            <span class="comment">// 应按照 驼峰命名法</span></span><br><span class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</span><br><span class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</span><br><span class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></span><br><span class="line">            <span class="comment">// int 8age = 60;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量&quot; class=&quot;headerlink&quot; title=&quot;什么是变量&quot;&gt;&lt;/a&gt;什么是变量&lt;/h2&gt;&lt;p&gt;简单理解就是，在计算机中存储信息的东西。&lt;/p&gt;
-&lt;h2 id=&quot;什么是语法&quot;&gt;&lt;a href=&quot;#什么是语法&quot; c
-      
-    
-    </summary>
-    
-      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
-    
-    
-      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
-    
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
-      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Monkey Java》课程1.1之JDK环境配置</title>
     <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/"/>
     <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-1-1/</id>
@@ -2219,9 +2189,39 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
+      <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
       <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
+  </entry>
+  
+  <entry>
+    <title>《Monkey Java》课程2.0之变量</title>
+    <link href="https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/"/>
+    <id>https://blog.sunjiajia.com/2015/07/01/monkey-java-basic-courses-2-0/</id>
+    <published>2015-07-01T04:04:27.000Z</published>
+    <updated>2018-08-02T03:58:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>简单理解就是，在计算机中存储信息的东西。</p><h2 id="什么是语法"><a href="#什么是语法" class="headerlink" title="什么是语法"></a>什么是语法</h2><p>语法，就是一种规则，根据这种规则可以编写出正确的代码。</p><h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int age = 20;</span><br></pre></td></tr></table></figure><blockquote><p><strong>int</strong>       表示变量类型</p></blockquote><blockquote><p><strong>age</strong>     表示变量名</p></blockquote><blockquote><p><strong>=</strong>         表示赋值符号，不念“等于”，而念“赋值于”。整句念为“将20赋值于整型变量age”</p></blockquote><blockquote><p><strong>;</strong>          英文分号，表示语句结束</p></blockquote><blockquote><p>这条语句使计算机分配足够的空间，用于存储一个整数型数据，它的名字是age。int是Java中定义的一种数据类型，专门用于存储一定大小的整数；</p></blockquote><p>这条语句回答了2个问题：</p><ul><li>存储数据的空间有多大</li><li>数据存储在什么位置</li></ul><h2 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h2><p>Java中的变量有两种类型：<strong>基本数据类型</strong>、<strong>引用数据类型</strong>。<br><br></p><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>又称<strong>原始数据类型</strong>，包括<strong>数值型</strong>、<strong>字符型(char)</strong>、<strong>布尔型(boolean)</strong>；<br><br>而<strong>数值型</strong>又包括<strong>整数类型(byte,short,int,long)</strong>、<strong>浮点类型(float,double)</strong>。<br><br></p><h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>包括<strong>类(class)</strong>、<strong>接口(interface)</strong>、<strong>数组</strong>。</p><h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><ul><li>应该以字母、下划线或者美元符开头；</li><li>后面跟字母、下划线、美元符或者数字；</li><li>Java变量名没有长度限制；</li><li>Java变量名对字母大小写敏感</li></ul><h3 id="命名法则"><a href="#命名法则" class="headerlink" title="命名法则"></a>命名法则</h3><p>此方法称为<strong>驼峰命名法</strong>。</p><ul><li>变量名应该用有意义的英文单词；</li><li>变量名如果只有一个单词，则所有的字母用小写；</li><li>变量名如果由多个英文单词组成，则从第二个单词开始，首字母用大写。</li></ul><h2 id="本节练习"><a href="#本节练习" class="headerlink" title="本节练习"></a>本节练习</h2><p>新建一个txt文件，将其名字连同扩展名更改为<strong>Attributes.java</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Attributes</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 变量声明的正确写法，</span></span><br><span class="line">            <span class="comment">// 但是Age，$age，_age不推荐</span></span><br><span class="line">            <span class="comment">// 应按照 驼峰命名法</span></span><br><span class="line">            <span class="keyword">int</span> age = <span class="number">20</span>;</span><br><span class="line">            <span class="keyword">int</span> myAge = <span class="number">25</span>;</span><br><span class="line">            <span class="keyword">int</span> Age = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">int</span> $age = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">int</span> _age = <span class="number">50</span>;</span><br><span class="line">            <span class="comment">// 错误写法，编译的时候会报错</span></span><br><span class="line">            <span class="comment">// int 8age = 60;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量&quot; class=&quot;headerlink&quot; title=&quot;什么是变量&quot;&gt;&lt;/a&gt;什么是变量&lt;/h2&gt;&lt;p&gt;简单理解就是，在计算机中存储信息的东西。&lt;/p&gt;
+&lt;h2 id=&quot;什么是语法&quot;&gt;&lt;a href=&quot;#什么是语法&quot; c
+      
+    
+    </summary>
+    
+      <category term="《Monkey Java》" scheme="https://blog.sunjiajia.com/categories/%E3%80%8AMonkey-Java%E3%80%8B/"/>
+    
+    
+      <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
+    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
@@ -2248,9 +2248,9 @@
     
       <category term="Android" scheme="https://blog.sunjiajia.com/tags/Android/"/>
     
-      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
-    
       <category term="新手" scheme="https://blog.sunjiajia.com/tags/%E6%96%B0%E6%89%8B/"/>
+    
+      <category term="Java" scheme="https://blog.sunjiajia.com/tags/Java/"/>
     
   </entry>
   
